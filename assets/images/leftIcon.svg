@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10.519" height="6.075" viewBox="0 0 10.519 6.075">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1.194" y1="0.132" x2="-0.313" y2="0.85" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fd0000"/>
+      <stop offset="1" stop-color="#fd44c6"/>
+    </linearGradient>
+  </defs>
+  <g id="Hamburger" transform="translate(10.519 6.075) rotate(180)">
+    <g id="Hamburger-2" data-name="Hamburger">
+      <path id="Union_1" data-name="Union 1" d="M7.481,0A.6.6,0,0,1,7.91.178l2.431,2.431h0a.606.606,0,0,1,0,.849h0L7.91,5.9a.606.606,0,0,1-.858-.858l1.4-1.4H.607a.606.606,0,1,1,0-1.213H8.449l-1.4-1.4A.606.606,0,0,1,7.481,0Z" fill="url(#linear-gradient)"/>
+    </g>
+  </g>
+</svg>

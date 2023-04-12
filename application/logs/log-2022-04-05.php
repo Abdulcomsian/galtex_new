@@ -1,0 +1,37 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2022-04-05 10:19:00 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:30:49 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:30:49 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:31:56 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:31:56 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:33:06 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:33:07 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:33:07 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:41:54 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:48:17 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:48:28 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:51:43 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:53:31 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:53:32 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:57:05 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:57:05 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:57:05 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:58:08 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:58:08 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 10:58:09 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 11:53:14 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 11:53:14 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 11:53:15 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 11:55:26 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 11:55:26 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 11:55:26 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 11:55:26 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 11:57:15 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 11:57:15 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 11:58:54 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 11:59:39 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 12:01:07 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 12:03:56 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 12:05:07 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
+ERROR - 2022-04-05 12:08:44 --> Severity: Warning --> array_walk() expects parameter 1 to be array, string given /home/appgalte/domains/app.galtex.co.il/public_html/application/libraries/Format.php 423
