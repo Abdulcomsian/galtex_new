@@ -92,21 +92,42 @@
 
     <footer class="footer_sec">
         <section class="footer_top">
-            <div class="container">
-              <div class="row">
-                 <div class="col-12 text-center">
+            <div >
+              <div >
+                 <div class="text-center">
                     <div class="ftr_main_block">
-                       <div class="ftr_logo" style="width:100%;margin-bottom:0px;">
-                       <img style="width:200px;" src="<?php echo base_url(); ?>uploads/company/<?php echo $this->session->all_userdata()['webuserdata']['client_configs']['company_logo']; ?>">
-                       </div>
+                       <div>  <!-- //remove th class -->
+                       <img style="width:100px; height: auto" src="<?php echo base_url(); ?>uploads/company/<?php echo $this->session->all_userdata()['webuserdata']['client_configs']['company_logo']; ?>">
+                       <ul class="social_main list-unstyled">
+                            <!-- <li class="list-inline-item">
+                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                             <li class="list-inline-item">
+                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-twitter"></i></a>
+                            </li> -->
+                            <li class="list-inline-item">
+                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-google"></i></a>
+                            </li>
+                            
+                            <!-- <li class="list-inline-item">
+                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-youtube"></i></a>
+                            </li> -->
+                        </ul>
+                 </div>  
+                     </div>
                         <!-- <ul class="ftr_contact list-unstyled">  
                             <li><span class="cont_icon"><i class="fas fa-map-marker-alt"></i></span> <?php echo lang('galtex_store_pvt_ltd'); ?></li>                    
                             <li><a href="tel:<?php echo CONTACT_PHONE; ?>"><span class="cont_icon"><i class="fas fa-phone-alt"></i></span> <?php echo CONTACT_PHONE; ?></a></li>                    
                             <li><a href="mailto:<?php echo CONTACT_EMAIL; ?>"><span class="cont_icon"><i class="far fa-envelope"></i></span> <?php echo CONTACT_EMAIL; ?></a></li>                  
                         </ul> -->
-                    </div>
                  </div>
-          <!--       <div class="col-6">
+                    </div>
+                    
+                 </div>
+                <!-- <div class="col-6">
                  <div class="ftr_main_block">
                        <!-- <h4 class="ftr_title"><?php #echo lang('follow_us'); ?></h4> 
                         <ul class="social_main list-unstyled mb-0">
@@ -188,28 +209,29 @@
                         </ul>
                     </div>
                  </div> -->
-                 <!-- <div class="col-12 col-md-3">
+                 <div class="col-12 col-md-3">
                     <div class="ftr_main_block">
-                       <h4 class="ftr_title"><?php echo lang('follow_us'); ?></h4>
+                       <!-- <h4 class="ftr_title"><?php echo lang('follow_us'); ?></h4> -->
                         <ul class="social_main list-unstyled mb-0">
-                            <li class="list-inline-item">
+                            <!-- <li class="list-inline-item">
                                 <a href="javascript:void(0);" target="_blank"><i class="fab fa-facebook-f"></i></a>
                             </li>
                              <li class="list-inline-item">
                                 <a href="javascript:void(0);" target="_blank"><i class="fab fa-twitter"></i></a>
+                            </li> -->
+                            <!-- <li class="list-inline-item">
+                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="javascript:void(0);" target="_blank"><i class="fab fa-google"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-instagram"></i></a>
-                            </li>
-                            <li class="list-inline-item">
+                            </li> -->
+                            
+                            <!-- <li class="list-inline-item">
                                 <a href="javascript:void(0);" target="_blank"><i class="fab fa-youtube"></i></a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
-                 </div> -->
+                 </div>
               </div>
             </div>
         </section>
@@ -233,45 +255,49 @@
 
 
                         <ul>
-                            <?php if(!empty($cart)) { $i = 1; foreach($cart as $rowid => $value) {; #print_r($value);exit; ?>
-                           <li>
-                              <img onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_want_to_remove'); ?>','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','../employees/remove_from_cart/<?php echo $value['rowid']; ?>')" class="crossImg" src="<?php echo base_url(); ?>assets/images/shoppingCancel.svg">
-                              <div class="itemCart">
-                                 <div class="itemDetail">
-                                    <h5><?php echo $value['name']; ?></h5>
-                                    <p>
-                                       <span class="test"><?php 
-									   echo CURRENCY_SYMBOL.showCartPrice($i++,$rowid); 
-									   #echo CURRENCY_SYMBOL.$value['price']; ?></span>
-                                       <span>x<?php echo $value['qty']; ?></span>
-                                    </p>
-                                 </div>
-                                 <?php if($value['options']['type'] == 'package') { ?>
-                                   <img src="<?php echo $value['options']['product_main_photos'][0]; ?>" width="100" alt="product">
-                                <?php } else { ?>
-                                    <img src="<?php echo '../uploads/products/'.$value['options']['product_main_photo']; ?>" class="img-fluid img-thumbnail" width="100" alt="product">
-                                <?php } ?>
-                              </div>
-                            </li>
+                            <?php if (!empty($cart)) {
+                               $i = 1;
+                               foreach ($cart as $rowid => $value) {
+                                  ; #print_r($value);exit; ?>
+                                 <li>
+                                    <img onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_want_to_remove'); ?>','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','../employees/remove_from_cart/<?php echo $value['rowid']; ?>')" class="crossImg" src="<?php echo base_url(); ?>assets/images/shoppingCancel.svg">
+                                    <div class="itemCart">
+                                       <div class="itemDetail">
+                                          <h5><?php echo $value['name']; ?></h5>
+                                          <p>
+                                             <span class="test"><?php
+                                             echo CURRENCY_SYMBOL . showCartPrice($i++, $rowid);
+                                             #echo CURRENCY_SYMBOL.$value['price']; ?></span>
+                                             <span>x<?php echo $value['qty']; ?></span>
+                                          </p>
+                                       </div>
+                                       <?php if ($value['options']['type'] == 'package') { ?>
+                                            <img src="<?php echo $value['options']['product_main_photos'][0]; ?>" width="100" alt="product">
+                                      <?php } else { ?>
+                                             <img src="<?php echo '../uploads/products/' . $value['options']['product_main_photo']; ?>" class="img-fluid img-thumbnail" width="100" alt="product">
+                                      <?php } ?>
+                                    </div>
+                                  </li>
                             
-                           <?php } } else { ?>
-                             <li style="color: #fff; text-align: center;"><?php echo lang('cart_empty'); ?></li>
+                              <?php }
+                            } else { ?>
+                                <li style="color: #fff; text-align: center;"><?php echo lang('cart_empty'); ?></li>
                            <?php } ?>
                         </ul>
-                    <?php if(!empty($cart)) { 
-					 $total_amount = (array_sum(array_column($cart,'subtotal')) - $this->session->userdata('webuserdata')['employee_budget']); 
-					?>
-                      <div class="cartTotal">
-                        <ul>
-                           <li><?php echo CURRENCY_SYMBOL.$total_amount;
-						   #$value['price']; ?></li>
-                           <li><?php echo $value['qty']; ?> <?php echo lang('item'); ?></li>
-                           <li><?php echo lang('total'); ?> </li>
-                        </ul>
-                     </div>
-                     <button class="continuePayment">
-                     <a style="color: #fff !important;" href="checkout"><?php echo lang('continue_payment'); ?></a> 
-                     </button>
+                    <?php if (!empty($cart)) {
+                       $total_amount = (array_sum(array_column($cart, 'subtotal')) - $this->session->userdata('webuserdata')['employee_budget']);
+                       ?>
+                         <div class="cartTotal">
+                           <ul>
+                              <li><?php echo CURRENCY_SYMBOL . $total_amount;
+                              #$value['price']; ?></li>
+                              <li><?php echo $value['qty']; ?>    <?php echo lang('item'); ?></li>
+                              <li><?php echo lang('total'); ?> </li>
+                           </ul>
+                        </div>
+                        <button class="continuePayment">
+                        <a style="color: #fff !important;" href="checkout"><?php echo lang('continue_payment'); ?></a> 
+                        </button>
                      <?php } ?>
                      </div>
                   
@@ -288,10 +314,10 @@
     <script src="<?php echo base_url(); ?>assets/js/jquery.min.js" ></script>
     <script src="<?php echo base_url(); ?>assets/js/popper.min.js" ></script>
 
-    <?php if($language == 'he') { ?>
-        <script src="<?php echo base_url(); ?>assets/js/rtl-bootstrap.min.js"></script>
+    <?php if ($language == 'he') { ?>
+           <script src="<?php echo base_url(); ?>assets/js/rtl-bootstrap.min.js"></script>
     <?php } else { ?>
-        <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+           <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
     <?php } ?>
     
     <script src="<?php echo base_url(); ?>assets/js/fontawesome-all.min.js" ></script>
@@ -309,14 +335,14 @@
    <!--  Error & Success Messages -->
    <script type="text/javascript">
    $(document).ready(function(){
-     <?php if($this->session->flashdata('error')){ ?>
-       showToaster('error',"<?php echo lang('error'); ?>","<?php echo $this->session->flashdata('error') ?>")
+     <?php if ($this->session->flashdata('error')) { ?>
+          showToaster('error',"<?php echo lang('error'); ?>","<?php echo $this->session->flashdata('error') ?>")
      <?php } ?>
-     <?php if($this->session->flashdata('success')){ ?>
-       showToaster('success',"<?php echo lang('success'); ?>","<?php echo $this->session->flashdata('success') ?>")
+     <?php if ($this->session->flashdata('success')) { ?>
+          showToaster('success',"<?php echo lang('success'); ?>","<?php echo $this->session->flashdata('success') ?>")
      <?php } ?>
-     <?php if($this->session->flashdata('order_thankyou')){ ?>
-       showToaster('success',"<?php echo lang('success'); ?>","<?php echo $this->session->flashdata('order_thankyou') ?>")
+     <?php if ($this->session->flashdata('order_thankyou')) { ?>
+          showToaster('success',"<?php echo lang('success'); ?>","<?php echo $this->session->flashdata('order_thankyou') ?>")
      <?php } ?>
    });
 

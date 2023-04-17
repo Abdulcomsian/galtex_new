@@ -1,4 +1,0 @@
-ERROR - 2022-02-15 14:14:58 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/galtndqd/domains/galtexapp2.ussl.co.il/public_html/application/views/front/employee/products.php 34
-ERROR - 2022-02-15 14:15:09 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/galtndqd/domains/galtexapp2.ussl.co.il/public_html/application/views/front/employee/products.php 34
-ERROR - 2022-02-15 14:20:51 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/galtndqd/domains/galtexapp2.ussl.co.il/public_html/application/views/front/employee/products.php 34
-ERROR - 2022-02-15 14:21:39 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/galtndqd/domains/galtexapp2.ussl.co.il/public_html/application/views/front/employee/products.php 34

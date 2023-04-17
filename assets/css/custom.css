@@ -141,7 +141,7 @@ body {
 ul.nav_right {
     text-align: right;
     margin: 0;
-    padding: 0 0 0 40px;
+    padding: 20px 0 0 40px;
 }
 
 .hdr_main .navbar-collapse {
@@ -150,7 +150,7 @@ ul.nav_right {
 }
 
 .logo_main {
-    width: 200px;
+    width: 130px;
 }
 
 .mobile_toggle_area {
@@ -158,7 +158,7 @@ ul.nav_right {
 }
 
 .hdr_main .navbar {
-    padding: 20px 15px;
+    padding: 5px 15px;
 }
 
 .hdr_main .navbar-nav .nav-link {

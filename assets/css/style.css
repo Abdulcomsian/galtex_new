@@ -12,6 +12,15 @@ a img {
     -webkit-background-clip: content-box;
 }
 
+
+.navbar.navbar-expand-lg .container{
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
 input,
 textarea,
 button,
@@ -67,6 +76,7 @@ a {
 .hdr_top_bar .hdr_left_block ul,
 .footer_sec .ftr_main_block ul.social_main {
     float: right;
+    padding-right:100px;
 }
 
 input:focus {
@@ -1206,7 +1216,7 @@ html[dir="rtl"] .product_thumb_item.slick-slide.slick-active .thumb_inner:before
 }
 
 .hdr_main .navbar-collapse {
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
 }
 
 html[dir="rtl"] .prod_coll .proimage .product_name {
