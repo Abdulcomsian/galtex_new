@@ -9,6 +9,16 @@ $language = $this->session->userdata('language');
    dir="<?php echo ($language == 'he') ? 'rtl' : 'ltr'; ?>">
 
 <head>
+<script>
+      function setActive(event) {
+         const menuItem=document.querySelectorAll('nav-link');
+         menuItem.forEach(item=>item.class.addList.remove('active'));
+
+         console.log("here");
+         const clickedItem=event.target;
+         clickedItem.classList.add('active');
+      }
+   </script>
    <!-- Required meta tags -->
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -175,7 +185,7 @@ $language = $this->session->userdata('language');
          </div> -->
       <div class="hdr_main">
          <nav class="navbar navbar-expand-lg">
-            <div class="container">
+            <div class="menu_bar">
                <a href="<?php echo base_url(); ?>" class="companyLogo desktopHide mobileHide"> <img
                      src="<?php echo base_url(); ?>uploads/company/<?php echo $company_logo; ?>" alt="logo"
                      style="height:60px;"></a>
@@ -220,21 +230,21 @@ $language = $this->session->userdata('language');
                   </div>
                   <ul class="navbar-nav">
                      <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url(); ?>"><?php echo lang('home'); ?></a>
+                        <a class="nav-link active" href="<?php echo base_url(); ?>" onclick="setActive(event)"><?php echo lang('home'); ?></a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#havingTroubleModal">
+                        <a class="nav-link" data-toggle="modal" data-target="#havingTroubleModal" onclick="setActive(event)">
                            <?php echo lang('contact_us'); ?>
                         </a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url(); ?>"><?php echo lang('about_us'); ?></a>
+                        <a class="nav-link " href="<?php echo base_url(); ?>" onclick="setActive(event)"><?php echo lang('about_us'); ?></a>
                      </li>
                      <!-- <li class="nav-item">
                             <a class="nav-link" href="https://app.galtex.co.il/employees/cart"><?php echo lang('cart'); ?></a>
                         </li> -->
                      <li class="nav-item">
-                        <a class="nav-link" href="https://app.galtex.co.il/employees/profile#myOrder">
+                        <a class="nav-link " href="https://app.galtex.co.il/employees/profile#myOrder" onclick="setActive(event)">
                            <?php echo lang('personal_area'); ?>
                         </a>
                      </li>
@@ -419,3 +429,4 @@ $language = $this->session->userdata('language');
       </div>
 
    </header>
+   

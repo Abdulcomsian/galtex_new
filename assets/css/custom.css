@@ -142,6 +142,7 @@ ul.nav_right {
     text-align: right;
     margin: 0;
     padding: 20px 0 0 40px;
+    margin-left: 58px;
 }
 
 .hdr_main .navbar-collapse {
@@ -151,6 +152,7 @@ ul.nav_right {
 
 .logo_main {
     width: 130px;
+    
 }
 
 .mobile_toggle_area {
@@ -159,6 +161,7 @@ ul.nav_right {
 
 .hdr_main .navbar {
     padding: 5px 15px;
+
 }
 
 .hdr_main .navbar-nav .nav-link {
@@ -256,8 +259,13 @@ ul.nav_right {
     top: 0;
 }
 
-.navbar-nav .nav-item {
+.navbar-nav .nav-item a:hover{
     position: relative;
+    border-bottom: 3px solid white;
+    opacity: 1;
+}
+.navbar-nav .nav-item a.active{
+    border-bottom: 3px solid #963491 ;
 }
 
 .header_sec.affix .hdr_top_bar {

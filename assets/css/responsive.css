@@ -5,6 +5,14 @@
 	.product_main_item img:nth-child(1){
 		width: 405px;
 	}
+	.footer_div{
+		padding-left: 120px !important;
+	
+	}
+	.logo_main{
+		margin-right: 29px;
+	}
+	
 }
 
 @media (max-width: 1199px) {
@@ -99,7 +107,7 @@
 	}
 
 	.ftr_main_block {
-		padding-bottom: 30px;
+		padding-bottom: 0px !important;
 	}
 
 	.hdr_main .container {
@@ -277,6 +285,17 @@
 	.mobilePackageSlider .product_slider_thumb{
 		width: 30%;
 	}
+
+	.footer_menu{
+		display: none !important;
+		/* margin-right: 0rem !important; */
+	}
+	.hdr_top_bar .hdr_left_block ul,
+.footer_sec .ftr_main_block ul.social_main {
+    float: right;
+    margin-right:17px !important;
+}
+
 }
 
 @media (max-width: 767px) {

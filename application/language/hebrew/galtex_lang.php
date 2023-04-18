@@ -401,4 +401,8 @@ $lang['menu'] = 'תַפרִיט';
 $lang['personal_details'] = 'אנא מלא את פרטיך האישיים';
 $lang['additional_cost'] = 'עלויות נוספות';
 $lang['last_item'] = 'פריטים אחרונים';
+
+$lang['Category'] = 'קטגוריה';
+$lang['Another_Category'] = 'קטגוריה נוספת';
+$lang['Someother_Category'] = 'קטגוריה אחרת';
 ?>

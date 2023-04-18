@@ -399,4 +399,8 @@ $lang['menu'] = 'Menu';
 $lang['personal_details'] = 'Please fill in your personal details';
 $lang['additional_cost'] = 'Additional costs';
 $lang['last_item'] = 'last items';
+
+$lang['Category'] = 'Category';
+$lang['Another_Category'] = 'Another Category';
+$lang['Someother_Category'] = 'Someother Category';
 ?>
