@@ -9,13 +9,13 @@ $language = $this->session->userdata('language');
    dir="<?php echo ($language == 'he') ? 'rtl' : 'ltr'; ?>">
 
 <head>
-<script>
+   <script>
       function setActive(event) {
-         const menuItem=document.querySelectorAll('nav-link');
-         menuItem.forEach(item=>item.class.addList.remove('active'));
+         const menuItem = document.querySelectorAll('nav-link');
+         menuItem.forEach(item => item.class.addList.remove('active'));
 
          console.log("here");
-         const clickedItem=event.target;
+         const clickedItem = event.target;
          clickedItem.classList.add('active');
       }
    </script>
@@ -49,7 +49,12 @@ $language = $this->session->userdata('language');
       <?php echo SITE_NAME; ?> ::
       <?php echo @$title; ?>
    </title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@500&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200&display=swap" rel="stylesheet">
    <style type="text/css">
       /** theme color update start**/
       .hdr_top_bar,
@@ -233,7 +238,8 @@ $language = $this->session->userdata('language');
                         <a class="nav-link active" href="<?php echo base_url(); ?>" onclick="setActive(event)"><?php echo lang('home'); ?></a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#havingTroubleModal" onclick="setActive(event)">
+                        <a class="nav-link" data-toggle="modal" data-target="#havingTroubleModal"
+                           onclick="setActive(event)">
                            <?php echo lang('contact_us'); ?>
                         </a>
                      </li>
@@ -244,7 +250,8 @@ $language = $this->session->userdata('language');
                             <a class="nav-link" href="https://app.galtex.co.il/employees/cart"><?php echo lang('cart'); ?></a>
                         </li> -->
                      <li class="nav-item">
-                        <a class="nav-link " href="https://app.galtex.co.il/employees/profile#myOrder" onclick="setActive(event)">
+                        <a class="nav-link " href="https://app.galtex.co.il/employees/profile#myOrder"
+                           onclick="setActive(event)">
                            <?php echo lang('personal_area'); ?>
                         </a>
                      </li>
@@ -429,4 +436,3 @@ $language = $this->session->userdata('language');
       </div>
 
    </header>
-   

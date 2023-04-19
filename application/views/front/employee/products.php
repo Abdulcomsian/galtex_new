@@ -3,7 +3,7 @@
       <div class="container">
          <div class="cardBlur">
             <section id="card">
-               <img src="http://localhost:80/galtexnew/assets/images/testImage.png" className="card-img-top rounded" />
+               <img src="<?php echo base_url(); ?>/assets/images/testImage.png" className="card-img-top rounded" />
                <!-- <div class="inner_banner_sec">
             <div class="innerbanner_cap text-center productMain">
                <div class="container">
@@ -23,6 +23,7 @@
          <div class="content_main_sec">
          <div class="div_button">
                <button class="filterButton">filters</button>
+               
          </div>
          <div class="container-fluid">
             <div class="row">

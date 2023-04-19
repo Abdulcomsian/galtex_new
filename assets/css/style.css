@@ -300,13 +300,13 @@ input[type='radio']:checked:before {
 }
 
 .proimage .product_name a {
-    font-family: 'Assistant';
+    font-family: 'Assistant,Bold';
     font-weight: bold;
 }
 
 .proimage .product_description p {
     text-align: left;
-    font-family: 'Assistant';
+    font-family: 'Assistant,Regular';
     margin-bottom: 5px;
 }
 
@@ -1383,7 +1383,7 @@ html[dir="rtl"] .filterDiv {
 }
 
 html[dir="rtl"] .main_content .backToStore img {
-    // transform: rotate(180deg);
+     transform: rotate(180deg);
 }
 
 .two_item .first_col:nth-child(2) {
