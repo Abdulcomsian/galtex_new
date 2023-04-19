@@ -1,3 +1,25 @@
+<style>
+
+   .overlay{
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: rgba(0, 0, 0, -1.5);
+      width: 100%;
+      height: 100%;
+      backdrop-filter: brightness(0.3) blur(7px);
+      z-index: 100;
+      transition: all 1.5s;
+      
+   }
+   
+   .mobile-hide{
+      height: 100%;
+      background: white;
+      transition: all 1.5s;
+}
+</style>
+
 <main class="main_content">
    <div class="product_main">
       <div class="container">
@@ -27,70 +49,69 @@
          </div>
          <div class="container-fluid">
             <div class="row">
-               <!-- <div class="col-md-4 col-lg-4 col-xl-3 mobileHide">
-                  <div class="cat_sidebar">
-                     <div class="sidebar_block">
-                        <h4 class="sidebar_head wow fadeInDown">
-                           <?php echo lang('budget_categories'); ?>
-                        </h4>
-                        <ul class="list-unstyled catlist_item">
-                           <?php $category = $_REQUEST['budget_categories']; ?>
-                          <li class="wow fadeInLeft" data-wow-delay="0.3s">
-                           <input type="checkbox" id="chk_Apple" value="within" name="budget_category[]" class="budget-categories"/>
-                           <label for="chk_Apple">
-                           <span><i class="fas fa-check"></i></span> <?php echo lang('within_the_budget'); ?>
-                           </label>
-                        </li> 
-                           <?php if (count(@$above_the_budget_products['data']['total_records']) > 0) { ?>
-
-                              <li class="wow fadeInLeft" data-wow-delay="0.6s">
-                                 <?php $checked = "";
-                                 if ($category === 'above') {
-                                    $checked = "checked1";
-                                 } else {
-                                    $checked = "uncheck";
-                                 } ?>
-                                 <input type="checkbox" id="chk_Canon" value="above" name="budget_category[]"
-                                    class="budget-categories <?php echo $checked; ?> " <?php echo $category === 'above' ? 'checked' : '' ?> />
-                                 <label for="chk_Canon">
-                                    <span><i class="fas fa-check"></i></span>
-                                    <?php echo lang('above_the_budget'); ?>
-                                 </label>
-                              </li>
-                           <?php } ?>
-                        </ul>
-                     </div>
-                     <div class="sidebar_block">
-                        <h4 class="sidebar_head wow fadeInDown">
-                           <?php echo lang('main_categories'); ?>
-                        </h4>
-                        <ul class="list-unstyled catlist_item">
-
-                           <?php if ($categories['data']['total_records']) {
-                              foreach ($categories['data']['records'] as $category) { ?>
-                                 <li class="wow fadeInLeft" data-wow-delay="0.3s">
-                                    <input type="checkbox" id="category_<?php echo $category['category_guid']; ?>"
-                                       name="main_category[]" value="<?php echo $category['category_guid']; ?>" <?php echo in_array($category['category_guid'], $main_categories) ? 'checked' : '' ?>
-                                       class="main_categories" />
-                                    <label for="category_<?php echo $category['category_guid']; ?>">
+               <div class="overlay d-none">
+                  <div class="col-md-4 col-lg-4 col-xl-3 mobile-hide">
+                     <div class="cat_sidebar">
+                        <div class="sidebar_block">
+                           <h4 class="sidebar_head wow fadeInDown">
+                              <?php echo lang('budget_categories'); ?>
+                           </h4>
+                           <ul class="list-unstyled catlist_item">
+                              <?php $category = $_REQUEST['budget_categories']; ?>
+                             <li class="wow fadeInLeft" data-wow-delay="0.3s">
+                              <input type="checkbox" id="chk_Apple" value="within" name="budget_category[]" class="budget-categories"/>
+                              <label for="chk_Apple">
+                              <span><i class="fas fa-check"></i></span> <?php echo lang('within_the_budget'); ?>
+                              </label>
+                           </li>
+                              <?php if (count(@$above_the_budget_products['data']['total_records']) > 0) { ?>
+                                 <li class="wow fadeInLeft" data-wow-delay="0.6s">
+                                    <?php $checked = "";
+                                    if ($category === 'above') {
+                                       $checked = "checked1";
+                                    } else {
+                                       $checked = "uncheck";
+                                    } ?>
+                                    <input type="checkbox" id="chk_Canon" value="above" name="budget_category[]"
+                                       class="budget-categories <?php echo $checked; ?> " <?php echo $category === 'above' ? 'checked' : '' ?> />
+                                    <label for="chk_Canon">
                                        <span><i class="fas fa-check"></i></span>
-                                       <?php echo $category['category_name']; ?>
+                                       <?php echo lang('above_the_budget'); ?>
                                     </label>
                                  </li>
-                              <?php }
-
-                           } ?>
-                        </ul>
+                              <?php } ?>
+                           </ul>
+                        </div>
+                        <div class="sidebar_block">
+                           <h4 class="sidebar_head wow fadeInDown">
+                              <?php echo lang('main_categories'); ?>
+                           </h4>
+                           <ul class="list-unstyled catlist_item">
+                              <?php if ($categories['data']['total_records']) {
+                                 foreach ($categories['data']['records'] as $category) { ?>
+                                    <li class="wow fadeInLeft" data-wow-delay="0.3s">
+                                       <input type="checkbox" id="category_<?php echo $category['category_guid']; ?>"
+                                          name="main_category[]" value="<?php echo $category['category_guid']; ?>" <?php echo in_array($category['category_guid'], $main_categories) ? 'checked' : '' ?>
+                                          class="main_categories" />
+                                       <label for="category_<?php echo $category['category_guid']; ?>">
+                                          <span><i class="fas fa-check"></i></span>
+                                          <?php echo $category['category_name']; ?>
+                                       </label>
+                                    </li>
+                                 <?php }
+                              } ?>
+                           </ul>
+                        </div>
+                        <div class="sidebar_block hide_mobile">
+                        <div class="new_arrival wow fadeInUp" data-wow-delay="0.4s">
+                           <img src="images/new_arrival.jpg">
+                           <h2 class="font_merienda">New <span>Arrival</span></h2>
+                           <a href="#">Shop Now</a>
+                        </div>
+                        </div>
                      </div>
-                     <div class="sidebar_block hide_mobile">
-                     <div class="new_arrival wow fadeInUp" data-wow-delay="0.4s">
-                        <img src="images/new_arrival.jpg">
-                        <h2 class="font_merienda">New <span>Arrival</span></h2>
-                        <a href="#">Shop Now</a>
-                     </div>
-                     </div> 
                   </div>
-               </div> -->
+               </div>
                <div class="filterDiv desktopHide">
                   <ul>
                      <li class="list-inline-item desktopHide filterIconBtn">
@@ -728,3 +749,17 @@
       </div>
    </div>
 </main>
+
+
+<script>
+   document.querySelector('.filterButton').addEventListener('click', function(e){
+      e.stopPropagation();
+      document.querySelector('.overlay').classList.remove('d-none')
+   document.querySelector('.mobile-hide').style.transform = 'translate(0)';
+});
+
+document.querySelector('.overlay').addEventListener('click', function(e){
+   this.classList.add('d-none')
+document.querySelector('.mobile-hide').style.transform = 'translate(100%)';
+});
+</script>
