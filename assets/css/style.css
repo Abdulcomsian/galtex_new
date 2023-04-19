@@ -200,7 +200,7 @@ input[type='radio']:checked:before {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #d5cccc;
+    background: #ECECEC 0% 0% no-repeat padding-box;
     z-index: -1;
     filter: blur(10px);
     -moz-filter: blur(10px);
@@ -211,14 +211,19 @@ input[type='radio']:checked:before {
     border-radius: 0px;
 }
 
-#card {
-    padding: 10px;
+.cardBlur #card {
+    /* padding: 10px; */
     background: #fff;
     -webkit-box-shadow: 1px 2px 12px -4px #00000029;
     box-shadow: 1px 2px 12px -4px #00000029;
     border-radius: 10px;
 }
 
+.cardBlur #card img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
 #card .inner_banner_sec {
     border-radius: 8px;
     padding: 50px 0px;
@@ -295,13 +300,13 @@ input[type='radio']:checked:before {
 }
 
 .proimage .product_name a {
-    font-family: 'SegeoBold';
+    font-family: 'Assistant';
     font-weight: bold;
 }
 
 .proimage .product_description p {
     text-align: left;
-    font-family: 'SegeoRegular';
+    font-family: 'Assistant';
     margin-bottom: 5px;
 }
 
@@ -331,11 +336,35 @@ html[dir="rtl"] .readMore a img {
 
 .readMore a {
     color: black;
-    font-family: 'SegeoRegular';
+    font-family: 'Assistant';
+    font-size: 10px;
+}
+
+.product_main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.product_main .container{
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .content_main_sec {
-    padding: 50px 150px;
+    padding: 30px;
+    background: white;
+    width: 87%;
+    margin-top: -4rem;
+    margin-bottom: 4rem;
+    border-radius: 20px;
+    z-index: 1;
+    box-shadow: 0px 10px 30px #00000033;
 }
 
 .pro_img_box .productPrice {
@@ -668,7 +697,7 @@ html[dir="rtl"] .readMore a img {
 
 .product_description p {
     font-family: 'SegeoSemi';
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .commonBtn {

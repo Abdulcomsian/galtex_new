@@ -50,7 +50,7 @@ Black 900
 Black 900 italic
 */
 body {
-    background-color: #fff;
+    background: #ECECEC 0% 0% no-repeat padding-box;;
     font-family: 'SegeoRegular', sans-serif;
     color: #000;
     line-height: 1.4;
@@ -100,6 +100,22 @@ body {
 
 .nav_right .list-inline-item {
     position: relative;
+}
+
+.content_main_sec .filterButton{
+    border-radius: 24px;
+    background-color: white;
+    width: 8rem;
+    opacity: 1;
+    border: 2px solid #707070;
+    font-family: 'Assistant' !important;
+    font-size: 18px !important;
+
+}
+.content_main_sec .div_button{
+    display: flex;
+    flex-direction: row-reverse;
+
 }
 
 .nav_right .list-inline-item .dropdown-hover {
