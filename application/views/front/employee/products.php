@@ -17,6 +17,12 @@
       height: 100%;
       background: white;
       transition: all 1.5s;
+      padding: 35px;
+}
+.filter button{
+   width: 100%;
+   margin-bottom: 10px;
+   border: 1px solid #963491;
 }
 </style>
 
@@ -101,6 +107,10 @@
                                  <?php }
                               } ?>
                            </ul>
+                        </div>
+                        <div class="filter">
+                           <button class="btn">סנן</button>
+                           <button class="btn">בטל</button>
                         </div>
                         <div class="sidebar_block hide_mobile">
                         <div class="new_arrival wow fadeInUp" data-wow-delay="0.4s">
