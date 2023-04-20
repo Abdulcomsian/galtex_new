@@ -390,7 +390,7 @@ $lang['order_pdf_file_attachement'] = 'פרטי ההזמנה מצורפים כק
 $lang['more_details'] = 'פרטים נוספים';
 $lang['back'] = 'חזור';
 
-$lang['additional'] = 'תוספת';
+$lang['additional'] = 'בתוספת';
 $lang['filter_category'] = 'סנן לפי קטגוריה';
 $lang['pack'] = 'חבילה';
 $lang['social_media'] = 'בקרו אותנו ברשתות החברתיות';

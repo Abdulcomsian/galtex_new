@@ -191,7 +191,8 @@ ul.nav_right {
 }
 
 .hdr_main .navbar-nav .nav-link:hover {
-    color: #cdc4d6;
+    color: #cdc4d6 !important;
+    opacity: 1
 }
 
 .social_main li a {
@@ -996,6 +997,7 @@ ul.Popular-tag.filter-tag li a {
 
 .pro_bottom {
     text-align: center;
+    margin-top: 12px;
 }
 
 .product_name a {
@@ -1005,6 +1007,7 @@ ul.Popular-tag.filter-tag li a {
     display: inline-block;
     margin-top: 10px;
     font-weight: 500;
+    line-height: 18px;
 }
 
 .pro_price {
@@ -1907,4 +1910,11 @@ html[dir="rtl"] .get_opt {
 
 .hidden {
     display: none;
+}
+
+.product_display{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 10px;
 }

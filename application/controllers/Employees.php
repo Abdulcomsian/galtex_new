@@ -44,24 +44,29 @@ class Employees extends Web_Controller_Secure {
         }
 
         /* Get Shop Products */
-        $data['within_the_budget_products'] = $data['above_the_budget_products'] = $data['packages'] = array();
+        $data['within_the_budget_products'] = $data['products_data'] = $data['above_the_budget_products'] = $data['packages'] = array();
         
         
-        if(in_array('within',$data['budget_categories'])){
-            $data['within_the_budget_products'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,product_guid,product_descprition,remaining_quantity',array('shop_category' => 'Within Budget', 'client_id' => $this->client_id, 'client_status' => 'Liked', 'main_categories' => $data['main_categories']),TRUE);
-            /* Get Packages */
-            $data['packages'] = $this->Shop_model->get_packages('package_name,no_of_products,products,product_ids,remaining_quantity',array('client_id' => $this->client_id, 'client_status' => 'Liked'),TRUE); 
-        }
+        // if(in_array('within',$data['budget_categories'])){
+        //     $data['within_the_budget_products'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,product_guid,product_descprition,remaining_quantity',array('shop_category' => 'Within Budget', 'client_id' => $this->client_id, 'client_status' => 'Liked', 'main_categories' => $data['main_categories']),TRUE);
+        //     /* Get Packages */
+        //     $data['packages'] = $this->Shop_model->get_packages('package_name,no_of_products,products,product_ids,remaining_quantity',array('client_id' => $this->client_id, 'client_status' => 'Liked'),TRUE); 
+        // }
 
 
         // $data['within_the_budget_products'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,product_guid,product_descprition,remaining_quantity',array('shop_category' => 'Within Budget', 'client_id' => $this->client_id, 'client_status' => 'Liked', 'main_categories' => $data['main_categories']),TRUE);
         // $data['packages'] = $this->Shop_model->get_packages('package_name,no_of_products,products,product_ids,remaining_quantity',array('client_id' => $this->client_id, 'client_status' => 'Liked'),TRUE); 
 
-        if(in_array('above',$data['budget_categories'])){
-            $data['above_the_budget_products'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,product_guid,product_descprition,above_budget_price,remaining_quantity',array('shop_category' => 'Above Budget', 'client_id' => $this->client_id, 'client_status' => 'Liked', 'main_categories' => $data['main_categories'], 'order_by' => 'shop_product_id', 'sequence' => 'RANDOM'),TRUE);
+        // if(in_array('above',$data['budget_categories'])){
+        //     $data['above_the_budget_products'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,product_guid,product_descprition,above_budget_price,remaining_quantity',array('shop_category' => 'Above Budget', 'client_id' => $this->client_id, 'client_status' => 'Liked', 'main_categories' => $data['main_categories'], 'order_by' => 'shop_product_id', 'sequence' => 'RANDOM'),TRUE);
        
-            $data['packages'] = $this->Shop_model->get_packages('package_name,no_of_products,products,product_ids,remaining_quantity',array('client_id' => $this->client_id, 'client_status' => 'Liked'),TRUE);
-        }
+        //     $data['packages'] = $this->Shop_model->get_packages('package_name,no_of_products,products,product_ids,remaining_quantity',array('client_id' => $this->client_id, 'client_status' => 'Liked'),TRUE);
+        // }
+        $data['products_data'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,product_guid,product_descprition,above_budget_price, remaining_quantity',array('shop_category' => ['Within Budget', 'Above Budget'], 'client_id' => $this->client_id, 'client_status' => 'Liked', 'main_categories' => $data['main_categories']),TRUE);
+        $data['packages'] = $this->Shop_model->get_packages('package_name,no_of_products,products,product_ids,remaining_quantity',array('client_id' => $this->client_id, 'client_status' => 'Liked'),TRUE);
+
+
+
          //echo"<pre>";print_r($data);exit;
          /* Get Latest Order Details */
         $data['order_details'] = $this->Orders_model->get_orders('amount,order_status,created_date,cancelled_date,order_id,order_product_details',array('user_id' => $this->session_user_id, 'payment_status' => 'Success', 'order_by' => 'order_id', 'sequence' => 'DESC','order_status'=>1));

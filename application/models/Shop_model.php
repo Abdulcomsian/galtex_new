@@ -201,7 +201,7 @@ class Shop_model extends CI_Model {
             $this->db->having("remaining_quantity > ", 0);
         }
         if (!empty($Where['shop_category'])) {
-            $this->db->where("SP.shop_category", $Where['shop_category']);
+            $this->db->where_in("SP.shop_category", $Where['shop_category']);
             
         }
         if (!empty($Where['order_by']) && !empty($Where['sequence']) && in_array($Where['sequence'], array('ASC', 'DESC','RANDOM'))) {

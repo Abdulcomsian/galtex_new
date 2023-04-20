@@ -130,9 +130,75 @@
                      </li>
                   </ul>
                </div>
-               <div class="col-md-8 col-lg-8 col-xl-9">
+               <div class="col-12 product_display">
+                  
+                  <?php $type = $_REQUEST['budget_categories']; ?>
+                <!-- all products in single variable begins here -->
+                  <?php 
+                  // print_r("<pr>");
+                  // print_r($products_data);exit;
+                  foreach ($products_data['data']['records'] as $product) { ?>
+                     <div class="prod_coll col-sm-3 col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="proimage">
+                           <div class="pro_img_box">
+                              <a
+                                 href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>">
+                                 <div><img
+                                    src="<?php echo $product['product_main_photo']; ?>" /></div></a>
+                              <!-- <a href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>"><img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&w=1000&q=80" /></a> -->
+                              <!-- <div class="hover_box"> -->
+                                 <!-- <div>
+                                 <?php $product_cart = is_product_into_cart($product['product_guid']);
+                                 if ($product_cart['is_added_into_cart'] > 0) { ?>
+                                    <a href="../employees/cart" class="add_cart">
+                                       <?php echo lang('go_to_cart'); ?>
+                                    </a>
+                                 <?php } else { ?>
+                                    <?php if ($product['remaining_quantity'] > 0) { ?>
+                                       <a href="javascript:void(0);" data-type="product"
+                                          data-guid="<?php echo $product['product_guid']; ?>"
+                                          class="add_cart add-to-cart"><?php echo lang('add_to_cart'); ?></a>
+                                    <?php } else { ?>
+                                       <a href="javascript:void(0);" style="color:red;" class="add_cart">
+                                          <?php echo lang('out_of_stock'); ?>
+                                       </a>
+                                    <?php }
+                                 } ?>
+                              </div>-->
+                              <p class="productPrice">
+                                 <?php echo lang('additional') . ' 500' . CURRENCY_SYMBOL . $product['above_budget_price'];
 
-                  <?php $type = $_REQUEST['budget_categories'];
+                                 ?>
+                              </p> 
+
+                           </div>
+                           <div class="pro_bottom clerfix">
+                              <div class="product_name">
+                                 <a
+                                    href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>"><?php echo $product['product_name']; ?></a>
+                              </div>
+                              <div class="product_description">
+                                 <p>
+                                    <?php echo str_replace("\n", "", $product['product_descprition']); ?>
+                                 </p>
+                              </div>
+                              <!-- <div class="product_price">
+                        <p><?php echo $product['category_name']; ?> (+ <?php echo CURRENCY_SYMBOL . $product['above_budget_price']; ?>) </p>
+                        <?php if ($product['remaining_quantity'] < REMAINING_PRODUCTS_QUANTITY_LIMIT) { ?>
+                            <p><?php echo lang('remaining_quantity'); ?> <?php echo $product['remaining_quantity']; ?> </p>
+                        <?php } ?>
+                        </div> -->
+                              <div class="readMore">
+                                 <a
+                                    href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>"><img
+                                       src="<?php echo base_url(); ?>assets/images/rightIcon.svg" /> <?php echo lang('more_details'); ?></a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  <?php } ?>
+                  <!-- //all products in single variable ends here -->
+<?php
                   if ($type === 'above') { ?>
 
 
@@ -144,6 +210,8 @@
                               <?php echo addZero(@$above_the_budget_products['data']['total_records']); ?>)
                            </h2>
                         </div>
+                        
+                        
                         <?php foreach ($above_the_budget_products['data']['records'] as $product) { ?>
                            <div class="prod_coll col-sm-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
                               <div class="proimage">
@@ -357,11 +425,11 @@
                            <!------ Single Image ---->
 
                            <?php foreach ($packages['data']['records'] as $package) { ?>
-                              <div class="prod_coll col-xs-6 col-sm-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                              <div class="prod_coll col-sm-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
                                  <div class="proimage">
                                     <?php
                                     $i = 0;
-                                    if (count($package['products']['data']['records']) == 1) { ?>
+                                     ?>
                                        <div class="pro_img_box ">
                                           <?php foreach ($package['products']['data']['records'] as $package_product) {
                                              #echo count($package_product);exit;
@@ -369,7 +437,8 @@
 
                                              <div class="oneimage">
                                                 <a
-                                                   href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>"><img
+                                                   href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>">
+                                                   <img
                                                       src="<?php echo $package_product['product_main_photo']; ?>" /></a>
                                                 <div class="hover_box">
                                                    <?php $package_cart = is_product_into_cart($package['package_guid']);
@@ -379,9 +448,9 @@
                                                       </a>
                                                    <?php } else { ?>
                                                       <?php if ($package['remaining_quantity'] > 0) { ?>
-                                                         <a href="javascript:void(0);" data-type="package"
+                                                         <!-- <a href="javascript:void(0);" data-type="package"
                                                             data-guid="<?php echo $package['package_guid']; ?>"
-                                                            class="add_cart add-to-cart"><?php echo lang('add_to_cart'); ?></a>
+                                                            class="add_cart add-to-cart"><?php echo lang('add_to_cart'); ?></a> -->
                                                       <?php } else { ?>
                                                          <a href="javascript:void(0);" style="color:red;" class="add_cart">
                                                             <?php echo lang('out_of_stock'); ?>
@@ -395,162 +464,9 @@
                                              <?php echo lang('packages'); ?>
                                           </p>
                                        </div>
-                                    <?php } else if (count($package['products']['data']['records']) == 2) { ?>
-                                          <div class="pro_img_box two_item">
-                                             <div class="row">
-                                             <?php $j = 0;
-                                             foreach ($package['products']['data']['records'] as $package_product) {
-                                                #echo count($package_product);exit;
-                                 
-                                                ?>
-                                                   <div class="col-6 twoimages first_col" <?php if ($j == 0) { ?>                <?php } else if ($j == 1) { ?>
-                                                            class="second_col" <?php }
-                                                   if ($j == 1) {
-                                                      $j = 0;
-                                                   }
-                                                   $j++; ?>>
-                                                      <a
-                                                         href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>"><img
-                                                            style="height: 125px;"
-                                                            src="<?php echo $package_product['product_main_photo']; ?>" /></a>
-
-                                                      <!-- <p class="productPrice">
-                                 200USD
-                                 </p> -->
-                                                   </div>
-                                             <?php } ?>
-                                             </div>
-                                             <div class="hover_box">
-                                             <?php $package_cart = is_product_into_cart($package['package_guid']);
-                                             if ($package_cart['is_added_into_cart'] > 0) { ?>
-                                                   <a href="../employees/cart" class="add_cart">
-                                                   <?php echo lang('go_to_cart'); ?>
-                                                   </a>
-                                             <?php } else { ?>
-                                                <?php if ($package['remaining_quantity'] > 0) { ?>
-                                                      <a href="javascript:void(0);" data-type="package"
-                                                         data-guid="<?php echo $package['package_guid']; ?>"
-                                                         class="add_cart add-to-cart"><?php echo lang('add_to_cart'); ?></a>
-                                                <?php } else { ?>
-                                                      <a href="javascript:void(0);" style="color:red;" class="add_cart">
-                                                      <?php echo lang('out_of_stock'); ?>
-                                                      </a>
-                                                <?php } ?>
-                                             <?php } ?>
-                                             </div>
-                                             <p class="tag">
-                                             <?php echo lang('packages'); ?>
-                                             </p>
-                                          </div>
-
-                                    <?php } else if (count($package['products']['data']['records']) == 3) {
-
-                                       ?>
-                                             <div class="pro_img_box three_item">
-                                                <div class="row">
-                                             <?php $i = 0;
-                                             $j = 0;
-                                             foreach ($package['products']['data']['records'] as $package_product) { ?>
-                                                <?php if ($i == 0) { ?>
-                                                         <div class="col-6 first_col threeimages first_col">
-                                                   <?php } ?>
-                                                   <?php if ($i == 0 || $i == 1) { ?>
-                                                            <a
-                                                               href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>"><img
-                                                                  style="margin-bottom:3px; <?php if ($i == 1) { ?>margin-top:3px;<?php } ?>"
-                                                                  src="<?php echo $package_product['product_main_photo']; ?>" /></a>
-                                                   <?php } ?>
-                                                   <?php if ($i == 1) { ?>
-                                                         </div>
-                                                <?php } ?>
-                                                <?php if ($i == 2) { ?>
-                                                         <div class="col-6 second_col">
-                                                            <a
-                                                               href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>"><img
-                                                                  style="min-height: 125px;max-height: 125px;"
-                                                                  src="<?php echo $package_product['product_main_photo']; ?>" /></a>
-                                                         </div>
-                                                <?php } ?>
-                                                <?php $i++;
-                                             } ?>
-                                                </div>
-                                                <div class="hover_box">
-                                             <?php $package_cart = is_product_into_cart($package['package_guid']);
-                                             if ($package_cart['is_added_into_cart'] > 0) { ?>
-                                                      <a href="../employees/cart" class="add_cart">
-                                                   <?php echo lang('go_to_cart'); ?>
-                                                      </a>
-                                             <?php } else { ?>
-                                                <?php if ($package['remaining_quantity'] > 0) { ?>
-                                                         <a href="javascript:void(0);" data-type="package"
-                                                            data-guid="<?php echo $package['package_guid']; ?>"
-                                                            class="add_cart add-to-cart"><?php echo lang('add_to_cart'); ?></a>
-                                                <?php } else { ?>
-                                                         <a href="javascript:void(0);" style="color:red;" class="add_cart">
-                                                      <?php echo lang('out_of_stock'); ?>
-                                                         </a>
-                                                <?php } ?>
-                                             <?php } ?>
-                                                </div>
-                                                <p class="tag">
-                                             <?php echo lang('packages'); ?>
-                                                </p>
-                                             </div>
-                                    <?php } else if (count($package['products']['data']['records']) >= 4) { ?>
-
-                                                <div class="pro_img_box three_item">
-                                                   <div class="row">
-                                             <?php $i = 0;
-                                             foreach ($package['products']['data']['records'] as $package_product) { ?>
-                                                <?php if ($i == 0) { ?>
-                                                            <div class="col-6 first_col">
-                                                   <?php } ?>
-                                                   <?php if ($i == 0 || $i == 1) { ?>
-                                                               <a
-                                                                  href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>"><img
-                                                                     src="<?php echo $package_product['product_main_photo']; ?>" /></a>
-                                                   <?php } ?>
-                                                   <?php if ($i == 1) { ?>
-                                                            </div>
-                                                <?php } ?>
-                                                <?php if ($i == 2) { ?>
-                                                            <div class="col-6 second_col">
-                                                   <?php } ?>
-                                                   <?php if ($i == 2 || $i == 3) { ?>
-                                                               <a
-                                                                  href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>"><img
-                                                                     src="<?php echo $package_product['product_main_photo']; ?>" /></a>
-                                                   <?php } ?>
-                                                   <?php if ($i == 3) { ?>
-                                                            </div>
-                                                <?php } ?>
-                                                <?php $i++;
-                                             } ?>
-                                                   </div>
-                                                   <div class="hover_box">
-                                             <?php $package_cart = is_product_into_cart($package['package_guid']);
-                                             if ($package_cart['is_added_into_cart'] > 0) { ?>
-                                                         <a href="../employees/cart" class="add_cart">
-                                                   <?php echo lang('go_to_cart'); ?>
-                                                         </a>
-                                             <?php } else { ?>
-                                                <?php if ($package['remaining_quantity'] > 0) { ?>
-                                                            <a href="javascript:void(0);" data-type="package"
-                                                               data-guid="<?php echo $package['package_guid']; ?>"
-                                                               class="add_cart add-to-cart"><?php echo lang('add_to_cart'); ?></a>
-                                                <?php } else { ?>
-                                                            <a href="javascript:void(0);" style="color:red;" class="add_cart">
-                                                      <?php echo lang('out_of_stock'); ?>
-                                                            </a>
-                                                <?php } ?>
-                                             <?php } ?>
-                                                   </div>
-                                                   <p class="tag">
-                                             <?php echo lang('packages'); ?>
-                                                   </p>
-                                                </div>
-
-                                    <?php } ?>
+                                    <?php ?>
+                                    
+                                      
 
                                     <div class="pro_bottom clerfix">
                                        <div class="product_name">

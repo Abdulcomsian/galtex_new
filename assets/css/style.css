@@ -241,7 +241,7 @@ input[type='radio']:checked:before {
 }
 
 .prod_coll .proimage {
-    padding: 20px;
+    padding: 10px;
     border-bottom: 1px solid;
 }
 
@@ -258,7 +258,7 @@ input[type='radio']:checked:before {
 }
 
 .prod_coll .proimage .pro_img_box img {
-    height: auto;
+    height: 130px;
 }
 
 .packages_por .prod_coll .proimage .pro_img_box img {
@@ -285,7 +285,7 @@ input[type='radio']:checked:before {
 }
 
 .prod_coll .proimage .product_name {
-    height: 54px;
+    height: 47px;
     text-align: left;
     overflow: hidden;
 }
@@ -336,7 +336,7 @@ html[dir="rtl"] .readMore a img {
 
 .readMore a {
     color: black;
-    font-family: 'Assistant';
+    font-family: 'Assistant,SemiBold';
     font-size: 10px;
 }
 
@@ -363,7 +363,8 @@ html[dir="rtl"] .readMore a img {
     margin-top: -4rem;
     margin-bottom: 4rem;
     border-radius: 20px;
-    z-index: 1;
+    /* z-index: 1; */
+    position: relative;
     box-shadow: 0px 10px 30px #00000033;
 }
 
@@ -371,7 +372,7 @@ html[dir="rtl"] .readMore a img {
     position: absolute;
     bottom: -11px;
     margin: 0px;
-    left: 35%;
+    left: 25%;
     padding: 3px 10px;
     border-radius: 6px;
     color: #fff;
@@ -696,7 +697,7 @@ html[dir="rtl"] .readMore a img {
 }
 
 .product_description p {
-    font-family: 'SegeoSemi';
+    font-family: 'Assistant, Regular';
     font-size: 12px;
 }
 
@@ -1268,7 +1269,7 @@ html[dir="rtl"] #card .welcomeText p {
 
 html[dir="rtl"] .prod_coll .proimage .product_description {
     height: 50px;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 [dir='rtl'] .slick-slide {
