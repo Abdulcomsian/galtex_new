@@ -68,12 +68,13 @@ $language = $this->session->userdata('language');
       .form-control.change-language,
       .continuePayment,
       .pro_img_box .productPrice {
-         background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)),
-            <?php echo $color_code; ?>
-         ;
+         /* background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)),
+            <?php #echo $color_code; ?>
+         ; */
          /* background: <?php echo $color_code; ?>
          ;
          */
+        background:#963491;
       }
 
       .inner_banner_sec,
@@ -142,11 +143,14 @@ $language = $this->session->userdata('language');
       .filterBox .filterCategory .catlist_item li input[type="checkbox"]:before,
       .prod_coll .proimage,
       .packageDiv .single_item {
-         border-color:
-            <?php echo $color_code; ?>
+         border-color: #eee;
+            <?php #echo $color_code; ?>
          ;
       }
-
+      .prod_coll .proimage:hover{
+         border-bottom:1px solid #963491;
+         border-radius:0px;
+      }
       .packages_por .prod_coll .proimage .pro_img_box {
          background: linear-gradient(to left, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)),
             <?php echo $color_code; ?>

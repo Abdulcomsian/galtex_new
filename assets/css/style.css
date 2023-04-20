@@ -43,6 +43,18 @@ a {
 }
 
 @font-face {
+    font-family: "AssistantRegular";
+    src: url("../fonts/Assistant-Regular.TTF");
+}
+@font-face {
+    font-family: "AssistantBold";
+    src: url("../fonts/Assistant-Bold.TTF");
+}
+@font-face {
+    font-family: "Assistantsemibold";
+    src: url("../fonts/Assistant-SemiBold.TTF");
+}
+@font-face {
     font-family: "SegeoBold";
     src: url("../fonts/SEGOEUIB.TTF");
 }
@@ -300,13 +312,13 @@ input[type='radio']:checked:before {
 }
 
 .proimage .product_name a {
-    font-family: 'Assistant,Bold';
+    font-family: 'AssistantBold';
     font-weight: bold;
 }
 
 .proimage .product_description p {
     text-align: left;
-    font-family: 'Assistant,Regular';
+    font-family: 'AssistantRegular';
     margin-bottom: 5px;
 }
 
@@ -336,7 +348,7 @@ html[dir="rtl"] .readMore a img {
 
 .readMore a {
     color: black;
-    font-family: 'Assistant,SemiBold';
+    font-family: 'Assistantsemibold';
     font-size: 10px;
 }
 
@@ -377,7 +389,7 @@ html[dir="rtl"] .readMore a img {
     border-radius: 6px;
     color: #fff;
     font-size: 12px;
-    font-family: 'SegeoRegular';
+    font-family: 'Assistantsemibold';
 }
 
 .mobileHeader {

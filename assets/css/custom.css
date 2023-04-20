@@ -956,6 +956,7 @@ ul.Popular-tag.filter-tag li a {
 .prod_coll {
     margin-bottom: 30px;
     position: relative;
+    padding:0px 20px;
 }
 
 .hover_box {

@@ -137,7 +137,7 @@
                   <?php 
                   // print_r("<pr>");
                   // print_r($products_data);exit;
-                  foreach ($products_data['data']['records'] as $product) { ?>
+                  foreach ($products_data['data']['records'] as $product) {  ?>
                      <div class="prod_coll col-sm-3 col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="proimage">
                            <div class="pro_img_box">
@@ -145,6 +145,11 @@
                                  href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>">
                                  <div><img
                                     src="<?php echo $product['product_main_photo']; ?>" /></div></a>
+                                    <?php
+                              if(isset($product['above_budget_price']) && $product['above_budget_price']>0) {
+                              ?>
+                              <img style="width:auto;height:auto;position:absolute;top:0px;left:0px;" src="<?php echo base_url(); ?>assets/images/above_budget.png" />
+                              <?php } ?>
                               <!-- <a href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>"><img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&w=1000&q=80" /></a> -->
                               <!-- <div class="hover_box"> -->
                                  <!-- <div>
@@ -165,12 +170,15 @@
                                     <?php }
                                  } ?>
                               </div>-->
+                              <?php
+                              if(isset($product['above_budget_price']) && $product['above_budget_price']>0) {
+                              ?>
                               <p class="productPrice">
-                                 <?php echo lang('additional') . ' 500' . CURRENCY_SYMBOL . $product['above_budget_price'];
+                                 <?php echo lang('additional') . ' ' . $product['above_budget_price'] . CURRENCY_SYMBOL ;
 
                                  ?>
                               </p> 
-
+                           <?php } ?>
                            </div>
                            <div class="pro_bottom clerfix">
                               <div class="product_name">
@@ -431,8 +439,9 @@
                                     $i = 0;
                                      ?>
                                        <div class="pro_img_box ">
-                                          <?php foreach ($package['products']['data']['records'] as $package_product) {
+                                          <?php $i=0; foreach ($package['products']['data']['records'] as $package_product) {
                                              #echo count($package_product);exit;
+                                             if($i==1){continue;}
                                              ?>
 
                                              <div class="oneimage">
@@ -459,7 +468,7 @@
                                                    <?php } ?>
                                                 </div>
                                              </div>
-                                          <?php } ?>
+                                          <?php $i++; } ?>
                                           <p class="tag">
                                              <?php echo lang('packages'); ?>
                                           </p>
