@@ -200,8 +200,8 @@ $language = $this->session->userdata('language');
                      style="height:60px;"></a>
                <div class="logo_main">
                   <a href="<?php echo base_url(); ?>"> <img
-                        src="<?php echo base_url(); ?>uploads/company/<?php echo $company_logo; ?>" alt="logo"
-                        style="height:60px;"></a>
+                  src="<?php echo base_url(); ?>uploads/company/logoImg.svg" alt="logo"
+                        style="height:40px;"></a>
                </div>
                <!--   <div class="change-language desktopHide mainLangague">
                     <ul>

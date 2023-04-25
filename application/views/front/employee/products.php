@@ -15,14 +15,31 @@
    
    .mobile-hide{
       height: 100%;
+      width: 25%;
       background: white;
       transition: all 1.5s;
-      padding: 35px;
+      padding-top: 44px;
+}
+.filter{
+   position: sticky;
+    top: 90%;
+    padding: 21px;
+    box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.2);
 }
 .filter button{
    width: 100%;
    margin-bottom: 10px;
+   
+}
+.btn-outline{
    border: 1px solid #963491;
+}
+.btn-primarySelf{
+   background: #963491;
+   color: white;
+}
+.nav_right li .badge{
+    background: #963491;
 }
 </style>
 
@@ -56,7 +73,7 @@
          <div class="container-fluid">
             <div class="row">
                <div class="overlay d-none">
-                  <div class="col-md-4 col-lg-4 col-xl-3 mobile-hide">
+                  <div class="mobile-hide">
                      <div class="cat_sidebar">
                         <div class="sidebar_block">
                            <h4 class="sidebar_head wow fadeInDown">
@@ -108,17 +125,17 @@
                               } ?>
                            </ul>
                         </div>
-                        <div class="filter">
-                           <button class="btn">סנן</button>
-                           <button class="btn">בטל</button>
-                        </div>
-                        <div class="sidebar_block hide_mobile">
-                        <div class="new_arrival wow fadeInUp" data-wow-delay="0.4s">
-                           <img src="images/new_arrival.jpg">
-                           <h2 class="font_merienda">New <span>Arrival</span></h2>
-                           <a href="#">Shop Now</a>
-                        </div>
-                        </div>
+                        <!-- <div class="sidebar_block hide_mobile">
+                           <div class="new_arrival wow fadeInUp" data-wow-delay="0.4s">
+                              <img src="images/new_arrival.jpg">
+                              <h2 class="font_merienda">New <span>Arrival</span></h2>
+                              <a href="#">Shop Now</a>
+                           </div>
+                        </div> -->
+                     </div>
+                     <div class="filter">
+                        <button class="btn btn-outline btn-primarySelf">סנן</button>
+                        <button class="btn btn-outline">בטל</button>
                      </div>
                   </div>
                </div>

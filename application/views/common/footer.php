@@ -97,7 +97,8 @@
                  <div class="text-center">
                     <div class="ftr_main_block">
                        <div class="footer_div">  <!-- //remove th class -->
-                       <img style="width:100px; height: auto" src="<?php echo base_url(); ?>uploads/company/<?php echo $this->session->all_userdata()['webuserdata']['client_configs']['company_logo']; ?>">
+                       <img style="width:100px; height: auto" src="<?php echo base_url(); ?>uploads/company/logoFooter.svg" alt="logo"
+                        style="height:40px;">
                        <ul class="social_main list-unstyled">
                             <!-- <li class="list-inline-item">
                                 <a href="javascript:void(0);" target="_blank"><i class="fab fa-facebook-f"></i></a>
