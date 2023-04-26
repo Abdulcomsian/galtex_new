@@ -1972,3 +1972,25 @@ box-shadow: 0px 10px 30px #00000033;
   align-items: flex-start;
   margin-top: 10px;
 }
+.product-button a{
+  height: 44px;
+  width: 304px;
+}
+
+.card-header .btn-link{
+  color: black;
+  font-family: 'AssistantBold';
+  font-size: 18px;
+}
+
+.package_product_page .container{
+  box-shadow: 0px 10px 30px #00000033;
+  padding-right: 50px;
+  padding-left: 50px;
+  border-radius: 12px;
+}
+.card_package_collapse{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

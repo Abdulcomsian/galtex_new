@@ -666,7 +666,9 @@ html[dir="rtl"] .readMore a img {
 .single_product_page {
   padding: 50px 0px;
 }
-
+.package_product_page {
+  padding: 50px 0px;
+}
 .main_content {
   position: relative;
 }
