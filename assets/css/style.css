@@ -1323,6 +1323,9 @@ html[dir="rtl"] .shoppingCart .cartList ul li .itemCart .itemDetail h5 {
     html[dir="rtl"] .single_product_page .productDiv .product_slider_thumb {
         left: 0px !important;
     }
+    .product_details_card{
+        margin-right: 160px;
+      }
 }
 
 @media only screen and (max-width: 768px) {
@@ -1396,7 +1399,8 @@ html[dir="rtl"] .filterDiv {
 }
 
 html[dir="rtl"] .main_content .backToStore img {
-     transform: rotate(180deg);
+     /* transform: rotate(180deg); */
+     padding-left: 15px;
 }
 
 .two_item .first_col:nth-child(2) {
@@ -1434,7 +1438,7 @@ html[dir="rtl"] .second_col {
 }
 
 .single_product_page .slick-track {
-    width: auto;
+    width: 100% !important;
 }
 
 .single_product_page .single_slider_main {

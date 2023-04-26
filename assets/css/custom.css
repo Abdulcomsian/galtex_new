@@ -1173,12 +1173,14 @@ h2.head_common2:after {
 }
 
 .product_right .product_name {
+    font-family: 'AssistantBold';
     white-space: normal;
-    margin-bottom: 15px;
+    margin-bottom: 20px;  
     color: #000;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 72px;
     text-transform: uppercase;
+    line-height: 1.1;
 }
 
 .product_price .pro_availablity {
@@ -1223,6 +1225,10 @@ h2.head_common2:after {
 
 .product_detail {
     margin-top: 20px;
+    font-family: 'AssistantRegular';
+    font-size: 16px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .product_information {
@@ -1369,6 +1375,7 @@ h2.head_common2:after {
 .product-button {
     padding-top: 30px;
 }
+
 
 .related_prod {
     padding-top: 60px;
@@ -1918,4 +1925,24 @@ html[dir="rtl"] .get_opt {
     flex-wrap: wrap;
     align-items: flex-start;
     margin-top: 10px;
+}
+
+.product_details_card{
+border-radius: 12px;
+box-shadow: 0px 10px 30px #00000033;
+}
+.product_right a{
+    height: 44px;
+    width: 304px;
+}
+
+.add_to_card{
+    padding: 15px;
+}
+
+.add_to_card .addToCartDiv{
+    margin-left: 100px;
+}
+.add_to_card .backToStore{
+    margin-right: 120px;
 }
