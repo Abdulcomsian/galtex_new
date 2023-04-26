@@ -25,7 +25,7 @@
          } ?>
       </div>
       <div class="backToStore"><!-- remove the class(desktopHide)-->
-         <div class="wow zoomIn"><a href="../../employees/products" class="btn"><img
+         <div class="wow zoomIn"><a href="../../employees/products" class="btn" style="color:black;"><img
                   src="<?php echo base_url(); ?>assets/images/rightIcon.svg" /></span>
                <?php echo lang('back'); ?></span> <span style="color: #000; position: relative; left: -15px;"><span>
             </a></div>
