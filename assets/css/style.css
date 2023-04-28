@@ -671,6 +671,7 @@ html[dir="rtl"] .readMore a img {
 }
 .main_content {
   position: relative;
+  min-height: 80vh;
 }
 
 .main_content .addToCartDiv {

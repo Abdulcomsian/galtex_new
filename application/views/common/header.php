@@ -50,8 +50,8 @@ $language = $this->session->userdata('language');
       <?php echo @$title; ?>
    </title>
    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@500&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200&display=swap" rel="stylesheet">
@@ -70,11 +70,11 @@ $language = $this->session->userdata('language');
       .pro_img_box .productPrice {
          /* background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)),
             <?php #echo $color_code; ?>
-         ; */
-         /* background: <?php echo $color_code; ?>
          ;
          */
-        background:#963491;
+         /* background: <?php echo $color_code; ?>
+         ;
+         */ background: #963491;
       }
 
       .inner_banner_sec,
@@ -144,13 +144,15 @@ $language = $this->session->userdata('language');
       .prod_coll .proimage,
       .packageDiv .single_item {
          border-color: #eee;
-            <?php #echo $color_code; ?>
+         <?php #echo $color_code; ?>
          ;
       }
-      .prod_coll .proimage:hover{
-         border-bottom:1px solid #963491;
-         border-radius:0px;
+
+      .prod_coll .proimage:hover {
+         border-bottom: 1px solid #963491;
+         border-radius: 0px;
       }
+
       .packages_por .prod_coll .proimage .pro_img_box {
          background: linear-gradient(to left, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)),
             <?php echo $color_code; ?>
@@ -199,9 +201,8 @@ $language = $this->session->userdata('language');
                      src="<?php echo base_url(); ?>uploads/company/<?php echo $company_logo; ?>" alt="logo"
                      style="height:60px;"></a>
                <div class="logo_main">
-                  <a href="<?php echo base_url(); ?>"> <img
-                  src="<?php echo base_url(); ?>uploads/company/logoImg.svg" alt="logo"
-                        style="height:40px;"></a>
+                  <a href="<?php echo base_url(); ?>"> <img src="<?php echo base_url(); ?>uploads/company/logoImg.svg"
+                        alt="logo" style="height:40px;"></a>
                </div>
                <!--   <div class="change-language desktopHide mainLangague">
                     <ul>
@@ -331,6 +332,7 @@ $language = $this->session->userdata('language');
                      </ul>
                   </div>
                </div>
+
                <div class="mobile_toggle_area"></div>
                <ul class="nav_right">
                   <!-- <li class="list-inline-item user_item mobileHide"> -->
@@ -354,10 +356,15 @@ $language = $this->session->userdata('language');
                         <img src="<?php echo base_url(); ?>assets/images/filter.svg">
                      </li> -->
                   <?php if (!empty($this->cart->contents())) { ?>
-                     <li class="list-inline-item">
+                     <?php
+                        $url = $_SERVER['REQUEST_URI'];
+                        $urlParam = explode("/", $url);
+                        $class= $urlParam[sizeof($urlParam) - 1] == 'cart' ? "active_cart" : "";
+                        ?>
+                     <li class="list-inline-item  <?=$class?>">
                         <a class="open-cart-sidebar" href="<?php echo base_url(); ?>employees/cart">
-                           <img src="<?php echo base_url(); ?>assets/images/shopping_cart_black_24dp.svg">
-                           <span class="top-cart-info-count badge badge-pill">
+                           <img src="<?php echo base_url(); ?>assets/images/<?=$class=="active_cart"?"shoping_cart.png":"shopping_cart_black_24dp.svg"?>">
+                           <span class="top-cart-info-count badge badge-pill <?=($class=="active_cart"?"d-none":"")?>">
                               <?php echo count($this->cart->contents()); ?>
                            </span>
                         </a>
