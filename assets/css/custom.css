@@ -2083,3 +2083,22 @@ font-family: 'AssistantRegular';
   /* padding-bottom: 3px !important; */
   padding: 8px 6px 3px 6px !important;
 }
+
+.image-button {
+  display: none;
+}
+
+.card-header.collapsed .collapse-button {
+  display: none;
+}
+
+.card-header.collapsed .image-button {
+  display: block;
+}
+
+.slick-list .slick-track{
+  width:100% !important
+}
+.slick-list .slick-track .slick-active{
+  width:100% !important
+}
