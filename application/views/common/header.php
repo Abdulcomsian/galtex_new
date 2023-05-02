@@ -255,7 +255,7 @@ $language = $this->session->userdata('language');
                             <a class="nav-link" href="https://app.galtex.co.il/employees/cart"><?php echo lang('cart'); ?></a>
                         </li> -->
                      <li class="nav-item">
-                        <a class="nav-link " href="https://app.galtex.co.il/employees/profile#myOrder"
+                        <a class="nav-link " href="<?php echo base_url(); ?>/employees/profile#myOrder"
                            onclick="setActive(event)">
                            <?php echo lang('personal_area'); ?>
                         </a>

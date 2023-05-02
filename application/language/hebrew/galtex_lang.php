@@ -250,6 +250,9 @@ $lang['total'] = 'סהכ';
 $lang['update_cart'] = 'עדכנ/י עגלה';
 $lang['shopping_continue'] = 'המשכ/י לחנות';
 $lang['cart_empty'] = 'העגלה ריקה!';
+$lang['personal_area_details'] = '
+להלן ההזמנות שביצעת בחשבונך
+!';
 $lang['are_you_want_to_remove'] = 'להסיר את המוצר מהעגלה?';
 $lang['product_removed_from_cart'] = 'מוצר הוסר מהעגלה בהצלחה';
 $lang['upload'] = 'העלה';

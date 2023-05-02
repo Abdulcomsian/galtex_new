@@ -2102,3 +2102,14 @@ font-family: 'AssistantRegular';
 .slick-list .slick-track .slick-active{
   width:100% !important
 }
+
+.cart_left .checkout_btn{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 60px;
+}
+
+.cart_left .checkout_btn button {
+  width: 304px;
+  height: 44px;
+}
