@@ -52,7 +52,7 @@ a {
   src: url("../fonts/Assistant-SemiBold.TTF");
 }
 @font-face {
-  font-family: "SegeoBold";
+  font-family: "Assistantsemibold";
   src: url("../fonts/SEGOEUIB.TTF");
 }
 
@@ -67,7 +67,7 @@ a {
 }
 
 .watermark_text .watermark {
-  font-family: "SegeoBold" !important;
+  font-family: "AssistantRegular" !important;
 }
 
 .header_sec .hdr_main {
@@ -108,7 +108,7 @@ input:focus {
 .mainHeader h3 {
   color: #fff;
   text-align: center;
-  font-family: "SegeoBold";
+  font-family: "AssistantRegular";
   font-size: 24px;
 }
 
@@ -178,7 +178,7 @@ input[type="radio"]:checked:before {
 .socialMedia p {
   color: #ffffffad;
   text-align: center;
-  font-family: "SegeoRegular";
+  font-family: "AssistantRegular";
   font-size: 12px;
 }
 
@@ -242,7 +242,7 @@ input[type="radio"]:checked:before {
 
 #card .welcomeText p {
   padding: 20px;
-  font-family: "SegeoSemi";
+  font-family: "AssistantRegular";
   font-size: 18px;
   text-align: left !important;
 }
@@ -449,12 +449,12 @@ html[dir="rtl"] .readMore a img {
 .filterBox .filterCategory h4 {
   font-size: 20px;
   color: #343337;
-  font-family: "SegeoBold";
+  font-family: "AssistantBold";
   margin-bottom: 15px;
 }
 
 .filterBox .filterCategory p {
-  font-family: "SegeoSemi";
+  font-family: "Assistantsemibold";
   margin-bottom: 0px;
   font-size: 18px;
 }
@@ -473,7 +473,7 @@ html[dir="rtl"] .readMore a img {
 .filterBox .filterCategory .catlist_item li label {
   margin-bottom: 0px;
   margin-right: 10px;
-  font-family: "SegeoRegular";
+  font-family: "AssistantRegular";
   font-size: 16px;
 }
 
@@ -554,7 +554,7 @@ html[dir="rtl"] .readMore a img {
 .shoppingCart .cartList h4 {
   text-align: center;
   color: #fff;
-  font-family: "SegeoBold";
+  font-family: "AssistantBold";
 }
 
 .shoppingCart .cartList ul {
@@ -594,7 +594,7 @@ html[dir="rtl"] .readMore a img {
 
 .shoppingCart .cartList ul li .itemCart .itemDetail h5 {
   font-size: 18px;
-  font-family: "SegeoSemi";
+  font-family: "Assistantsemibold";
   color: #fff;
   text-align: right;
   margin-left: 20px;
@@ -602,7 +602,7 @@ html[dir="rtl"] .readMore a img {
 
 .shoppingCart .cartList ul li .itemCart .itemDetail p span {
   font-size: 14px;
-  font-family: "SegeoRegular";
+  font-family: "AssistantRegular";
   color: #ccc;
 }
 
@@ -640,7 +640,7 @@ html[dir="rtl"] .readMore a img {
 }
 
 .cartTotal ul li {
-  font-family: "SegeoRegular";
+  font-family: "AssistantRegular";
   color: #fff;
   font-size: 14px;
 }
@@ -655,7 +655,7 @@ html[dir="rtl"] .readMore a img {
   display: flex;
   justify-content: center;
   font-size: 18px;
-  font-family: "SegeoSemi";
+  font-family: "Assistantsemibold";
 }
 
 .blurMe {
@@ -709,11 +709,11 @@ html[dir="rtl"] .readMore a img {
 
 .product_description b,
 .innerbanner_cap.mobileCap h1 {
-  font-family: "SegeoBold";
+  font-family: "AssistantBold";
 }
 
 .product_description p {
-  font-family: "Assistant, Regular";
+  font-family: "AssistantRegular";
   font-size: 12px;
 }
 
@@ -772,7 +772,7 @@ html[dir="rtl"] .filterBox .filterCategory .catlist_item li label {
   font-size: 14px;
   position: relative;
   top: -12px;
-  font-family: "SegeoRegular";
+  font-family: "AssistantRegular";
 }
 
 /*.productDiv .slick-slide img{
@@ -787,6 +787,7 @@ html[dir="rtl"] .filterBox .filterCategory .catlist_item li label {
 
 .single_slider_main {
   width: 100%;
+  max-height:330px;
   padding: 0px;
   display: flex;
   justify-content: space-between;
@@ -895,7 +896,7 @@ html[dir="rtl"] .filterBox .filterCategory .catlist_item li label {
 .custom_form h4,
 .checkout_sec .account_detail_main > h4 {
   font-size: 18px;
-  font-family: "SegeoSemi";
+  font-family: "Assistantsemibold";
   text-transform: capitalize;
 }
 
@@ -1066,7 +1067,7 @@ html[dir="rtl"] .card-text input[type="checkbox"]:checked + label::after {
 }
 
 .card-text label {
-  font-family: "SegeoRegular";
+  font-family: "AssistantRegular";
   font-size: 16px;
   color: #0000009e;
 }
@@ -1090,16 +1091,16 @@ html[dir="rtl"] .card-text input[type="checkbox"]:checked + label::after {
 }
 
 .btn_common {
-  font-family: "SegeoSemi";
+  font-family: "Assistantsemibold";
 }
 
 .ftr_main_block .ftr_title {
-  font-family: Segeo-Bold;
+  font-family: 'AssistantBold';
   color: #ffffffad;
 }
 
 .ftr_main_block .menu_list li a {
-  font-family: "SegeoRegular";
+  font-family: "AssistantRegular";
   font-size: 12px;
 }
 
@@ -1119,7 +1120,7 @@ html[dir="rtl"] .card-text input[type="checkbox"]:checked + label::after {
   width: 40px;
   font-size: 16px;
   text-align: center;
-  font-family: "SegeoBold";
+  font-family: "AssistantBold";
 }
 
 .change-language ul {
@@ -1171,7 +1172,7 @@ html[dir="rtl"] .card-text input[type="checkbox"]:checked + label::after {
 .single_product_page .product_thumb_item span,
 .product_slider_main p {
   text-align: center;
-  font-family: "SegeoRegular";
+  font-family: "AssistantRegular";
   font-size: 21px;
   font-weight: bold;
 }
@@ -1188,13 +1189,13 @@ html[dir="rtl"] .card-text input[type="checkbox"]:checked + label::after {
 
 .custom_form .form-group:not(.group_select) label,
 .custom_form .form-group input {
-  font-family: "SegeoRegular";
+  font-family: "AssistantRegular";
   font-size: 18px;
   color: #00000073;
 }
 
 .btn_common {
-  font-family: "SegeoSemi";
+  font-family: "Assistantsemibold";
   border: none;
   outline: none;
 }
@@ -1382,8 +1383,8 @@ padding:0 35px !important;
 }
 
 .oneimage img {
-  width: auto !important;
-  height: 100% !important;
+  width: 100%  !important;
+  height: auto  !important;
   max-height: 120px;
   margin-top: 3px;
 }
