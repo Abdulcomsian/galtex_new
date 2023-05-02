@@ -808,6 +808,7 @@ html[dir="rtl"] .filterBox .filterCategory .catlist_item li label {
 .packageBox .mainImage,
 .product_slider_main {
   width: 75%;
+  margin: 8px;
 }
 
 .packageBox .sideImage,
@@ -829,8 +830,8 @@ html[dir="rtl"] .filterBox .filterCategory .catlist_item li label {
 .sideImage .productImg img,
 .product_thumb_item,
 .product_thumb_item img {
-  height: 60px !important;
-  width: 60px !important;
+  height: 85px;
+  width: 95px !important;
   border-radius: 10px;
 }
 
@@ -855,12 +856,18 @@ html[dir="rtl"] .filterBox .filterCategory .catlist_item li label {
 .product_thumb_item.slick-slide.slick-active .thumb_inner:before {
   content: "";
   width: 80px;
-  height: 80px;
+  height: 100%;
   background: #000;
   position: absolute;
   opacity: 0.5;
   border-radius: 10px;
   left: 0px;
+}
+
+html[dir="rtl"]
+  .product_thumb_item.slick-slide.slick-active
+  .thumb_inner:before {
+  right: 8px !important;
 }
 
 .product_slider_thumb .product_thumb_item {
@@ -1178,6 +1185,8 @@ html[dir="rtl"] .card-text input[type="checkbox"]:checked + label::after {
 
 .product_slider_main {
   background-color: transparent !important;
+  border-radius: 10px;
+  box-shadow: 0 0 7px 3px lightgray;
 }
 
 .single_product_page .productDiv .product_slider_thumb {
@@ -1240,7 +1249,7 @@ html[dir="rtl"] .innerbanner_cap.mobileCap h1 {
 
 .product_thumb_item img {
   width: 80px !important;
-  height: 80px !important;
+  /* height: 80px !important; */
 }
 
 .single_slider_main .thumb_inner {
@@ -1336,13 +1345,12 @@ html[dir="rtl"] .shoppingCart .cartList ul li .itemCart .itemDetail h5 {
 }
 
 @media only screen and (min-width: 768px) {
-    html[dir="rtl"] .single_product_page .productDiv .product_slider_thumb {
-        left: 0px !important;
-    }
-    .product_details_card{
-        margin-right: 160px;
-      }
-  
+  html[dir="rtl"] .single_product_page .productDiv .product_slider_thumb {
+    left: 0px !important;
+  }
+  .product_details_card {
+    margin-right: 160px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -1419,8 +1427,8 @@ html[dir="rtl"] .filterDiv {
 }
 
 html[dir="rtl"] .main_content .backToStore img {
-     /* transform: rotate(180deg); */
-     padding-left: 15px;
+  /* transform: rotate(180deg); */
+  padding-left: 15px;
   /* transform: rotate(180deg); */
 }
 
@@ -1459,8 +1467,7 @@ html[dir="rtl"] .second_col {
 }
 
 .single_product_page .slick-track {
-    width: 100% !important;
-
+  width: 100% !important;
 }
 
 .single_product_page .single_slider_main {
