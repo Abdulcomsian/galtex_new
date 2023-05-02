@@ -2113,3 +2113,55 @@ font-family: 'AssistantRegular';
   width: 304px;
   height: 44px;
 }
+
+.dialog_box{
+  height: 563px;
+  width: 750px;
+  border:none ;
+  border-radius: 12px;
+  z-index: 99;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.dialog_box .container{
+  position: relative;
+    display: inline-block;
+    padding: 0;
+}
+
+.dialog_box img {
+  height: 563px;
+  width: 751px;
+  border:none ;
+  border-radius: 12px;
+}
+.close-icon {
+  position: absolute;
+  top: 10px;
+  left: 29px;
+  font-size: 40px;
+  cursor: pointer;
+  color: white;
+  opacity: 1;
+}
+
+.dialog_box a {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  font-size: 20px;
+  font-family:'Assistantsemibold';
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width:300px;
+    height: 44px;
+    text-align: center;
+    color:#963491 !important;
+    
+    
+}

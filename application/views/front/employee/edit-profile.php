@@ -25,8 +25,10 @@
                 <?php if (!empty($order_details)) {
                   $total_amount = (array_sum(array_column($cart, 'subtotal')) - $this->session->userdata('webuserdata')['employee_budget']);
                   $i = 1;
+                  $amount = 0;
                   foreach($order_details['order_product_details'] as $key => $value) {
                     ; ?>
+                    <?php $amount = $amount + $value['amount']; ?>
                     <div class=" cart_items">
                       <div style="display:flex;    align-items: center;">
                       <?php if($value['type'] == 'Product') { ?>
@@ -68,10 +70,10 @@
                     <h5 class="clearfix pricetotal">
                       <?php echo lang('total_amount') ?>
                     </h5>
-                    <span><?php echo count($this->cart->contents()); ?> פריטים</span>
+                    <span><?php echo $i ?> פריטים</span>
                   </div>
                   <p>
-                    <?php echo $total_amount . CURRENCY_SYMBOL; ?>
+                    <?php echo $amount . CURRENCY_SYMBOL; ?>
                   </p>
                 </div>
 
@@ -172,8 +174,8 @@
 </main>
 
 
-<main class="main_content">
-       <!-- <section class="inner_banner_sec" style="padding-bottom:30px;">
+<!-- <main class="main_content">
+      <section class="inner_banner_sec" style="padding-bottom:30px;">
           <div class="innerbanner_cap text-center">
              <div class="container">
                 <div class="watermark_text">
@@ -182,7 +184,7 @@
                 </div>
              </div>
           </div>
-       </section> -->
+       </section> 
        <section class="profile_sec personalArea">
          <div class="borderTopRadiusDiv"></div>
         <div class="container">
@@ -233,17 +235,13 @@
                           </div>
                        </div>
                     </div>
-                    <!-- <div class="profile_footer pb-5">
-                       <button class="btn btn_common wow fadeInLeft" data-wow-delay="0.2s">Submit</button>
-                       <button class="btn btn_common wow fadeInRight" data-wow-delay="0.6s">Cancel</button>
-                    </div> -->
                  </form>
               </div>
 
                  <?php if(!empty($order_details)) { ?>
                  <div class="tab-pane fade" id="myOrder" role="tabpanel" aria-labelledby="addresses-tab">
                     <div class="account_detail_main custom_form">
-                     <!--  <h4><?php echo lang('order_details'); ?></h4> -->
+                   <h4><?php echo lang('order_details'); ?></h4> 
                       <h4><?php echo lang('purchase_made'); ?></h4>
                     <section class="order_sec mobileHide pb-5">
                          <div class="row">
@@ -271,14 +269,6 @@
                                 </div>
                               </div>
                            <?php } ?>
-                           <!-- <div class="col-md-4">
-                             <div class="order_right">
-                               <h4>Delivery Address</h4>
-                               <p><label>Name : </label> Sorav Gard</p>
-                               <p><label>Address : </label> 142 extension, tilak nagar near jain mandir,  Indore-452018, <br> Madhya Pradesh.</p>
-                               <p><label>Mobile : </label> 0123456789</p>
-                             </div>
-                           </div> -->
                          </div>
                          <div class="ordercancel_btn text-right">
                            <?php if($order_details['order_status'] == 'Created') { ?>
@@ -313,35 +303,11 @@
                                          <?php } ?>
                                        </div>
                                     </div> 
-                                 <!--  <div class="row">
-                                    <div class="col-auto">
-                                      <?php if($value['type'] == 'Product') { ?>
-                                          <img src="<?php echo $value['product_main_photo']; ?>" class="img-fluid img-thumbnail" width="100" alt="product">
-                                      <?php } else { ?>
-                                          <img src="<?php echo $value['products']['data']['records'][0]['product_main_photo']; ?>" class="img-fluid img-thumbnail" width="100" alt="product">
-                                      <?php } ?>
-                                    </div>
-                                    <div class="col">
-                                        <h4 class="cart_proname"><?php echo $value['product_package_name']; ?></h4>
-                                        <p class="pro_pera"><?php echo @$value['product_descprition']; ?></p>
-                                        <p class="orderpro_price"><label><?php echo lang('price'); ?> : </label> <?php echo CURRENCY_SYMBOL.$value['amount']; ?> </p>
-                                        <p class="orderpro_qty"><label><?php echo lang('quantity'); ?> :</label><?php echo $value['quantity']; ?></p>
-                                        <?php if(($key+1) == count($order_details['order_product_details'])) { ?>
-                                        <div class="orderpro_totalprice"><?php echo lang('total_price'); ?> : <strong> <?php echo CURRENCY_SYMBOL.$order_details['order_amount']; ?></strong></div>
-                                        <?php } ?>
-                                    </div>
-                                  </div> -->
+                                
                                 </div>
                               </div>
                            <?php } ?>
-                           <!-- <div class="col-md-4">
-                             <div class="order_right">
-                               <h4>Delivery Address</h4>
-                               <p><label>Name : </label> Sorav Gard</p>
-                               <p><label>Address : </label> 142 extension, tilak nagar near jain mandir,  Indore-452018, <br> Madhya Pradesh.</p>
-                               <p><label>Mobile : </label> 0123456789</p>
-                             </div>
-                           </div> -->
+                           
                          </div>
                           <div class="totalDiv">
                               <p><?php echo CURRENCY_SYMBOL.$value['amount']; ?></p>
@@ -370,4 +336,4 @@
      </div>
         <div class="borderBottomRadiusDiv"></div>
       </section>
-    </main>
+    </main> -->
