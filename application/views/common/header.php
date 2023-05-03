@@ -87,10 +87,11 @@ $language = $this->session->userdata('language');
       .main_content .additionalCosts,
       .change-language ul li:nth-child(1):after,
       .packages_por p.tag {
-         background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)),
-            <?php echo $color_code; ?>
+         background: #963491 !important;
+         /* background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), */
+            <?php #echo $color_code; ?>
          ;
-         /*  background-color: <?php echo $color_code; ?>
+         /*  background-color: <?php #echo $color_code; ?>
          ;
          */
       }
@@ -110,8 +111,8 @@ $language = $this->session->userdata('language');
       .filterBox .filterHeader button,
       .shoppingCart .headerCart a,
       .mobileHeader button {
-         color:
-            <?php echo $color_code; ?>
+         color: #963491;
+            <?php #echo $color_code; ?>
          ;
       }
 
@@ -128,15 +129,15 @@ $language = $this->session->userdata('language');
       }
 
       .btn_common {
-         outline-color:
-            <?php echo $color_code; ?>
+         outline-color: #963491;
+            <?php #echo $color_code; ?>
          ;
       }
 
       .filterBox .filterCategory .catlist_item li input[type="checkbox"]:checked:after,
       .change-language ul li:nth-child(1):after {
-         background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)),
-            <?php echo $color_code; ?>
+         background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), #963491
+            <?php #echo $color_code; ?>
          ;
       }
 
@@ -154,8 +155,8 @@ $language = $this->session->userdata('language');
       }
 
       .packages_por .prod_coll .proimage .pro_img_box {
-         background: linear-gradient(to left, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)),
-            <?php echo $color_code; ?>
+         background: linear-gradient(to left, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)), #963491
+            <?php #echo $color_code; ?>
             90;
       }
 
@@ -255,7 +256,7 @@ $language = $this->session->userdata('language');
                             <a class="nav-link" href="https://app.galtex.co.il/employees/cart"><?php echo lang('cart'); ?></a>
                         </li> -->
                      <li class="nav-item">
-                        <a class="nav-link " href="https://app.galtex.co.il/employees/profile#myOrder"
+                        <a class="nav-link " href="<?php echo base_url(); ?>/employees/profile#myOrder"
                            onclick="setActive(event)">
                            <?php echo lang('personal_area'); ?>
                         </a>

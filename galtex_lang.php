@@ -238,6 +238,7 @@ $lang['total'] = 'Total';
 $lang['update_cart'] = 'Update cart';
 $lang['shopping_continue'] = 'Continue To Shopping';
 $lang['cart_empty'] = 'העגלה ריקה!';
+$lang['personal_area_details'] = 'Below are the orders you made in your account';
 $lang['are_you_want_to_remove'] = 'Are you sure want to remove?';
 $lang['product_removed_from_cart'] = 'Item successfully removed from cart.';
 $lang['upload'] = 'Upload';
