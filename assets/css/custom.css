@@ -2169,7 +2169,7 @@ font-family: 'AssistantRegular';
 
 .deadline {
 display: flex;
-flex-direction: row-reverse;
+justify-content: space-around;
 align-items: center;
 font-family: 'AssistantBold';
 font-size:36px;
@@ -2180,4 +2180,10 @@ color:#6E6E70
 }
 .deadline strong{
   font-size:20px
+}
+.timer {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+
 }

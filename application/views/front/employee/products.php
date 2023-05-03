@@ -64,10 +64,13 @@
 
 <main class="main_content">
    <div class="container">
-      <div class="card" style="align-items: center;">
+      <div class="card" >
          <div class="timerClock text-start deadline">
-            <!-- <h5 class="d-flex flex-column mx-1"><span id="days" class="text-center">00</span><span>Day</span></h5> -->
-
+            <div>
+               <!-- <h5 class="d-flex flex-column mx-1"><span id="days" class="text-center">00</span><span>Day</span></h5> -->
+               <h5 class="d-flex flex-column mx-1"><span id="days" class="text-center">האתר יסגר בעוד:</h5>
+            </div>
+            <div class="timer">
             <h5 class="d-flex flex-column mx-2"><span id="hours" class="text-center">00</span><strong>Hour</strong></h5>
             <span>:</span>
 
@@ -76,6 +79,7 @@
 
             <h5 class="d-flex flex-column mx-2"><span id="seconds" class="text-center">00</span><strong>Seconds</strong>
             </h5>
+            </div>
          </div>
       </div>
    </div>
