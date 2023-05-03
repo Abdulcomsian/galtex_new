@@ -2166,3 +2166,18 @@ font-family: 'AssistantRegular';
     
     
 }
+
+.deadline {
+display: flex;
+flex-direction: row-reverse;
+align-items: center;
+font-family: 'AssistantBold';
+font-size:36px;
+color:#6E6E70
+}
+.deadline span{
+  font-size:36px
+}
+.deadline strong{
+  font-size:20px
+}

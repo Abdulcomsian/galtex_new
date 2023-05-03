@@ -63,16 +63,21 @@
 
 
 <main class="main_content">
-   <div class="card m-4 py-3 px-1">
-      <div class="timerClock text-start d-flex flex-row-reverse"> <strong>
+   <div class="container">
+      <div class="card" style="align-items: center;">
+         <div class="timerClock text-start deadline">
             <!-- <h5 class="d-flex flex-column mx-1"><span id="days" class="text-center">00</span><span>Day</span></h5> -->
-         </strong> <strong>
-            <h5 class="d-flex flex-column mx-1"><span id="hours" class="text-center">00</span><span>Hour</span></h5>
-         </strong> <strong>
-            <h5 class="d-flex flex-column mx-1"><span id="minutes" class="text-center">00</span><span>Minute</span></h5>
-         </strong> <strong>
-            <h5 class="d-flex flex-column mx-1"><span id="seconds" class="text-center">00</span><span>Seconds</span></h5>
-         </strong></div>
+
+            <h5 class="d-flex flex-column mx-2"><span id="hours" class="text-center">00</span><strong>Hour</strong></h5>
+            <span>:</span>
+
+            <h5 class="d-flex flex-column mx-2"><span id="minutes" class="text-center">00</span><strong>Minute</strong>
+            </h5><span>:</span>
+
+            <h5 class="d-flex flex-column mx-2"><span id="seconds" class="text-center">00</span><strong>Seconds</strong>
+            </h5>
+         </div>
+      </div>
    </div>
    <div class="overlay_popup">
       <dialog class="dialog_box" id="dialogue">
@@ -807,7 +812,7 @@
          // alert(days*24)
          // document.getElementById("days").innerHTML = days; 
          document.getElementById("seconds").innerHTML = seconds;
-         document.getElementById("hours").innerHTML = parseInt(hours)+(days*24);
+         document.getElementById("hours").innerHTML = parseInt(hours) + (days * 24);
          document.getElementById("minutes").innerHTML = minutes;
          // document.querySelector("#time").innerHTML = clockTime;
          // If the count down is finished, write some text    
