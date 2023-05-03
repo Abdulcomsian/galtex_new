@@ -10,6 +10,29 @@
    .collapsable-header h1.product_name {
       font-size: 18px;
    }
+   .slick-list .slick-track{
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px 10px lightgray;
+   }
+   .slick-list .slick-track .slick-active{
+      right: 0 !important;
+   }
+   .slick-list .slick-track img{
+      right: 0 !important;
+      margin-bottom: 10px !important;
+   }
+   .product_main_item .slick-list .slick-track img{
+      margin-bottom: 0 !important;
+   }
+   .product_main_item .slick-list .slick-track img:not(.slick-active){
+      display: none !important;
+   }
+
+   /* .product_thumb_item{
+      margin-left: 0;
+      /* width: 100% !important; */
+   /* } */
 
    /* .slick-track{
       width: 100% !important;
@@ -152,45 +175,45 @@
                               <?php } ?>
                            </div>
                         </div>
-                        <div class="col-md-6 ">
+                        <div class="col-md-6  ">
                            <div class="single_slider_main clearfix">
-                              <div class="product_slider_thumb arrow_center  ">
-                                 <div class="product_thumb_item">
-                                    <div class="thumb_inner">
-                                       <img src="<?php echo $product['product_main_photo']; ?>" alt="main-photo" />
-
-                                    </div>
-                                 </div>
-                                 
-                                 
-                                 <?php foreach ($product['product_gallery_images'] as $image) { ?>
-                                    <div class="product_thumb_item">
-                                       <div class="thumb_inner">
-                                          <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>"
-                                             alt="gallery-image" />
-
-                                       </div>
-
-                                    </div>
-                                 <?php } ?>
-                              </div>
                               <div class="product_slider_main">
-                                 <div class="product_main_item ex1">
-                                    <img src="<?php echo $product['product_main_photo']; ?>" alt="main-photo" />
-                                    <!-- <p class="productName">
-                                       <?php #echo $product['product_name'] ?>
-                                    </p> -->
-                                 </div>
-
-                                 <?php foreach ($product['product_gallery_images'] as $image) { ?>
-                                    <div class="product_main_item ex1">
-                                       <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>"
-                                          alt="gallery-image" />
-                                    </div>
+                                 <div class="product_main_item ">
+                                    <img src="<?php echo $product["product_main_photo"]; ?>" alt="main-photo" />
+                                    <?php foreach (
+                                    $product["product_gallery_images"]
+                                    as $image
+                                    ) { ?>
+                                 
+                                 <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image" />
+                                    
                                  <?php } ?>
+                                    </div>
                               </div>
+
+
+                      <div class="product_slider_thumb arrow_center zoomIn">
+                           <div class="product_thumb_item" style="height: 100%; padding: 5px">
+                           <div class="thumb_inner">
+                                 <img src="<?php echo $product[
+                                    "product_main_photo"
+                                 ]; ?>" alt="main-photo" />
+                               <?php foreach (
+                                 $product["product_gallery_images"]
+                                 as $image
+                              ) { ?>
+                          
+                               <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image" />
+
+                             
+                        <?php } ?>
                            </div>
-                        </div>
+                           </div>
+
+                             
+                      </div>
+                  </div>
+            </div>
                      </div>
                   </div>
                </div>
@@ -378,5 +401,6 @@
 
 
 <script>
+
 
 </script>
