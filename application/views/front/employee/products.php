@@ -11,6 +11,18 @@
       transition: all 1.5s;
 
    }
+   .overlay_popup {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: rgba(0, 0, 0, -1.5);
+      width: 100%;
+      height: 100%;
+      backdrop-filter: brightness(0.3) blur(7px);
+      z-index: 100;
+      transition: all 1.5s;
+
+   }
 
    .mobile-hide {
       height: 100%;
@@ -49,14 +61,15 @@
 
 
 
-<main class="main_content"><div class="overlay">
-   <dialog class="dialog_box" id="dialogue">
-      <div class="container">
-         <img src="<?php echo base_url(); ?>/assets/images/testImage.png"
-            className="card-img-top rounded"/><span class="close-icon" onclick="document.getElementById('dialogue').close()">&times;</span>
-            <a href="#" >כפתור אישור</a>
-      </div>
-   </dialog>
+<main class="main_content">
+   <div class="overlay_popup">
+      <dialog class="dialog_box" id="dialogue">
+         <div class="container">
+            <img src="<?php echo base_url(); ?>/assets/images/testImage.png" className="card-img-top rounded" /><span
+               class="close-icon">&times;</span>
+            <a href="#">כפתור אישור</a>
+         </div>
+      </dialog>
    </div>
    <div class="product_main">
       <div class="container">
@@ -732,6 +745,9 @@
       this.classList.add('d-none')
       document.querySelector('.mobile-hide').style.transform = 'translate(100%)';
    });
-
+   document.querySelector('.overlay_popup').addEventListener('click', function (e) {
+      this.classList.add('d-none')
+      document.querySelector('.mobile-hide').style.transform = 'translate(100%)';
+   });
 
 </script>
