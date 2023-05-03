@@ -49,14 +49,14 @@
 
 
 
-<main class="main_content"><div>
-   <!-- <dialog class="dialog_box" id="dialogue">
+<main class="main_content"><div class="overlay">
+   <dialog class="dialog_box" id="dialogue">
       <div class="container">
          <img src="<?php echo base_url(); ?>/assets/images/testImage.png"
             className="card-img-top rounded"/><span class="close-icon" onclick="document.getElementById('dialogue').close()">&times;</span>
             <a href="#" >כפתור אישור</a>
       </div>
-   </dialog> -->
+   </dialog>
    </div>
    <div class="product_main">
       <div class="container">
