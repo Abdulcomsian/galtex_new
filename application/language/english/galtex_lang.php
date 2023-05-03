@@ -404,4 +404,7 @@ $lang['last_item'] = 'last items';
 $lang['Category'] = 'Category';
 $lang['Another_Category'] = 'Another Category';
 $lang['Someother_Category'] = 'Someother Category';
+$lang['days'] = 'Days';
+$lang['hours'] = 'Hours';
+$lang['minute'] = 'Minute';
 ?>

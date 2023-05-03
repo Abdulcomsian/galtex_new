@@ -257,6 +257,7 @@ $lang['are_you_want_to_remove'] = 'להסיר את המוצר מהעגלה?';
 $lang['product_removed_from_cart'] = 'מוצר הוסר מהעגלה בהצלחה';
 $lang['upload'] = 'העלה';
 
+
 $lang['upload_products'] = 'העלה מוצרים';
 $lang['product_csv_empty'] = 'Product CSV is empty';
 $lang['require_product_csv_file'] = 'נדרש אקסל מוצרים';
@@ -408,4 +409,7 @@ $lang['last_item'] = 'פריטים אחרונים';
 $lang['Category'] = 'קטגוריה';
 $lang['Another_Category'] = 'קטגוריה נוספת';
 $lang['Someother_Category'] = 'קטגוריה אחרת';
+$lang['days'] = 'ימים';
+$lang['hours'] = 'שעות';
+$lang['minute'] = 'דקות';
 ?>
