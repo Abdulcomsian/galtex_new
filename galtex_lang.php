@@ -201,6 +201,7 @@ $lang['account_blocked_pending'] = 'החשבון שלך נחסם/ לא אושר.
 $lang['my_profile'] = 'הפרופיל שלי';
 $lang['personal_details'] = 'פרטים אישיים';
 $lang['budget_categories'] = 'תקציב קטגוריות';
+$lang['budget_title'] = 'סנן לפי קטגוריה';
 $lang['main_categories'] = 'קטגוריות ראשיות';
 $lang['add_to_cart'] = 'הוסף לעגלה';
 $lang['quantity'] = 'כמות';

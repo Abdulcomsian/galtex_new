@@ -11,6 +11,7 @@
       transition: all 1.5s;
 
    }
+
    .overlay_popup {
       position: absolute;
       top: 0;
@@ -104,6 +105,9 @@
                         <div class="cat_sidebar">
                            <div class="sidebar_block">
                               <h4 class="sidebar_head wow fadeInDown">
+                                 סנן לפי קטגוריה
+                              </h4>
+                              <h4 class="sidebar_head wow fadeInDown" style="font-size:18px">
                                  <?php echo lang('budget_categories'); ?>
                               </h4>
                               <ul class="list-unstyled catlist_item">
@@ -132,9 +136,22 @@
                                        </label>
                                     </li>
                                  <?php } ?>
+                                 <?php if ($categories['data']['total_records']) {
+                                    foreach ($categories['data']['records'] as $category) { ?>
+                                       <li class="wow fadeInLeft" data-wow-delay="0.3s">
+                                          <input type="checkbox" id="category_<?php echo $category['category_guid']; ?>"
+                                             name="main_category[]" value="<?php echo $category['category_guid']; ?>" <?php echo in_array($category['category_guid'], $main_categories) ? 'checked' : '' ?>
+                                             class="main_categories" />
+                                          <label for="category_<?php echo $category['category_guid']; ?>">
+                                             <span><i class="fas fa-check"></i></span>
+                                             <?php echo $category['category_name']; ?>
+                                          </label>
+                                       </li>
+                                    <?php }
+                                 } ?>
                               </ul>
                            </div>
-                           <div class="sidebar_block">
+                           <!-- <div class="sidebar_block">
                               <h4 class="sidebar_head wow fadeInDown">
                                  <?php echo lang('main_categories'); ?>
                               </h4>
@@ -153,7 +170,7 @@
                                     <?php }
                                  } ?>
                               </ul>
-                           </div>
+                           </div> -->
                            <!-- <div class="sidebar_block hide_mobile">
                            <div class="new_arrival wow fadeInUp" data-wow-delay="0.4s">
                               <img src="images/new_arrival.jpg">
@@ -475,7 +492,7 @@
                               <!------ Single Image ---->
                               <?php #echo "<pre>";print_r($packages['data']['records']); exit; ?>
                               <?php foreach ($packages['data']['records'] as $package) { ?>
-                                 <div class="prod_coll col-sm-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                                 <div class="prod_coll col-sm-6 col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                                     <div class="proimage">
                                        <?php
                                        $i = 0;

@@ -206,6 +206,7 @@ $lang['account_blocked_pending'] = 'Your account has been blocked or pending, Pl
 $lang['my_profile'] = 'My Profile';
 $lang['personal_details'] = 'Personal Details';
 $lang['budget_categories'] = 'Budget Categories';
+$lang['budget_title'] = 'Filter by category';
 $lang['main_categories'] = 'Main Categories';
 $lang['add_to_cart'] = 'ADD TO CART';
 $lang['quantity'] = 'Quantity';
