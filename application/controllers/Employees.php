@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  * This Class used as employees management
@@ -8,45 +8,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author    Sorav Garg (soravgarg123@gmail.com/+919074939905)
  */
 
-class Employees extends Web_Controller_Secure {
+class Employees extends Web_Controller_Secure
+{
 
-	function __construct() {
+    function __construct()
+    {
         parent::__construct();
-        $this->load->model('Categories_model');    
+        $this->load->model('Categories_model');
         $this->load->model('Products_model');
         $this->load->model('Shop_model');
         $this->load->model('Employee_model');
         $this->load->model('Orders_model');
     }
 
-	/**
+    /**
      * Function Name: products
      * Description:   To show shop products
      */
-	public function products()
-	{
-		$data['title'] = lang('products');
+    public function products()
+    {
+        $data['title'] = lang('products');
 
         /* Get Categories */
         // $data['categories'] = $this->Categories_model->get_categories('category_name',array('order_by' => 'category_name', 'sequence' => 'ASC','clientid'=> $this->client_id),TRUE);
-        $data['categories'] = $this->Categories_model->get_categories1('category_name',array('order_by' => 'category_name', 'sequence' => 'ASC','clientid'=> $this->client_id),TRUE);
+        $data['categories'] = $this->Categories_model->get_categories1('category_name', array('order_by' => 'category_name', 'sequence' => 'ASC', 'clientid' => $this->client_id), TRUE);
         /* Filter Budget Categories */
-        $data['budget_categories'] = array('within','above');
+        $data['budget_categories'] = array('within', 'above');
 
-        if(!empty($this->input->get('budget_categories'))){
+        if (!empty($this->input->get('budget_categories'))) {
             $data['budget_categories'] = explode(",", $this->input->get('budget_categories'));
         }
 
         /* Filter Main Categories */
         $data['main_categories'] = array();
-        if(!empty($this->input->get('main_categories'))){
+        if (!empty($this->input->get('main_categories'))) {
             $data['main_categories'] = explode(",", $this->input->get('main_categories'));
         }
 
         /* Get Shop Products */
         $data['within_the_budget_products'] = $data['products_data'] = $data['above_the_budget_products'] = $data['packages'] = array();
-        
-        
+
+
         // if(in_array('within',$data['budget_categories'])){
         //     $data['within_the_budget_products'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,product_guid,product_descprition,remaining_quantity',array('shop_category' => 'Within Budget', 'client_id' => $this->client_id, 'client_status' => 'Liked', 'main_categories' => $data['main_categories']),TRUE);
         //     /* Get Packages */
@@ -59,20 +61,24 @@ class Employees extends Web_Controller_Secure {
 
         // if(in_array('above',$data['budget_categories'])){
         //     $data['above_the_budget_products'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,product_guid,product_descprition,above_budget_price,remaining_quantity',array('shop_category' => 'Above Budget', 'client_id' => $this->client_id, 'client_status' => 'Liked', 'main_categories' => $data['main_categories'], 'order_by' => 'shop_product_id', 'sequence' => 'RANDOM'),TRUE);
-       
+
         //     $data['packages'] = $this->Shop_model->get_packages('package_name,no_of_products,products,product_ids,remaining_quantity',array('client_id' => $this->client_id, 'client_status' => 'Liked'),TRUE);
         // }
-        $data['products_data'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,product_guid,product_descprition,above_budget_price, remaining_quantity',array('shop_category' => ['Within Budget', 'Above Budget'], 'client_id' => $this->client_id, 'client_status' => 'Liked', 'main_categories' => $data['main_categories']),TRUE);
-        $data['packages'] = $this->Shop_model->get_packages('package_name,no_of_products,products,product_ids,remaining_quantity',array('client_id' => $this->client_id, 'client_status' => 'Liked'),TRUE);
+        $data['products_data'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,product_guid,product_descprition,above_budget_price, remaining_quantity', array('shop_category' => ['Within Budget', 'Above Budget'], 'client_id' => $this->client_id, 'client_status' => 'Liked', 'main_categories' => $data['main_categories']), TRUE);
+        $data['packages'] = $this->Shop_model->get_packages('package_name,no_of_products,products,product_ids,remaining_quantity', array('client_id' => $this->client_id, 'client_status' => 'Liked'), TRUE);
 
 
 
-         //echo"<pre>";print_r($data);exit;
-         /* Get Latest Order Details */
-        $data['order_details'] = $this->Orders_model->get_orders('amount,order_status,created_date,cancelled_date,order_id,order_product_details',array('user_id' => $this->session_user_id, 'payment_status' => 'Success', 'order_by' => 'order_id', 'sequence' => 'DESC','order_status'=>1));
         //echo"<pre>";print_r($data);exit;
-		$this->layout->load('default','front/employee/products',$data);
-	} 
+        /* Get Latest Order Details */
+        $data['order_details'] = $this->Orders_model->get_orders('amount,order_status,created_date,cancelled_date,order_id,order_product_details', array('user_id' => $this->session_user_id, 'payment_status' => 'Success', 'order_by' => 'order_id', 'sequence' => 'DESC', 'order_status' => 1));
+        //echo"<pre>";print_r($data);exit;
+
+        $data['client_information'] = $this->Users_model->get_users('user_id,is_admin,user_status,user_type_guid,user_type_id,user_image,first_name,last_name,client_id,client_deadline,email,deadline', array('user_id' => $this->client_id));
+
+
+        $this->layout->load('default', 'front/employee/products', $data);
+    }
 
     /**
      * Function Name: profile
@@ -83,12 +89,12 @@ class Employees extends Web_Controller_Secure {
         $data['title'] = lang('view_profile');
 
         /* To Get User Details */
-        $data['details'] = $this->Users_model->get_users('first_name,last_name,phone_number,total_credits',array('user_id' => $this->session_user_id));
+        $data['details'] = $this->Users_model->get_users('first_name,last_name,phone_number,total_credits', array('user_id' => $this->session_user_id));
 
         /* Get Latest Order Details */
-        $data['order_details'] = $this->Orders_model->get_orders('amount,order_status,created_date,cancelled_date,order_id,order_product_details',array('user_id' => $this->session_user_id, 'payment_status' => 'Success', 'order_by' => 'order_id', 'sequence' => 'DESC'));
-        $this->layout->load('default','front/employee/edit-profile',$data);
-    } 
+        $data['order_details'] = $this->Orders_model->get_orders('amount,order_status,created_date,cancelled_date,order_id,order_product_details', array('user_id' => $this->session_user_id, 'payment_status' => 'Success', 'order_by' => 'order_id', 'sequence' => 'DESC'));
+        $this->layout->load('default', 'front/employee/edit-profile', $data);
+    }
 
     /**
      * Function Name: product_details
@@ -98,13 +104,13 @@ class Employees extends Web_Controller_Secure {
     {
         //echo $product_guid;exit;
         /* Get Products Details */
-        $data['details'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,product_guid,product_gallery_images,warranty,product_descprition,above_budget_price,remaining_quantity',array('product_guid' => $product_guid, 'client_id' => $this->client_id));
+        $data['details'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,product_guid,product_gallery_images,warranty,product_descprition,above_budget_price,remaining_quantity', array('product_guid' => $product_guid, 'client_id' => $this->client_id));
         //obaid work assign client id
 
-        $data['title'] = lang('product').' :: '.$data['details']['product_name'];
+        $data['title'] = lang('product') . ' :: ' . $data['details']['product_name'];
         // echo"<pre>";print_r($data);exit;
-        $this->layout->load('default','front/employee/product_details',array_merge($data,is_product_into_cart($product_guid)));
-    } 
+        $this->layout->load('default', 'front/employee/product_details', array_merge($data, is_product_into_cart($product_guid)));
+    }
 
     /**
      * Function Name: packgae_details
@@ -113,12 +119,12 @@ class Employees extends Web_Controller_Secure {
     public function packgae_details($package_guid)
     {
         /* Get Package Details */
-        $data['details'] = $this->Shop_model->get_packages('package_name,no_of_products,products,product_ids,remaining_quantity',array('package_guid' => $package_guid));
+        $data['details'] = $this->Shop_model->get_packages('package_name,no_of_products,products,product_ids,remaining_quantity', array('package_guid' => $package_guid));
 
-        $data['title'] = lang('package').' :: '.$data['details']['package_name'];
+        $data['title'] = lang('package') . ' :: ' . $data['details']['package_name'];
 
-        $this->layout->load('default','front/employee/packgae_details',array_merge($data,is_product_into_cart($package_guid)));
-    } 
+        $this->layout->load('default', 'front/employee/packgae_details', array_merge($data, is_product_into_cart($package_guid)));
+    }
 
     /**
      * Function Name: cart
@@ -126,23 +132,23 @@ class Employees extends Web_Controller_Secure {
      */
     public function cart()
     {
-		#
-        if(!empty($this->input->post('quantities'))){ 
-            foreach($this->input->post('quantities') as $rowid => $item){
+        #
+        if (!empty($this->input->post('quantities'))) {
+            foreach ($this->input->post('quantities') as $rowid => $item) {
                 $this->cart->update(array('rowid' => $rowid, 'qty' => $item));
             }
             redirect('employees/cart');
-        }else{ 
+        } else {
             $data['title'] = lang('cart_details');
-            $data['cart']  = $this->cart->contents();
+            $data['cart'] = $this->cart->contents();
 
             /* To Get User Credits */
-            $data['user_details'] = $this->Users_model->get_users('total_credits',array('user_id' => $this->session_user_id));
-			
-			#echo "<pre>";print_r($data);exit;
-            $this->layout->load('default','front/employee/cart',$data);
+            $data['user_details'] = $this->Users_model->get_users('total_credits', array('user_id' => $this->session_user_id));
+
+            #echo "<pre>";print_r($data);exit;
+            $this->layout->load('default', 'front/employee/cart', $data);
         }
-    } 
+    }
 
     /**
      * Function Name: remove_from_cart
@@ -150,13 +156,13 @@ class Employees extends Web_Controller_Secure {
      */
     public function remove_from_cart($row_id)
     {
-        if(!$this->cart->remove($row_id)){
-            $this->session->set_flashdata('error',lang('error_occured'));
-        }else{
-            $this->session->set_flashdata('success',lang('product_removed_from_cart'));
+        if (!$this->cart->remove($row_id)) {
+            $this->session->set_flashdata('error', lang('error_occured'));
+        } else {
+            $this->session->set_flashdata('success', lang('product_removed_from_cart'));
         }
         redirect('employees/cart');
-    } 
+    }
 
     /**
      * Function Name: checkout
@@ -167,16 +173,16 @@ class Employees extends Web_Controller_Secure {
         $data['title'] = lang('checkout');
 
         /* To Get User Details */
-        $data['details'] = $this->Users_model->get_users('first_name,last_name,phone_number',array('user_id' => $this->session_user_id));
-        $data['cart']    = $this->cart->contents();
+        $data['details'] = $this->Users_model->get_users('first_name,last_name,phone_number', array('user_id' => $this->session_user_id));
+        $data['cart'] = $this->cart->contents();
 
         /* To Get User Credits */
-        $data['user_details'] = $this->Users_model->get_users('total_credits',array('user_id' => $this->session_user_id));
+        $data['user_details'] = $this->Users_model->get_users('total_credits', array('user_id' => $this->session_user_id));
 
         /* Get Client Details */
-        $data['client_details'] = $this->Users_model->get_users('delivery_method,client_addresses',array('user_id' => $this->session->userdata('webuserdata')['client_id']));
-        $this->layout->load('default','front/employee/checkout',$data);
-    } 
+        $data['client_details'] = $this->Users_model->get_users('delivery_method,client_addresses', array('user_id' => $this->session->userdata('webuserdata')['client_id']));
+        $this->layout->load('default', 'front/employee/checkout', $data);
+    }
 
     /**
      * Function Name: payment_response
@@ -184,18 +190,18 @@ class Employees extends Web_Controller_Secure {
      */
     public function payment_response()
     {
-        if(!empty($_GET['params'])){
-          $response = $this->Employee_model->update_order($_GET['params'],$this->session_user_id);
-          if($response['status'] == 0){
-            $this->session->set_flashdata('error',$response['message']);
+        if (!empty($_GET['params'])) {
+            $response = $this->Employee_model->update_order($_GET['params'], $this->session_user_id);
+            if ($response['status'] == 0) {
+                $this->session->set_flashdata('error', $response['message']);
+                redirect('employees/cart');
+            } else {
+                $this->session->set_flashdata('success', $response['message']);
+                redirect('employees/profile#myOrder');
+            }
+        } else {
+            $this->session->set_flashdata('error', lang('payment_failed'));
             redirect('employees/cart');
-          }else{
-            $this->session->set_flashdata('success',$response['message']);
-            redirect('employees/profile#myOrder');
-          }
-        }else{
-          $this->session->set_flashdata('error',lang('payment_failed'));
-          redirect('employees/cart');
         }
     }
 }
