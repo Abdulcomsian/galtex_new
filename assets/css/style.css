@@ -674,12 +674,12 @@ html[dir="rtl"] .readMore a img {
   min-height: 80vh;
 }
 
-.main_content .addToCartDiv {
+/* .main_content .addToCartDiv {
   position: absolute;
   z-index: 99;
   top: 20px;
   left: 20px;
-}
+} */
 
 .main_content .addToCartDiv a {
   color: #fff !important;
@@ -694,12 +694,12 @@ html[dir="rtl"] .readMore a img {
   display: none;
 }
 
-.main_content .backToStore {
+/* .main_content .backToStore {
   position: absolute;
   z-index: 99;
   right: 20px;
   top: 20px;
-}
+} */
 
 .main_content .additionalCosts {
   color: #fff;
@@ -1350,7 +1350,7 @@ html[dir="rtl"] .shoppingCart .cartList ul li .itemCart .itemDetail h5 {
     left: 0px !important;
   }
   .product_details_card {
-    margin-right: 160px;
+    /* margin-right: 160px; */
   }
 }
 

@@ -1957,16 +1957,24 @@ html[dir="rtl"] .get_opt {
 }
 
 .add_to_card {
-  padding: 15px;
+  padding: 15px 15px 1px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
 }
 
-.add_to_card .addToCartDiv {
+.cart_sec .add_to_card{
+  flex-direction: row;
+}
+
+/* .add_to_card .addToCartDiv {
   margin-left: 100px;
-}
+} */
 
-.add_to_card .backToStore {
+/* .add_to_card .backToStore {
   margin-right: 120px;
-}
+} */
 
 .product_display {
   display: flex;

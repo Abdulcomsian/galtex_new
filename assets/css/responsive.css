@@ -12,7 +12,12 @@
 	.logo_main{
 		margin-right: 29px;
 	}
-	
+	.add_to_card .addToCartDiv{
+		     margin-left: 100px;
+	}
+	.add_to_card .backToStore {
+		margin-right: 120px;
+	}
 }
 
 @media (max-width: 1199px) {
