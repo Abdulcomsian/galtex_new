@@ -753,6 +753,9 @@
 }
 
 @media (max-width: 575px) {
+  .card-header .btn-link {
+    white-space: pre-line;
+  }
   .packages_por p.tag {
     left: 33% !important;
     width: auto !important;
