@@ -847,4 +847,16 @@
   .logo_main img {
     max-width: 60px;
   }
+
+  .card-header .btn-link {
+    font-size: 16px;
+    text-align: right;
+  }
+  .product-button {
+    padding-top: 0;
+  }
+  .mobileProductBtn font {
+    position: relative;
+    bottom: 4px;
+  }
 }
