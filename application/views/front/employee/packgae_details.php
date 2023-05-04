@@ -10,10 +10,13 @@
    .collapsable-header h1.product_name {
       font-size: 18px;
    }
+   .slick-list{
+      width: 100% !important;
+      height: 100% !important;
+   }
    .slick-list .slick-track{
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 0 10px 10px lightgray;
    }
    .slick-list .slick-track .slick-active{
       right: 0 !important;
@@ -29,6 +32,13 @@
       display: none !important;
    }
 
+   .thumb_inner .slick-track{
+      padding: 4px;
+   }
+
+   .thumb_inner .slick-track img{
+      box-shadow: 0 0 9px -1px lightgray;
+   }
    /* .product_thumb_item{
       margin-left: 0;
       /* width: 100% !important; */
@@ -194,14 +204,14 @@
                                <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image" />
 
                              
-                        <?php } ?>
+                                 <?php } ?>
                            </div>
                            </div>
 
                              
                       </div>
                       <div class="product_slider_main">
-                                 <div class="product_main_item ">
+                                 <div class="product_main_item " style="width: 100%; height: 100%">
                                     <img src="<?php echo $product["product_main_photo"]; ?>" alt="main-photo" />
                                     <?php foreach (
                                     $product["product_gallery_images"]

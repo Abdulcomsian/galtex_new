@@ -41,9 +41,9 @@ $(document).ready(function () {
     focusOnSelect: true,
     rtl: rtl_slick(),
   }); // ZOOM
-  if ($(".ex1").length > 0) {
-    $(".ex1").zoom();
-  }
+  // if ($(".ex1").length > 0) {
+  //   $(".ex1").zoom();
+  // }
 
   if ($(".touch-spin-count").length > 0) {
     $(".touch-spin-count").TouchSpin({

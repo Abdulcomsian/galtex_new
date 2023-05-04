@@ -2,6 +2,18 @@
    .product_thumb_item.slick-slide.slick-cloned {
       display: none !import
    }
+
+   .product_slider_main{
+      box-shadow: 0 0 9px -1px lightgray !important;
+   }
+
+   .thumb_inner .slick-track{
+      padding: 10px;
+   }
+   .thumb_inner .slick-track img{
+      box-shadow: 0 0 9px -1px lightgray;
+   }
+   
 </style>
 <main class="main_content">
    <div class="add_to_card">
@@ -157,11 +169,11 @@
                                  <?php } ?>
                               </div>
                               <div class="product_slider_main">
-                                 <div class="product_main_item ex1">
+                                 <div class="product_main_item ex1" style="width: 100%; height: 100%">
                                     <img src="<?php echo $details['product_main_photo']; ?>" alt="main-image" />
                                  </div>
                                  <?php foreach ($details['product_gallery_images'] as $image) { ?>
-                                    <div class="product_main_item ex1">
+                                    <div class="product_main_item ">
                                        <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>"
                                           alt="gallery-image" />
                                     </div>
