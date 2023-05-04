@@ -177,19 +177,7 @@
                         </div>
                         <div class="col-md-6  ">
                            <div class="single_slider_main clearfix">
-                              <div class="product_slider_main">
-                                 <div class="product_main_item ">
-                                    <img src="<?php echo $product["product_main_photo"]; ?>" alt="main-photo" />
-                                    <?php foreach (
-                                    $product["product_gallery_images"]
-                                    as $image
-                                    ) { ?>
-                                 
-                                 <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image" />
-                                    
-                                 <?php } ?>
-                                    </div>
-                              </div>
+                              
 
 
                       <div class="product_slider_thumb arrow_center zoomIn">
@@ -212,6 +200,19 @@
 
                              
                       </div>
+                      <div class="product_slider_main">
+                                 <div class="product_main_item ">
+                                    <img src="<?php echo $product["product_main_photo"]; ?>" alt="main-photo" />
+                                    <?php foreach (
+                                    $product["product_gallery_images"]
+                                    as $image
+                                    ) { ?>
+                                 
+                                 <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image" />
+                                    
+                                 <?php } ?>
+                                    </div>
+                              </div>
                   </div>
             </div>
                      </div>

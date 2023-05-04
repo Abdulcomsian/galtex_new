@@ -503,7 +503,7 @@
                         <!-- obaid work end -->
 
                         <?php if (!empty($within_the_budget_products) || !empty($packages)) { ?>
-                           <div class="list_row packages_por row">
+                           <div class="list_row packages_por row col-12">
                               <?php if (!empty($packages)) { ?>
                                  <div class="col-sm-12" style="display: none;">
                                     <h2 class="head_common2 wow fadeInRight mobileHide">
@@ -515,7 +515,7 @@
                               <!------ Single Image ---->
                               <?php #echo "<pre>";print_r($packages['data']['records']); exit; ?>
                               <?php foreach ($packages['data']['records'] as $package) { ?>
-                                 <div class="prod_coll col-sm-6 col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                                 <div class="prod_coll col-sm-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
                                     <div class="proimage">
                                        <?php
                                        $i = 0;
