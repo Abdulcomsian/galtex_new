@@ -63,7 +63,7 @@
         <div class="container-fluid">
 
           <div class="logo_main">
-            <a href="<?php echo base_url(); ?>"> <img src="assets/images/logo.png" alt="logo" style="width: 100%;"></a>
+            <a href="<?php echo base_url(); ?>"> <img src="uploads/company/logoImg.svg" alt="logo" style="width: 80%;"></a>
           </div>
           <!--     <div class="change-language desktopHide">
                     <ul>
@@ -111,14 +111,14 @@
                             <a class="nav-link" href="<?php echo base_url(); ?>"><?php echo lang('contact_us'); ?></a>
                         </li>
                     </ul> -->
-            <select class="form-control change-language col-sm-2 mobileHide">
+            <!-- <select class="form-control change-language col-sm-2 mobileHide">
               <option value="en" <?php if ($this->session->userdata('language') == 'en')
                 echo "selected"; ?>>English (EN)
               </option>
               <option value="he" <?php if ($this->session->userdata('language') == 'he')
                 echo "selected"; ?>>Hebrew (HE)
               </option>
-            </select>
+            </select> -->
             <!--  <div class="socialMedia">
                       <p>Visit us on Social Media</p>
                       <ul class="social_main list-unstyled mb-0">
@@ -160,7 +160,7 @@
           </div>
         </div>
       </div>
-      <div class="borderTopRadiusDiv"></div>
+      <!-- <div class="borderTopRadiusDiv"></div> -->
       <div class="card login-form">
         <!-- <div class="row">
             <div class="login-rigth-image col-md-6" style="background-image: url(assets/images/login-right.jpg);">&nbsp;</div> -->
@@ -264,7 +264,7 @@
 
 
       </div>
-      <div class="borderBottomRadiusDiv"></div>
+      <!-- <div class="borderBottomRadiusDiv"></div> -->
 
     </div>
     </div>

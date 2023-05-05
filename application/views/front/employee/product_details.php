@@ -13,9 +13,15 @@
    .thumb_inner .slick-track img{
       box-shadow: 0 0 9px -1px lightgray;
    }
+
+   /* @media screen and (max-width: 767px) {
+      .product_slider_main{
+         box-shadow: none !important;
+      }
+   } */
    
 </style>
-<main class="main_content">
+<main class="main_content" >
    <div class="add_to_card">
       <div class="addToCartDiv"><!-- remove the class(desktopHide)-->
          <?php if ($details['remaining_quantity'] > 0) { ?>
@@ -100,7 +106,7 @@
 
             <div class="col-md-12"><!-- remove class(mobileHide)-->
                <div class="product_right">
-                  <div>
+                  <div class="product_description_details">
                      <div class="col-md-12 text-center mt-4">
                         <h2 class="product_name wow bounce">
                            <?php echo $details['product_name']; ?>
@@ -134,7 +140,7 @@
                </div>
                <div class="col-md-12">
                   <div class="row" style="justify-content: center;">
-                     <div class="row">
+                     <div class="row product_direction">
                         <div class="col-md-6">
                            <div class="product_right">
                               <div class="row">
@@ -282,3 +288,14 @@
       </div>
    </div>
 </main>
+
+<script>
+   window.addEventListener('resize', function(event) {
+  var clientWidth = window.innerWidth;
+  if(clientWidth<=768)
+  {
+   var card = document.getElementById("card_remove");
+   console.log(card);
+   card.classList.remove('card');
+  }
+</script>
