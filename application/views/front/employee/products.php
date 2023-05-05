@@ -35,7 +35,7 @@
 
    .filter {
       position: sticky;
-      top: 90%;
+      top: 81%;
       padding: 21px;
       box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.2);
    }
