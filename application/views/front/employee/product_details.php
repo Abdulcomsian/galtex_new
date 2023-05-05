@@ -53,7 +53,7 @@
                </div>
             </div>
          </section> -->
-   <section class="inner_banner_sec productBg desktopHide"
+   <!-- <section class="inner_banner_sec productBg desktopHide"
       style="background-image: url(<?php echo $details['product_main_photo']; ?>);">
       <div class="innerbanner_cap text-center">
          <div class="container">
@@ -67,10 +67,10 @@
             </div>
          </div>
       </div>
-   </section>
+   </section> -->
    <div class="single_product_page">
       <div class="container card product_details_card">
-         <div class="row" style="margin-bottom: 10px;">
+         <!-- <div class="row" style="margin-bottom: 10px;">
             <div class="col-12 text-right">
                <?php if (!empty($details['above_budget_price'])) { ?>
                   <a href="" class="additionalCosts desktopHide">
@@ -95,10 +95,10 @@
                   </div>
                </div>
             </div>
-         </div>
+         </div> -->
          <div><!--remove class(row)-->
 
-            <div class="col-md-12 mobileHide">
+            <div class="col-md-12"><!-- remove class(mobileHide)-->
                <div class="product_right">
                   <div>
                      <div class="col-md-12 text-center mt-4">
@@ -150,7 +150,7 @@
                            </div>
                         </div>
                         <div class="col-md-6 wow fadeInUp mobileBackground">
-                           <div class="single_slider_main clearfix mobileHide productDetailDiv mobileHide">
+                           <div class="single_slider_main clearfix  productDetailDiv "><!-- remove class(mobileHode)-->
                               <div class="product_slider_thumb arrow_center wow zoomIn">
                                  <div class="product_thumb_item">
                                     <div class="thumb_inner">
@@ -183,7 +183,7 @@
 
                            </div>
 
-                           <div class="sliderProduct productDetailDiv" dir="rtl" style="display: none;">
+                           <!-- <div class="sliderProduct productDetailDiv" dir="rtl" style="display: none;">
                               <div class="productImage">
                                  <div class="product_thumb_item">
                                     <div class="thumb_inner">
@@ -203,7 +203,7 @@
                                     </div>
                                  </div>
                               <?php } ?>
-                           </div>
+                           </div> -->
 
                         </div>
                      </div>
@@ -246,7 +246,7 @@
             <div class="col-md-6 text-right desktopHide">
                <!-- <p style="line-height: 22px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec maximus enim non mattis pharetra. Nulla hendrerit semper sem sed luctus. Maecenas vulputate lacinia ipsum ac rhoncus. Fusce ultricies quam at velit pharetra tempus eu nec ante. Etiam augue tellus, finibus sit amet consequat non, mattis aliquet quam. Nulla blandit, elit id congue luctus, nisl augue mollis odio, non suscipit magna justo quis massa. Nam maximus nisl vitae sollicitudin sollicitudin. Duis sed eleifend urna. Nunc blandit eget quam id lobortis. Nam eget egestas velit.</p> -->
             </div>
-            <div class="col-md-6 cartDiv desktopHide">
+            <div class="col-md-6 cartDiv desktopHide mb-4">
                <?php #if((details['remaining_quantity'] > 0) && !empty($details['above_budget_price'])) { 
                if (!empty($details['above_budget_price'])) {
                   ?>

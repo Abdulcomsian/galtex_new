@@ -405,12 +405,12 @@
 	.packageHeader{
 		background-color: #fff !important;
 	}
-	.single_product_page{
+	/* .single_product_page{
 		border-radius: 20px 20px 0px 0px;
 		background: #fff;
 		position: relative;
 		top: -35px;
-	}
+	} */
 	.sliderProduct{
 		display: block !important;
 	}
