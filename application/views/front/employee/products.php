@@ -63,10 +63,10 @@
 
 
 <main class="main_content">
-   <div class="container">
+   <div class="container clock_container">
       <div class="card" >
          <div class="timerClock text-start deadline">
-            <div>
+            <div class="clock_caption">
                <!-- <h5 class="d-flex flex-column mx-1"><span id="days" class="text-center">00</span><span>Day</span></h5> -->
                <h5 class="d-flex flex-column mx-4"><span  class="text-center">האתר יסגר בעוד:</h5>
             </div>
@@ -215,7 +215,7 @@
                            <img src="<?php echo base_url(); ?>assets/images/filter.svg">
                         </li>
                      </ul>
-                  </div>
+                  </div> 
                   <div class="col-12 product_display">
 
                      <?php $type = $_REQUEST['budget_categories']; ?>
