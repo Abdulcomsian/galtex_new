@@ -63,7 +63,7 @@
         <div class="container-fluid">
 
           <div class="logo_main">
-            <a href="<?php echo base_url(); ?>"> <img src="uploads/company/logoImg.svg" alt="logo" style="width: 80%;"></a>
+            <a href="<?php echo base_url(); ?>"> <img src="uploads/company/logoImg.svg" alt="logo" style="width: 100%;"></a>
           </div>
           <!--     <div class="change-language desktopHide">
                     <ul>

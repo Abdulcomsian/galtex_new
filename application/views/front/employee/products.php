@@ -64,23 +64,29 @@
 
 <main class="main_content">
    <div class="container clock_container">
-      <div class="card" >
+      <div class="card">
          <div class="timerClock text-start deadline">
             <div class="clock_caption">
                <!-- <h5 class="d-flex flex-column mx-1"><span id="days" class="text-center">00</span><span>Day</span></h5> -->
-               <h5 class="d-flex flex-column mx-4"><span  class="text-center">האתר יסגר בעוד:</h5>
+               <h5 class="d-flex flex-column mx-4"><span class="text-center">האתר יסגר בעוד:</h5>
             </div>
             <div class="timer">
-            <h5 class="d-flex flex-column mx-2"><span id="days" class="text-center">00</span><strong><?php echo lang('days')?></strong></h5>
-            <span>:</span>
-            <h5 class="d-flex flex-column mx-2"><span id="hours" class="text-center">00</span><strong><?php echo lang('hours')?></strong></h5>
-            <span>:</span>
+               <h5 class="d-flex flex-column mx-2"><span id="days" class="text-center">00</span><strong>
+                     <?php echo lang('days') ?>
+                  </strong></h5>
+               <span>:</span>
+               <h5 class="d-flex flex-column mx-2"><span id="hours" class="text-center">00</span><strong>
+                     <?php echo lang('hours') ?>
+                  </strong></h5>
+               <span>:</span>
 
-            <h5 class="d-flex flex-column mx-2"><span id="minutes" class="text-center">00</span><strong><?php echo lang('minute')?></strong>
-            </h5>
-            <!-- <span>:</span> -->
+               <h5 class="d-flex flex-column mx-2"><span id="minutes" class="text-center">00</span><strong>
+                     <?php echo lang('minute') ?>
+                  </strong>
+               </h5>
+               <!-- <span>:</span> -->
 
-            <!-- <h5 class="d-flex flex-column mx-2"><span id="seconds" class="text-center">00</span><strong>Seconds</strong>
+               <!-- <h5 class="d-flex flex-column mx-2"><span id="seconds" class="text-center">00</span><strong>Seconds</strong>
             </h5> -->
             </div>
          </div>
@@ -117,10 +123,27 @@
          </div>
 
          <div class="content_main_sec">
-            <div class="div_button">
+            <div class="div_button hide_filter">
                <button class="filterButton">filters</button>
 
             </div>
+
+            <div class="div_button hide_filter_desktop">
+               <ul>
+                  <li class="list-inline-item desktopHide filterIconBtn">
+
+                     <div>
+                        <button class="filterButton">filters</button>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+
+            <!-- <div>
+               <div class="div_button ">
+                  <button class="filterButton">filters</button>
+               </div>
+            </div> -->
             <div class="container-fluid">
                <div class="row">
                   <div class="overlay d-none">
@@ -208,14 +231,14 @@
                         </div>
                      </div>
                   </div>
-                  <div class="filterDiv desktopHide">
+                  <!-- <div class="filterDiv desktopHide">
                      <ul>
                         <li class="list-inline-item desktopHide filterIconBtn">
 
                            <img src="<?php echo base_url(); ?>assets/images/filter.svg">
                         </li>
                      </ul>
-                  </div> 
+                  </div> -->
                   <div class="col-12 product_display">
 
                      <?php $type = $_REQUEST['budget_categories']; ?>
@@ -817,10 +840,10 @@
          // clockTime =  hours == "00" ? minutes + ":" + seconds : hours + ":"+ minutes + ":" + seconds;       
          clockTime = days == "00" ? hours + ":" + minutes : days + ":" + hours + ":" + minutes;
          // alert(days*24)
-         document.getElementById("days").innerHTML = days; 
+         document.getElementById("days").innerHTML = days;
          // document.getElementById("seconds").innerHTML = seconds;
          // document.getElementById("hours").innerHTML = parseInt(hours) + (days * 24);
-         document.getElementById("hours").innerHTML =hours;
+         document.getElementById("hours").innerHTML = hours;
          document.getElementById("minutes").innerHTML = minutes;
          // document.querySelector("#time").innerHTML = clockTime;
          // If the count down is finished, write some text    

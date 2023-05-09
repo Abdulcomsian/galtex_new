@@ -111,9 +111,9 @@ $language = $this->session->userdata('language');
       .filterBox .filterHeader button,
       .shoppingCart .headerCart a,
       .mobileHeader button {
-         color: #963491;
-            <?php #echo $color_code; ?>
-         ;
+            color: #963491;
+               <?php #echo $color_code; ?>
+            ;
       }
 
       .btn_common:hover,
@@ -136,7 +136,8 @@ $language = $this->session->userdata('language');
 
       .filterBox .filterCategory .catlist_item li input[type="checkbox"]:checked:after,
       .change-language ul li:nth-child(1):after {
-         background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), #963491
+         /* background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), #963491 */
+         background:#963491;
             <?php #echo $color_code; ?>
          ;
       }
@@ -226,17 +227,20 @@ $language = $this->session->userdata('language');
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <div class="mobileHeader">
                      <div class="row">
-                        <div class="col-6">
-                           <img src="<?php echo base_url(); ?>uploads/company/<?php echo $company_logo; ?>" alt="logo"
-                              style="height:60px;">
-                        </div>
-                        <div class="col-6">
-                           <button>
+                     <div class="col-6">
+                           <button style="color:white">
                               <!-- <img src="<?php echo base_url(); ?>assets/images/closeIcon.svg" alt=""> -->
                               <i class="fa fa-times" aria-hidden="true"></i>
 
                            </button>
                         </div>
+                        <div class="col-6">
+                           <!-- <img src="<?php echo base_url(); ?>uploads/company/<?php echo $company_logo; ?>" alt="logo"
+                              style="height:60px;"> -->
+                              <img src="<?php echo base_url(); ?>/uploads/company/logoImg.svg" alt="logo"
+                              style="height:50px; float:left;">
+                        </div>
+                        
                      </div>
                   </div>
                   <ul class="navbar-nav">
@@ -311,7 +315,7 @@ $language = $this->session->userdata('language');
                            <?php echo lang('logout'); ?>
                         </a>
                      </p>
-                     <p>
+                     <!-- <p>
                         <?php echo lang('social_media'); ?>
                      </p>
                      <ul class="social_main list-unstyled mb-0">
@@ -330,7 +334,7 @@ $language = $this->session->userdata('language');
                         <li class="list-inline-item">
                            <a href="javascript:void(0);" target="_blank"><i class="fab fa-youtube"></i></a>
                         </li>
-                     </ul>
+                     </ul> -->
                   </div>
                </div>
 

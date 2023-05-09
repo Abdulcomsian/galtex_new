@@ -223,13 +223,13 @@
       </div>
     </div>
   </section>
-  <div class="shoppingCart">
+  <!-- <div class="shoppingCart">
     <div class="headerCart">
       <img
         src="<?php echo base_url(); ?>uploads/company/<?php echo $this->session->all_userdata()['webuserdata']['client_configs']['company_logo']; ?>">
       <a href="/">
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        <!-- <img src="<?php echo base_url(); ?>assets/images/rightShoppingIcon.svg"> -->
+        <img src="<?php echo base_url(); ?>assets/images/rightShoppingIcon.svg"> 
       </a>
     </div>
     <div class="cartList">
@@ -297,7 +297,7 @@
       <?php } ?>
     </div>
 
-  </div>
+  </div> -->
 </main>
 
 <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
