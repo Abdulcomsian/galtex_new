@@ -124,7 +124,7 @@
 
          <div class="content_main_sec">
             <div class="div_button hide_filter">
-               <button class="filterButton">filters</button>
+               <button class="filterButton">קטגוריות</button>
 
             </div>
 
@@ -133,7 +133,7 @@
                   <li class="list-inline-item desktopHide filterIconBtn">
 
                      <div>
-                        <button class="filterButton">filters</button>
+                        <button class="filterButton">קטגוריות</button>
                      </div>
                   </li>
                </ul>

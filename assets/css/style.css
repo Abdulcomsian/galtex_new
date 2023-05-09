@@ -1490,7 +1490,7 @@ html[dir="rtl"] .second_col {
   background: transparent linear-gradient(359deg, #262529 0%, #6E6D70 100%) 0% 0% no-repeat padding-box;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  height: 80vh;
+  height: 70vh;
   overflow: scroll;
 }
 
