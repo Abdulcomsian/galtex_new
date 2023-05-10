@@ -292,33 +292,33 @@
                                $i = 1;
                                foreach ($cart as $rowid => $value) {
                                   ; #print_r($value);exit; ?>
-                                                                           <li>
-                                                                              <div class="cart_item_details">
-                                                                              <img onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_want_to_remove'); ?>','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','../employees/remove_from_cart/<?php echo $value['rowid']; ?>')" class="crossImg" src="<?php echo base_url(); ?>assets/images/shoppingCancel.svg">
-                                                                              <div class="itemCart">
-                                                                                 <div class="itemDetail">
-                                                                                    <h5 style="white-space: nowrap;
+                                                                                 <li>
+                                                                                    <div class="cart_item_details">
+                                                                                    <img onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_want_to_remove'); ?>','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','../employees/remove_from_cart/<?php echo $value['rowid']; ?>')" class="crossImg" src="<?php echo base_url(); ?>assets/images/shoppingCancel.svg">
+                                                                                    <div class="itemCart">
+                                                                                       <div class="itemDetail">
+                                                                                          <h5 style="white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;"><?php echo $value['name']; ?></h5>
-                                                                                    <p>
-                                                                                       <span class="test"><?php
-                                                                                       echo CURRENCY_SYMBOL . showCartPrice($i++, $rowid);
-                                                                                       #echo CURRENCY_SYMBOL.$value['price']; ?></span>
-                                                                                       <span>x<?php echo $value['qty']; ?></span>
-                                                                                    </p>
-                                                                                 </div>
-                                                                                 <?php if ($value['options']['type'] == 'package') { ?>
-                                                                                                           <img src="<?php echo $value['options']['product_main_photos'][0]; ?>" width="100" alt="product">
-                                                                                <?php } else { ?>
-                                                                                                            <img src="<?php echo '../uploads/products/' . $value['options']['product_main_photo']; ?>" class="img-fluid img-thumbnail" width="100" alt="product">
-                                                                                <?php } ?>
-                                                                              </div>
-                                                                                </div>
-                                                                            </li>
+                                                                                          <p>
+                                                                                             <span class="test"><?php
+                                                                                             echo CURRENCY_SYMBOL . showCartPrice($i++, $rowid);
+                                                                                             #echo CURRENCY_SYMBOL.$value['price']; ?></span>
+                                                                                             <span>x<?php echo $value['qty']; ?></span>
+                                                                                          </p>
+                                                                                       </div>
+                                                                                       <?php if ($value['options']['type'] == 'package') { ?>
+                                                                                                                    <img src="<?php echo $value['options']['product_main_photos'][0]; ?>" width="100" alt="product">
+                                                                                      <?php } else { ?>
+                                                                                                                     <img src="<?php echo '../uploads/products/' . $value['options']['product_main_photo']; ?>" class="img-fluid img-thumbnail" width="100" alt="product">
+                                                                                      <?php } ?>
+                                                                                    </div>
+                                                                                      </div>
+                                                                                  </li>
                             
-                                                   <?php }
+                                                      <?php }
                             } else { ?>
-                                                     <li style="color: #fff; text-align: center;"><?php echo lang('cart_empty'); ?></li>
+                                                        <li style="color: #fff; text-align: center;"><?php echo lang('cart_empty'); ?></li>
                            <?php } ?>
                         </ul>
                     
@@ -328,17 +328,17 @@
                   <?php if (!empty($cart)) {
                      $total_amount = (array_sum(array_column($cart, 'subtotal')) - $this->session->userdata('webuserdata')['employee_budget']);
                      ?>
-                                              <div class="cartTotal">
-                                                <ul>
-                                                <li><?php echo lang('total'); ?> </li>
-                                                   <li style="font-family: 'AssistantRegular';"><?php echo count($this->cart->contents()); ?>                         <?php echo lang('item'); ?></li>
-                                                   <li ><?php echo CURRENCY_SYMBOL . $total_amount;
-                                                   #$value['price']; ?></li>
-                                                </ul>
-                                             </div>
-                                             <button class="continuePayment">
-                                             <a style="color: #fff !important;" href="checkout"><?php echo lang('continue_payment'); ?></a> 
-                                             </button>
+                                                 <div class="cartTotal">
+                                                   <ul>
+                                                   <li><?php echo lang('total'); ?> </li>
+                                                      <li style="font-family: 'AssistantRegular';"><?php echo count($this->cart->contents()); ?>                            <?php echo lang('item'); ?></li>
+                                                      <li ><?php echo CURRENCY_SYMBOL . $total_amount;
+                                                      #$value['price']; ?></li>
+                                                   </ul>
+                                                </div>
+                                                <button class="continuePayment">
+                                                <a style="color: #fff !important;" href="checkout"><?php echo lang('continue_payment'); ?></a> 
+                                                </button>
                      <?php } ?>
                   </div>
                             </div>
@@ -355,9 +355,9 @@
     <script src="<?php echo base_url(); ?>assets/js/popper.min.js" ></script>
 
     <?php if ($language == 'he') { ?>
-                                <script src="<?php echo base_url(); ?>assets/js/rtl-bootstrap.min.js"></script>
+                                   <script src="<?php echo base_url(); ?>assets/js/rtl-bootstrap.min.js"></script>
     <?php } else { ?>
-                                <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+                                   <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
     <?php } ?>
     
     <script src="<?php echo base_url(); ?>assets/js/fontawesome-all.min.js" ></script>
@@ -376,13 +376,13 @@
    <script type="text/javascript">
    $(document).ready(function(){
      <?php if ($this->session->flashdata('error')) { ?>
-                               showToaster('error',"<?php echo lang('error'); ?>","<?php echo $this->session->flashdata('error') ?>")
+                                  showToaster('error',"<?php echo lang('error'); ?>","<?php echo $this->session->flashdata('error') ?>")
      <?php } ?>
      <?php if ($this->session->flashdata('success')) { ?>
-                               showToaster('success',"<?php echo lang('success'); ?>","<?php echo $this->session->flashdata('success') ?>")
+                                  showToaster('success',"<?php echo lang('success'); ?>","<?php echo $this->session->flashdata('success') ?>")
      <?php } ?>
      <?php if ($this->session->flashdata('order_thankyou')) { ?>
-                               showToaster('success',"<?php echo lang('success'); ?>","<?php echo $this->session->flashdata('order_thankyou') ?>")
+                                  showToaster('success',"<?php echo lang('success'); ?>","<?php echo $this->session->flashdata('order_thankyou') ?>")
      <?php } ?>
    });
 
