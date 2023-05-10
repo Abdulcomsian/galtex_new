@@ -434,7 +434,7 @@
         $(".filterBox").addClass("blockItem")
       })
       $(".filterBox .filterHeader button").click(function(){
-        $(".filterBox").css("left","-310px")
+        $(".filterBox").css("left","-100%")
         $(".main_content").removeClass("blurMe")
         $(".menu_bar").removeClass("blurMe")
          $(".navbar-toggler").css("filter","blur(0px)")

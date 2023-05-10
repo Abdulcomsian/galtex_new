@@ -311,7 +311,7 @@ $language = $this->session->userdata('language');
                      <p class="logoutText">
                         <a href="javascript:void(0);"
                            onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_sure_logout'); ?>','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','<?php echo base_url(); ?>home/logout/<?php echo $this->login_session_key; ?>')">
-                           <span><img src="<?php echo base_url(); ?>assets/images/icon_logout.svg" alt=""></span>
+                           <!-- <span><img src="<?php echo base_url(); ?>assets/images/icon_logout.svg" alt=""></span> -->
                            <?php echo lang('logout'); ?>
                         </a>
                      </p>
@@ -387,12 +387,13 @@ $language = $this->session->userdata('language');
             <div class="filterBox">
                <div class="filterHeader">
                   <div class="closingBtn">
-                     <button>
+                     <button style="color:white">
                         <!-- <img src="<?php echo base_url(); ?>assets/images/closeIcon.svg"> -->
                         <i class="fa fa-times" aria-hidden="true"></i>
                      </button>
                   </div>
                </div>
+               <div class="filter_div">
                <div class="filterCategory">
                   <h4 class="sidebar_head wow fadeInDown">
                      <?php echo lang('budget_categories'); ?>
@@ -443,7 +444,7 @@ $language = $this->session->userdata('language');
                      } ?>
                   </ul>
                </div>
-
+               </div>
             </div>
             <div class="blurEffect">
 

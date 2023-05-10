@@ -424,8 +424,9 @@ html[dir="rtl"] .readMore a img {
   height: 100vh;
   display: none !important;
   z-index: 9999;
-  width: 310px;
-  background: #fefdfd;
+  width: 100%;
+  /* background: #fefdfd; */
+  background: transparent;
   transition: all 0.3s linear;
   -webkit-transition: all 0.3s linear;
   box-shadow: 0 0 5px rgb(0 0 0 / 50%);
@@ -446,6 +447,7 @@ html[dir="rtl"] .readMore a img {
 
 .filterBox .filterCategory {
   padding: 10px 35px;
+  margin-top:20px;
 }
 
 .filterBox .filterCategory h4 {
@@ -1233,7 +1235,7 @@ html[dir="rtl"] .shoppingCart .cartList ul li .itemCart .itemDetail p span:nth-c
 }
 
 .blockItem {
-  display: block !important;
+  display: flex !important;
 }
 
 html[dir="rtl"] .innerbanner_cap.mobileCap h1 {
@@ -1498,4 +1500,9 @@ html[dir="rtl"] .second_col {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+}
+.filter_div {
+  width:100%;
+  background:white
+
 }
