@@ -2209,7 +2209,7 @@ html[dir="rtl"] .get_opt {
 
 .timer {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   flex-direction: row-reverse;
   margin-left: 30px;
 }
