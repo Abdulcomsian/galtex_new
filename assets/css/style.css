@@ -41,32 +41,32 @@ a {
 
 @font-face {
   font-family: "AssistantRegular";
-  src: url("../fonts/Assistant-Regular.TTF");
+  src: url("../fonts/Assistant-Regular.ttf");
 }
 
 @font-face {
   font-family: "AssistantBold";
-  src: url("../fonts/Assistant-Bold.TTF");
+  src: url("../fonts/Assistant-Bold.ttf");
 }
 
 @font-face {
   font-family: "Assistantsemibold";
-  src: url("../fonts/Assistant-SemiBold.TTF");
+  src: url("../fonts/Assistant-SemiBold.ttf");
 }
 
 @font-face {
   font-family: "Assistantsemibold";
-  src: url("../fonts/SEGOEUIB.TTF");
+  src: url("../fonts/SEGOEUIB.ttf");
 }
 
 @font-face {
   font-family: "SegeoSemi";
-  src: url("../fonts/SEGUISB.TTF");
+  src: url("../fonts/SEGUISB.ttf");
 }
 
 @font-face {
   font-family: "SegeoRegular";
-  src: url("../fonts/SEGOEUI.TTF");
+  src: url("../fonts/SEGOEUI.ttf");
 }
 
 .watermark_text .watermark {
