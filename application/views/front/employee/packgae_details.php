@@ -23,7 +23,7 @@
    }
    .slick-list .slick-track img{
       right: 0 !important;
-      margin-bottom: 10px !important;
+      margin: 7px !important;
    }
    .product_main_item .slick-list .slick-track img{
       margin-bottom: 0 !important;
