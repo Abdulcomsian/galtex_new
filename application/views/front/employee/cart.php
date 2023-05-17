@@ -306,6 +306,8 @@
     if ($(window).width() < 768) {
       $(".shoppingCart").css("right", "0px")
       $(".hdr_main").addClass("blurMe")
+      $(".footer_sec").addClass("blurMe")
+      $(".shoppingCart").css("transition", "none")
     }
     window.addEventListener('resize', function (event) {
       if ($(window).width() < 768) {

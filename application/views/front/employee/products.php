@@ -166,7 +166,7 @@
                                        <?php echo lang('within_the_budget'); ?>
                                     </label>
                                  </li>
-                                 <?php if (count(@$above_the_budget_products['data']['total_records']) > 0) { ?>
+                                 <?php if (isset($above_the_budget_products['data']['total_records']) && count(@$above_the_budget_products['data']['total_records']) > 0) { ?>
                                     <li class="wow fadeInLeft" data-wow-delay="0.6s">
                                        <?php $checked = "";
                                        if ($category === 'above') {

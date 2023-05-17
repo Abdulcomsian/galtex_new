@@ -1994,12 +1994,12 @@ html[dir="rtl"] .get_opt {
   font-size: 18px;
 }
 
-.package_product_page .container {
+/* .package_product_page .container {
   box-shadow: 0px 10px 30px #00000033;
   padding-right: 50px;
   padding-left: 50px;
   border-radius: 12px;
-}
+} */
 
 .card_package_collapse {
   display: flex;
