@@ -614,6 +614,7 @@
 
   .single_slider_main .product_slider_main {
     pointer-events: none;
+    box-shadow: 0 0 7px 3px lightgray !important;
   }
 
   .singleprod-devider {

@@ -14,11 +14,11 @@
       box-shadow: 0 0 9px -1px lightgray;
    }
 
-   /* @media screen and (max-width: 767px) {
-      .product_slider_main{
-         box-shadow: none !important;
-      }
-   } */
+   @media screen and (max-width: 767px) {
+      .thumb_inner .slick-track img{
+      margin: 2px
+   }
+   }
    
 </style>
 <main class="main_content" >
@@ -107,7 +107,36 @@
             <div class="col-md-12"><!-- remove class(mobileHide)-->
                <div class="product_right">
                   <div class="product_description_details">
-                     <div class="col-md-12 text-center mt-4">
+                     <div class="col-md-12 text-center mt-4 mobileHide">
+                        <h2 class="product_name wow bounce">
+                           <?php echo $details['product_name']; ?>
+                        </h2>
+                        <?php if (!empty($details['above_budget_price'])) { ?>
+                           <div class="product_price wow fadeInRight"> +
+                              <?php echo CURRENCY_SYMBOL . $details['above_budget_price']; ?>
+                           </div>
+                        <?php } ?>
+                        <!-- <div class="sku_main">  for categroies
+                           <p class="wow fadeInRight" data-wow-delay="0.4s"><span>
+                                 <?php echo lang('category'); ?>:
+                              </span> <span class="greenText ml-3">
+                                 <?php echo $details['category_name']; ?>
+                              </span></p>
+                           <p class="wow fadeInRight" data-wow-delay="0.2s"><span>
+                                 <?php echo lang('warranty'); ?>:
+                              </span> <span class="ml-3">
+                                 <?php echo $details['warranty']; ?>
+                              </span></p>
+                           <?php if ($details['remaining_quantity'] < REMAINING_PRODUCTS_QUANTITY_LIMIT) { ?>
+                              <p class="wow fadeInRight" data-wow-delay="0.2s"><span>
+                                    <?php echo lang('remaining_quantity'); ?>:
+                                 </span> <span class="ml-3">
+                                    <?php echo $details['remaining_quantity']; ?>
+                                 </span></p>
+                           <?php } ?>
+                        </div> -->
+                     </div>
+                     <div class="desktopHide">
                         <h2 class="product_name wow bounce">
                            <?php echo $details['product_name']; ?>
                         </h2>

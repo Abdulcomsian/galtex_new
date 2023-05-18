@@ -429,6 +429,7 @@
       $(".filterIconBtn").click(function(){
        $(".main_content").addClass("blurMe")
        $(".menu_bar").addClass("blurMe")
+       $(".footer_sec").addClass("blurMe")
         $(".navbar-toggler").css("filter","blur(10px)")
         $(this).css("filter","blur(10px)")
         $(".filterBox").addClass("blockItem")
@@ -437,6 +438,7 @@
         $(".filterBox").css("left","-100%")
         $(".main_content").removeClass("blurMe")
         $(".menu_bar").removeClass("blurMe")
+        $(".footer_sec").removeClass("blurMe")
          $(".navbar-toggler").css("filter","blur(0px)")
          $(".filterIconBtn").css("filter","blur(0px)")
       })
