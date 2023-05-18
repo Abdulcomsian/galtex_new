@@ -404,7 +404,7 @@
 
   .cartSection .inner_banner_sec,
   .cartSection .cart_sec {
-    filter: blur(10px);
+    /* filter: blur(10px); */
   }
 
   /*.cartSection .shoppingCart{
@@ -947,7 +947,14 @@
   .package_product_page .container .card {
     border: none;
   }
-  
+  .cart_main_content {
+    padding: 50px 45px 50px 0px;
+  }
+  .cart_card {
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px #00000033;
+    padding: 0px 60px;
+  }
 }
 
 @media (max-width: 575px) {
