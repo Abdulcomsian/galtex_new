@@ -11,7 +11,7 @@
       padding: 10px;
    }
    .thumb_inner .slick-track img{
-      box-shadow: 0 0 9px -1px lightgray;
+      box-shadow: 3px 3px 9px 3px lightgray;
    }
 
    @media screen and (max-width: 767px) {
