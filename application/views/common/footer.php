@@ -419,11 +419,13 @@
         if($(".hdr_main .navbar-collapse").hasClass("show")){
           $(".hdr_main .navbar-collapse").removeClass("show")
           $(".main_content").removeClass("blurMe")
+          $(".footer_sec").removeClass("blurMe")
           $(".navbar-toggler").css("filter","blur(0px)")
         }
       })
       $(".navbar-toggler").click(function(){
         $(".main_content").addClass("blurMe")
+        $(".footer_sec").addClass("blurMe")
         $(this).css("filter","blur(10px)")
       })
       $(".filterIconBtn").click(function(){

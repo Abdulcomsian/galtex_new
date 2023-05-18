@@ -274,7 +274,7 @@ $language = $this->session->userdata('language');
                            </li>
  -->
                      <li style="text-align: center;">
-                        <div class="change-language desktopHide mainLangague" style="padding-top: 35px;">
+                        <div class="change-language  mobileHide mainLangague" style="padding-top: 35px;">
                            <ul>
                               <li>
                                  <input type="text" readonly name="" value="en">
