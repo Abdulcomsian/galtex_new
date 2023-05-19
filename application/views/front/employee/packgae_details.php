@@ -208,7 +208,7 @@
                                  as $image
                               ) { ?>
                           
-                               <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image" />
+                               <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image" style="margin-top:7px"/>
 
                              
                                  <?php } ?>

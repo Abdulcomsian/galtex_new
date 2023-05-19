@@ -797,7 +797,7 @@ html[dir="rtl"] .filterBox .filterCategory .catlist_item li label {
   max-height: 330px;
   padding: 0px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .single_slider_main .thumb_inner {
