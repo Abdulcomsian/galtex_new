@@ -145,7 +145,8 @@ $language = $this->session->userdata('language');
       .filterBox .filterCategory .catlist_item li input[type="checkbox"]:before,
       .prod_coll .proimage,
       .packageDiv .single_item {
-         border-color: #eee;
+         /* border-color: #eee; */
+         border-color:#9634913B;
          <?php #echo $color_code; ?>
          ;
       }

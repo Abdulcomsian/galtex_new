@@ -875,12 +875,14 @@
   }
 
   .dialog_box {
-    height: 374px;
-    width: 375px;
+    /* height: 374px; */
+    /* width: 375px; */
+    /* width:auto */
   }
 
   .dialog_box img {
-    height: 374px;
+    /* height: 374px; */
+    height:auto;
     width: 375px;
   }
 

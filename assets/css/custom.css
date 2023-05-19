@@ -54,7 +54,7 @@ Black 900 italic
 */
 body {
   background: #ececec 0% 0% no-repeat padding-box;
-  font-family: "SegeoRegular", sans-serif;
+  font-family: "AssistantRegular";
   color: #000;
   line-height: 1.4;
   font-size: 14px;
@@ -2131,8 +2131,9 @@ html[dir="rtl"] .get_opt {
 }
 
 .dialog_box {
-  height: 563px;
-  width: 750px;
+  /* height: 563px; */
+  /* width: 750px; */
+  /* width:auto; */
   border: none;
   border-radius: 12px;
   z-index: 99;
@@ -2148,8 +2149,9 @@ html[dir="rtl"] .get_opt {
 }
 
 .dialog_box img {
-  height: 563px;
+  /* height: 563px; */
   width: 751px;
+  height:auto;
   border: none;
   border-radius: 12px;
 }
