@@ -54,7 +54,7 @@ Black 900 italic
 */
 body {
   background: #ececec 0% 0% no-repeat padding-box;
-  font-family: "SegeoRegular", sans-serif;
+  font-family: "AssistantRegular";
   color: #000;
   line-height: 1.4;
   font-size: 14px;
@@ -1994,12 +1994,12 @@ html[dir="rtl"] .get_opt {
   font-size: 18px;
 }
 
-.package_product_page .container {
+/* .package_product_page .container {
   box-shadow: 0px 10px 30px #00000033;
   padding-right: 50px;
   padding-left: 50px;
   border-radius: 12px;
-}
+} */
 
 .card_package_collapse {
   display: flex;
@@ -2007,16 +2007,9 @@ html[dir="rtl"] .get_opt {
   align-items: center;
 }
 
-.cart_main_content {
-  padding: 50px 45px 50px 0px;
 
-}
 
-.cart_card {
-  border-radius: 12px;
-  box-shadow: 0px 10px 30px #00000033;
-  padding: 0px 60px;
-}
+
 
 .cart_heading {
   font-size: 42px;
@@ -2138,8 +2131,9 @@ html[dir="rtl"] .get_opt {
 }
 
 .dialog_box {
-  height: 563px;
-  width: 750px;
+  /* height: 563px; */
+  /* width: 750px; */
+  /* width:auto; */
   border: none;
   border-radius: 12px;
   z-index: 99;
@@ -2155,8 +2149,9 @@ html[dir="rtl"] .get_opt {
 }
 
 .dialog_box img {
-  height: 563px;
+  /* height: 563px; */
   width: 751px;
+  height:auto;
   border: none;
   border-radius: 12px;
 }
@@ -2209,7 +2204,7 @@ html[dir="rtl"] .get_opt {
 
 .timer {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   flex-direction: row-reverse;
   margin-left: 30px;
 }

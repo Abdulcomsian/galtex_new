@@ -13,7 +13,7 @@
    }
 
    .overlay_popup {
-      /* position: absolute; */
+      position: absolute;
       top: 0;
       right: 0;
       background: rgba(0, 0, 0, -1.5);
@@ -63,7 +63,7 @@
 
 
 <main class="main_content">
-   <div class="container clock_container">
+   <div class="container clock_container mobileHide">
       <div class="card">
          <div class="timerClock text-start deadline">
             <div class="clock_caption">
@@ -166,7 +166,7 @@
                                        <?php echo lang('within_the_budget'); ?>
                                     </label>
                                  </li>
-                                 <?php if (count(@$above_the_budget_products['data']['total_records']) > 0) { ?>
+                                 <?php if (isset($above_the_budget_products['data']['total_records']) && count(@$above_the_budget_products['data']['total_records']) > 0) { ?>
                                     <li class="wow fadeInLeft" data-wow-delay="0.6s">
                                        <?php $checked = "";
                                        if ($category === 'above') {

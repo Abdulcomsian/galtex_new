@@ -41,32 +41,32 @@ a {
 
 @font-face {
   font-family: "AssistantRegular";
-  src: url("../fonts/Assistant-Regular.TTF");
+  src: url("../fonts/Assistant-Regular.ttf");
 }
 
 @font-face {
   font-family: "AssistantBold";
-  src: url("../fonts/Assistant-Bold.TTF");
+  src: url("../fonts/Assistant-Bold.ttf");
 }
 
 @font-face {
   font-family: "Assistantsemibold";
-  src: url("../fonts/Assistant-SemiBold.TTF");
+  src: url("../fonts/Assistant-SemiBold.ttf");
 }
 
 @font-face {
   font-family: "Assistantsemibold";
-  src: url("../fonts/SEGOEUIB.TTF");
+  src: url("../fonts/SEGOEUIB.ttf");
 }
 
 @font-face {
   font-family: "SegeoSemi";
-  src: url("../fonts/SEGUISB.TTF");
+  src: url("../fonts/SEGUISB.ttf");
 }
 
 @font-face {
   font-family: "SegeoRegular";
-  src: url("../fonts/SEGOEUI.TTF");
+  src: url("../fonts/SEGOEUI.ttf");
 }
 
 .watermark_text .watermark {
@@ -520,8 +520,8 @@ html[dir="rtl"] .readMore a img {
   display: block !important;
   z-index: 9999;
   width: 320px;
-  /* background: white; */
-  background: transparent linear-gradient(359deg, #262529 0%, #6E6D70 100%) 0% 0% no-repeat padding-box;
+  background: white;
+  /* background: transparent linear-gradient(359deg, #262529 0%, #6E6D70 100%) 0% 0% no-repeat padding-box; */
   transition: all 0.3s linear;
   -webkit-transition: all 0.3s linear;
   box-shadow: 0 0 5px rgb(0 0 0 / 50%);
@@ -645,8 +645,8 @@ html[dir="rtl"] .readMore a img {
 
 .cartTotal ul li {
   font-family: "AssistantBold";
-  color: #fff;
-  /* color: black; */
+  /* color: #fff; */
+  color: black;
   font-size: 14px;
 }
 
@@ -797,7 +797,7 @@ html[dir="rtl"] .filterBox .filterCategory .catlist_item li label {
   max-height: 330px;
   padding: 0px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .single_slider_main .thumb_inner {
@@ -1490,10 +1490,10 @@ html[dir="rtl"] .second_col {
 }
 
 .mobile_cart {
-  /* background: transparent linear-gradient(359deg, #262529 0%, #6E6D70 100%) 0% 0% no-repeat padding-box; */
+  background: transparent linear-gradient(359deg, #262529 0%, #6E6D70 100%) 0% 0% no-repeat padding-box;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  height: 70vh;
+  height: 85vh;
   overflow: scroll;
 }
 

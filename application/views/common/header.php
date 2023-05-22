@@ -145,7 +145,8 @@ $language = $this->session->userdata('language');
       .filterBox .filterCategory .catlist_item li input[type="checkbox"]:before,
       .prod_coll .proimage,
       .packageDiv .single_item {
-         border-color: #eee;
+         /* border-color: #eee; */
+         border-color:#9634913B;
          <?php #echo $color_code; ?>
          ;
       }
@@ -274,7 +275,7 @@ $language = $this->session->userdata('language');
                            </li>
  -->
                      <li style="text-align: center;">
-                        <div class="change-language desktopHide mainLangague" style="padding-top: 35px;">
+                        <div class="change-language desktopHide mobileHide mainLangague" style="padding-top: 35px;">
                            <ul>
                               <li>
                                  <input type="text" readonly name="" value="en">
@@ -339,7 +340,12 @@ $language = $this->session->userdata('language');
                </div>
 
                <div class="mobile_toggle_area"></div>
-               <ul class="nav_right">
+               <?php
+                        $url = $_SERVER['REQUEST_URI'];
+                        $urlParam = explode("/", $url);
+                        $class= $urlParam[sizeof($urlParam) - 1] == 'cart' ? "active_cart" : "";
+                        ?>
+               <ul class="nav_right" style="<?=($class=="active_cart"?"padding:0 0 0 20px":"")?>">
                   <!-- <li class="list-inline-item user_item mobileHide"> -->
                   <!-- <a href="javascript:void(0);" class="userdd_open"><img src="<?php echo base_url(); ?>assets/images/user.png"></a> -->
                   <!--  <a href="javascript:void(0);" class="userdd_open"> <i class="fa fa-user-o" aria-hidden="true"></i></a> -->
@@ -361,11 +367,11 @@ $language = $this->session->userdata('language');
                         <img src="<?php echo base_url(); ?>assets/images/filter.svg">
                      </li> -->
                   <?php if (!empty($this->cart->contents())) { ?>
-                     <?php
+                     <!-- <?php
                         $url = $_SERVER['REQUEST_URI'];
                         $urlParam = explode("/", $url);
                         $class= $urlParam[sizeof($urlParam) - 1] == 'cart' ? "active_cart" : "";
-                        ?>
+                        ?> -->
                      <li class="list-inline-item  <?=$class?>">
                         <a class="open-cart-sidebar" href="<?php echo base_url(); ?>employees/cart">
                            <img src="<?php echo base_url(); ?>assets/images/<?=$class=="active_cart"?"shoping_cart.png":"shopping_cart_black_24dp.svg"?>">

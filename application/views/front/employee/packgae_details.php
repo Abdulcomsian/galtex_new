@@ -23,7 +23,7 @@
    }
    .slick-list .slick-track img{
       right: 0 !important;
-      margin-bottom: 10px !important;
+      /* margin: 7px !important; */
    }
    .product_main_item .slick-list .slick-track img{
       margin-bottom: 0 !important;
@@ -107,9 +107,16 @@
 
    <div id="accordion" class="container package_product_page">
       <div class="container card ">
-         <div class="col-md-12 text-center mt-4">
+         <div class="col-md-12 text-center mt-4 mobileHide">
             <div class="product_right">
-               <h1 class="product_name wow bounce mobileHide">
+               <h1 class="product_name wow bounce ">
+                  <?php echo $details['package_name']; ?>
+               </h1>
+            </div>
+         </div>
+         <div class="desktopHide">
+            <div class="product_right">
+               <h1 class="product_name wow bounce ">
                   <?php echo $details['package_name']; ?>
                </h1>
             </div>
@@ -121,15 +128,15 @@
                <div class="card-header bg-white px-0" id="heading<?php echo $i; ?>">
                   <div class="card_package_collapse">
                      <h5 class="mb-0">
-                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<?php echo $i; ?>"
+                        <button class="btn btn-link button_text sign-toggler" data-toggle="collapse" data-target="#collapse<?php echo $i; ?>"
                            aria-expanded="true" aria-controls="collapse<?php echo $i; ?>">
                            <?php echo $product['product_name']; ?>
                         </button>
                      </h5>
 
-                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<?php echo $i; ?>"
+                     <button class="btn btn-link sign-toggler " data-toggle="collapse" data-target="#collapse<?php echo $i; ?>"
                         aria-expanded="true" aria-controls="collapse<?php echo $i; ?>">
-                        <img src="<?php echo base_url(); ?>assets/images/plus-icon.svg" style="height:11px;width:11px" />
+                        <img class="icon-image" src="<?php echo base_url(); ?>assets/images/plus-icon.svg" style="height:11px;width:11px" />
                      </button>
                   </div>
                </div>
@@ -138,7 +145,7 @@
                         echo "show";
                      } ?>" aria-labelledby="heading<?php echo $i; ?>" data-parent="#accordion">
                   <div class="card-body">
-                     <div class="row package-detail--container">
+                     <div class="row package-detail_view">
                         <div class="col-md-6">
                            <div class="product_right">
                               <!-- <div class="row mobileHide">
@@ -166,7 +173,7 @@
                                     </div>
                                  </div>
                               </div> -->
-                              <div class="row">
+                              <div >
                                  <div class="col-md-12 px-0">
                                     <div class="product_detail wow px-0">
                                        <p>
@@ -201,7 +208,7 @@
                                  as $image
                               ) { ?>
                           
-                               <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image" />
+                               <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image" style="margin-top:7px"/>
 
                              
                                  <?php } ?>
@@ -413,5 +420,10 @@
 
 <script>
 
+const signTogglers = document.querySelectorAll('.sign-toggler');
+console.log(signTogglers)
 
+signTogglers.addEventListener('click', function(){
+   document.querySelector('')
+})
 </script>
