@@ -21,7 +21,7 @@ class Users_model extends CI_Model {
             "last_name" => @ucfirst(strtolower($Input['last_name'])),
             "email" => @$Input['email'],
             "user_guid" => get_guid(),
-            "phone_number" => @$Input['phone_number'],
+            "phone_number" => @$Input['contact_number'],
             "user_type_id" => @$Input['user_type_id'],
             "password" => (!empty($Input['password'])) ? md5($Input['password']) : '',
             "address" => @$Input['address'],
@@ -113,11 +113,15 @@ class Users_model extends CI_Model {
                 'deadline' => 'U.deadline',
                 'total_credits' => 'U.total_credits'
             );
-            
+            // {"company_name":"Callahan Jordan Trading","contact_name":"Dorian Lucas","contact_number":"407","shop_title":"Necessitatibus conse","theme_color":"#226bec","company_logo":"1684750612-fe3c3978-7352-472b-8506-7909d1d5a745.jpg","popup_image":"1684750612-080590a5-b869-47c2-b203-1d70874d1b86.jpg"}
             foreach ($Params as $Param) {
                 $Field .= (!empty($FieldArray[$Param]) ? ',' . $FieldArray[$Param] : '');
             }
         }
+
+        // print_r($Field);
+        // exit;
+
         $this->db->select('U.user_guid');
         if (!empty($Field)) $this->db->select($Field, FALSE);
         $this->db->from('tbl_users U');
