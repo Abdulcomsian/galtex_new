@@ -83,16 +83,19 @@ class Clients extends Admin_Controller_Secure {
 
 		/*  To check user guid */	
 		$query = $this->db->query('SELECT user_id FROM tbl_users WHERE user_guid = "'.$user_guid.'" LIMIT 1');
-		if($query->num_rows() == 0){
+		if($query->num_rows() == 0)
+		{
 			redirect('/admin/clients/list');
 		}
+
 		$user_id = $query->row()->user_id;
 
 		/* To Get Client Details */
         $data['details'] = $this->Users_model->get_users('client_configs,employee_budget,delivery_method,  first_name,last_name,email,user_status,deadline',array('user_id' => $user_id));
         
         /* Get Pickup Address */
-        if($data['details']['delivery_method'] == 'Pickup' || $data['details']['delivery_method'] == 'Both'){
+        if($data['details']['delivery_method'] == 'Pickup' || $data['details']['delivery_method'] == 'Both')
+		{
         	$query = $this->db->query('SELECT pickup_address FROM tbl_client_pickup_address WHERE client_id = '.$user_id);
         	if($query->num_rows() > 0){
         		$data['details']['pickup_addresses'] = $query->result_array();

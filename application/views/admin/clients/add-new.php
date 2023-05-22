@@ -98,6 +98,25 @@
                                 </div>
                             </div>
                         </div>
+
+                           <!-- POPUP START -->
+                           <div class="col-sm-2">
+                            <label class="control-label"><?php echo lang('popup_image'); ?></label><br/>
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;"></div>
+                                <div>
+                                    <span class="btn btn-info btn-file">
+                                        <span class="fileinput-new"><?php echo lang('select_image'); ?></span>
+                                        <span class="fileinput-exists"><?php echo lang('change'); ?></span>
+                                        <input type="hidden" value=""><input type="file" name="popup_image">
+                                    </span>
+                                    <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- POPUP END -->
+
+
                         <div class="col-sm-8 pickup-address-section hidden">
                             <label class="control-label"><?php echo lang('pickup_addresses'); ?></label><br/>
                                 <div class="row">

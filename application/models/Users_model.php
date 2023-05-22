@@ -549,8 +549,10 @@ class Users_model extends CI_Model {
     /*
       Description:  Use to send user message
     */
-    function send_enquiry($message) {
-        if(send_smtp_mail(SUPPORT_EMAIL,SITE_NAME." ".lang('having_trobule'),$message)){
+    function send_enquiry($message) 
+    {
+        if(send_smtp_mail(SUPPORT_EMAIL,SITE_NAME." ".lang('having_trobule'),$message))
+        {
             return TRUE;
         }
         return FALSE;

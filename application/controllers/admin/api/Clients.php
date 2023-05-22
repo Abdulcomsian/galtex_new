@@ -52,6 +52,24 @@ class Clients extends API_Controller_Secure {
             exit;
         }
 
+         //popup upload
+
+         if(!empty($_FILES['popup_image']['name']))
+         {
+             $image_data = fileUploading('popup_image','company','jpg|jpeg|png|gif');
+             if(!empty($image_data['error']))
+             {
+                 $this->Return['status'] = 500;
+                 $this->Return['message'] = lang('popup_image').' - '.$image_data['error'];
+                 exit;
+             }
+             $this->Post['popup_image'] = $image_data['upload_data']['file_name'];
+         }else{
+             $this->Return['status']  = 500;
+             $this->Return['message'] = lang('popup_image');
+             exit;
+         }
+
         /* Check Pickup Addresses */
         if(($this->Post['delivery_method'] == 'Pickup' || $this->Post['delivery_method'] == 'Both') && empty($this->Post['pickup_addresses'])){
             $this->Return['status']  = 500;
@@ -67,6 +85,8 @@ class Clients extends API_Controller_Secure {
         $this->Post['client_configs']['shop_title'] = $this->Post['shop_title'];
         $this->Post['client_configs']['theme_color'] = $this->Post['theme_color'];
         $this->Post['client_configs']['company_logo'] = $this->Post['company_logo'];
+        $this->Post['client_configs']['popup_image'] = $this->Post['popup_image'];
+
 
         if(!$this->Users_model->add_user(array_merge($this->Post,array('user_type_id' => 2, 'user_status' => 'Verified', 'parent_user_id' => $this->session_user_id)))){
             $this->Return['status'] = 500;
@@ -110,6 +130,17 @@ class Clients extends API_Controller_Secure {
             $this->Post['company_logo'] = $image_data['upload_data']['file_name'];
         }
 
+        /* EDIT POPUP Upload */
+        if(!empty($_FILES['popup_image']['name'])){
+            $image_data = fileUploading('popup_image','company','jpg|jpeg|png|gif');
+            if(!empty($image_data['error'])){
+                $this->Return['status'] = 500;
+                $this->Return['message'] = lang('popup_image').' - '.$image_data['error'];
+                exit;
+            }
+            $this->Post['popup_image'] = $image_data['upload_data']['file_name'];
+        }
+
         /* Check Pickup Addresses */
         if(($this->Post['delivery_method'] == 'Pickup' || $this->Post['delivery_method'] == 'Both') && empty($this->Post['pickup_addresses'])){
             $this->Return['status']  = 500;
@@ -125,7 +156,9 @@ class Clients extends API_Controller_Secure {
         $this->Post['client_configs']['shop_title'] = $this->Post['shop_title'];
         $this->Post['client_configs']['theme_color'] = $this->Post['theme_color'];
         $this->Post['client_configs']['company_logo'] = (!empty($this->Post['company_logo'])) ? $this->Post['company_logo'] : $this->Post['old_company_logo'];
-        if(!$this->Users_model->update_user($this->user_id,$this->Post)){
+        $this->Post['client_configs']['popup_image'] = (!empty($this->Post['popup_image'])) ? $this->Post['popup_image'] : $this->Post['old_popup_image'];
+        if(!$this->Users_model->update_user($this->user_id,$this->Post))
+        {
             $this->Return['status'] = 500;
             $this->Return['message'] = lang('error_occured');
         }else{
