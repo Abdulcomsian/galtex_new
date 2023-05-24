@@ -19,7 +19,6 @@ class Clients extends API_Controller_Secure {
       URL: 			/admin/api/clients/add/
     */
     public function add_post() {
-
         /* Validation section */
         $this->form_validation->set_rules('company_name', 'Company Name', 'trim|required');
         $this->form_validation->set_rules('contact_name', 'Contact Name', 'trim|required');

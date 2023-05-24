@@ -14,13 +14,12 @@ class Employees extends API_Controller_Secure {
       URL:          /admin/api/employees/add/
     */
     public function add_post() {
-
         /* Validation section */
         $this->form_validation->set_rules('first_name', 'First Name', 'trim|required');
         $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required');
         $this->form_validation->set_rules('email', lang('email'), 'trim|required|valid_email|is_unique[tbl_users.email]');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
-        $this->form_validation->set_rules('phone_number', 'Phone Number', 'trim|required|is_unique[tbl_users.phone_number]');
+        $this->form_validation->set_rules('contact_number', 'Phone Number', 'trim|required|is_unique[tbl_users.phone_number]');
         $this->form_validation->set_rules('client_guid', 'Client GUID', 'trim|required|callback_validate_guid[tbl_users.user_guid.user_id]');
         $this->form_validation->set_message('is_unique', '{field} '.lang('field_already_exist'));
         $this->form_validation->validation($this);  /* Run validation */

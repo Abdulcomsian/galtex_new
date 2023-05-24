@@ -34,7 +34,7 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label"><?php echo lang('mobile_number'); ?></label>
-                                <input type="text" class="form-control" name="phone_number" placeholder="<?php echo lang('mobile_number'); ?>" autocomplete="off">
+                                <input type="text" class="form-control" name="contact_number" placeholder="<?php echo lang('mobile_number'); ?>" autocomplete="off">
                             </div>
                         </div>
                         <div class="col-sm-3">
