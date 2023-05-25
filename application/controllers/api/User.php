@@ -18,7 +18,7 @@ class User extends CI_Controller {
         $this->Return['data'] =  $data;
         }catch(Exception $e)
         {
-           print_r($e->getMessage())
+           print_r($e->getMessage());
         }
     }
 }
