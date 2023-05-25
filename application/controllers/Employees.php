@@ -31,7 +31,7 @@ class Employees extends Web_Controller_Secure
 
         /* Get Categories */
         // $data['categories'] = $this->Categories_model->get_categories('category_name',array('order_by' => 'category_name', 'sequence' => 'ASC','clientid'=> $this->client_id),TRUE);
-        $data['categories'] = $this->Categories_model->get_categories1('category_name', array('order_by' => 'category_name', 'sequence' => 'ASC', 'clientid' => $this->client_id), TRUE);
+        $data['categories'] = $this->Categories_model->get_categories('category_name', array('order_by' => 'category_name', 'sequence' => 'ASC', 'clientid' => $this->client_id), TRUE);
         /* Filter Budget Categories */
         $data['budget_categories'] = array('within', 'above');
 

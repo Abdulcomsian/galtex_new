@@ -102,7 +102,7 @@
    // print_r($this->session->userdata('webuserdata'));
    // exit;
   ?>
-  
+ 
   <?php if(!isset($lastActivity) || is_null($lastActivity)) { ?>
    <div class="overlay_popup">
       <dialog class="dialog_box" id="dialogue">
@@ -114,6 +114,32 @@
          </div>
       </dialog>
    </div>
+
+   
+
+   <script>
+      (function(){
+
+            let email = '<?=$this->session->webuserdata['email']?>';
+            let userId = '<?=$this->session->webuserdata['user_id']?>';
+            let data = `email=${email}&userId=${userId}`;
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+               if (this.readyState == 4 && this.status == 200) {
+                  // Typical action to be performed when the document is ready:
+                     res = xhttp.responseText;
+                     console.log(res.data);
+                  }
+               };
+               xhttp.open("POST", "<?php echo BASE_URL; ?>api/User/activity", true);
+               xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhttp.send(data);
+         
+      })()
+
+   </script>
+
+
    <?php } ?>
 
    <div class="product_main">

@@ -135,5 +135,70 @@ class Employees extends API_Controller_Secure {
         }
         return TRUE;
     }
+
+    public function filter_post(){
+      $company = $this->input->post('company');
+      $this->db->select('u.*, c.first_name as client_first_name ,c.last_name as client_last_name');
+      $this->db->from('tbl_users u');
+      $this->db->where('u.user_type_id', 3);
+
+        if (isset($company) && !empty($company) && !is_null($company)) {
+            $this->db->where('u.client_id', $company);
+        }
+
+      $this->db->join('tbl_users c', 'c.user_id = u.client_id', 'inner');
+      $customerList = $this->db->get()->result();
+
+
+      $customerRow = "";
+      $userType = $_SESSION['userdata']['user_type_id'];
+
+      foreach($customerList as $index => $customer) {
+        $customerRow .=     '<tr>
+                            <td>'.addZero($index).'</td>
+                            <td>'.$customer->first_name.'</td>
+                            <td>'.$customer->last_name.'</td>
+                            <td>'.$customer->email.'</td>
+                            <td>'.$customer->phone_number.'</td>
+                            <td>'.$customer->client_first_name.' '.$customer->client_last_name.'</td>
+                            <td style="color:'.getUserStatusColor($customer->user_status).'"><strong>'.$customer->user_status.'</strong> </td>
+                            <td>'.convertDateTime($customer->created_date).'</td>
+                            <td><button class="btn bg-cyan btn-icon view-user-details" data-user-guid="'.$customer->user_guid.'" title="'.lang('view_employee_details').'"><i class="zmdi zmdi-eye"></i></button>';
+        if($userType == 1)
+        {
+            $customerRow .= '<button class="btn bg-orange btn-icon" onclick="window.location.href=&#39;edit/'.$customer->user_guid.'&#39;" title="'.lang('edit_employee').'"> <i class="zmdi zmdi-edit"></i></button>
+            
+                    <button class="btn btn-danger btn-icon" 
+                    onclick="showConfirmationBox('.lang("are_you_sure").','.lang('are_you_sure_delete').'<b style=color:red>'.$customer->email.'</b>'.lang("employee").'?,'.lang('yes').','.lang('no').',delete/'.$customer->user_guid.'&#39;)" 
+                    title="'.lang("delete_employee").'">
+                    <i class="zmdi zmdi-delete"></i>
+                    </button>';
+
+           
+        }
+
+                                
+            $customerRow .=  '</td></tr>';
+    
+            
+        }
+
+        $response = [
+            'success' => true,
+            'customers' => $customerRow,
+            'status' => 200,
+            'message' => 'success',
+            'data' => []
+        ];
+        
+    $this->Return['data'] = $response;
+        // showConfirmationBox('את/ה בטוח/ה?','בטוח/ה שתרצה/י למחוק? <b style=   &quot;color:red; &quot;>basit@test.com</b> עובד/ת?','כן','לא','delete/{f6d5e2ef-02f6-4228-84f4-983fb4a4c19')
+     //
+        //window.location.href='edit/{f6d5e2ef-02f6-4228-84f4-983fb4a4c19'
+
+
+        
+    }
+
   
 }

@@ -11,8 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Employees extends Admin_Controller_Secure { 
 
 	function __construct() {
-        parent::__construct();   
-    }
+        parent::__construct(); 
+	}
 
 	/**
 	 * Function Name: list
@@ -35,12 +35,22 @@ class Employees extends Admin_Controller_Secure {
 
 		/* Get Employees */
 		if($this->user_type_id == 2){
-		$data['members'] = $this->Users_model->get_users('first_name,last_name,email,phone_number,pricelist_name,pricelist_brand,user_status,client_first_name,client_last_name,created_date',array('order_by' => 'first_name', 'sequence' => 'ASC', 'user_type_id' => '3','client_id' => $this->session_user_id),TRUE);
+			$data['members'] = $this->Users_model->get_users('first_name,last_name,email,phone_number,client_configs,pricelist_name,pricelist_brand,user_status,client_first_name,client_last_name,created_date',array('order_by' => 'first_name', 'sequence' => 'ASC', 'user_type_id' => '3','client_id' => $this->session_user_id),TRUE);
 	    }else{
-	    	$data['members'] = $this->Users_model->get_users('first_name,last_name,email,phone_number,pricelist_name,pricelist_brand,user_status,client_first_name,client_last_name,created_date',array('order_by' => 'first_name', 'sequence' => 'ASC', 'user_type_id' => 3),TRUE);	
+	    	$data['members'] = $this->Users_model->get_users('first_name,last_name,email,phone_number,client_configs,pricelist_name,pricelist_brand,user_status,client_first_name,client_last_name,created_date',array('order_by' => 'first_name', 'sequence' => 'ASC', 'user_type_id' => 3),TRUE);	
 	    }
 
+		// echo "<pre>";
+		// print_r($data['members']);
+		// exit;
 	    /* Get Clients */
+		//new code starts here
+		$this->load->database();
+		$this->db->where('user_type_id' , 2 );
+		$companiesList = $this->db->get('tbl_users');
+		$companiesList = $companiesList->result();
+		$data['companies'] = $companiesList;
+		//new code ends here 
 		$data['clients'] = $this->Users_model->get_users('first_name,last_name,email',array('order_by' => 'first_name', 'sequence' => 'ASC', 'user_type_id' => 2),TRUE);
 		$this->template->load('default', 'employees/list',$data);
 	}

@@ -68,7 +68,7 @@ class Users_model extends CI_Model {
 
     function get_users($Field = '', $Where = array(), $multiRecords = FALSE, $PageNo = 1, $PageSize = 150) {
         /* Additional fields to select */
-        $Params = array();
+        $Params = array();   
         if (!empty($Field)) {
             $Params = array_map('trim', explode(',', $Field));
             $Field = '';
