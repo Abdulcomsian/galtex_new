@@ -102,7 +102,11 @@
    // print_r($this->session->userdata('webuserdata'));
    // exit;
   ?>
- 
+ <?php 
+//  echo "<pre>";
+//  print_r($this->session->userdata('webuserdata'));
+//  exit;
+ ?>
   <?php if(!isset($lastActivity) || is_null($lastActivity)) { ?>
    <div class="overlay_popup">
       <dialog class="dialog_box" id="dialogue">
