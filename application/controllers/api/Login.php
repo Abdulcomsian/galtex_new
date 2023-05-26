@@ -25,11 +25,11 @@ class Login extends API_Controller {
         $this->form_validation->set_rules('is_remember', 'Is Remember', 'trim');
         $this->form_validation->validation($this);  /* Run validation */
         /* Validation - ends */
-
+  
         if($this->Post['login_type'] == 'OTP' || $this->Post['login_type'] == 'Phone'){
-            $user_data = $this->Users_model->get_users('user_id,is_admin,user_status,user_type_guid,user_type_id,user_image,first_name,last_name,client_id,client_deadline,email', array('user_id' => $this->Post['user_id']));
+            $user_data = $this->Users_model->get_users('user_id,is_admin,user_status,user_type_guid,user_type_id,user_image,first_name,last_name,client_id,client_deadline,email,last_activity,popup_image', array('user_id' => $this->Post['user_id']));
         }else{
-             $user_data = $this->Users_model->get_users('user_id,is_admin,user_status,user_type_guid,user_type_id,user_image,first_name,last_name,client_id,client_deadline,email', array('phone_number' => $this->Post['phone_number'], 'password' => $this->Post['password']));
+             $user_data = $this->Users_model->get_users('user_id,is_admin,user_status,user_type_guid,user_type_id,user_image,first_name,last_name,client_id,client_deadline,email,last_activity,popup_image', array('phone_number' => $this->Post['phone_number'], 'password' => $this->Post['password']));
         }
         if (!$user_data) {
             $this->Return['status'] = 500;
@@ -60,8 +60,7 @@ class Login extends API_Controller {
             $update_arr['last_activity'] = date('Y-m-d H:i:s');
             $this->Users_model->update_user($user_data['user_id'],$update_arr);
 
-            /* Manage Response Data */
-            $response_data = array();
+          
             $response_data['login_session_key'] = $login_session_key;
             $response_data['user_id']           = $user_data['user_id'];
             $response_data['user_guid']         = $user_data['user_guid'];
@@ -72,6 +71,7 @@ class Login extends API_Controller {
             $response_data['first_name']        = $user_data['first_name'];
             $response_data['last_name']         = $user_data['last_name'];
             $response_data['user_image']        = $user_data['user_image'];
+            $response_data['last_activity']     = $user_data['last_activity'];
 
             /* Get Client Configs */
             $query = $this->db->query('SELECT client_configs,employee_budget FROM tbl_users WHERE user_id = '.$user_data['client_id'].' LIMIT 1');

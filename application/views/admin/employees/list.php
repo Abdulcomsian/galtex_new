@@ -1,14 +1,38 @@
+<style>
+    .filter-btn-section {
+    display: flex;
+    justify-content: end;
+    padding-top: 26px;
+    padding-left: 20px;
+}
+</style>
 <section id="content">
+
     <div class="container"> 
         <div class="row">
             <div class="col-md-12">
                 <div class="tile">
+                <div class="filter-btn-section" style="width : 100%;">
+                    <div class="filter-section" style="width : 30%">        
+                           
+                            <select class="chosen-select" name="company" id="company">
+                                <option value="">All</option>
+                                <?php foreach($companies as $company) { ?>
+                                    <option value="<?=$company->user_id?>"><?php echo $company->first_name." ".$company->last_name."(".$company->email.")"; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="filter-btn">
+                            <button class="btn btn-primary filter-employee" style="margin: 2px 5px;">Filter</button>
+                        </div>
+                </div>
                 <div class="t-header">
                     <div class="th-title"><span class="zmdi zmdi-account zmdi-hc-fw" aria-hidden="true"></span> <?php echo lang('employees'); ?> (<?php echo addZero($members['data']['total_records']); ?>) &nbsp;&nbsp;
-                    <div class="employees-actions">
-                        <a href="javascript:void(0);" class="btn btn-primary upload-employee-btn"><?php echo lang('upload_employees'); ?></a>
-                        <a href="<?php echo base_url(); ?>admin/employees/add-new" class="btn btn-primary"><?php echo lang('add_new_employee'); ?></a>
-                    </div>
+                    
+                        <div class="employees-actions">
+                            <a href="javascript:void(0);" class="btn btn-primary upload-employee-btn"><?php echo lang('upload_employees'); ?></a>
+                            <a href="<?php echo base_url(); ?>admin/employees/add-new" class="btn btn-primary"><?php echo lang('add_new_employee'); ?></a>
+                        </div>
                     </div><br/>
                     <div class="current_games_section">
                         <table class="table table-striped table-bordered my-datatable">
@@ -124,4 +148,26 @@
         </div>
     </div>
 </section>
+
+<script>
+    document.querySelector(".filter-employee").addEventListener("click", function(e) {
+    let company = document.getElementById("company").value;
+    $.ajax({
+        url: api_url + "employees/filter",
+        type: "POST",
+        data: {
+            company: company
+        },
+        dataType: 'json', // Parse the response as JSON
+        success: function(res) {
+
+            if (res.data.success === true) {
+                $('.my-datatable').DataTable().destroy();
+                document.querySelector(".my-datatable").querySelector("tbody").innerHTML = res.data.customers;
+                $('.my-datatable').DataTable()
+            } 
+        }
+    });
+});
+</script>
 

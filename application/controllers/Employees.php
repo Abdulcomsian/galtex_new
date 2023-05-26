@@ -31,7 +31,7 @@ class Employees extends Web_Controller_Secure
 
         /* Get Categories */
         // $data['categories'] = $this->Categories_model->get_categories('category_name',array('order_by' => 'category_name', 'sequence' => 'ASC','clientid'=> $this->client_id),TRUE);
-        $data['categories'] = $this->Categories_model->get_categories1('category_name', array('order_by' => 'category_name', 'sequence' => 'ASC', 'clientid' => $this->client_id), TRUE);
+        $data['categories'] = $this->Categories_model->get_categories('category_name', array('order_by' => 'category_name', 'sequence' => 'ASC', 'clientid' => $this->client_id), TRUE);
         /* Filter Budget Categories */
         $data['budget_categories'] = array('within', 'above');
 
@@ -74,7 +74,7 @@ class Employees extends Web_Controller_Secure
         $data['order_details'] = $this->Orders_model->get_orders('amount,order_status,created_date,cancelled_date,order_id,order_product_details', array('user_id' => $this->session_user_id, 'payment_status' => 'Success', 'order_by' => 'order_id', 'sequence' => 'DESC', 'order_status' => 1));
         //echo"<pre>";print_r($data);exit;
 
-        $data['client_information'] = $this->Users_model->get_users('user_id,is_admin,user_status,user_type_guid,user_type_id,user_image,first_name,last_name,client_id,client_deadline,email,deadline', array('user_id' => $this->client_id));
+        $data['client_information'] = $this->Users_model->get_users('user_id,is_admin,user_status,user_type_guid,user_type_id,user_image,first_name,last_name,client_id,client_deadline,email,deadline', array('user_id' => $this->session->userdata('webuserdata')['user_id']));
 
 
         $this->layout->load('default', 'front/employee/products', $data);

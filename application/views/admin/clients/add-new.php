@@ -28,7 +28,7 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label"><?php echo lang('employee_budget'); ?> (<?php echo CURRENCY_SYMBOL; ?>)</label>
-                                <input type="text" class="form-control validate-no" name="employee_budget" placeholder="<?php echo lang('employee_budget'); ?>" autocomplete="off">
+                                <input type="number" class="form-control validate-no" name="employee_budget" placeholder="<?php echo lang('employee_budget'); ?>" autocomplete="off">
                             </div>
                         </div>
                         <div class="col-sm-3">
@@ -81,13 +81,15 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label"><?php echo lang('deadline'); ?></label>
-                                <input type="text" id="deadline" class="form-control" name="deadline" placeholder="<?php echo lang('deadline'); ?>" autocomplete="off">
+                                <input type="datetime-local" id="deadline" class="form-control" name="deadline" placeholder="<?php echo lang('deadline'); ?>" min="<?= date('Y-m-d\TH:i') ?>" autocomplete="off">
+
+
                             </div>
                         </div>
                         <div class="col-sm-2">
                             <label class="control-label"><?php echo lang('company_logo'); ?></label><br/>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
-                                <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;"></div>
+                                <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px; border:1px solid #cfcfcf"></div>
                                 <div>
                                     <span class="btn btn-info btn-file">
                                         <span class="fileinput-new"><?php echo lang('select_image'); ?></span>

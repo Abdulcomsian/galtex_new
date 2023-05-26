@@ -92,15 +92,60 @@
          </div>
       </div>
    </div>
+  <?php 
+   $lastActivity = $this->session->userdata('webuserdata')['last_activity'];
+   $basePath = base_url().'/assets/images/';
+   $popupImage =  $this->session->userdata('webuserdata')['client_configs']['popup_image'] ?? $this->session->userdata('webuserdata')['client_configs']['company_logo'] ?? 'testImage.png';
+   $imageUrl = $basePath.$popupImage;
+   // print_r($this->session->userdata('webuserdata')['client_configs']['company_logo']);
+   // echo "<pre>";
+   // print_r($this->session->userdata('webuserdata'));
+   // exit;
+  ?>
+ <?php 
+//  echo "<pre>";
+//  print_r($this->session->userdata('webuserdata'));
+//  exit;
+ ?>
+  <?php if(!isset($lastActivity) || is_null($lastActivity)) { ?>
    <div class="overlay_popup">
       <dialog class="dialog_box" id="dialogue">
          <div class="container">
-            <img src="<?php echo base_url(); ?>/assets/images/testImage.png" className="card-img-top rounded" /><span
+         <!-- echo base_url(); ?>/assets/images/testImage.png -->
+            <img src="<?=$imageUrl?>" className="card-img-top rounded" /><span
                class="close-icon">&times;</span>
             <a href="#">כפתור אישור</a>
          </div>
       </dialog>
    </div>
+
+   
+
+   <script>
+      (function(){
+
+            let email = '<?=$this->session->webuserdata['email']?>';
+            let userId = '<?=$this->session->webuserdata['user_id']?>';
+            let data = `email=${email}&userId=${userId}`;
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+               if (this.readyState == 4 && this.status == 200) {
+                  // Typical action to be performed when the document is ready:
+                     res = xhttp.responseText;
+                     console.log(res.data);
+                  }
+               };
+               xhttp.open("POST", "<?php echo BASE_URL; ?>api/User/activity", true);
+               xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhttp.send(data);
+         
+      })()
+
+   </script>
+
+
+   <?php } ?>
+
    <div class="product_main">
       <div class="container">
          <div class="cardBlur">
@@ -796,7 +841,6 @@
    </div>
 </main>
 
-
 <script>
    document.querySelector('.filterButton').addEventListener('click', function (e) {
       e.stopPropagation();
@@ -817,9 +861,13 @@
 <script>
    var timeIntervalIds = []; convertTime();
    function convertTime() {
-      let deadlineTime = "<?= $client_information['deadline'] ?>";
-      timeInSeconds = convertTimeIntoSeconds(deadlineTime);
-      setTimerInterval(timeInSeconds);
+      let deadlineTime = "<?=$client_information['deadline'] ?>";
+      let check = ["" , null , undefined];
+      if(!check.includes(deadlineTime))
+      {
+         timeInSeconds = convertTimeIntoSeconds(deadlineTime);
+         setTimerInterval(timeInSeconds);
+      }
    }
 
    function convertTimeIntoSeconds(timeString) { const totalSeconds = new Date(timeString).getTime(); return totalSeconds; }
