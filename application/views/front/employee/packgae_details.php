@@ -29,7 +29,7 @@
    .product_main_item .slick-list .slick-track img{
       width: 100%;
       height: 100%;
-      object-fit: fill;
+      object-fit: cover;
       margin-bottom: 0 !important;
    }
    .product_main_item .slick-list .slick-track img:not(.slick-active){
@@ -203,7 +203,7 @@
 
 
                       <div class="product_slider_thumb arrow_center zoomIn">
-                           <div class="product_thumb_item" style="height: 100%; padding: 5px">
+                           <div class="product_thumb_item" style="height: 100%; width: 100% !important">
                            <div class="thumb_inner">
                                  <img src="<?php echo $product[
                                     "product_main_photo"
