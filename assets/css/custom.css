@@ -2098,8 +2098,6 @@ html[dir="rtl"] .get_opt {
   box-shadow: 0px 10px 30px #00000033;
   border-radius: 12px;
   opacity: 1;
-  /* padding-bottom: 3px !important; */
-  padding: 8px 6px 3px 6px !important;
 }
 
 .image-button {

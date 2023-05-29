@@ -405,15 +405,6 @@ html[dir="rtl"] .readMore a img {
   color: #fff;
 }
 
-.hdr_main .navbar li a img {
-  width: 30px;
-}
-
-.hdr_main .navbar li a {
-  position: relative;
-  top: -5px;
-}
-
 .desktopHide,
 .sliderProduct {
   display: none;
