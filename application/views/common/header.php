@@ -373,7 +373,7 @@ $language = $this->session->userdata('language');
                         $class= $urlParam[sizeof($urlParam) - 1] == 'cart' ? "active_cart" : "";
                         ?> -->
                      <li class="list-inline-item  <?=$class?>">
-                        <a class="open-cart-sidebar" href="<?php echo base_url(); ?>employees/cart">
+                        <a class="open-cart-sidebar" href="<?php echo base_url(); ?>employees/cart" style="display: inline-block">
                            <img src="<?php echo base_url(); ?>assets/images/<?=$class=="active_cart"?"shoping_cart.png":"shopping_cart_black_24dp.svg"?>">
                            <span class="top-cart-info-count badge badge-pill <?=($class=="active_cart"?"d-none":"")?>">
                               <?php echo count($this->cart->contents()); ?>
@@ -382,7 +382,7 @@ $language = $this->session->userdata('language');
                      </li>
                   <?php } else { ?>
                      <li class="list-inline-item">
-                        <a class="open-cart-sidebar" href="javascript:void(0)">
+                        <a class="open-cart-sidebar" href="javascript:void(0)" style="display: inline-block">
                            <img src="<?php echo base_url(); ?>assets/images/shopping_cart_black_24dp.svg">
                            <span class="top-cart-info-count badge badge-pill">0</span>
                         </a>

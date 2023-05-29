@@ -77,7 +77,7 @@
                           </div>
                           <!-- Add Town Filed -->
                           <?php if($client_details['delivery_method'] == 'Door to Door'){?>
-                          <div class="col-md-6 desktopHideeee">
+                          <div class="col-md-12 desktopHideeee">
                            <!-- <div class="form-group focus_label">
                               
                               <label for="town">Town</label>
@@ -107,7 +107,7 @@
                             </div>
                           <?php } ?>
                           <?php if($client_details['delivery_method'] == 'Door to Door' || $client_details['delivery_method'] == 'Both') { ?>
-                            <div class="col-md-6 delivery-address-section" style="<?php if($client_details['delivery_method'] == 'Both') {  echo "display:none"; } ?>">
+                            <div class="col-md-12 px-0 delivery-address-section" style="<?php if($client_details['delivery_method'] == 'Both') {  echo "display:none"; } ?>">
                              <!--  <div class="form-group focus_label">
                                 <label for="street_house"><?php echo lang('street_house'); ?></label>
                                 <input type="text" class="form-control" id="street_house" name="street_house" placeholder="<?php echo lang('street_house'); ?>">

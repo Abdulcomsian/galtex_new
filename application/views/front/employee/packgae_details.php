@@ -15,6 +15,7 @@
       height: 100% !important;
    }
    .slick-list .slick-track{
+      height: 100%;
       border-radius: 10px;
       overflow: hidden;
    }
@@ -26,6 +27,9 @@
       /* margin: 7px !important; */
    }
    .product_main_item .slick-list .slick-track img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       margin-bottom: 0 !important;
    }
    .product_main_item .slick-list .slick-track img:not(.slick-active){
@@ -38,6 +42,7 @@
 
    .thumb_inner .slick-track img{
       box-shadow: 0 0 9px -1px lightgray;
+      height: 73px !important;
    }
    /* .product_thumb_item{
       margin-left: 0;
@@ -198,7 +203,7 @@
 
 
                       <div class="product_slider_thumb arrow_center zoomIn">
-                           <div class="product_thumb_item" style="height: 100%; padding: 5px">
+                           <div class="product_thumb_item" style="height: 100%; width: 100% !important">
                            <div class="thumb_inner">
                                  <img src="<?php echo $product[
                                     "product_main_photo"
@@ -419,6 +424,9 @@
 
 
 <script>
+   <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 const signTogglers = document.querySelectorAll('.sign-toggler');
 console.log(signTogglers)
