@@ -79,7 +79,7 @@ $db['default'] = array(
     'hostname' => 'localhost',
     'username' => 'root',
     'password' => '',
-    'database' => 'galtex-new',
+    'database' => 'galtexnew',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
     'pconnect' => FALSE,
@@ -110,7 +110,7 @@ switch (ENVIRONMENT) {
         $db['default']['password'] = 'PQM@123#*';
         break;
     case 'production':
-        $db['default']['database'] = 'galtexnew';
+        $db['default']['database'] = 'galtexApp';
         $db['default']['username'] = 'root';
         $db['default']['password'] = '';
         break;

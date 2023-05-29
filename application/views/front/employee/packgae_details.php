@@ -15,6 +15,7 @@
       height: 100% !important;
    }
    .slick-list .slick-track{
+      height: 100%;
       border-radius: 10px;
       overflow: hidden;
    }
@@ -38,6 +39,7 @@
 
    .thumb_inner .slick-track img{
       box-shadow: 0 0 9px -1px lightgray;
+      height: 73px !important;
    }
    /* .product_thumb_item{
       margin-left: 0;
@@ -419,6 +421,9 @@
 
 
 <script>
+   <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 const signTogglers = document.querySelectorAll('.sign-toggler');
 console.log(signTogglers)

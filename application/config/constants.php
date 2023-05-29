@@ -122,7 +122,8 @@ switch (ENVIRONMENT)
 {
   case 'local':
     /*Paths*/
-    define('SITE_HOST', 'http://localhost/');
+
+    define('SITE_HOST', 'http://localhost:80/');
     define('ROOT_FOLDER', 'galtex_new/');
 
     /*Site Related Settings*/
