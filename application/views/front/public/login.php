@@ -62,9 +62,9 @@
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
 
-          <div class="logo_main">
+          <!-- <div class="logo_main">
             <a href="<?php echo base_url(); ?>"> <img src="uploads/company/logoImg.svg" alt="logo" style="width: 100%;"></a>
-          </div>
+          </div> -->
           <!--     <div class="change-language desktopHide">
                     <ul>
                         <li>
@@ -152,10 +152,11 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-12">
-              <h3>
+              <h3 class="fw-bold">
                 <?php echo lang('login'); ?>
               </h3>
-              <img src="assets/images/logo1.png" alt="">
+              <!-- <img src="assets/images/logo1.png" alt=""> -->
+              <a href="<?php echo base_url(); ?>"> <img src="uploads/company/logoImg.svg" alt="logo" style="width: 9%;"></a>
             </div>
           </div>
         </div>
@@ -172,7 +173,7 @@
               <p class="note" style="display:none!important">
                   <?php echo lang('login_title'); ?>
                 <br/>
-                <span style="font-size: 14px; font-weight: lighter;">
+                <span style="font-size: 14px; font-weight: lighter; font-family:AssistantRegular">
                   <?php echo lang('login_title2'); ?>
                 </span>
               </p>
@@ -237,7 +238,7 @@
                   <input class="form-check-input" type="checkbox" id="privacy" name="is_remember" <?php if (isset($_COOKIE["phone_number"])) {
                     echo 'checked';
                   } ?>>
-                  <label class="form-check-label ml-3" for="privacy">
+                  <label class="form-check-label " for="privacy" style="margin-right: 0.3125rem;">
                     <?php echo lang('remember_me'); ?>
                   </label>
                 </div>
@@ -312,107 +313,46 @@
   </div>
 
   <footer class="footer_sec">
-    <section class="footer_top2">
-      <div class="container">
-        <div class="row" style="flex-direction: row-reverse;">
-          <div class="col-4">
-            <div> <!--  class="ftr_main_block" -->
-              <div class="ftr_logo">
-                <img src="assets/images/logo_white.png">
-              </div>
-              <!-- <ul class="ftr_contact list-unstyled">  
-                            <li><span class="cont_icon"><i class="fas fa-map-marker-alt"></i></span> <?php echo lang('galtex_store_pvt_ltd'); ?></li>                    
-                            <li><a href="tel:<?php echo CONTACT_PHONE; ?>"><span class="cont_icon"><i class="fas fa-phone-alt"></i></span> <?php echo CONTACT_PHONE; ?></a></li>                    
-                            <li><a href="mailto:<?php echo CONTACT_EMAIL; ?>"><span class="cont_icon"><i class="far fa-envelope"></i></span> <?php echo CONTACT_EMAIL; ?></a></li>                  
-                        </ul> -->
-            </div>
-          </div>
-          <div class="col-8">
-            <div class="ftr_main_block">
-              <!-- <h4 class="ftr_title"><?php echo lang('follow_us'); ?></h4> -->
-              <ul class="social_main list-unstyled mb-0">
-                <!-- <li class="list-inline-item">
+        <section class="footer_top">
+            <div >
+              
+                 <div class="text-center">
+                    <div class="ftr_main_block">
+                       <div class="footer_div">  <!-- //remove th class -->
+                       <img style="width:100px; height: auto" src="<?php echo base_url(); ?>uploads/company/logoFooter.svg" alt="logo"
+                        style="height:40px;">
+                       <ul class="social_main list-unstyled">
+                            <!-- <li class="list-inline-item">
                                 <a href="javascript:void(0);" target="_blank"><i class="fab fa-facebook-f"></i></a>
                             </li>
                              <li class="list-inline-item">
                                 <a href="javascript:void(0);" target="_blank"><i class="fab fa-twitter"></i></a>
                             </li> -->
-                <li class="list-inline-item">
-                  <a href="javascript:void(0);" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="javascript:void(0);" target="_blank"><i class="fab fa-google"></i></a>
-                </li>
-
-                <!-- <li class="list-inline-item">
+                            <li class="list-inline-item">
+                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-google"></i></a>
+                            </li>
+                            
+                            <!-- <li class="list-inline-item">
                                 <a href="javascript:void(0);" target="_blank"><i class="fab fa-youtube"></i></a>
                             </li> -->
-              </ul>
-            </div>
-          </div>
-          <!-- <div class="col-4">
-                    <div class="ftr_main_block">
-                       <h4 class="ftr_title">Menu</h4>
-                        <ul class="menu_list list-unstyled mb-0">
-                            <li>
-                               <a href="javascript:void(0);">Category</a>
-                            </li>
-                            <li>
-                               <a href="javascript:void(0);">Another Category</a>
-                            </li>
-                            <li>
-                               <a href="javascript:void(0);">Someother Category</a>
-                            </li>
-                            <li>
-                               <a href="javascript:void(0);">Privacy Policy</a>
-                            </li>
-                            <li>
-                               <a href="javascript:void(0);">New Category</a>
-                            </li>
                         </ul>
-                    </div>
+                 </div>  
+                     </div>
+                        <!-- <ul class="ftr_contact list-unstyled">  
+                            <li><span class="cont_icon"><i class="fas fa-map-marker-alt"></i></span> <?php echo lang('galtex_store_pvt_ltd'); ?></li>                    
+                            <li><a href="tel:<?php echo CONTACT_PHONE; ?>"><span class="cont_icon"><i class="fas fa-phone-alt"></i></span> <?php echo CONTACT_PHONE; ?></a></li>                    
+                            <li><a href="mailto:<?php echo CONTACT_EMAIL; ?>"><span class="cont_icon"><i class="far fa-envelope"></i></span> <?php echo CONTACT_EMAIL; ?></a></li>                  
+                        </ul> -->
                  </div>
-                 <div class="col-4">
-                    <div class="ftr_main_block">
-                       <h4 class="ftr_title"><?php echo lang('services'); ?></h4>
-                        <ul class="menu_list list-unstyled mb-0">
-                            <li>
-                               <a href="javascript:void(0);"><?php echo lang('help_contactus'); ?></a>
-                            </li>
-                            <li>
-                               <a href="javascript:void(0);"><?php echo lang('secure_payment'); ?></a>
-                            </li>
-                            <li>
-                               <a href="javascript:void(0);"><?php echo lang('return_refund'); ?></a>
-                            </li>
-                            <li>
-                               <a href="javascript:void(0);"><?php echo lang('terms_conditions'); ?></a>
-                            </li>
-                        </ul>
                     </div>
+                    
                  </div>
-                 <div class="col-4">
-                    <div class="ftr_main_block">
-                       <h4 class="ftr_title"><?php echo lang('my_account'); ?></h4>
-                        <ul class="menu_list list-unstyled mb-0">
-                            <li>
-                               <a href="javascript:void(0);"><?php echo lang('discount'); ?></a>
-                            </li>
-                            <li>
-                               <a href="javascript:void(0);"><?php echo lang('orders_history'); ?></a>
-                            </li>
-                            <li>
-                               <a href="javascript:void(0);"><?php echo lang('personal_info'); ?></a>
-                            </li>
-                            <li>
-                               <a href="javascript:void(0);"><?php echo lang('shipping_info'); ?></a>
-                            </li>
-                        </ul>
-                    </div>
-                 </div> -->
-          <!-- <div class="col-12 col-md-3">
-                    <div class="ftr_main_block">
-                       <h4 class="ftr_title"><?php echo lang('follow_us'); ?></h4>
+                <!-- <div class="col-6">
+                 <div class="ftr_main_block">
+                        <h4 class="ftr_title"><?php #echo lang('follow_us'); ?></h4> 
                         <ul class="social_main list-unstyled mb-0">
                             <li class="list-inline-item">
                                 <a href="javascript:void(0);" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -432,15 +372,129 @@
                         </ul>
                     </div>
                  </div> -->
-        </div>
-      </div>
-    </section>
-    <section class="footer_btm text-center">
-      <div class="container">
-        <?php echo lang('copyright_web'); ?>
-      </div>
-    </section>
-  </footer>
+                 <!-- <div class="footer_menu">
+                    <div class="ftr_main_block">
+                    <ul class="menu_list list-unstyled mb-0">
+                            <li>
+                               <a href="javascript:void(0);"><?php echo lang('Category'); ?></a>
+                            </li>
+                     </ul>
+                    </div>
+                    <div class="ftr_main_block">
+                    <ul class="menu_list list-unstyled mb-0">
+                            <li>
+                               <a href="javascript:void(0);"><?php echo lang('Another_Category'); ?></a>
+                            </li>
+                     </ul>
+                    </div>
+                    <div class="ftr_main_block">
+                    <ul class="menu_list list-unstyled mb-0">
+                            <li>
+                               <a href="javascript:void(0);"><?php echo lang('Someother_Category'); ?></a>
+                            </li>
+                     </ul>
+                    </div>
+                    <div class="ftr_main_block">
+                    <ul class="menu_list list-unstyled mb-0">
+                            <li>
+                               <a href="javascript:void(0);"><?php echo lang('Someother_Category'); ?></a>
+                            </li>
+                     </ul>
+                    </div>
+                    <div class="ftr_main_block">
+                    <ul class="menu_list list-unstyled mb-0">
+                            <li>
+                               <a href="javascript:void(0);"><?php echo lang('Category'); ?></a>
+                            </li>
+                     </ul>
+                    </div>
+                    <div class="ftr_main_block">
+                    <ul class="menu_list list-unstyled mb-0">
+                            <li>
+                               <a href="javascript:void(0);"><?php echo lang('Category'); ?></a>
+                            </li>
+                     </ul>
+                    </div>
+                    <div class="ftr_main_block">
+                    <ul class="menu_list list-unstyled mb-0">
+                            <li>
+                               <a href="javascript:void(0);"><?php echo lang('Category'); ?></a>
+                            </li>
+                     </ul>
+                    </div>
+                 </div> -->
+                 <!-- <div>
+                 <div class="col-4">
+                    <div class="ftr_main_block">
+                       <h4 class="ftr_title"><?php echo lang('services'); ?></h4>
+                        <ul class="menu_list list-unstyled mb-0">
+                            <li>
+                               <a href="javascript:void(0);"><?php echo lang('help_contactus'); ?></a>
+                            </li>
+                            <li>
+                               <a href="javascript:void(0);"><?php echo lang('secure_payment'); ?></a>
+                            </li>
+                            <li>
+                               <a href="javascript:void(0);"><?php echo lang('return_refund'); ?></a>
+                            </li>
+                            <li>
+                               <a href="javascript:void(0);"><?php echo lang('terms_conditions'); ?></a>
+                            </li>
+                        </ul>
+                    </div>
+                 </div> 
+                 <div class="col-4">
+                    <div class="ftr_main_block">
+                       <h4 class="ftr_title"><?php echo lang('my_account'); ?></h4>
+                         <ul class="menu_list list-unstyled mb-0">
+                            <li>
+                               <a href="javascript:void(0);"><?php echo lang('discount'); ?></a>
+                            </li>
+                            <li>
+                               <a href="javascript:void(0);"><?php echo lang('orders_history'); ?></a>
+                            </li>
+                            <li>
+                               <a href="javascript:void(0);"><?php echo lang('personal_info'); ?></a>
+                            </li>
+                            <li>
+                               <a href="javascript:void(0);"><?php echo lang('shipping_info'); ?></a>
+                            </li>
+                        </ul>
+                    </div>
+                 </div>
+                  <div class="col-12 col-md-3">
+                    <div class="ftr_main_block">
+                       <<h4 class="ftr_title"><?php echo lang('follow_us'); ?></h4> 
+                        <ul class="social_main list-unstyled mb-0">
+                            <li class="list-inline-item">
+                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                             <li class="list-inline-item">
+                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-twitter"></i></a>
+                            </li> 
+                            <li class="list-inline-item">
+                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-google"></i></a>
+                            </li>
+                            
+                            <li class="list-inline-item">
+                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-youtube"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                 </div>
+</div> -->
+            </div>
+        </section>
+        <section class="footer_btm text-center">
+            <div class="container">
+               <?php echo lang('copyright_web'); ?>
+            </div>
+        </section>
+
+    </footer>
 
   <script type="text/javascript">
     var base_url = "<?php echo base_url(); ?>";

@@ -112,14 +112,16 @@ input:focus {
   color: #fff;
   text-align: center;
   font-family: "AssistantRegular";
+  font-family: "Assistant";
+  font-weight: bold;
   font-size: 24px;
 }
 
 .mainHeader img {
   position: absolute;
-  right: 20px;
-  top: -15px;
-  display: none;
+  right: 43px;
+  top: -50px;
+  /* display: none; */
 }
 
 .form-control.change-language {
@@ -1012,7 +1014,7 @@ html[dir="rtl"] .main_content .backToStore span:nth-child(1) {
 
 .card-text .note {
   text-align: right;
-  /* font-family: 'SegeoSemi'; */
+  font-family: 'AssistantBold';
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 30px;

@@ -121,9 +121,9 @@ $(document).ready(function () {
 
   var type = $('input[name="login_type"]:checked').val();
   if (type === "OTP") {
-    $(".note").fadeIn("slow");
+    $(".note").fadeIn("slow"); 
   } else {
-    $(".note").fadeOut("slow");
+    // $(".note").fadeOut("slow");
   }
 
   $(".form-check-input").on("click", function () {
@@ -131,7 +131,7 @@ $(document).ready(function () {
     if (type === "OTP") {
       $(".note").fadeIn("slow");
     } else {
-      $(".note").fadeOut("slow");
+      // $(".note").fadeOut("slow");
     }
   });
 

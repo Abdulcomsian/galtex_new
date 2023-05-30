@@ -109,7 +109,7 @@
  ?>
   <?php if(!isset($lastActivity) || is_null($lastActivity)) { ?>
    <div class="overlay_popup">
-      <dialog class="dialog_box" id="dialogue">
+      <dialog class="dialog_box modal-dialog-centered" id="dialogue">
          <div class="container">
          <!-- echo base_url(); ?>/assets/images/testImage.png -->
             <img src="<?=$imageUrl?>" className="card-img-top rounded" /><span
