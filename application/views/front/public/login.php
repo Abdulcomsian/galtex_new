@@ -243,7 +243,7 @@
                   </label>
                 </div>
                 <button type="button" class="btn_common btn btn-primary btn-block wow fadeInUp get_otp_phone_call"
-                  data-wow-delay="0.8s">
+                  data-wow-delay="0.8s" style="margin-top: 30px;">
                   <?php echo lang('receive_otp_message'); ?>
                 </button>
 

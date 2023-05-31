@@ -160,7 +160,7 @@ input[type="radio"]:checked:before {
 }
 
 .mobileHeader {
-  padding: 20px;
+  padding: 13px;
   display: none;
 }
 
@@ -184,7 +184,7 @@ input[type="radio"]:checked:before {
   color: #ffffffad;
   text-align: center;
   font-family: "AssistantRegular";
-  font-size: 12px;
+  font-size: 20px;
 }
 
 .socialMedia ul {
@@ -282,6 +282,7 @@ input[type="radio"]:checked:before {
   margin-bottom: 6px;
   width: 100%;
   border-radius: 6px;
+  object-fit: cover;
 }
 
 .packages_por p.tag {
@@ -330,6 +331,7 @@ input[type="radio"]:checked:before {
 .readMore {
   text-align: left;
   position: relative;
+  padding-top: 10px;
 }
 
 html[dir="rtl"] .readMore a {
@@ -345,9 +347,9 @@ html[dir="rtl"] .readMore a {
 
 html[dir="rtl"] .readMore a img {
   position: absolute;
-  top: 6px;
+  top: 17px;
   width: 15px;
-  left: 0px;
+  left: -5px;
   transform: rotate(180deg);
 }
 
@@ -447,14 +449,14 @@ html[dir="rtl"] .readMore a img {
 }
 
 .filterBox .filterCategory h4 {
-  font-size: 20px;
+  font-size: 28px;
   color: #343337;
   font-family: "AssistantBold";
   margin-bottom: 15px;
 }
 
 .filterBox .filterCategory p {
-  font-family: "Assistantsemibold";
+  font-family: "AssistantBold";
   margin-bottom: 0px;
   font-size: 18px;
 }
@@ -474,7 +476,7 @@ html[dir="rtl"] .readMore a img {
   margin-bottom: 0px;
   margin-right: 10px;
   font-family: "AssistantRegular";
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .filterBox .filterCategory .catlist_item li input[type="checkbox"] {
@@ -488,12 +490,12 @@ html[dir="rtl"] .readMore a img {
 
 .filterBox .filterCategory .catlist_item li input[type="checkbox"]:before {
   content: "";
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   background: #fff;
   position: absolute;
   border: 1px solid #fd1d54;
-  border-radius: 3px;
+  border-radius: 4px;
   opacity: 1;
 }
 
@@ -503,12 +505,12 @@ html[dir="rtl"] .readMore a img {
   li
   input[type="checkbox"]:checked:after {
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   position: absolute;
-  left: 3px;
+  left: -1.5px;
   top: 3px;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 .shoppingCart {
@@ -1018,6 +1020,7 @@ html[dir="rtl"] .main_content .backToStore span:nth-child(1) {
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 30px;
+  margin-top: 10%;
 }
 
 .card-text input.form-control {
@@ -1081,7 +1084,7 @@ html[dir="rtl"] .card-text input[type="checkbox"]:checked + label::after {
 }
 
 .card-text label {
-  font-family: "AssistantRegular";
+  font-family: "Segoe UI,Regular";
   font-size: 16px;
   color: #0000009e;
 }
@@ -1124,6 +1127,7 @@ html[dir="rtl"] .card-text input[type="checkbox"]:checked + label::after {
 
 .hdr_main .navbar-nav .nav-link {
   font-family: "Assistant";
+  letter-spacing: 0px;
 }
 
 .change-language li input {
@@ -1438,7 +1442,7 @@ html[dir="rtl"] .filterDiv {
 
 html[dir="rtl"] .main_content .backToStore img {
   /* transform: rotate(180deg); */
-  padding-left: 15px;
+  padding-left: 8px;
   /* transform: rotate(180deg); */
 }
 

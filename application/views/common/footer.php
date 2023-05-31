@@ -280,8 +280,9 @@
                          <i class="fa fa-arrow-right" aria-hidden="true"></i>
                           <!-- <img src="<?php echo base_url(); ?>assets/images/rightShoppingIcon.svg"> -->
                         </a>
-                        <img src="<?php echo base_url(); ?>uploads/company/<?php echo $this->session->all_userdata()['webuserdata']['client_configs']['company_logo']; ?>">
-                        
+                        <!-- <img src="<?php echo base_url(); ?>uploads/company/<?php echo $this->session->all_userdata()['webuserdata']['client_configs']['company_logo']; ?>"> -->
+                        <img src="<?php echo base_url(); ?>/uploads/company/logoImg.svg" alt="logo"
+                              style="height:100%; float:left;">
                      </div>
                      <div class="cartList">
                         <h4><?php echo lang('shopping_cart'); ?></h4>

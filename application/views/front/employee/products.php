@@ -71,16 +71,21 @@
                <h5 class="d-flex flex-column mx-4"><span class="text-center">האתר יסגר בעוד:</h5>
             </div>
             <div class="timer">
-               <h5 class="d-flex flex-column mx-2"><span id="days" class="text-center">00</span><strong>
+               <h5 class="d-flex flex-column mx-2" style="font-family: Assistant; font-weight: normal;"><span id="days"
+                     class="text-center" style="font-family: AssistantBold;">00</span>
+                  <strong>
                      <?php echo lang('days') ?>
-                  </strong></h5>
+                  </strong>
+               </h5>
                <span>:</span>
-               <h5 class="d-flex flex-column mx-2"><span id="hours" class="text-center">00</span><strong>
+               <h5 class="d-flex flex-column mx-2" style="font-family: Assistant; font-weight: normal;"><span id="hours"
+                     class="text-center" style="font-family: AssistantBold;">00</span><strong>
                      <?php echo lang('hours') ?>
                   </strong></h5>
                <span>:</span>
 
-               <h5 class="d-flex flex-column mx-2"><span id="minutes" class="text-center">00</span><strong>
+               <h5 class="d-flex flex-column mx-2" style="font-family: Assistant; font-weight: normal;"><span
+                     id="minutes" class="text-center" style="font-family: AssistantBold;">00</span><strong>
                      <?php echo lang('minute') ?>
                   </strong>
                </h5>
@@ -92,56 +97,55 @@
          </div>
       </div>
    </div>
-  <?php 
-   $lastActivity = $this->session->userdata('webuserdata')['last_activity'];
-   $basePath = base_url().'/assets/images/';
-   $popupImage =  $this->session->userdata('webuserdata')['client_configs']['popup_image'] ?? $this->session->userdata('webuserdata')['client_configs']['company_logo'] ?? 'testImage.png';
-   $imageUrl = $basePath.$popupImage;
+   <?php
+      $lastActivity = $this->session->userdata('webuserdata')['last_activity'];
+   $basePath = base_url() . '/assets/images/';
+   $popupImage = $this->session->userdata('webuserdata')['client_configs']['popup_image'] ?? $this->session->userdata('webuserdata')['client_configs']['company_logo'] ?? 'testImage.png';
+   $imageUrl = $basePath . $popupImage;
    // print_r($this->session->userdata('webuserdata')['client_configs']['company_logo']);
    // echo "<pre>";
    // print_r($this->session->userdata('webuserdata'));
    // exit;
-  ?>
- <?php 
-//  echo "<pre>";
+   ?>
+   <?php
+   //  echo "<pre>";
 //  print_r($this->session->userdata('webuserdata'));
 //  exit;
- ?>
-  <?php if(!isset($lastActivity) || is_null($lastActivity)) { ?>
-   <div class="overlay_popup">
-      <dialog class="dialog_box modal-dialog-centered" id="dialogue">
-         <div class="container">
-         <!-- echo base_url(); ?>/assets/images/testImage.png -->
-            <img src="<?=$imageUrl?>" className="card-img-top rounded" /><span
-               class="close-icon">&times;</span>
-            <a href="#">כפתור אישור</a>
-         </div>
-      </dialog>
-   </div>
+   ?>
+   <?php if (!isset($lastActivity) || is_null($lastActivity)) { ?>
+      <div class="overlay_popup">
+         <dialog class="dialog_box modal-dialog-centered" id="dialogue">
+            <div class="container">
+               <!-- echo base_url(); ?>/assets/images/testImage.png -->
+               <img src="<?= $imageUrl ?>" className="card-img-top rounded" /><span class="close-icon">&times;</span>
+               <a href="#">אישור</a>
+            </div>
+         </dialog>
+      </div>
 
-   
 
-   <script>
-      (function(){
 
-            let email = '<?=$this->session->webuserdata['email']?>';
-            let userId = '<?=$this->session->webuserdata['user_id']?>';
+      <script>
+         (function () {
+
+            let email = '<?= $this->session->webuserdata['email'] ?>';
+            let userId = '<?= $this->session->webuserdata['user_id'] ?>';
             let data = `email=${email}&userId=${userId}`;
             let xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
+            xhttp.onreadystatechange = function () {
                if (this.readyState == 4 && this.status == 200) {
                   // Typical action to be performed when the document is ready:
-                     res = xhttp.responseText;
-                     console.log(res.data);
-                  }
-               };
-               xhttp.open("POST", "<?php echo BASE_URL; ?>api/User/activity", true);
-               xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                  res = xhttp.responseText;
+                  console.log(res.data);
+               }
+            };
+            xhttp.open("POST", "<?php echo BASE_URL; ?>api/User/activity", true);
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhttp.send(data);
-         
-      })()
 
-   </script>
+         })()
+
+      </script>
 
 
    <?php } ?>
@@ -349,7 +353,7 @@
                                  <div class="readMore">
                                     <a
                                        href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>"><img
-                                          src="<?php echo base_url(); ?>assets/images/rightIcon.svg" /> <?php echo lang('more_details'); ?></a>
+                                          src="<?php echo base_url(); ?>assets/images/redLeftIcon.svg" /> <?php echo lang('more_details'); ?></a>
                                  </div>
                               </div>
                            </div>
@@ -422,7 +426,7 @@
                                        <div class="readMore">
                                           <a
                                              href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>"><img
-                                                src="<?php echo base_url(); ?>assets/images/rightIcon.svg" /> <?php echo lang('more_details'); ?></a>
+                                                src="<?php echo base_url(); ?>assets/images/redLeftIcon.svg" /> <?php echo lang('more_details'); ?></a>
                                        </div>
                                     </div>
                                  </div>
@@ -481,7 +485,7 @@
                                        <div class="readMore">
                                           <a
                                              href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>"><img
-                                                src="<?php echo base_url(); ?>assets/images/rightIcon.svg" /> <?php echo lang('more_details'); ?></a>
+                                                src="<?php echo base_url(); ?>assets/images/redLeftIcon.svg" /> <?php echo lang('more_details'); ?></a>
                                        </div>
                                     </div>
                                  </div>
@@ -561,7 +565,7 @@
                                        <div class="readMore">
                                           <a
                                              href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>"><img
-                                                src="<?php echo base_url(); ?>assets/images/rightIcon.svg" /> <?php echo lang('more_details'); ?></a>
+                                                src="<?php echo base_url(); ?>assets/images/redLeftIcon.svg" /> <?php echo lang('more_details'); ?></a>
                                        </div>
                                     </div>
                                  </div>
@@ -602,7 +606,17 @@
                                                    <img src="<?php echo $package_product['product_main_photo']; ?>" /></a>
                                                 <img
                                                    style="width:auto !important;height:auto !important;position:absolute;top:0px;left:0px;"
-                                                   src="<?php echo base_url(); ?>assets/images/above_budget.png" />
+                                                   src="<?php echo base_url(); ?>assets/images/above_budge.svg" />
+
+                                                <?php
+                                                if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) { ?>
+                                                   <div class="above_baduge">
+                                                      <?php
+                                                      echo lang('additional') . ' ' . CURRENCY_SYMBOL;
+                                                      echo $this->session->userdata('webuserdata')['employee_budget'];?>
+                                                      </div><?php
+                                                } ?>
+
                                                 <!-- <div class="hover_box">
                                                    <?php $package_cart = is_product_into_cart($package['package_guid']);
                                                    if ($package_cart['is_added_into_cart'] > 0) { ?>
@@ -638,28 +652,30 @@
                                              <a
                                                 href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>"><?php echo $package['package_name']; ?></a>
                                           </div>
-                                          <!--  <div class="product_description">
-                              <p><?php #echo $package['product_descprition']; ?></p>
-                           </div> -->
+                                          <!-- <div class="product_description">
+                                             <p>
+                                                <?php echo $package['product_descprition']; ?>
+                                             </p>
+                                          </div> -->
                                           <!--   <div class="product_price">
                               <p>(<?php #echo addZero($package['no_of_products']); ?> <?php #echo lang('products'); ?>)</p>
                               <?php #if ($package['remaining_quantity'] < REMAINING_PRODUCTS_QUANTITY_LIMIT) { ?>
                                   <p><?php #echo lang('remaining_quantity'); ?> <?php #echo $package['remaining_quantity']; ?> </p>
                               <?php #} ?>
                               </div> -->
-                                          <div class="product_name">
+                                          <!-- <div class="product_name">
                                              <?php
                                              if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
                                                 echo lang('additional') . ' ' . CURRENCY_SYMBOL;
                                                 echo $this->session->userdata('webuserdata')['employee_budget'];
                                              }
                                              ?>
-                                          </div>
+                                          </div> -->
                                           <div class="readMore">
                                              <!--  <a href="<?php #echo base_url(); ?>package/details/<?php #echo $package['package_guid']; ?>"><img src="<?php #echo base_url(); ?>assets/images/leftIcon.svg" /> <?php #echo lang('more_details'); ?>  </a> -->
                                              <a
                                                 href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>"><img
-                                                   src="<?php echo base_url(); ?>assets/images/rightIcon.svg" /> <?php echo lang('more_details'); ?> </a>
+                                                   src="<?php echo base_url(); ?>assets/images/redLeftIcon.svg" /> <?php echo lang('more_details'); ?> </a>
 
                                           </div>
                                        </div>
@@ -804,7 +820,7 @@
                                        <div class="readMore">
                                           <a
                                              href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>"><img
-                                                src="<?php echo base_url(); ?>assets/images/rightIcon.svg" /> <?php echo lang('more_details'); ?></a>
+                                                src="<?php echo base_url(); ?>assets/images/redLeftIcon.svg" /> <?php echo lang('more_details'); ?></a>
                                        </div>
                                     </div>
                                  </div>
@@ -861,10 +877,9 @@
 <script>
    var timeIntervalIds = []; convertTime();
    function convertTime() {
-      let deadlineTime = "<?=$client_information['deadline'] ?>";
-      let check = ["" , null , undefined];
-      if(!check.includes(deadlineTime))
-      {
+      let deadlineTime = "<?= $client_information['deadline'] ?>";
+      let check = ["", null, undefined];
+      if (!check.includes(deadlineTime)) {
          timeInSeconds = convertTimeIntoSeconds(deadlineTime);
          setTimerInterval(timeInSeconds);
       }

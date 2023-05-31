@@ -3,25 +3,25 @@
       display: none !import
    }
 
-   .product_slider_main{
+   .product_slider_main {
       box-shadow: 0 0 9px -1px lightgray !important;
    }
 
-   .thumb_inner .slick-track{
+   .thumb_inner .slick-track {
       padding: 10px;
    }
-   .thumb_inner .slick-track img{
+
+   .thumb_inner .slick-track img {
       box-shadow: 3px 3px 9px 3px lightgray;
    }
 
    @media screen and (max-width: 767px) {
-      .thumb_inner .slick-track img{
-      margin: 2px
+      .thumb_inner .slick-track img {
+         margin: 2px
+      }
    }
-   }
-   
 </style>
-<main class="main_content" >
+<main class="main_content">
    <div class="add_to_card">
       <div class="addToCartDiv"><!-- remove the class(desktopHide)-->
          <?php if ($details['remaining_quantity'] > 0) { ?>
@@ -43,8 +43,7 @@
          } ?>
       </div>
       <div class="backToStore"><!-- remove the class(desktopHide)-->
-         <div class="wow zoomIn"><a href="../../employees/products" class="btn" style="color:black;"><img
-                  src="<?php echo base_url(); ?>assets/images/rightIcon.svg" /></span>
+         <div class="wow zoomIn"><a href="../../employees/products" class="btn" style="color: black;font-size: 20px !important;font-family: 'AssistantBold';"><img src="<?php echo base_url(); ?>assets/images/rightIcon.svg" /></span>
                <?php echo lang('back'); ?></span> <span style="color: #000; position: relative; left: -15px;"><span>
             </a></div>
       </div>
@@ -189,7 +188,7 @@
                               <div class="product_slider_thumb arrow_center wow zoomIn">
                                  <div class="product_thumb_item">
                                     <div class="thumb_inner">
-                                       <img src="<?php echo $details['product_main_photo']; ?>"  alt="main-image" />
+                                       <img src="<?php echo $details['product_main_photo']; ?>" alt="main-image" />
                                     </div>
                                  </div>
                                  <?php
@@ -242,7 +241,7 @@
 
                         </div>
                      </div>
-                     <div class="mobileHide product_right" style="padding-bottom: 142px;">
+                     <div class="mobileHide product_right my-6">
                         <?php if ($details['remaining_quantity'] > 0) { ?>
                            <!-- <div class="product_information wow fadeInUp">
                          <div class="quantity_box">
@@ -319,12 +318,11 @@
 </main>
 
 <script>
-   window.addEventListener('resize', function(event) {
-  var clientWidth = window.innerWidth;
-  if(clientWidth<=768)
-  {
-   var card = document.getElementById("card_remove");
-   console.log(card);
-   card.classList.remove('card');
-  }
+   window.addEventListener('resize', function (event) {
+      var clientWidth = window.innerWidth;
+      if (clientWidth <= 768) {
+         var card = document.getElementById("card_remove");
+         console.log(card);
+         card.classList.remove('card');
+      }
 </script>

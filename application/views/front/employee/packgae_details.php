@@ -86,7 +86,9 @@
       <div class="backToStore "><!-- remove class(desktopHide)-->
          <div class="wow "><a href="../../employees/products" class="btn"><span><img
                      src="<?php echo base_url(); ?>assets/images/rightIcon.svg" /></span> <span
-                  style="color: #000; position: relative; left: -15px;">
+                  style="color: black;
+    font-size: 20px !important;
+    font-family: 'AssistantBold'; position: relative; left: -15px;">
                   <?php echo lang('back'); ?>
                </span> </a></div>
       </div>

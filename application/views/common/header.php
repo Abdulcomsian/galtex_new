@@ -230,8 +230,8 @@ $language = $this->session->userdata('language');
                      <div class="row">
                      <div class="col-6">
                            <button style="color:white">
-                              <!-- <img src="<?php echo base_url(); ?>assets/images/closeIcon.svg" alt=""> -->
-                              <i class="fa fa-times" aria-hidden="true"></i>
+                              <img src="<?php echo base_url(); ?>assets/images/Exit.svg" alt="">
+                              <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
 
                            </button>
                         </div>
@@ -239,7 +239,7 @@ $language = $this->session->userdata('language');
                            <!-- <img src="<?php echo base_url(); ?>uploads/company/<?php echo $company_logo; ?>" alt="logo"
                               style="height:60px;"> -->
                               <img src="<?php echo base_url(); ?>/uploads/company/logoImg.svg" alt="logo"
-                              style="height:50px; float:left;">
+                              style="height:100%; float:left;">
                         </div>
                         
                      </div>
@@ -394,16 +394,19 @@ $language = $this->session->userdata('language');
                <div class="filterHeader">
                   <div class="closingBtn">
                      <button style="color:white">
-                        <!-- <img src="<?php echo base_url(); ?>assets/images/closeIcon.svg"> -->
-                        <i class="fa fa-times" aria-hidden="true"></i>
+                        <img src="<?php echo base_url(); ?>assets/images/Exit.svg">
+                        <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
                      </button>
                   </div>
                </div>
                <div class="filter_div">
                <div class="filterCategory">
                   <h4 class="sidebar_head wow fadeInDown">
-                     <?php echo lang('budget_categories'); ?>
+                     <?php echo lang('filter_category'); ?>
                   </h4>
+                  <p>
+                     <?php echo lang('category'); ?>
+                  </p>
                   <ul class="list-unstyled catlist_item">
                      <?php $category = $_REQUEST['budget_categories']; ?>
                      <!-- <li class="wow fadeInLeft" data-wow-delay="0.3s">
@@ -426,9 +429,9 @@ $language = $this->session->userdata('language');
                </div>
                <?php #print_r($categories['data']['records']); exit;?>
                <div class="filterCategory">
-                  <h4>
+                  <!-- <h4>
                      <?php echo lang('filter_category'); ?>
-                  </h4>
+                  </h4> -->
                   <p>
                      <?php echo lang('category'); ?>
                   </p>

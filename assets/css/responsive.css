@@ -125,7 +125,7 @@
 
   .hdr_main .navbar-nav .nav-link {
     text-align: center;
-    font-size: 18px !important;
+    font-size: 26px !important;
   }
 
   .navbar-nav .nav-item a.active {
@@ -162,7 +162,7 @@
     height: 100vh;
     display: block !important;
     z-index: 9999;
-    width: 270px;
+    width: 85%;
     background: #3d3c40;
     transition: all 0.3s linear;
     -webkit-transition: all 0.3s linear;
@@ -287,9 +287,13 @@
     padding-right: 0px;
   }
 
+  ul.nav_right {
+    padding: 0;
+  }
+
   html[dir="rtl"] .hdr_main .navbar-collapse {
     left: inherit;
-    right: -272px;
+    right: -100%;
   }
 
   html[dir="rtl"] .hdr_main .navbar-collapse.show {
@@ -373,7 +377,7 @@
   }
 
   html[dir="rtl"] .readMore a img {
-    left: 0px !important;
+    left: -5px !important;
   }
 
   .innerbanner_cap h1 {
@@ -880,8 +884,8 @@
   }
 
   .dialog_box img {
-    /* height: 374px; */
-    height: auto;
+    height: 375px;
+    /* height: auto; */
     width: 375px;
   }
 
@@ -965,6 +969,9 @@
 }
 
 @media (max-width: 575px) {
+  /* .above_baduge {
+    left: 50%;
+  } */
   .package_product_page .card {
     border: none;
   }
