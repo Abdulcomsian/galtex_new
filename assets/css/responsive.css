@@ -108,7 +108,9 @@
   }
 
   html[dir="rtl"] .mobileHeader button {
-    float: right;
+    position: absolute;
+    top: -13px;
+    right: 8px;
   }
 
   .socialMedia,
@@ -834,7 +836,7 @@
 
   .single_slider_main .product_slider_thumb {
     width: 28% !important;
-    margin: 2px;
+    margin: 4px;
   }
 
   .single_slider_main .product_slider_main {
