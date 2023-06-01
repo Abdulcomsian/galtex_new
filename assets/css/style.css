@@ -681,7 +681,7 @@ html[dir="rtl"] .readMore a img {
 
 @media screen and (max-width: 500px) {
   .package_product_page {
-    padding: 19px 0px;
+    padding: 5px 0px;
   }
 }
 .main_content {
