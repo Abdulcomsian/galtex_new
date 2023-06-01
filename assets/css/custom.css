@@ -109,7 +109,7 @@ body {
   background-color: white;
   width: 8rem;
   opacity: 1;
-  border: 2px solid #707070;
+  border: 1px solid #707070;
   font-family: "Assistant" !important;
   font-size: 18px !important;
   outline: none !important;
@@ -182,7 +182,7 @@ ul.nav_right {
 }
 
 .hdr_main .navbar-nav .nav-link {
-  margin: 15px 15px;
+  margin: 15px 0;
   color: #000;
   font-size: 20px;
   font-weight: 400;
