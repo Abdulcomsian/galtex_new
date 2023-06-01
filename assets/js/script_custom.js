@@ -40,7 +40,8 @@ $(document).ready(function () {
     arrows: true,
     focusOnSelect: true,
     rtl: rtl_slick(),
-  }); // ZOOM
+  });
+  // ZOOM
   // if ($(".ex1").length > 0) {
   //   $(".ex1").zoom();
   // }

@@ -115,6 +115,7 @@ input:focus {
   font-family: "Assistant";
   font-weight: bold;
   font-size: 24px;
+  font-weight: bold;
 }
 
 .mainHeader img {
@@ -1016,7 +1017,7 @@ html[dir="rtl"] .main_content .backToStore span:nth-child(1) {
 
 .card-text .note {
   text-align: right;
-  font-family: 'AssistantBold';
+  font-family: "AssistantBold";
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 30px;
