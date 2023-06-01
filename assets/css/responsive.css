@@ -340,6 +340,9 @@
 }
 
 @media (max-width: 767px) {
+  .card-text .note {
+    margin-top: 10% !important;
+  }
   .package-detail_view {
     display: flex;
     flex-direction: column-reverse;

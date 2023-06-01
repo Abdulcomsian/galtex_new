@@ -156,7 +156,8 @@
                 <?php echo lang('login'); ?>
               </h3>
               <!-- <img src="assets/images/logo1.png" alt=""> -->
-              <a href="<?php echo base_url(); ?>"> <img src="uploads/company/logoImg.svg" alt="logo" style="width: 9%;"></a>
+              <a href="<?php echo base_url(); ?>"> <img src="uploads/company/logoImg.svg" alt="logo"
+                  style="width: 7%;"></a>
             </div>
           </div>
         </div>
@@ -171,8 +172,8 @@
             <div class="card-text">
               <!-- Custom Text Write Here -->
               <p class="note" style="display:none!important">
-                  <?php echo lang('login_title'); ?>
-                <br/>
+                <?php echo lang('login_title'); ?>
+                <br />
                 <span style="font-size: 14px; font-weight: lighter; font-family:AssistantRegular">
                   <?php echo lang('login_title2'); ?>
                 </span>
@@ -235,7 +236,7 @@
                   </label>
                 </div> -->
                 <div class="form-check wow fadeInLeft" ata-wow-delay="0.6s">
-                  <input class="form-check-input" type="checkbox" id="privacy" name="is_remember" <?php if (isset($_COOKIE["phone_number"])) {
+                  <input class="form-check-input mt-0" type="checkbox" id="privacy" name="is_remember" <?php if (isset($_COOKIE["phone_number"])) {
                     echo 'checked';
                   } ?>>
                   <label class="form-check-label " for="privacy" style="margin-right: 0.3125rem;">
@@ -243,7 +244,7 @@
                   </label>
                 </div>
                 <button type="button" class="btn_common btn btn-primary btn-block wow fadeInUp get_otp_phone_call"
-                  data-wow-delay="0.8s" style="margin-top: 30px;">
+                  data-wow-delay="0.8s" style="margin-top: 30px; font-family: 'Segoe UI, Semibold';font-size:18px;">
                   <?php echo lang('receive_otp_message'); ?>
                 </button>
 
@@ -313,44 +314,44 @@
   </div>
 
   <footer class="footer_sec">
-        <section class="footer_top">
-            <div >
-              
-                 <div class="text-center">
-                    <div class="ftr_main_block">
-                       <div class="footer_div">  <!-- //remove th class -->
-                       <img style="width:100px; height: auto" src="<?php echo base_url(); ?>uploads/company/logoFooter.svg" alt="logo"
-                        style="height:40px;">
-                       <ul class="social_main list-unstyled">
-                            <!-- <li class="list-inline-item">
+    <section class="footer_top">
+      <div>
+
+        <div class="text-center">
+          <div class="ftr_main_block">
+            <div class="footer_div"> <!-- //remove th class -->
+              <img style="width:100px; height: auto" src="<?php echo base_url(); ?>uploads/company/logoFooter.svg"
+                alt="logo" style="height:40px;">
+              <ul class="social_main list-unstyled">
+                <!-- <li class="list-inline-item">
                                 <a href="javascript:void(0);" target="_blank"><i class="fab fa-facebook-f"></i></a>
                             </li>
                              <li class="list-inline-item">
                                 <a href="javascript:void(0);" target="_blank"><i class="fab fa-twitter"></i></a>
                             </li> -->
-                            <li class="list-inline-item">
-                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-google"></i></a>
-                            </li>
-                            
-                            <!-- <li class="list-inline-item">
+                <li class="list-inline-item">
+                  <a href="javascript:void(0);" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="javascript:void(0);" target="_blank"><i class="fab fa-google"></i></a>
+                </li>
+
+                <!-- <li class="list-inline-item">
                                 <a href="javascript:void(0);" target="_blank"><i class="fab fa-youtube"></i></a>
                             </li> -->
-                        </ul>
-                 </div>  
-                     </div>
-                        <!-- <ul class="ftr_contact list-unstyled">  
+              </ul>
+            </div>
+          </div>
+          <!-- <ul class="ftr_contact list-unstyled">  
                             <li><span class="cont_icon"><i class="fas fa-map-marker-alt"></i></span> <?php echo lang('galtex_store_pvt_ltd'); ?></li>                    
                             <li><a href="tel:<?php echo CONTACT_PHONE; ?>"><span class="cont_icon"><i class="fas fa-phone-alt"></i></span> <?php echo CONTACT_PHONE; ?></a></li>                    
                             <li><a href="mailto:<?php echo CONTACT_EMAIL; ?>"><span class="cont_icon"><i class="far fa-envelope"></i></span> <?php echo CONTACT_EMAIL; ?></a></li>                  
                         </ul> -->
-                 </div>
-                    </div>
-                    
-                 </div>
-                <!-- <div class="col-6">
+        </div>
+      </div>
+
+      </div>
+      <!-- <div class="col-6">
                  <div class="ftr_main_block">
                         <h4 class="ftr_title"><?php #echo lang('follow_us'); ?></h4> 
                         <ul class="social_main list-unstyled mb-0">
@@ -372,7 +373,7 @@
                         </ul>
                     </div>
                  </div> -->
-                 <!-- <div class="footer_menu">
+      <!-- <div class="footer_menu">
                     <div class="ftr_main_block">
                     <ul class="menu_list list-unstyled mb-0">
                             <li>
@@ -423,7 +424,7 @@
                      </ul>
                     </div>
                  </div> -->
-                 <!-- <div>
+      <!-- <div>
                  <div class="col-4">
                     <div class="ftr_main_block">
                        <h4 class="ftr_title"><?php echo lang('services'); ?></h4>
@@ -486,15 +487,15 @@
                     </div>
                  </div>
 </div> -->
-            </div>
-        </section>
-        <section class="footer_btm text-center">
-            <div class="container">
-               <?php echo lang('copyright_web'); ?>
-            </div>
-        </section>
+      </div>
+    </section>
+    <section class="footer_btm text-center">
+      <div class="container">
+        <?php echo lang('copyright_web'); ?>
+      </div>
+    </section>
 
-    </footer>
+  </footer>
 
   <script type="text/javascript">
     var base_url = "<?php echo base_url(); ?>";

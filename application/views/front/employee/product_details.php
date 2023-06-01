@@ -20,6 +20,20 @@
          margin: 2px
       }
    }
+   @media screen and (max-width: 600px) {
+      .thumb-inner--img {
+         max-height: 73px;
+         min-width: 47px !important;
+         object-fit: cover
+      }
+   }
+   @media screen and (max-width: 1200px) {
+      .thumb-inner--img {
+         object-fit: cover
+      }
+   }
+
+
 </style>
 <main class="main_content">
    <div class="add_to_card">
@@ -188,7 +202,7 @@
                               <div class="product_slider_thumb arrow_center wow zoomIn">
                                  <div class="product_thumb_item">
                                     <div class="thumb_inner">
-                                       <img src="<?php echo $details['product_main_photo']; ?>" alt="main-image" />
+                                       <img class="thumb-inner--img" src="<?php echo $details['product_main_photo']; ?>" alt="main-image" />
                                     </div>
                                  </div>
                                  <?php
