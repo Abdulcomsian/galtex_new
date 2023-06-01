@@ -123,8 +123,8 @@ switch (ENVIRONMENT)
   case 'local':
     /*Paths*/
 
-    define('SITE_HOST', 'http://localhost:80/');
-    define('ROOT_FOLDER', 'galtex_new/');
+    define('SITE_HOST', 'http://localhost/');
+    define('ROOT_FOLDER', 'galtexnew/');
 
     /*Site Related Settings*/
     define('ADMIN_SAVE_LOG', false);
