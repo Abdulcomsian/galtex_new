@@ -11,14 +11,13 @@ $language = $this->session->userdata('language');
 <head>
    <script>
       function setActive(event) {
-         const menuItem = document.querySelectorAll('nav-link');
-         menuItem.forEach(item => item.class.addList.remove('active'));
-
-         console.log("here");
+         const menuItems = document.querySelectorAll('.nav-link');
+         menuItems.forEach(item => item.classList.remove('active'));
          const clickedItem = event.target;
          clickedItem.classList.add('active');
       }
    </script>
+   
    <!-- Required meta tags -->
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -89,7 +88,7 @@ $language = $this->session->userdata('language');
       .packages_por p.tag {
          background: #963491 !important;
          /* background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), */
-            <?php #echo $color_code; ?>
+         <?php #echo $color_code; ?>
          ;
          /*  background-color: <?php #echo $color_code; ?>
          ;
@@ -111,9 +110,9 @@ $language = $this->session->userdata('language');
       .filterBox .filterHeader button,
       .shoppingCart .headerCart a,
       .mobileHeader button {
-            color: #963491;
-               <?php #echo $color_code; ?>
-            ;
+         color: #963491;
+         <?php #echo $color_code; ?>
+         ;
       }
 
       .btn_common:hover,
@@ -130,15 +129,15 @@ $language = $this->session->userdata('language');
 
       .btn_common {
          outline-color: #963491;
-            <?php #echo $color_code; ?>
+         <?php #echo $color_code; ?>
          ;
       }
 
       .filterBox .filterCategory .catlist_item li input[type="checkbox"]:checked:after,
       .change-language ul li:nth-child(1):after {
          /* background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), #963491 */
-         background:#963491;
-            <?php #echo $color_code; ?>
+         background: #963491;
+         <?php #echo $color_code; ?>
          ;
       }
 
@@ -146,7 +145,7 @@ $language = $this->session->userdata('language');
       .prod_coll .proimage,
       .packageDiv .single_item {
          /* border-color: #eee; */
-         border-color:#9634913B;
+         border-color: #9634913B;
          <?php #echo $color_code; ?>
          ;
       }
@@ -228,7 +227,7 @@ $language = $this->session->userdata('language');
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <div class="mobileHeader">
                      <div class="row">
-                     <div class="col-6">
+                        <div class="col-6">
                            <button style="color:white">
                               <img src="<?php echo base_url(); ?>assets/images/Exit.svg" alt="">
                               <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
@@ -238,10 +237,10 @@ $language = $this->session->userdata('language');
                         <div class="col-6">
                            <!-- <img src="<?php echo base_url(); ?>uploads/company/<?php echo $company_logo; ?>" alt="logo"
                               style="height:60px;"> -->
-                              <img src="<?php echo base_url(); ?>/uploads/company/logoImg.svg" alt="logo"
+                           <img src="<?php echo base_url(); ?>/uploads/company/logoImg.svg" alt="logo"
                               style="height:100%; float:left;">
                         </div>
-                        
+
                      </div>
                   </div>
                   <ul class="navbar-nav">
@@ -341,11 +340,11 @@ $language = $this->session->userdata('language');
 
                <div class="mobile_toggle_area"></div>
                <?php
-                        $url = $_SERVER['REQUEST_URI'];
-                        $urlParam = explode("/", $url);
-                        $class= $urlParam[sizeof($urlParam) - 1] == 'cart' ? "active_cart" : "";
-                        ?>
-               <ul class="nav_right" style="<?=($class=="active_cart"?"padding:0 0 0 20px":"")?>">
+               $url = $_SERVER['REQUEST_URI'];
+               $urlParam = explode("/", $url);
+               $class = $urlParam[sizeof($urlParam) - 1] == 'cart' ? "active_cart" : "";
+               ?>
+               <ul class="nav_right" style="<?= ($class == "active_cart" ? "padding:0 0 0 20px" : "") ?>">
                   <!-- <li class="list-inline-item user_item mobileHide"> -->
                   <!-- <a href="javascript:void(0);" class="userdd_open"><img src="<?php echo base_url(); ?>assets/images/user.png"></a> -->
                   <!--  <a href="javascript:void(0);" class="userdd_open"> <i class="fa fa-user-o" aria-hidden="true"></i></a> -->
@@ -368,14 +367,17 @@ $language = $this->session->userdata('language');
                      </li> -->
                   <?php if (!empty($this->cart->contents())) { ?>
                      <!-- <?php
-                        $url = $_SERVER['REQUEST_URI'];
-                        $urlParam = explode("/", $url);
-                        $class= $urlParam[sizeof($urlParam) - 1] == 'cart' ? "active_cart" : "";
-                        ?> -->
-                     <li class="list-inline-item  <?=$class?>">
-                        <a class="open-cart-sidebar" href="<?php echo base_url(); ?>employees/cart" style="display: inline-block">
-                           <img src="<?php echo base_url(); ?>assets/images/<?=$class=="active_cart"?"shoping_cart.png":"shopping_cart_black_24dp.svg"?>">
-                           <span class="top-cart-info-count badge badge-pill <?=($class=="active_cart"?"d-none":"")?>">
+                     $url = $_SERVER['REQUEST_URI'];
+                     $urlParam = explode("/", $url);
+                     $class = $urlParam[sizeof($urlParam) - 1] == 'cart' ? "active_cart" : "";
+                     ?> -->
+                     <li class="list-inline-item  <?= $class ?>">
+                        <a class="open-cart-sidebar" href="<?php echo base_url(); ?>employees/cart"
+                           style="display: inline-block">
+                           <img
+                              src="<?php echo base_url(); ?>assets/images/<?= $class == "active_cart" ? "shoping_cart.png" : "shopping_cart_black_24dp.svg" ?>">
+                           <span
+                              class="top-cart-info-count badge badge-pill <?= ($class == "active_cart" ? "d-none" : "") ?>">
                               <?php echo count($this->cart->contents()); ?>
                            </span>
                         </a>
@@ -400,59 +402,59 @@ $language = $this->session->userdata('language');
                   </div>
                </div>
                <div class="filter_div">
-               <div class="filterCategory">
-                  <h4 class="sidebar_head wow fadeInDown">
-                     <?php echo lang('filter_category'); ?>
-                  </h4>
-                  <p>
-                     <?php echo lang('category'); ?>
-                  </p>
-                  <ul class="list-unstyled catlist_item">
-                     <?php $category = $_REQUEST['budget_categories']; ?>
-                     <!-- <li class="wow fadeInLeft" data-wow-delay="0.3s">
+                  <div class="filterCategory">
+                     <h4 class="sidebar_head wow fadeInDown">
+                        <?php echo lang('filter_category'); ?>
+                     </h4>
+                     <p>
+                        <?php echo lang('category'); ?>
+                     </p>
+                     <ul class="list-unstyled catlist_item">
+                        <?php $category = $_REQUEST['budget_categories']; ?>
+                        <!-- <li class="wow fadeInLeft" data-wow-delay="0.3s">
                            <input type="checkbox" id="chk_Apple" value="within" name="budget_category[]" class="budget-categories2"/>
                            <label for="chk_Apple">
                            <span><i class="fas fa-check"></i></span> <?php echo lang('within_the_budget'); ?>
                            </label>
                         </li> -->
 
-                     <li class="wow fadeInLeft" data-wow-delay="0.6s">
-                        <input type="checkbox" id="chk_Canon" value="above" name="budget_category[]"
-                           class="budget-categories2" <?php echo $category === 'above' ? 'checked' : '' ?> />
-                        <label for="chk_Canon">
-                           <?php echo lang('above_the_budget'); ?>
-                        </label>
+                        <li class="wow fadeInLeft" data-wow-delay="0.6s">
+                           <input type="checkbox" id="chk_Canon" value="above" name="budget_category[]"
+                              class="budget-categories2" <?php echo $category === 'above' ? 'checked' : '' ?> />
+                           <label for="chk_Canon">
+                              <?php echo lang('above_the_budget'); ?>
+                           </label>
 
 
-                     </li>
-                  </ul>
-               </div>
-               <?php #print_r($categories['data']['records']); exit;?>
-               <div class="filterCategory">
-                  <!-- <h4>
+                        </li>
+                     </ul>
+                  </div>
+                  <?php #print_r($categories['data']['records']); exit;?>
+                  <div class="filterCategory">
+                     <!-- <h4>
                      <?php echo lang('filter_category'); ?>
                   </h4> -->
-                  <p>
-                     <?php echo lang('category'); ?>
-                  </p>
-                  <ul class="list-unstyled catlist_item">
-                     <?php if ($categories['data']['total_records']) {
-                        foreach ($categories['data']['records'] as $category) { ?>
-                           <li class="wow fadeInLeft" data-wow-delay="0.3s">
-                              <input type="checkbox" id="category_<?php echo $category['category_guid']; ?>"
-                                 name="main_category[]" value="<?php echo $category['category_guid']; ?>" <?php if (in_array($category['category_guid'], $main_categories))
-                                       echo "checked"; ?>
-                                 class="main_categories2" />
-                              <label for="category_<?php echo $category['category_guid']; ?>">
-                                 <?php echo $category['category_name']; ?>
-                              </label>
+                     <p>
+                        <?php echo lang('category'); ?>
+                     </p>
+                     <ul class="list-unstyled catlist_item">
+                        <?php if ($categories['data']['total_records']) {
+                           foreach ($categories['data']['records'] as $category) { ?>
+                              <li class="wow fadeInLeft" data-wow-delay="0.3s">
+                                 <input type="checkbox" id="category_<?php echo $category['category_guid']; ?>"
+                                    name="main_category[]" value="<?php echo $category['category_guid']; ?>" <?php if (in_array($category['category_guid'], $main_categories))
+                                          echo "checked"; ?>
+                                    class="main_categories2" />
+                                 <label for="category_<?php echo $category['category_guid']; ?>">
+                                    <?php echo $category['category_name']; ?>
+                                 </label>
 
 
-                           </li>
-                        <?php }
-                     } ?>
-                  </ul>
-               </div>
+                              </li>
+                           <?php }
+                        } ?>
+                     </ul>
+                  </div>
                </div>
             </div>
             <div class="blurEffect">
