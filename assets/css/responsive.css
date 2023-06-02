@@ -892,6 +892,7 @@
     height: 375px;
     /* height: auto; */
     width: 375px;
+    object-fit: cover;
   }
 
   .overlay_popup {

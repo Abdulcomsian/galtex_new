@@ -1046,7 +1046,7 @@ html[dir="rtl"] .main_content .backToStore span:nth-child(1) {
   height: 14px;
   width: 14px;
   left: 3px;
-  top: 7px;
+  top: 3px;
   background: rgb(122, 52, 156);
   background: linear-gradient(90deg, rgba(122, 52, 156, 1) 0%, #963491 100%);
   font-family: "Montserrat";
@@ -1059,7 +1059,7 @@ html[dir="rtl"] .main_content .backToStore span:nth-child(1) {
   display: block;
   position: absolute;
   left: 5px;
-  top: 3px;
+  top: 0px;
 }
 
 .card-text input#privacy:before {
@@ -1521,8 +1521,9 @@ html[dir="rtl"] .second_col {
 }
 
 .mobile_cart {
-  background: transparent linear-gradient(359deg, #262529 0%, #6e6d70 100%) 0%
-    0% no-repeat padding-box;
+  /* background: transparent linear-gradient(359deg, #262529 0%, #6e6d70 100%) 0%
+    0% no-repeat padding-box; */
+    background:#333;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   height: 85vh;
