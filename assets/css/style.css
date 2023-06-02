@@ -111,9 +111,7 @@ input:focus {
 .mainHeader h3 {
   color: #fff;
   text-align: center;
-  font-family: "AssistantRegular";
-  font-family: "Assistant";
-  font-weight: bold;
+  font-family: 'Segoe UI, Bold';
   font-size: 24px;
   font-weight: bold;
 }
@@ -1206,6 +1204,13 @@ html[dir="rtl"] .card-text input[type="checkbox"]:checked + label::after {
   box-shadow: 0 0 7px 3px lightgray;
 }
 
+.product_slider_main .slick-track{
+  height: 300px !important;
+}
+.product_slider_main .slick-track img {
+  object-fit: contain;
+}
+
 .single_product_page .productDiv .product_slider_thumb {
   position: relative;
   left: 10px;
@@ -1532,4 +1537,9 @@ html[dir="rtl"] .second_col {
 .filter_div {
   width: 100%;
   background: white;
+}
+
+.count {
+  font-size: 20px !important;
+    font-family: 'AssistantBold';
 }

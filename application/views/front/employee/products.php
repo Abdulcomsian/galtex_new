@@ -73,21 +73,21 @@
             <div class="timer">
                <h5 class="d-flex flex-column mx-2" style="font-family: Assistant; font-weight: normal;"><span id="days"
                      class="text-center" style="font-family: AssistantBold;">00</span>
-                  <strong>
+                  <span class="count">
                      <?php echo lang('days') ?>
-                  </strong>
+                  </span>
                </h5>
                <span>:</span>
                <h5 class="d-flex flex-column mx-2" style="font-family: Assistant; font-weight: normal;"><span id="hours"
-                     class="text-center" style="font-family: AssistantBold;">00</span><strong>
+                     class="text-center" style="font-family: AssistantBold;">00</span><span class="count">
                      <?php echo lang('hours') ?>
-                  </strong></h5>
+                  </span></h5>
                <span>:</span>
 
                <h5 class="d-flex flex-column mx-2" style="font-family: Assistant; font-weight: normal;"><span
-                     id="minutes" class="text-center" style="font-family: AssistantBold;">00</span><strong>
+                     id="minutes" class="text-center" style="font-family: AssistantBold;">00</span><span class="count">
                      <?php echo lang('minute') ?>
-                  </strong>
+                  </span>
                </h5>
                <!-- <span>:</span> -->
 
