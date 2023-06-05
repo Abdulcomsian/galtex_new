@@ -85,7 +85,7 @@
                <span>:</span>
 
                <h5 class="d-flex flex-column mx-2" style="font-family: Assistant; font-weight: normal;"><span
-                     id="minutes" class="text-center" style="font-family: AssistantBold;">00</span><span class="count">
+                     id="minutes" class="text-center" style="font-family: AssistantBold;">00</span><span class="count" >
                      <?php echo lang('minute') ?>
                   </span>
                </h5>
@@ -98,8 +98,8 @@
       </div>
    </div>
    <?php
-      $lastActivity = $this->session->userdata('webuserdata')['last_activity'];
-   $basePath = base_url() . '/assets/images/';
+      // $lastActivity = $this->session->userdata('webuserdata')['last_activity'];
+   $basePath = base_url() . '/uploads/company/';
    $popupImage = $this->session->userdata('webuserdata')['client_configs']['popup_image'] ?? $this->session->userdata('webuserdata')['client_configs']['company_logo'] ?? 'testImage.png';
    $imageUrl = $basePath . $popupImage;
    // print_r($this->session->userdata('webuserdata')['client_configs']['company_logo']);
@@ -112,12 +112,12 @@
 //  print_r($this->session->userdata('webuserdata'));
 //  exit;
    ?>
-   <?php if (!isset($lastActivity) || is_null($lastActivity)) { ?>
+   <?php #if (!isset($lastActivity) || is_null($lastActivity)) { ?>
       <div class="overlay_popup">
          <dialog class="dialog_box modal-dialog-centered" id="dialogue">
             <div class="container">
                <!-- echo base_url(); ?>/assets/images/testImage.png -->
-               <img src="<?= $imageUrl ?>" className="card-img-top rounded" /><span class="close-icon">&times;</span>
+               <img src="<?php echo $imageUrl ?>" className="card-img-top rounded" /><span class="close-icon">&times;</span>
                <a href="#">אישור</a>
             </div>
          </dialog>
@@ -148,7 +148,7 @@
       </script>
 
 
-   <?php } ?>
+   <?php # } ?>
 
    <div class="product_main">
       <div class="container">

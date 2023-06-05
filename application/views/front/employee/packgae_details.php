@@ -429,11 +429,4 @@
    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick.min.js"></script>
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
-const signTogglers = document.querySelectorAll('.sign-toggler');
-console.log(signTogglers)
-
-signTogglers.addEventListener('click', function(){
-   document.querySelector('')
-})
 </script>
