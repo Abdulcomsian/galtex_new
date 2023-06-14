@@ -98,7 +98,7 @@
       </div>
    </div>
    <?php
-      // $lastActivity = $this->session->userdata('webuserdata')['last_activity'];
+       $lastActivity = $this->session->userdata('webuserdata')['last_activity'];
    $basePath = base_url() . '/uploads/company/';
    $popupImage = $this->session->userdata('webuserdata')['client_configs']['popup_image'] ?? $this->session->userdata('webuserdata')['client_configs']['company_logo'] ?? 'testImage.png';
    $imageUrl = $basePath . $popupImage;
@@ -112,8 +112,9 @@
 //  print_r($this->session->userdata('webuserdata'));
 //  exit;
    ?>
-   <?php #if (!isset($lastActivity) || is_null($lastActivity)) { ?>
+   <?php if (!isset($lastActivity) || is_null($lastActivity)) { ?>
       <div class="overlay_popup">
+      <div class="overlay_popup" style="height: 100vh;">
          <dialog class="dialog_box modal-dialog-centered" id="dialogue">
             <div class="container">
                <!-- echo base_url(); ?>/assets/images/testImage.png -->
@@ -122,6 +123,7 @@
             </div>
          </dialog>
       </div>
+   </div>
 
 
 
@@ -148,7 +150,7 @@
       </script>
 
 
-   <?php # } ?>
+   <?php  } ?>
 
    <div class="product_main">
       <div class="container">
