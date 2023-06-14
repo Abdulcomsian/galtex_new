@@ -105,7 +105,7 @@
    // print_r($this->session->userdata('webuserdata')['client_configs']['company_logo']);
    // echo "<pre>";
    // print_r($this->session->userdata('webuserdata'));
-   // exit;
+   // exit;..//
    ?>
    <?php
    //  echo "<pre>";
