@@ -611,13 +611,15 @@
                                                    src="<?php echo base_url(); ?>assets/images/above_budge.svg" />
 
                                                 <?php
+                                                
+                                                if($order_details['order_product_details']!=NULL){
                                                 if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) { ?>
                                                    <div class="above_baduge">
                                                       <?php
                                                       echo lang('additional') . ' ' . CURRENCY_SYMBOL;
                                                       echo $this->session->userdata('webuserdata')['employee_budget'];?>
                                                       </div><?php
-                                                } ?>
+                                                } } ?>
 
                                                 <!-- <div class="hover_box">
                                                    <?php $package_cart = is_product_into_cart($package['package_guid']);
@@ -656,7 +658,7 @@
                                           </div>
                                           <!-- <div class="product_description">
                                              <p>
-                                                <?php echo $package['product_descprition']; ?>
+                                                <?php #echo $package['product_descprition']; ?>
                                              </p>
                                           </div> -->
                                           <!--   <div class="product_price">
@@ -667,10 +669,10 @@
                               </div> -->
                                           <!-- <div class="product_name">
                                              <?php
-                                             if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
-                                                echo lang('additional') . ' ' . CURRENCY_SYMBOL;
-                                                echo $this->session->userdata('webuserdata')['employee_budget'];
-                                             }
+                                             // if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
+                                             //    echo lang('additional') . ' ' . CURRENCY_SYMBOL;
+                                             //    echo $this->session->userdata('webuserdata')['employee_budget'];
+                                             // }
                                              ?>
                                           </div> -->
                                           <div class="readMore">

@@ -147,10 +147,12 @@
                                 </div>
                             <div class="more-pickup-address">
                                 <?php 
+                                if($details['pickup_addresses'] != NULL && $details['pickup_addresses'] != null){
                                     $address_length = (count($details['pickup_addresses']) >= 4) ? count($details['pickup_addresses']) : 4;
+                                   
                                     for ($i=1; $i < $address_length; $i++) { ?>
                                         <div class="row m-t-10"><div class="col-sm-8"><input type="text" class="form-control" name="pickup_addresses[]" placeholder="<?php echo lang('pickup_addresses'); ?>" maxlength="500" autocomplete="off" value="<?php echo @$details['pickup_addresses'][$i]['pickup_address']; ?>"></div><div class="col-sm-4"><a href="javascript:void(0);" style="width:80px;" class="btn btn-danger remove-address"><?php echo lang('remove'); ?></a></div></div>
-                                <?php } ?>
+                                <?php } } ?>
                             </div>
                         </div>
                         <div class="form-group col-sm-12 text-center m-t-20">
