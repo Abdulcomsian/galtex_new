@@ -21,9 +21,13 @@
           <div class="container p-0">
             <div class="container p-0">
               <div class="cart_left">
-
-                <?php if (!empty($order_details)) {
-                  $total_amount = (array_sum(array_column($cart, 'subtotal')) - $this->session->userdata('webuserdata')['employee_budget']);
+                <?php if (!empty($order_details) ) {
+                  if(empty($cart)){
+                    $total_amount = $this->session->userdata('webuserdata')['employee_budget'];
+                  }else{
+                    $total_amount = (array_sum(array_column($cart, 'subtotal')) - $this->session->userdata('webuserdata')['employee_budget']);
+                  }
+                 
                   $i = 1;
                   $amount = 0;
                   foreach($order_details['order_product_details'] as $key => $value) {
