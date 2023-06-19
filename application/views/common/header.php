@@ -372,7 +372,7 @@ $language = $this->session->userdata('language');
                            ?> -->
                      <li class="list-inline-item  <?= $class ?>">
                         <a class="open-cart-sidebar" href="<?php echo base_url(); ?>employees/cart" style="display: inline-block">
-                           <img src="<?php echo base_url(); ?>assets/images/<?= $class == "active_cart" ? "shoping_cart.png" : "shopping_cart_black_24dp.svg" ?>">
+                           <img src="<?php echo base_url(); ?>assets/images/<?= $class == "active_cart" ? "shopping_cart_perpal_24dp.svg" : "shopping_cart_black_24dp.svg" ?>">
                            <span class="top-cart-info-count badge badge-pill <?= ($class == "active_cart" ? "d-none" : "") ?>">
                               <?php echo count($this->cart->contents()); ?>
                            </span>

@@ -171,10 +171,10 @@
             <!-- <h3 class="card-title text-center wow fadeInDown" data-wow-delay="0.2s"><?php echo lang('login'); ?></h3> -->
             <div class="card-text">
               <!-- Custom Text Write Here -->
-              <p class="note" style="display:none!important; font-family: 'AssistantBold'">
+              <p class="note" style="display:none!important; font-family: 'Assistant'; font-weight:bold;direction:ltr">
                 <?php echo lang('login_title'); ?>
                 <br />
-                <span style="font-size: 18px; font-weight: normal; font-family: 'AssistantRegular'">
+                <span style="font-size: 18px; font-weight: normal; font-family: 'AssistantRegular'; ">
                   <?php echo lang('login_title2'); ?>
                 </span>
               </p>

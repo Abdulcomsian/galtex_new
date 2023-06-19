@@ -108,7 +108,7 @@ body {
 
 .content_main_sec .filterButton {
   border-radius: 24px;
-  background-color: white;
+  background-color: #ffffff;
   width: 8rem;
   opacity: 1;
   border: 1px solid #707070;
@@ -1198,11 +1198,11 @@ h2.head_common2:after {
 }
 
 .product_right .product_name {
-  font-family: "AssistantBold";
+  font-family: "Assistant";
   white-space: normal;
   margin-bottom: 20px;
   color: #000;
-  font-weight: 700;
+  font-weight: Bold;
   text-transform: uppercase;
   line-height: 1.1;
   font-size: 28px;
@@ -1977,6 +1977,8 @@ html[dir="rtl"] .get_opt {
   justify-content: space-between;
   align-items: center;
   flex-direction: row-reverse;
+  max-width:1140px;
+  margin:auto
 }
 
 .cart_sec .add_to_card {

@@ -202,7 +202,7 @@
                           </div>
                         </div> -->
                       <?php } ?>
-                      <div style="padding: 0px 23px;">
+                      <div>
                         <button class="btn btn_common mb-5 wow zoomInRight checkout-btn" type="submit"><?php echo lang('continue_to_checkout'); ?></button>
                       </div>
                     </form>

@@ -277,7 +277,8 @@
       <div class="mobile_cart">
                      <div class="headerCart">
                      <a href="../employees/products" style="color:white">
-                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                         <!-- <i class="fa fa-arrow-right" aria-hidden="true"></i> -->
+                         <img src="<?php echo base_url(); ?>/assets/images/Back_WhiteCart_icon.svg" >
                           <!-- <img src="<?php echo base_url(); ?>assets/images/rightShoppingIcon.svg"> -->
                         </a>
                         <!-- <img src="<?php echo base_url(); ?>uploads/company/<?php echo $this->session->all_userdata()['webuserdata']['client_configs']['company_logo']; ?>"> -->
@@ -420,6 +421,7 @@
         if($(".hdr_main .navbar-collapse").hasClass("show")){
           $(".hdr_main .navbar-collapse").removeClass("show")
           $(".main_content").removeClass("blurMe")
+          $(".nav_right").removeClass("blurMe")
           $(".footer_sec").removeClass("blurMe")
           $(".navbar-toggler").css("filter","blur(0px)")
         }
@@ -427,6 +429,7 @@
       $(".navbar-toggler").click(function(){
         $(".main_content").addClass("blurMe")
         $(".footer_sec").addClass("blurMe")
+        $(".nav_right").addClass("blurMe")
         $(this).css("filter","blur(10px)")
       })
       $(".filterIconBtn").click(function(){
