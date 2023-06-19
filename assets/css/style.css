@@ -73,10 +73,10 @@ a {
   font-family: "AssistantRegular" !important;
 }
 
-.header_sec .hdr_main {
+/* .header_sec .hdr_main {
   background: transparent linear-gradient(295deg, #262529 0%, #6e6d70 100%) 0%
     0% no-repeat padding-box;
-}
+} */
 
 .hdr_main .navbar-nav .nav-link {
   font-size: 20px;
@@ -103,7 +103,7 @@ input:focus {
   /* background: rgb(122, 52, 156);
     background: linear-gradient(90deg, rgba(122, 52, 156, 1) 0%, rgba(75, 162, 238, 1) 100%); */
   background: #242226;
-  height: 200px;
+  height: 100px;
   display: grid;
   align-items: center;
 }
@@ -119,7 +119,8 @@ input:focus {
 .mainHeader img {
   position: absolute;
   right: 43px;
-  top: -50px;
+  top: -17px;
+  width: 85px ;
   /* display: none; */
 }
 
@@ -1089,7 +1090,8 @@ html[dir="rtl"] .card-text input[type="checkbox"]:checked + label::after {
 .card-text label {
   font-family: "Segoe UI,Regular";
   font-size: 16px;
-  color: #0000009e;
+  color: #000000;
+  opacity: 60%;
 }
 
 .borderTopRadiusDiv {

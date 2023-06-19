@@ -59,7 +59,7 @@
             </div>
         </div> -->
     <div class="hdr_main">
-      <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg desktopHide">
         <div class="container-fluid">
 
           <!-- <div class="logo_main">
@@ -157,7 +157,7 @@
               </h3>
               <!-- <img src="assets/images/logo1.png" alt=""> -->
               <a href="<?php echo base_url(); ?>"> <img src="uploads/company/logoImg.svg" alt="logo"
-                  style="width: 7%;"></a>
+                  ></a>
             </div>
           </div>
         </div>
@@ -236,10 +236,10 @@
                   </label>
                 </div> -->
                 <div class="form-check wow fadeInLeft" ata-wow-delay="0.6s">
-                  <input class="form-check-input mt-0" type="checkbox" id="privacy" name="is_remember" <?php if (isset($_COOKIE["phone_number"])) {
+                  <input class="form-check-input" style="margin-top: 1px;" type="checkbox" id="privacy" name="is_remember" <?php if (isset($_COOKIE["phone_number"])) {
                     echo 'checked';
                   } ?>>
-                  <label class="form-check-label " for="privacy" style="margin-right: 0.3125rem;">
+                  <label class="form-check-label " for="privacy" style="margin-right: 0.615rem;">
                     <?php echo lang('remember_me'); ?>
                   </label>
                 </div>

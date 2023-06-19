@@ -5,8 +5,7 @@ $language = $this->session->userdata('language');
 ?>
 
 <!doctype html>
-<html lang="<?php echo $language; ?>" class="lang_<?php echo $language; ?>"
-   dir="<?php echo ($language == 'he') ? 'rtl' : 'ltr'; ?>">
+<html lang="<?php echo $language; ?>" class="lang_<?php echo $language; ?>" dir="<?php echo ($language == 'he') ? 'rtl' : 'ltr'; ?>">
 
 <head>
    <script>
@@ -17,7 +16,7 @@ $language = $this->session->userdata('language');
          clickedItem.classList.add('active');
       }
    </script>
-   
+
    <!-- Required meta tags -->
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -68,12 +67,14 @@ $language = $this->session->userdata('language');
       .continuePayment,
       .pro_img_box .productPrice {
          /* background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)),
-            <?php #echo $color_code; ?>
+            <?php #echo $color_code; 
+            ?>
          ;
          */
          /* background: <?php echo $color_code; ?>
          ;
-         */ background: #963491;
+         */
+         background: #963491;
       }
 
       .inner_banner_sec,
@@ -88,9 +89,10 @@ $language = $this->session->userdata('language');
       .packages_por p.tag {
          background: #963491 !important;
          /* background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), */
-         <?php #echo $color_code; ?>
-         ;
-         /*  background-color: <?php #echo $color_code; ?>
+         <?php #echo $color_code; 
+         ?>;
+         /*  background-color: <?php #echo $color_code; 
+                                 ?>
          ;
          */
       }
@@ -111,8 +113,8 @@ $language = $this->session->userdata('language');
       .shoppingCart .headerCart a,
       .mobileHeader button {
          color: #963491;
-         <?php #echo $color_code; ?>
-         ;
+         <?php #echo $color_code; 
+         ?>;
       }
 
       .btn_common:hover,
@@ -129,16 +131,16 @@ $language = $this->session->userdata('language');
 
       .btn_common {
          outline-color: #963491;
-         <?php #echo $color_code; ?>
-         ;
+         <?php #echo $color_code; 
+         ?>;
       }
 
       .filterBox .filterCategory .catlist_item li input[type="checkbox"]:checked:after,
       .change-language ul li:nth-child(1):after {
          /* background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), #963491 */
          background: #963491;
-         <?php #echo $color_code; ?>
-         ;
+         <?php #echo $color_code; 
+         ?>;
       }
 
       .filterBox .filterCategory .catlist_item li input[type="checkbox"]:before,
@@ -146,8 +148,8 @@ $language = $this->session->userdata('language');
       .packageDiv .single_item {
          /* border-color: #eee; */
          border-color: #9634913B;
-         <?php #echo $color_code; ?>
-         ;
+         <?php #echo $color_code; 
+         ?>;
       }
 
       .prod_coll .proimage:hover {
@@ -156,9 +158,8 @@ $language = $this->session->userdata('language');
       }
 
       .packages_por .prod_coll .proimage .pro_img_box {
-         background: linear-gradient(to left, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)), #963491
-            <?php #echo $color_code; ?>
-            90;
+         background: linear-gradient(to left, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)), #963491 <?php #echo $color_code; 
+                                                                                                   ?> 90;
       }
 
       /** theme color update end**/
@@ -199,29 +200,25 @@ $language = $this->session->userdata('language');
       <div class="hdr_main">
          <nav class="navbar navbar-expand-lg">
             <div class="menu_bar">
-               <a href="<?php echo base_url(); ?>" class="companyLogo desktopHide mobileHide"> <img
-                     src="<?php echo base_url(); ?>uploads/company/<?php echo $company_logo; ?>" alt="logo"
-                     style="height:60px;"></a>
+               <a href="<?php echo base_url(); ?>" class="companyLogo desktopHide mobileHide"> <img src="<?php echo base_url(); ?>uploads/company/<?php echo $company_logo; ?>" alt="logo" style="height:60px;"></a>
                <div class="logo_main">
-                  <a href="<?php echo base_url(); ?>"> <img src="<?php echo base_url(); ?>uploads/company/logoImg.svg"
-                        alt="logo" style="height:40px;"></a>
+                  <a href="<?php echo base_url(); ?>"> <img src="<?php echo base_url(); ?>uploads/company/logoImg.svg" alt="logo" style="height:36px;"></a>
                </div>
                <!--   <div class="change-language desktopHide mainLangague">
                     <ul>
                         <li>
                             <input type="text" readonly name="" value="en" >
                             <!-- <a value="en" <?php if ($this->session->userdata('language') == 'en')
-                               echo "selected"; ?>>EN</a> 
+                                                   echo "selected"; ?>>EN</a> 
                         </li>
                         <li>
                             <input type="text" readonly name="" value="he" >
                             <!-- <a value="he" <?php if ($this->session->userdata('language') == 'he')
-                               echo "selected"; ?>>HB</a> 
+                                                   echo "selected"; ?>>HB</a> 
                         </li>
                     </ul>
                 </div>  -->
-               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <img src="<?php echo base_url(); ?>assets/images/menu.png" alt="">
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -237,8 +234,7 @@ $language = $this->session->userdata('language');
                         <div class="col-6">
                            <!-- <img src="<?php echo base_url(); ?>uploads/company/<?php echo $company_logo; ?>" alt="logo"
                               style="height:60px;"> -->
-                           <img src="<?php echo base_url(); ?>/uploads/company/logoImg.svg" alt="logo"
-                              style="height:100%; float:left;">
+                           <img src="<?php echo base_url(); ?>/uploads/company/logoImg.svg" alt="logo" style="height:100%; float:left;">
                         </div>
 
                      </div>
@@ -248,8 +244,7 @@ $language = $this->session->userdata('language');
                         <a class="nav-link active" href="<?php echo base_url(); ?>" onclick="setActive(event)"><?php echo lang('home'); ?></a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#havingTroubleModal"
-                           onclick="setActive(event)">
+                        <a class="nav-link" data-toggle="modal" data-target="#havingTroubleModal" onclick="setActive(event)">
                            <?php echo lang('contact_us'); ?>
                         </a>
                      </li>
@@ -260,9 +255,14 @@ $language = $this->session->userdata('language');
                             <a class="nav-link" href="https://app.galtex.co.il/employees/cart"><?php echo lang('cart'); ?></a>
                         </li> -->
                      <li class="nav-item">
-                        <a class="nav-link " href="<?php echo base_url(); ?>/employees/profile#myOrder"
-                           onclick="setActive(event)">
+                        <a class="nav-link " href="<?php echo base_url(); ?>/employees/profile#myOrder" onclick="setActive(event)">
                            <?php echo lang('personal_area'); ?>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="javascript:void(0);" class="nav-link " onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_sure_logout'); ?>','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','<?php echo base_url(); ?>home/logout/<?php echo $this->login_session_key; ?>')">
+                           <!-- <span><img src="<?php echo base_url(); ?>assets/images/icon_logout.svg" alt=""></span> -->
+                           <?php echo lang('logout'); ?>
                         </a>
                      </li>
 
@@ -279,12 +279,12 @@ $language = $this->session->userdata('language');
                               <li>
                                  <input type="text" readonly name="" value="en">
                                  <!-- <a value="en" <?php if ($this->session->userdata('language') == 'en')
-                                    echo "selected"; ?>>EN</a> -->
+                                                         echo "selected"; ?>>EN</a> -->
                               </li>
                               <li>
                                  <input type="text" readonly name="" value="he">
                                  <!-- <a value="he" <?php if ($this->session->userdata('language') == 'he')
-                                    echo "selected"; ?>>HB</a> -->
+                                                         echo "selected"; ?>>HB</a> -->
                               </li>
                            </ul>
                         </div>
@@ -294,23 +294,22 @@ $language = $this->session->userdata('language');
                   </ul>
                   <!-- <select class="form-control change-language col-sm-2 mobileHide">
                      <option value="en" <?php if ($this->session->userdata('language') == 'en')
-                        echo "selected"; ?>>English
+                                             echo "selected"; ?>>English
                         (EN)</option>
                      <option value="he" <?php if ($this->session->userdata('language') == 'he')
-                        echo "selected"; ?>>Hebrew
+                                             echo "selected"; ?>>Hebrew
                         (HE)</option>
                   </select> -->
 
                   <div class="socialMedia">
                      <!--  <select class="form-control change-language col-sm-2">
                         <option value="en" <?php if ($this->session->userdata('language') == 'en')
-                           echo "selected"; ?>>English (EN)</option>
+                                                echo "selected"; ?>>English (EN)</option>
                         <option value="he" <?php if ($this->session->userdata('language') == 'he')
-                           echo "selected"; ?>>Hebrew (HE)</option>
+                                                echo "selected"; ?>>Hebrew (HE)</option>
                     </select>  -->
                      <p class="logoutText">
-                        <a href="javascript:void(0);"
-                           onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_sure_logout'); ?>','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','<?php echo base_url(); ?>home/logout/<?php echo $this->login_session_key; ?>')">
+                        <a href="javascript:void(0);" onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_sure_logout'); ?>','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','<?php echo base_url(); ?>home/logout/<?php echo $this->login_session_key; ?>')">
                            <!-- <span><img src="<?php echo base_url(); ?>assets/images/icon_logout.svg" alt=""></span> -->
                            <?php echo lang('logout'); ?>
                         </a>
@@ -367,17 +366,14 @@ $language = $this->session->userdata('language');
                      </li> -->
                   <?php if (!empty($this->cart->contents())) { ?>
                      <!-- <?php
-                     $url = $_SERVER['REQUEST_URI'];
-                     $urlParam = explode("/", $url);
-                     $class = $urlParam[sizeof($urlParam) - 1] == 'cart' ? "active_cart" : "";
-                     ?> -->
+                           $url = $_SERVER['REQUEST_URI'];
+                           $urlParam = explode("/", $url);
+                           $class = $urlParam[sizeof($urlParam) - 1] == 'cart' ? "active_cart" : "";
+                           ?> -->
                      <li class="list-inline-item  <?= $class ?>">
-                        <a class="open-cart-sidebar" href="<?php echo base_url(); ?>employees/cart"
-                           style="display: inline-block">
-                           <img
-                              src="<?php echo base_url(); ?>assets/images/<?= $class == "active_cart" ? "shoping_cart.png" : "shopping_cart_black_24dp.svg" ?>">
-                           <span
-                              class="top-cart-info-count badge badge-pill <?= ($class == "active_cart" ? "d-none" : "") ?>">
+                        <a class="open-cart-sidebar" href="<?php echo base_url(); ?>employees/cart" style="display: inline-block">
+                           <img src="<?php echo base_url(); ?>assets/images/<?= $class == "active_cart" ? "shoping_cart.png" : "shopping_cart_black_24dp.svg" ?>">
+                           <span class="top-cart-info-count badge badge-pill <?= ($class == "active_cart" ? "d-none" : "") ?>">
                               <?php echo count($this->cart->contents()); ?>
                            </span>
                         </a>
@@ -419,8 +415,7 @@ $language = $this->session->userdata('language');
                         </li> -->
 
                         <li class="wow fadeInLeft" data-wow-delay="0.6s">
-                           <input type="checkbox" id="chk_Canon" value="above" name="budget_category[]"
-                              class="budget-categories2" <?php echo $category === 'above' ? 'checked' : '' ?> />
+                           <input type="checkbox" id="chk_Canon" value="above" name="budget_category[]" class="budget-categories2" <?php echo $category === 'above' ? 'checked' : '' ?> />
                            <label for="chk_Canon">
                               <?php echo lang('above_the_budget'); ?>
                            </label>
@@ -429,7 +424,8 @@ $language = $this->session->userdata('language');
                         </li>
                      </ul>
                   </div>
-                  <?php #print_r($categories['data']['records']); exit;?>
+                  <?php #print_r($categories['data']['records']); exit;
+                  ?>
                   <div class="filterCategory">
                      <!-- <h4>
                      <?php echo lang('filter_category'); ?>
@@ -441,17 +437,15 @@ $language = $this->session->userdata('language');
                         <?php if ($categories['data']['total_records']) {
                            foreach ($categories['data']['records'] as $category) { ?>
                               <li class="wow fadeInLeft" data-wow-delay="0.3s">
-                                 <input type="checkbox" id="category_<?php echo $category['category_guid']; ?>"
-                                    name="main_category[]" value="<?php echo $category['category_guid']; ?>" <?php if (in_array($category['category_guid'], $main_categories))
-                                          echo "checked"; ?>
-                                    class="main_categories2" />
+                                 <input type="checkbox" id="category_<?php echo $category['category_guid']; ?>" name="main_category[]" value="<?php echo $category['category_guid']; ?>" <?php if (in_array($category['category_guid'], $main_categories))
+                                                                                                                                                                                             echo "checked"; ?> class="main_categories2" />
                                  <label for="category_<?php echo $category['category_guid']; ?>">
                                     <?php echo $category['category_name']; ?>
                                  </label>
 
 
                               </li>
-                           <?php }
+                        <?php }
                         } ?>
                      </ul>
                   </div>
