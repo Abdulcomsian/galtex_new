@@ -600,7 +600,8 @@ html[dir="rtl"] .readMore a img {
 
 .shoppingCart .cartList ul li .itemCart .itemDetail h5 {
   font-size: 18px;
-  font-family: "Assistantsemibold";
+  font-family: "AssistantRegular";
+  font-weight:normal;
   color: #fff;
   text-align: right;
   margin-left: 20px;

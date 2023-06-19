@@ -259,7 +259,7 @@ $language = $this->session->userdata('language');
                            <?php echo lang('personal_area'); ?>
                         </a>
                      </li>
-                     <li class="nav-item">
+                     <li class="nav-item mobileHide">
                         <a href="javascript:void(0);" class="nav-link " onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_sure_logout'); ?>','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','<?php echo base_url(); ?>home/logout/<?php echo $this->login_session_key; ?>')">
                            <!-- <span><img src="<?php echo base_url(); ?>assets/images/icon_logout.svg" alt=""></span> -->
                            <?php echo lang('logout'); ?>

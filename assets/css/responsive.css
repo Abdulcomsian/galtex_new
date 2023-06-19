@@ -346,6 +346,9 @@
 }
 
 @media (max-width: 767px) {
+  .shoppingCart .cartList ul li .itemCart .itemDetail h5{
+    
+  }
   .card-text .note {
     margin-top: 10% !important;
   }
@@ -618,6 +621,7 @@
     padding-top: 20px;
     font-size: 22px;
     text-align: start;
+    margin-bottom: 9px !important;
   }
 
   .product_right .product_description_details .product_name {
