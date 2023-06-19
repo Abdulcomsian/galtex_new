@@ -68,8 +68,8 @@
 
   .mainHeader img {
     right: 20px;
-    top: 0px !important;
-    width: 52px !important;
+    top: -5px !important;
+    width: 60px !important;
   }
 
   .packages_por {

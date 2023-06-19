@@ -59,7 +59,7 @@
             </div>
         </div> -->
     <div class="hdr_main">
-      <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg desktopHide">
         <div class="container-fluid">
 
           <!-- <div class="logo_main">
@@ -157,7 +157,7 @@
               </h3>
               <!-- <img src="assets/images/logo1.png" alt=""> -->
               <a href="<?php echo base_url(); ?>"> <img src="uploads/company/logoImg.svg" alt="logo"
-                  style="width: 7%;"></a>
+                  ></a>
             </div>
           </div>
         </div>

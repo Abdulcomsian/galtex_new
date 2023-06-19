@@ -103,7 +103,7 @@ input:focus {
   /* background: rgb(122, 52, 156);
     background: linear-gradient(90deg, rgba(122, 52, 156, 1) 0%, rgba(75, 162, 238, 1) 100%); */
   background: #242226;
-  height: 200px;
+  height: 100px;
   display: grid;
   align-items: center;
 }
@@ -119,7 +119,8 @@ input:focus {
 .mainHeader img {
   position: absolute;
   right: 43px;
-  top: -50px;
+  top: -17px;
+  width: 85px ;
   /* display: none; */
 }
 
