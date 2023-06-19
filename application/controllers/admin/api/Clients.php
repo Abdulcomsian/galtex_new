@@ -117,7 +117,10 @@ class Clients extends API_Controller_Secure {
         $this->form_validation->set_rules('deadline', lang('deadline'), 'trim');
         $this->form_validation->validation($this);  /* Run validation */
         /* Validation - ends */
+if(!empty($this->Post['deadline'])){
+    $this->Post['deadline'] = $this->Post['deadline'];
 
+}
         /* Upload company logo */
         if(!empty($_FILES['company_logo']['name'])){
             $image_data = fileUploading('company_logo','company','jpg|jpeg|png|gif');
