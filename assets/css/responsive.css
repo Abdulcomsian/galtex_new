@@ -53,7 +53,7 @@
   }
 
   ul.nav_right {
-    position: absolute;
+    position: inherit;
   }
 
   .login-form {
@@ -280,13 +280,16 @@
   }
 
   html[dir="rtl"] .hdr_main .navbar-toggler {
-    right: inherit;
-    left: 20px;
+    left: inherit;
+    right: 20px;
+    margin-top:5px
   }
 
   html[dir="rtl"] ul.nav_right {
     /* padding-left: 40px; */
     padding-right: 0px;
+    margin-left: 0!important;
+    margin-right: 50%;
   }
 
   ul.nav_right {
