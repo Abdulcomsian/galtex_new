@@ -73,10 +73,10 @@ a {
   font-family: "AssistantRegular" !important;
 }
 
-.header_sec .hdr_main {
+/* .header_sec .hdr_main {
   background: transparent linear-gradient(295deg, #262529 0%, #6e6d70 100%) 0%
     0% no-repeat padding-box;
-}
+} */
 
 .hdr_main .navbar-nav .nav-link {
   font-size: 20px;

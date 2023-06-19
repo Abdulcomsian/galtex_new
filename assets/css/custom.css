@@ -73,6 +73,8 @@ body {
   width: 100%;
   top: 0;
   left: 0;
+  height: 60px;
+  background: transparent linear-gradient(295deg, #262529 0%, #6e6d70 100%) 0% 0% no-repeat padding-box;
 }
 
 .hdr_top_bar {
@@ -160,7 +162,7 @@ body {
 ul.nav_right {
   text-align: right;
   margin: 0;
-  padding: 10px 0 0 40px;
+  padding: 0px 0 0 40px;
   margin-left: 58px;
 }
 
@@ -182,7 +184,7 @@ ul.nav_right {
 }
 
 .hdr_main .navbar-nav .nav-link {
-  margin: 15px 15px;
+  margin: 0px 15px;
   /* margin: 15px 0; */
   color: #000;
   font-size: 20px;
@@ -288,7 +290,8 @@ ul.nav_right {
 
 .navbar-nav .nav-item a.active {
   color: white;
-  font-family: AssistantBold;
+  font-family: Assistant;
+  font-weight:bold
 }
 
 .navbar-nav .nav-item a.active::after,
