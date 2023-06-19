@@ -1090,7 +1090,8 @@ html[dir="rtl"] .card-text input[type="checkbox"]:checked + label::after {
 .card-text label {
   font-family: "Segoe UI,Regular";
   font-size: 16px;
-  color: #0000009e;
+  color: #000000;
+  opacity: 60%;
 }
 
 .borderTopRadiusDiv {
