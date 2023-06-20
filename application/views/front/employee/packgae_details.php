@@ -205,17 +205,17 @@
 
 
                       <div class="product_slider_thumb arrow_center zoomIn">
-                           <div class="product_thumb_item" style="height: 100%; width: 100% !important">
+                           <div class="product_thumb_item" style="height: 100%; width: 100% !important; margin-top:5px !important">
                            <div class="thumb_inner">
                                  <img src="<?php echo $product[
                                     "product_main_photo"
-                                 ]; ?>" alt="main-photo" />
+                                 ]; ?>" alt="main-photo"  style="height:95px !important;width:95px !important"/>
                                <?php foreach (
                                  $product["product_gallery_images"]
                                  as $image
                               ) { ?>
                           
-                               <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image" style="margin-top:7px"/>
+                               <img style="height:95px !important;width:95px !important;margin-top:7px" src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image"/>
 
                              
                                  <?php } ?>
