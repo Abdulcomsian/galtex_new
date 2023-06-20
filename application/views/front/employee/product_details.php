@@ -1,10 +1,12 @@
 <style type="text/css">
    .product_thumb_item.slick-slide.slick-cloned {
-      display: none !import
+      display: none !important
    }
 
    .product_slider_main {
       box-shadow: 0 0 9px -1px lightgray !important;
+      height:400px !important;
+      width:400px !important
    }
 
    .thumb_inner .slick-track {
@@ -221,7 +223,7 @@
                                     <img src="<?php echo $details['product_main_photo']; ?>" alt="main-image" />
                                  </div>
                                  <?php foreach ($details['product_gallery_images'] as $image) { ?>
-                                    <div class="product_main_item ">
+                                    <div class="product_main_item test">
                                        <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>"
                                           alt="gallery-image" />
                                     </div>

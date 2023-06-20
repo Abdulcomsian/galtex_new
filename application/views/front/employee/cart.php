@@ -38,6 +38,7 @@
                     ; ?>
                     <div class=" cart_items">
                       <div style="display:flex;    align-items: center;">
+                      <img style="height:15px;    margin-top: -10%;" onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_want_to_remove'); ?>','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','../employees/remove_from_cart/<?php echo $value['rowid']; ?>')" class="crossImg" src="<?php echo base_url(); ?>assets/images/cross-23.svg">
                         <?php if ($value['options']['type'] == 'package') { ?>
                           <img src="<?php echo $value['options']['product_main_photos'][0]; ?>"
                             class="img-fluid img-thumbnail" width="100" alt="product">

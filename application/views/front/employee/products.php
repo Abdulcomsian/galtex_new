@@ -98,7 +98,7 @@
       </div>
    </div>
    <?php
-       //$lastActivity = $this->session->userdata('webuserdata')['last_activity'];
+       $lastActivity = $this->session->userdata('webuserdata')['last_activity'];
    $basePath = base_url() . '/uploads/company/';
    $popupImage = $this->session->userdata('webuserdata')['client_configs']['popup_image'] ?? $this->session->userdata('webuserdata')['client_configs']['company_logo'] ?? 'testImage.png';
    $imageUrl = $basePath . $popupImage;
