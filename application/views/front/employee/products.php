@@ -303,9 +303,18 @@
                               <div class="pro_img_box">
                                  <a
                                     href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>">
-                                    <div><img src="<?php echo $product['product_main_photo']; ?>" /></div>
+                                    <div><img src="<?php echo $product['product_main_photo']; ?>" />
+                                   <?php
+                                     if (isset($product['above_budget_price']) && $product['above_budget_price'] > 0) {
+                                   ?>
+                                    <img
+                                                   style="width:auto !important;height:auto !important;position:absolute;top:0px;left:0px;"
+                                                   src="<?php echo base_url(); ?>assets/images/above_budge.svg" />
+                                    <?php } ?> 
+                                 </div>
                                  </a>
-
+                                 <!-- if($order_details['order_product_details']!=NULL ){ -->
+                                             
                                  <!-- <a href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>"><img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&w=1000&q=80" /></a> -->
                                  <!-- <div class="hover_box"> -->
                                  <!-- <div>
@@ -326,15 +335,39 @@
                                     <?php }
                                  } ?>
                               </div>-->
+                              <!-- if ((count($this->cart->contents()) > 0) || ($order_details['order_product_details']!=NULL || count($order_details['order_product_details']) > 0)) { 
+                                                   echo lang('price') . ' ' . CURRENCY_SYMBOL;
+                                                   echo $this->session->userdata('webuserdata')['employee_budget'];
+                                                } -->
                                  <?php
+                                 
                                  if (isset($product['above_budget_price']) && $product['above_budget_price'] > 0) {
                                     ?>
-                                    <p class="productPrice">
-                                       <?php echo lang('additional') . ' ' . $product['above_budget_price'] . CURRENCY_SYMBOL;
+                                    <p class="above_baduge">
+                                       <?php
+                                       // if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
+
+                                       echo lang('additional') . ' ' . $product['above_budget_price'] . CURRENCY_SYMBOL;
 
                                        ?>
                                     </p>
-                                 <?php } ?>
+                                 <?php }else if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0){ ?>
+                                    <p class="above_baduge">
+                                       <?php
+                                       // if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
+
+                                       echo lang('additional') . ' ' . $this->session->userdata('webuserdata')['employee_budget'] . CURRENCY_SYMBOL;
+
+                                       ?>
+                                    </p><?php }else{ ?> 
+                                       <p class="above_baduge">
+                                       <?php
+                                       // if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
+
+                                       echo lang('additional') . ' ' . 0 . CURRENCY_SYMBOL;
+
+                                       ?>
+                                    <?php } ?>
                               </div>
                               <div class="pro_bottom clerfix">
                                  <div class="product_name">
@@ -363,7 +396,7 @@
                      <?php } ?>
                      <!-- //all products in single variable ends here -->
                      <?php
-                     if ($type === 'above') { ?>
+                     if ($type === 'above') {  ?>
 
 
                         <div class="list_row row">
@@ -606,20 +639,31 @@
                                                 <a
                                                    href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>">
                                                    <img src="<?php echo $package_product['product_main_photo']; ?>" /></a>
-                                                <img
+                                                <!-- <img
                                                    style="width:auto !important;height:auto !important;position:absolute;top:0px;left:0px;"
-                                                   src="<?php echo base_url(); ?>assets/images/above_budge.svg" />
+                                                   src="<?php #echo base_url(); ?>assets/images/above_budge.svg" /> -->
 
                                                 <?php
                                                 
-                                                if($order_details['order_product_details']!=NULL){
-                                                if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) { ?>
+                                                if($order_details['order_product_details']!=NULL ){
+                                                if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {  ?>
                                                    <div class="above_baduge">
                                                       <?php
                                                       echo lang('additional') . ' ' . CURRENCY_SYMBOL;
-                                                      echo $this->session->userdata('webuserdata')['employee_budget'];?>
+                                                      echo $this->session->userdata('webuserdata')['employee_budget'] ?>
                                                       </div><?php
-                                                } } ?>
+                                                } } else if (count($this->cart->contents()) > 0 ) { ?>
+                                                   <div class="above_baduge">
+                                                      <?php
+                                                      echo lang('additional') . ' ' . CURRENCY_SYMBOL;
+                                                      echo $this->session->userdata('webuserdata')['employee_budget'] ?>
+                                                      </div><?php } else {?>
+                                                         <div class="above_baduge">
+                                                      <?php
+                                                      echo lang('additional') . ' ' . CURRENCY_SYMBOL;
+                                                      echo "0" ?>
+                                                      </div>
+                                                      <?php } ?>
 
                                                 <!-- <div class="hover_box">
                                                    <?php $package_cart = is_product_into_cart($package['package_guid']);
