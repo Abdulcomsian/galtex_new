@@ -10,7 +10,8 @@
    }
 
    .thumb_inner .slick-track {
-      padding: 10px;
+      padding: 4px;
+      margin-top:5px ;
    }
 
    .thumb_inner .slick-track img {
@@ -204,7 +205,8 @@
                               <div class="product_slider_thumb arrow_center wow zoomIn">
                                  <div class="product_thumb_item">
                                     <div class="thumb_inner">
-                                       <img class="thumb-inner--img" src="<?php echo $details['product_main_photo']; ?>" alt="main-image" />
+                                       <img class="thumb-inner--img" src="<?php echo $details['product_main_photo']; ?>" alt="main-image" style="    width: 95px !important;
+    height: 95px !important;"/>
                                     </div>
                                  </div>
                                  <?php
