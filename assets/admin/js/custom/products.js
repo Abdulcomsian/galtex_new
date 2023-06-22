@@ -203,11 +203,13 @@ if($('section#content').attr('data-page') != 'products-list'){
             }
         },
         success: function (file, response) {
+            console.log("success", response);
             gallery_images.push(response);
             file.php_file_name = response;
             file.previewElement.classList.add("dz-success");
         },
         error: function (file, response) {
+            console.log("error", response);
             showToaster('error',error,response);  
             file.previewElement.classList.add("dz-error");
             this.removeFile(file);

@@ -419,8 +419,11 @@ class Format {
 
         if (empty($callback) === TRUE)
         {
+            $newdata[] = $data;
             // Return the data as encoded json with a callback
-            array_walk($data,array('self', 'convertToString'));
+            array_walk($newdata,array('self', 'convertToString'));
+            // array_walk($newdata, array($this, 'convertToString'));
+
             return json_encode($data, JSON_UNESCAPED_UNICODE);
         }
 

@@ -737,7 +737,7 @@ if ( ! function_exists('fileUploading')) {
       $config['upload_path']   = $directory_path.'/';
       $config['allowed_types'] = $ext; 
       if($size){
-        $config['max_size']   = 100; 
+        $config['max_size']   = 3000; 
       }
       if($width){
         $config['max_width']  = 1024; 

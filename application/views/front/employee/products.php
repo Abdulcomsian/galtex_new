@@ -307,9 +307,9 @@
                                    <?php
                                      if (isset($product['above_budget_price']) && $product['above_budget_price'] > 0) {
                                    ?>
-                                    <img
+                                    <!-- <img
                                                    style="width:auto !important;height:auto !important;position:absolute;top:0px;left:0px;"
-                                                   src="<?php echo base_url(); ?>assets/images/above_budge.svg" />
+                                                   src="<?php #echo base_url(); ?>assets/images/above_budge.svg" /> -->
                                     <?php } ?> 
                                  </div>
                                  </a>
@@ -359,15 +359,15 @@
                                        echo lang('additional') . ' ' . $this->session->userdata('webuserdata')['employee_budget'] . CURRENCY_SYMBOL;
 
                                        ?>
-                                    </p><?php }else{ ?> 
-                                       <p class="above_baduge">
+                                    </p><?php } #else{ ?> 
+                                       <!-- <p class="above_baduge"> -->
                                        <?php
                                        // if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
 
-                                       echo lang('additional') . ' ' . 0 . CURRENCY_SYMBOL;
+                                       #echo lang('additional') . ' ' . 0 . CURRENCY_SYMBOL;
 
                                        ?>
-                                    <?php } ?>
+                                    <?php #} ?>
                               </div>
                               <div class="pro_bottom clerfix">
                                  <div class="product_name">
@@ -639,31 +639,32 @@
                                                 <a
                                                    href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>">
                                                    <img src="<?php echo $package_product['product_main_photo']; ?>" /></a>
-                                                <!-- <img
+                                                <img
                                                    style="width:auto !important;height:auto !important;position:absolute;top:0px;left:0px;"
-                                                   src="<?php #echo base_url(); ?>assets/images/above_budge.svg" /> -->
+                                                   src="<?php echo base_url(); ?>assets/images/above_budge.svg" />
 
                                                 <?php
                                                 
-                                                if($order_details['order_product_details']!=NULL ){
+                                                #if($order_details['order_product_details']!=NULL ){
                                                 if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {  ?>
                                                    <div class="above_baduge">
                                                       <?php
                                                       echo lang('additional') . ' ' . CURRENCY_SYMBOL;
                                                       echo $this->session->userdata('webuserdata')['employee_budget'] ?>
                                                       </div><?php
-                                                } } else if (count($this->cart->contents()) > 0 ) { ?>
-                                                   <div class="above_baduge">
+                                                } #} 
+                                                #else if (count($this->cart->contents()) > 0 ) { ?>
+                                                   <!-- <div class="above_baduge">
                                                       <?php
-                                                      echo lang('additional') . ' ' . CURRENCY_SYMBOL;
-                                                      echo $this->session->userdata('webuserdata')['employee_budget'] ?>
-                                                      </div><?php } else {?>
+                                                   #   echo lang('additional') . ' ' . CURRENCY_SYMBOL;
+                                                   #   echo $this->session->userdata('webuserdata')['employee_budget'] ?>
+                                                      </div><?php #} else #{?>
                                                          <div class="above_baduge">
                                                       <?php
-                                                      echo lang('additional') . ' ' . CURRENCY_SYMBOL;
-                                                      echo "0" ?>
-                                                      </div>
-                                                      <?php } ?>
+                                                     # echo lang('additional') . ' ' . CURRENCY_SYMBOL;
+                                                      #echo "0" ?>
+                                                      </div> -->
+                                                      <?php #} ?>
 
                                                 <!-- <div class="hover_box">
                                                    <?php $package_cart = is_product_into_cart($package['package_guid']);
@@ -925,7 +926,7 @@
 <script>
    var timeIntervalIds = []; convertTime();
    function convertTime() {
-      let deadlineTime = "<?= $client_information['deadline'] ?>";
+      let deadlineTime = "<?= $client_information['client_deadline'] ?>";
       let check = ["", null, undefined];
       if (!check.includes(deadlineTime)) {
          timeInSeconds = convertTimeIntoSeconds(deadlineTime);

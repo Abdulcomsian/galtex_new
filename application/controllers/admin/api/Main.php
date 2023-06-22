@@ -15,14 +15,29 @@ class Main extends API_Controller {
     public function upload_product_gallery_image_post() {
 
         /* Upload gallery image */
-        if(!empty($_FILES['gallery_image']['name'])){
-            $image_data = fileUploading('gallery_image','products','jpg|jpeg|png|gif');
-            if(!empty($image_data['error'])){
-                $this->response($image_data['error'],500);exit;
+        // if(!empty($_FILES['gallery_image']['name'])){
+        //     $image_data = fileUploading('gallery_image','products','jpg|jpeg|png|gif');
+        //     if(!empty($image_data['error'])){
+        //         $this->response($image_data['error'],500);exit;
+        //     }
+        //     $this->response($image_data['upload_data']['file_name'],200);
+        // }else{
+        //     $this->response(lang('select_gallery_image'),500);
+        // }
+
+        if (!empty($_FILES['gallery_image']['name'])) {
+            $image_data = fileUploading('gallery_image', 'products', 'jpg|jpeg|png|gif');
+        // print_r($image_data);exit;
+            if (is_array($image_data) && !empty($image_data['error'])) {
+                $this->response($image_data['error'], 500);
+                exit;
+            } elseif (is_array($image_data) && isset($image_data['upload_data']['file_name'])) {
+                $this->response($image_data['upload_data']['file_name'], 200);
+            } else {
+                $this->response('Unknown error occurred during file upload', 500);
             }
-            $this->response($image_data['upload_data']['file_name'],200);
-        }else{
-            $this->response(lang('select_gallery_image'),500);
+        } else {
+            $this->response(lang('select_gallery_image'), 500);
         }
     }
 
