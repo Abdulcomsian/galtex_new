@@ -38,7 +38,7 @@
 
 <body>
 
-  <header class="header_sec mobileHide">
+  <header class="header_sec mobileHide desktopHide">
     <!-- <div class="hdr_top_bar">
             <div class="container-fluid">
                 <div class="row align-items-center">
