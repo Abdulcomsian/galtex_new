@@ -1488,7 +1488,7 @@ html[dir="rtl"] .second_col {
 
 .product_main_item {
   opacity: 1 !important;
-  overflow: auto !important;
+  /* overflow: auto !important; */
 }
 
 .packageDetails .slick-track {
