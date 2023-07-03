@@ -276,9 +276,20 @@
                               </a></div>
                         <?php } else { ?>
                            <?php if ($details['remaining_quantity'] > 0) { ?>
-                              <div class="product-button wow zoomIn"><a href="javascript:void(0);" data-type="product"
+                              <div class="product-button wow zoomIn">
+                             
+                                 <a href="javascript:void(0);" data-type="product"
                                     data-guid="<?php echo $details['product_guid']; ?>" style="margin-bottom:10px;"
-                                    class="btn btn_common add-to-cart"><?php echo lang('add_to_cart'); ?></a></div>
+                                    class="btn btn_common add-to-cart"><?php echo lang('add_to_cart'); ?></a>
+                                 
+                                    <?php 
+                              if (!empty($details['above_budget_price'])) {
+                                 ?>
+                                 <p style="line-height: 22px;text-align: center;">
+                                    <?php echo lang('additional') . ' ' . CURRENCY_SYMBOL . $details['above_budget_price']; ?>
+                                 </p>
+                              <?php } ?>
+                           </div>
                            <?php } else { ?>
                               <strong><a href="javascript:void(0);" style="margin-top:10px;color:red;">
                                     <?php echo lang('out_of_stock'); ?>
