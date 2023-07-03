@@ -1201,13 +1201,7 @@ html[dir="rtl"] .card-text input[type="checkbox"]:checked + label::after {
   font-weight: bold;
 }
 
-.product_slider_main {
-  background-color: transparent !important;
-  border-radius: 10px;
-  box-shadow: 0 0 7px 3px lightgray;
-  height: 400px !important;
-  width: 400px !important;
-}
+
 
 .product_slider_main .slick-track {
   /* height: 300px !important; */
