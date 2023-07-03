@@ -283,13 +283,13 @@
   html[dir="rtl"] .hdr_main .navbar-toggler {
     left: inherit;
     right: 20px;
-    margin-top:5px
+    margin-top: 5px
   }
 
   html[dir="rtl"] ul.nav_right {
     /* padding-left: 40px; */
     padding-right: 0px;
-    margin-left: 0!important;
+    margin-left: 0 !important;
     margin-right: 56%;
   }
 
@@ -312,7 +312,7 @@
   }
 
   .order_sec.desktopHide,
-  .tab-content > .active .account_detail_main {
+  .tab-content>.active .account_detail_main {
     padding-bottom: 0px !important;
   }
 
@@ -346,17 +346,24 @@
 }
 
 @media (max-width: 767px) {
-  .shoppingCart .cartList ul li .itemCart .itemDetail h5{
-    
+  .shoppingCart .cartList ul li .itemCart .itemDetail h5 {}
+
+  .prod_coll {
+    width: 50%;
+    padding: 6px;
+    float: right;
   }
+
   .product_slider_main {
-    height:300px !important;
-    width:300px !important;
+    height: 300px !important;
+    width: 300px !important;
     border-radius: 10px;
- }
+  }
+
   .card-text .note {
     margin-top: 10% !important;
   }
+
   .package-detail_view {
     display: flex;
     flex-direction: column-reverse;
@@ -793,7 +800,7 @@
     width: 100%;
   }
 
-  .tab-content > .active .account_detail_main {
+  .tab-content>.active .account_detail_main {
     background-color: #fff;
     border-radius: 20px 20px 0px 0px;
     position: relative;
@@ -806,7 +813,7 @@
   }
 
   .custom_form h4,
-  .checkout_sec .account_detail_main > h4 {
+  .checkout_sec .account_detail_main>h4 {
     text-align: center;
   }
 
@@ -873,10 +880,7 @@
     height: 100%;
   }
 
-  .mobilePackageSlider
-    .product_slider_thumb
-    .slick-list.draggable
-    .slick-track {
+  .mobilePackageSlider .product_slider_thumb .slick-list.draggable .slick-track {
     width: 100px !important;
   }
 
@@ -963,12 +967,14 @@
   .hide_filter_desktop {
     display: none !important;
   }
+
   .product_display {
     display: contents;
     flex-wrap: wrap;
     align-items: flex-start;
     margin-top: 10px;
   }
+
   .product_slider_main {
     background-color: transparent !important;
     border-radius: 10px;
@@ -1002,6 +1008,7 @@
 }
 
 @media (max-width: 575px) {
+
   /* .above_baduge {
     left: 50%;
   } */
@@ -1043,11 +1050,9 @@
   section.inner_banner_sec.productBg.desktopHide:before {
     top: -13px !important;
     height: 65%;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(0, 0, 0, 0.4) 56%
-    ) !important;
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(0, 0, 0, 0.4) 56%) !important;
   }
 
   .mobilePackageSlider {
@@ -1099,6 +1104,7 @@
   .prod_coll {
     width: 50%;
     padding: 6px;
+    float: right;
   }
 
   .prod_coll .proimage {
