@@ -5,8 +5,8 @@
 
    .product_slider_main {
       box-shadow: 0 0 9px -1px lightgray !important;
-      height:400px !important;
-      width:400px !important
+      /* height:400px !important;
+      width:400px !important */
    }
 
    .thumb_inner .slick-track {
@@ -15,7 +15,7 @@
    }
 
    .thumb_inner .slick-track img {
-      box-shadow: 3px 3px 9px 3px lightgray;
+      box-shadow: 0 0 6px -1px lightgray !important;
    }
 
    @media screen and (max-width: 767px) {
@@ -205,8 +205,8 @@
                               <div class="product_slider_thumb arrow_center wow zoomIn">
                                  <div class="product_thumb_item">
                                     <div class="thumb_inner">
-                                       <img class="thumb-inner--img" src="<?php echo $details['product_main_photo']; ?>" alt="main-image" style="    width: 95px !important;
-    height: 95px !important;"/>
+                                       <img class="thumb-inner--img" src="<?php echo $details['product_main_photo']; ?>" alt="main-image" style="width: 95px !important;
+    height: 95px !important; object-fit:cover"/>
                                     </div>
                                  </div>
                                  <?php
