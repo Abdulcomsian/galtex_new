@@ -44,11 +44,11 @@
    }
 
    .thumb_inner .slick-track {
-      padding: 4px;
+      padding: 7px;
    }
 
    .thumb_inner .slick-track img {
-      box-shadow: 0 0 9px -1px lightgray;
+      box-shadow: 0 0 12px 3px #00000033 !important;
       height: 95px !important;
       width: 95px !important;
       margin-top: 5px
@@ -64,7 +64,7 @@
    } */
    @media (max-width: 575px) {
   .thumb_inner .slick-track img {
-   box-shadow: 0 0 6px -1px lightgray !important;
+   box-shadow: 0 0 12px 3px #00000033 !important;
     height:75px !important;
     width:75px !important;
     margin-top: 0px;

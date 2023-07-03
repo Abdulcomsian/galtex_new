@@ -4,18 +4,18 @@
    }
 
    .product_slider_main {
-      box-shadow: 0 0 9px -1px lightgray !important;
+      box-shadow: 0 0 12px 3px #00000033 !important;
       /* height:400px !important;
       width:400px !important */
    }
 
    .thumb_inner .slick-track {
-      padding: 4px;
-      margin-top:5px ;
+      padding: 7px;
+      margin-top:10px ;
    }
 
    .thumb_inner .slick-track img {
-      box-shadow: 0 0 6px -1px lightgray !important;
+      box-shadow: 0 0 12px 3px #00000033 !important;
    }
 
    @media screen and (max-width: 767px) {

@@ -824,7 +824,7 @@ html[dir="rtl"] .filterBox .filterCategory .catlist_item li label {
 .packageBox .mainImage,
 .product_slider_main {
   width: 75%;
-  margin: 8px;
+  margin: 15px;
 }
 
 .packageBox .sideImage,
