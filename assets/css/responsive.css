@@ -1,4 +1,9 @@
 @media (min-width: 992px) {
+  .prod_coll {
+    width: 50%;
+    padding: 6px;
+    float: right;
+  }
   .nav_right .list-inline-item:hover .dropdown-hover {
     display: block;
   }
