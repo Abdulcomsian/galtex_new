@@ -33,7 +33,7 @@
    }
 
    .product_main_item .slick-list .slick-track img {
-      width: 100%;
+      width: 100% !important;
       height: 100%;
       object-fit: contain;
       margin-bottom: 0 !important;
@@ -49,9 +49,9 @@
 
    .thumb_inner .slick-track img {
       box-shadow: 0 0 12px 3px #00000033 !important;
-      height: 95px !important;
-      width: 95px !important;
-      margin-top: 5px
+      height: 80px !important;
+      width: 80px !important;
+      margin: 5px
    }
 
    /* .product_thumb_item{
@@ -62,13 +62,19 @@
    /* .slick-track{
       width: 100% !important;
    } */
+   .product_thumb_item{
+      margin-top: 5px !important;
+   }
    @media (max-width: 575px) {
   .thumb_inner .slick-track img {
    box-shadow: 0 0 12px 3px #00000033 !important;
-    height:75px !important;
-    width:75px !important;
+    height:70px !important;
+    width:70px !important;
     margin-top: 0px;
   }
+  .product_thumb_item{
+      margin-top: 0px !important;
+   }
 }
 </style>
 <main class="main_content">
@@ -218,7 +224,7 @@
 
 
                               <div class="product_slider_thumb arrow_center zoomIn">
-                                 <div class="product_thumb_item" style="height: 100%; width: 100% !important; margin-top:5px !important">
+                                 <div class="product_thumb_item" style="height: 100%; width: 100% !important;  ">
                                     <div class="thumb_inner">
                                        <img src="<?php echo $product["product_main_photo"]; ?>" alt="main-photo" class="package_page_image" />
                                        <?php foreach ($product["product_gallery_images"]

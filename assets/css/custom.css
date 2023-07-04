@@ -2125,9 +2125,9 @@ html[dir="rtl"] .get_opt {
   width: 100% !important;
 }
 
-.slick-list .slick-track .slick-active {
+/* .slick-list .slick-track .slick-active {
   width: 100% !important;
-}
+} */
 
 .cart_left .checkout_btn {
   display: flex;
