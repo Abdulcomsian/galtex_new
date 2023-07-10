@@ -4,6 +4,7 @@
     padding: 6px;
     float: right;
   }
+
   .nav_right .list-inline-item:hover .dropdown-hover {
     display: block;
   }
@@ -351,6 +352,12 @@
 }
 
 @media (max-width: 767px) {
+  .thumb_wrapper {
+    width: 70px !important;
+    height: 70px !important;
+    margin: 3px;
+  }
+
   .shoppingCart .cartList ul li .itemCart .itemDetail h5 {}
 
   .prod_coll {

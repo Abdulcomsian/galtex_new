@@ -1,5 +1,4 @@
 <style>
-
    .collapsable-header {
       display: flex;
       flex-direction: row-reverse;
@@ -21,6 +20,7 @@
       height: 100%;
       border-radius: 10px;
       overflow: hidden;
+      transform: none !important;
    }
 
    .slick-list .slick-track .slick-active {
@@ -35,7 +35,7 @@
    .product_main_item .slick-list .slick-track img {
       width: 100% !important;
       height: 100%;
-      object-fit: contain;
+      /* object-fit: contain; */
       margin-bottom: 0 !important;
    }
 
@@ -48,10 +48,10 @@
    }
 
    .thumb_inner .slick-track img {
-      box-shadow: 0 0 12px 3px #00000033 !important;
+      /* box-shadow: 0 0 12px 3px #00000033 !important; */
       height: 80px !important;
-      width: 80px !important;
-      margin: 5px
+      width: auto !important;
+      /* margin: 5px */
    }
 
    /* .product_thumb_item{
@@ -62,20 +62,30 @@
    /* .slick-track{
       width: 100% !important;
    } */
-   .product_thumb_item{
+   .product_thumb_item {
       margin-top: 5px !important;
    }
+
+   
+
    @media (max-width: 575px) {
-  .thumb_inner .slick-track img {
-   box-shadow: 0 0 12px 3px #00000033 !important;
-    height:70px !important;
-    width:70px !important;
-    margin-top: 0px;
-  }
-  .product_thumb_item{
-      margin-top: 0px !important;
+      .thumb_inner .slick-track img {
+         /* box-shadow: 0 0 12px 3px #00000033 !important; */
+         height: 70px !important;
+         width: auto !important;
+         margin-top: 0px;
+      }
+
+      .product_thumb_item {
+         margin-top: 0px !important;
+      }
+
+      .thumb_wrapper {
+         width: 70px !important;
+         height: 70px !important;
+         margin: 3px;
+      }
    }
-}
 </style>
 <main class="main_content">
    <div class="add_to_card">
@@ -226,14 +236,18 @@
                               <div class="product_slider_thumb arrow_center zoomIn">
                                  <div class="product_thumb_item" style="height: 100%; width: 100% !important;  ">
                                     <div class="thumb_inner">
-                                       <img src="<?php echo $product["product_main_photo"]; ?>" alt="main-photo" class="package_page_image" />
-                                       <?php foreach ($product["product_gallery_images"]
-                                          as $image) { ?>
+                                       <div class="thumb_wrapper">
+                                          <img src="<?php echo $product["product_main_photo"]; ?>" alt="main-photo" class="package_page_image" />
+                                       </div>
+                                       <?php $increment = 0;
+                                       foreach ($product["product_gallery_images"] as $image) { ?>
+                                          <?php if ($increment == 3) break; ?>
+                                          <div class="thumb_wrapper">
+                                             <img class="package_page_image" src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image" />
+                                          </div>
 
-                                          <img class="package_page_image" src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image" />
-
-
-                                       <?php } ?>
+                                       <?php ++$increment;
+                                       } ?>
                                     </div>
                                  </div>
 

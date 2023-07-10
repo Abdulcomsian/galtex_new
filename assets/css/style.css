@@ -849,7 +849,7 @@ html[dir="rtl"] .filterBox .filterCategory .catlist_item li label {
 .product_thumb_item img {
   height: 85px;
   width: 95px !important;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 .sideImage .productImg p {
@@ -863,7 +863,7 @@ html[dir="rtl"] .filterBox .filterCategory .catlist_item li label {
 }
 
 .slick-slide img {
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 .slick-track {
@@ -937,7 +937,7 @@ html[dir="rtl"]
 }
 
 .productDetailDiv .product_main_item img {
-  height: 100%;
+  height: 350px;
 }
 
 .productDetailDiv .product_thumb_item {
@@ -1208,7 +1208,7 @@ html[dir="rtl"] .card-text input[type="checkbox"]:checked + label::after {
   /* height: 300px !important; */
 }
 .product_slider_main .slick-track img {
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .single_product_page .productDiv .product_slider_thumb {

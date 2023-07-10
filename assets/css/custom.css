@@ -2231,3 +2231,10 @@ html[dir="rtl"] .get_opt {
 }
 
 
+.thumb_wrapper {
+  width: 80px !important;
+  height: 80px !important;
+  box-shadow: 0 0 12px 3px #00000033 !important;
+  margin: 5px;
+  border-radius: 12px;
+}
