@@ -189,7 +189,7 @@
                            <?php } ?>
                         </div> -->
                      </div>
-                     <div class="desktopHide">
+                     <div class="desktopHide mobileHide">
                         <h2 class="product_name wow bounce">
                            <?php echo $details['product_name']; ?>
                         </h2>
