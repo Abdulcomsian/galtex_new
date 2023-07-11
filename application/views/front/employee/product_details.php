@@ -223,7 +223,7 @@
                <div class="col-md-12">
                   <div class="row" style="justify-content: center;">
                      <div class="row product_direction">
-                        <div class="col-md-6">
+                        <div class="col-md-4 col-lg-6">
                            <div class="product_right">
                               <div class="row">
                                  <div class="col-md-12">
@@ -237,7 +237,7 @@
 
                            </div>
                         </div>
-                        <div class="col-md-6 wow fadeInUp mobileBackground">
+                        <div class="col-md-8 col-lg-6 wow fadeInUp mobileBackground">
                            <div class="single_slider_main clearfix  productDetailDiv "><!-- remove class(mobileHode)-->
                               <div class="product_slider_thumb arrow_center wow zoomIn">
                                  <div class="product_thumb_item">

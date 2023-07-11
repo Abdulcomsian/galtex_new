@@ -66,7 +66,7 @@
       margin-top: 5px !important;
    }
 
-   
+
 
    @media (max-width: 575px) {
       .thumb_inner .slick-track img {
@@ -84,6 +84,10 @@
          width: 70px !important;
          height: 70px !important;
          margin: 3px;
+      }
+
+      .single_slider_main .product_slider_thumb {
+         width: 25% !important;
       }
    }
 </style>
@@ -181,7 +185,7 @@
                                                                      } ?>" aria-labelledby="heading<?php echo $i; ?>" data-parent="#accordion">
                   <div class="card-body">
                      <div class="row package-detail_view">
-                        <div class="col-md-6">
+                        <div class="col-md-4 col-lg-6">
                            <div class="product_right">
                               <!-- <div class="row mobileHide">
                                  <div class="col-md-12">
@@ -228,7 +232,7 @@
                               <?php } ?>
                            </div>
                         </div>
-                        <div class="col-md-6  ">
+                        <div class="col-md-8 col-lg-6  ">
                            <div class="single_slider_main clearfix">
 
 
