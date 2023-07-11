@@ -2,10 +2,14 @@
    .product_thumb_item.slick-slide.slick-cloned {
       display: none !important
    }
+   .product_thumb_item {
+      margin-top: 5px !important;
+   }
 
    .slick-list .slick-track .slick-active {
       right: 0 !important;
    }
+
    .product_main_item .slick-list .slick-track img:not(.slick-active) {
       display: none !important;
    }
@@ -24,7 +28,7 @@
    .thumb_inner .slick-track img {
       /* box-shadow: 0 0 12px 3px #00000033 !important; */
       height: 80px !important;
-      width: auto !important;
+      /* width: auto !important; */
       /* margin: 5px; */
    }
 
@@ -65,6 +69,10 @@
 
       .product_thumb_item {
          margin-top: 0px !important;
+      }
+
+      .product_slider_main {
+      width:100% !important
       }
    }
 </style>
@@ -234,15 +242,15 @@
                               <div class="product_slider_thumb arrow_center wow zoomIn">
                                  <div class="product_thumb_item">
                                     <div class="thumb_inner">
-                                    <div class="thumb_wrapper">
-                                       <img class="thumb-inner--img " src="<?php echo $details['product_main_photo']; ?>" alt="main-image" style="object-fit:cover" />
-                           </div>
+                                       <div class="thumb_wrapper">
+                                          <img class="thumb-inner--img " src="<?php echo $details['product_main_photo']; ?>" alt="main-image" style="object-fit:cover" />
+                                       </div>
                                        <?php $increment = 0;
                                        foreach ($details['product_gallery_images'] as $image) { ?>
                                           <?php if ($increment == 3) break; ?>
                                           <div class="thumb_wrapper">
-                                          <img class="thumb-inner--img " src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="main-image" style="object-fit:cover" />
-                                       </div>
+                                             <img class="thumb-inner--img " src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="main-image" style="object-fit:cover" />
+                                          </div>
                                        <?php ++$increment;
                                        } ?>
                                     </div>
@@ -266,7 +274,7 @@
                                     <img src="<?php echo $details['product_main_photo']; ?>" alt="main-image" />
                                     <?php foreach ($details['product_gallery_images'] as $image) { ?>
                                        <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image" />
-                                 <?php } ?>
+                                    <?php } ?>
                                  </div>
                                  <!-- <?php foreach ($details['product_gallery_images'] as $image) { ?>
                                     <div class="product_main_item test">

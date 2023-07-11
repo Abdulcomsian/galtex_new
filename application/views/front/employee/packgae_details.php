@@ -50,7 +50,7 @@
    .thumb_inner .slick-track img {
       /* box-shadow: 0 0 12px 3px #00000033 !important; */
       height: 80px !important;
-      width: auto !important;
+      /* width: auto !important; */
       /* margin: 5px */
    }
 
@@ -72,7 +72,7 @@
       .thumb_inner .slick-track img {
          /* box-shadow: 0 0 12px 3px #00000033 !important; */
          height: 70px !important;
-         width: auto !important;
+         /* width: auto !important; */
          margin-top: 0px;
       }
 

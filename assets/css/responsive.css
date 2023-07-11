@@ -391,7 +391,7 @@
   }
 
   .productDetailDiv .productImage img {
-    height: 500px !important;
+    /* height: 500px !important; */
   }
 
   .single_product_page .single_slider_main {
