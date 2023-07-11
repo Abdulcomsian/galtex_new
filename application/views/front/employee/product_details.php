@@ -15,7 +15,7 @@
    }
 
    .product_slider_main {
-      box-shadow: 0 0 12px 3px #00000033 !important;
+      box-shadow: 0px 0px 13px 4px #00000033 !important;
       /* height:400px !important;
       width:400px !important */
    }
