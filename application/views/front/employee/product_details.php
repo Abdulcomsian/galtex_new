@@ -60,6 +60,16 @@
    }
 
    @media (max-width: 575px) {
+      .product_heading {
+         margin-top: 0 !important;
+      }
+      .product_right .product_name {
+         padding-top: 0;
+      }
+      .productDetailDiv .product_main_item img {
+         height:320px !important;
+         width:320px !important
+      }
       .thumb_inner .slick-track img {
          box-shadow: 0 0 12px 3px #00000033 !important;
          height: 70px !important;
@@ -160,7 +170,7 @@
             <div class="col-md-12"><!-- remove class(mobileHide)-->
                <div class="product_right">
                   <div class="product_description_details">
-                     <div class="col-md-12 text-center mt-4 mobileHide">
+                     <div class="col-md-12 text-center mt-4 product_heading">
                         <h2 class="product_name wow bounce">
                            <?php echo $details['product_name']; ?>
                         </h2>

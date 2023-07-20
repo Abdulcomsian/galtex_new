@@ -1397,6 +1397,7 @@ padding:0 35px !important;
 
   .prod_coll .proimage .pro_img_box img {
     height: 120px;
+    border-radius: 15px;
   }
 }
 

@@ -10,10 +10,10 @@ $language = $this->session->userdata('language');
 <head>
    <script>
       function setActive(event) {
-         const menuItems = document.querySelectorAll('.nav-link');
-         menuItems.forEach(item => item.classList.remove('active'));
-         const clickedItem = event.target;
-         clickedItem.classList.add('active');
+         // const menuItems = document.querySelectorAll('.nav-link');
+         // menuItems.forEach(item => item.classList.remove('active'));
+         // const clickedItem = event.target;
+         // clickedItem.classList.add('active');
       }
    </script>
 
@@ -198,6 +198,10 @@ $language = $this->session->userdata('language');
             </div>
          </div> -->
       <div class="hdr_main">
+         <?php 
+            $currentLink = $_SERVER['REQUEST_URI'];
+            $currentLink =  explode("/",$currentLink);
+         ?>
          <nav class="navbar navbar-expand-lg">
             <div class="menu_bar">
                <a href="<?php echo base_url(); ?>" class="companyLogo desktopHide mobileHide"> <img src="<?php echo base_url(); ?>uploads/company/<?php echo $company_logo; ?>" alt="logo" style="height:60px;"></a>
@@ -241,7 +245,7 @@ $language = $this->session->userdata('language');
                   </div>
                   <ul class="navbar-nav">
                      <li class="nav-item">
-                        <a class="nav-link active" href="<?php echo base_url(); ?>" onclick="setActive(event)"><?php echo lang('home'); ?></a>
+                        <a class="nav-link <?php if(in_array('products' , $currentLink)) { ?> active <?php } ?>" href="<?php echo base_url(); ?>" onclick="setActive(event)"><?php echo lang('home'); ?></a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" data-toggle="modal" data-target="#havingTroubleModal" onclick="setActive(event)">
@@ -255,7 +259,7 @@ $language = $this->session->userdata('language');
                             <a class="nav-link" href="https://app.galtex.co.il/employees/cart"><?php echo lang('cart'); ?></a>
                         </li> -->
                      <li class="nav-item">
-                        <a class="nav-link " href="<?php echo base_url(); ?>/employees/profile#myOrder" onclick="setActive(event)">
+                        <a class="nav-link <?php if(in_array('profile' , $currentLink)) { ?> active <?php } ?>" href="<?php echo base_url(); ?>/employees/profile#myOrder" onclick="setActive(event)">
                            <?php echo lang('personal_area'); ?>
                         </a>
                      </li>
