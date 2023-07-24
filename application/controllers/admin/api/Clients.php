@@ -24,12 +24,12 @@ class Clients extends API_Controller_Secure {
         $this->form_validation->set_rules('contact_name', 'Contact Name', 'trim|required');
         $this->form_validation->set_rules('contact_number', 'Contact Number', 'trim|required');
         $this->form_validation->set_rules('employee_budget', 'Employee Budget', 'trim|required|numeric|greater_than_equal_to[1]');
-        $this->form_validation->set_rules('first_name', lang('first_name'), 'trim|required');
-        $this->form_validation->set_rules('last_name', lang('last_name'), 'trim|required');
+        // $this->form_validation->set_rules('first_name', lang('first_name'), 'trim|required');
+        // $this->form_validation->set_rules('last_name', lang('last_name'), 'trim|required');
         $this->form_validation->set_rules('email', lang('email'), 'trim|required|valid_email|is_unique[tbl_users.email]');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
-        $this->form_validation->set_rules('shop_title', 'Shop Title', 'trim|required');
-        $this->form_validation->set_rules('theme_color', 'Theme Color', 'trim|required');
+        // $this->form_validation->set_rules('shop_title', 'Shop Title', 'trim|required');
+        // $this->form_validation->set_rules('theme_color', 'Theme Color', 'trim|required');
         $this->form_validation->set_rules('delivery_method', 'Delivery Method', 'trim|required');
         $this->form_validation->set_rules('pickup_addresses[]', lang('pickup_addresses'), 'trim');
         $this->form_validation->set_message('is_unique', '{field} '.lang('field_already_exist'));
@@ -51,8 +51,8 @@ class Clients extends API_Controller_Secure {
             exit;
         }
 
+        
          //popup upload
-
          if(!empty($_FILES['popup_image']['name']))
          {
              $image_data = fileUploading('popup_image','company','jpg|jpeg|png|gif');
@@ -68,23 +68,27 @@ class Clients extends API_Controller_Secure {
              $this->Return['message'] = lang('popup_image');
              exit;
          }
+         
 
+         
         /* Check Pickup Addresses */
         if(($this->Post['delivery_method'] == 'Pickup' || $this->Post['delivery_method'] == 'Both') && empty($this->Post['pickup_addresses'])){
             $this->Return['status']  = 500;
             $this->Return['message'] = lang('require_pickup_addresses');
             exit;
         }
-
+        
         /* Make Configs */
         $this->Post['client_configs'] = array();
         $this->Post['client_configs']['company_name'] = $this->Post['company_name'];
         $this->Post['client_configs']['contact_name'] = $this->Post['contact_name'];
         $this->Post['client_configs']['contact_number'] = $this->Post['contact_number'];
-        $this->Post['client_configs']['shop_title'] = $this->Post['shop_title'];
-        $this->Post['client_configs']['theme_color'] = $this->Post['theme_color'];
+        // $this->Post['client_configs']['shop_title'] = $this->Post['shop_title'];
+        // $this->Post['client_configs']['theme_color'] = $this->Post['theme_color'];
         $this->Post['client_configs']['company_logo'] = $this->Post['company_logo'];
         $this->Post['client_configs']['popup_image'] = $this->Post['popup_image'];
+
+
 
 
         if(!$this->Users_model->add_user(array_merge($this->Post,array('user_type_id' => 2, 'user_status' => 'Verified', 'parent_user_id' => $this->session_user_id)))){

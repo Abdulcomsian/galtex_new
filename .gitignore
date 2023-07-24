@@ -18,3 +18,5 @@ application/logs/*
 /vendor/
 /vendor
 Vendor
+/assets
+/uploads
