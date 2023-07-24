@@ -166,11 +166,11 @@ if($('section#content').attr('data-page') != 'products-list'){
         addRemoveLinks: true,
         autoProcessQueue: true,
         paramName: "gallery_image",
-        maxFiles: 10,
+        maxFiles: 3,
         init: function() {
             myDropzone = this;
             this.on("maxfilesexceeded", function(file){
-              showToaster('error',error,max_10_gallery_images);  
+              showToaster('error',error,max_4_gallery_images);  
               this.removeFile(file);
             });
             this.on("removedfile", function(file){

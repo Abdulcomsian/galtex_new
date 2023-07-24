@@ -31,18 +31,18 @@
                                 <input type="number" class="form-control validate-no" name="employee_budget" placeholder="<?php echo lang('employee_budget'); ?>" autocomplete="off">
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <!-- <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="control-label"><?php echo lang('client')." ".lang('first_name'); ?></label>
-                                <input type="text" class="form-control" name="first_name" placeholder="<?php echo lang('first_name'); ?>" maxlength="30" autocomplete="off">
+                                <label class="control-label"><?php //echo lang('client')." ".lang('first_name'); ?></label>
+                                <input type="text" class="form-control" name="first_name" placeholder="<?php //echo lang('first_name'); ?>" maxlength="30" autocomplete="off">
                             </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="form-group">
-                                <label class="control-label"><?php echo lang('client')." ".lang('last_name'); ?></label>
-                                <input type="text" class="form-control" name="last_name" placeholder="<?php echo lang('last_name'); ?>" maxlength="30" autocomplete="off">
-                            </div>
-                        </div>
+                        </div> -->
+                            <!-- <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label"><?php //echo lang('client')." ".lang('last_name'); ?></label>
+                                    <input type="text" class="form-control" name="last_name" placeholder="<?php //echo lang('last_name'); ?>" maxlength="30" autocomplete="off">
+                                </div>
+                            </div> -->
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label"><?php echo lang('email_address'); ?></label>
@@ -55,18 +55,18 @@
                                 <input type="text" class="form-control" name="password" placeholder="<?php echo lang('password'); ?>" autocomplete="off" value="<?php echo mt_rand(); ?>">
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <!-- <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label"><?php echo lang('shop_title'); ?></label>
-                                <input type="text" class="form-control" name="shop_title" placeholder="<?php echo lang('shop_title'); ?>" autocomplete="off">
+                                <label class="control-label"><?php //echo lang('shop_title'); ?></label>
+                                <input type="text" class="form-control" name="shop_title" placeholder="<?php //echo lang('shop_title'); ?>" autocomplete="off">
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="control-label"><?php echo lang('theme_color'); ?></label>
-                                <input type="color" class="form-control" name="theme_color" placeholder="<?php echo lang('theme_color'); ?>" autocomplete="off">
+                                <label class="control-label"><?php //echo lang('theme_color'); ?></label>
+                                <input type="color" class="form-control" name="theme_color" placeholder="<?php //echo lang('theme_color'); ?>" autocomplete="off">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label"><?php echo lang('delivery_method'); ?></label>

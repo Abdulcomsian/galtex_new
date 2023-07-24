@@ -124,7 +124,7 @@ switch (ENVIRONMENT)
     /*Paths*/
 
     define('SITE_HOST', 'http://localhost/');
-    define('ROOT_FOLDER', 'galtexnew/');
+    define('ROOT_FOLDER', 'galtex_new/');
 
     /*Site Related Settings*/
     define('ADMIN_SAVE_LOG', false);

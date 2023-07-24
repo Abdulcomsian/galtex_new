@@ -45,7 +45,7 @@
                         <div class="col-sm-8">
                             <div class="form-group">
                                 <label class="control-label"><?php echo lang('product_descprition'); ?></label>
-                                <textarea name="product_descprition" class="form-control" rows="6" placeholder="<?php echo lang('product_descprition'); ?>"></textarea>
+                                <textarea id="product-description" name="product_descprition" class="form-control" rows="6" placeholder="<?php echo lang('product_descprition'); ?>"></textarea>
                             </div>
                         </div>
                         <div class="col-sm-12">
@@ -53,7 +53,8 @@
                             <div id="dZUpload" class="dropzone">
                                 <div class="dz-default dz-message" data-dz-message><span><?php echo lang('drop_gallery_images'); ?></span></div>
                             </div>
-                            <p style="color:red;"><?php echo lang('max_10_gallery_images'); ?></p>
+                            <p><?php echo lang('image_dimension'); ?></p>
+                            <p style="color:red;"><?php echo lang('max_4_gallery_images'); ?></p>
                         </div>
                         <div class="col-sm-4">
                             <label class="control-label"><?php echo lang('main_photo'); ?></label><br/>
@@ -79,3 +80,25 @@
         </div>
     </div>
 </section>
+
+<script>
+    $(document).ready(function(){
+        
+        $("#product-description").summernote({
+        placeholder: 'לכתוב תיאור מוצר',
+        tabsize: 2,
+        height: 200,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+
+
+    })
+</script>
