@@ -53,7 +53,8 @@
                             <div id="dZUpload" class="dropzone">
                                 <div class="dz-default dz-message" data-dz-message><span><?php echo lang('drop_gallery_images'); ?></span></div>
                             </div>
-                            <p style="color:red;"><?php echo lang('max_10_gallery_images'); ?></p>
+                            <p><?php echo lang('image_dimension'); ?></p>
+                            <p style="color:red;"><?php echo lang('max_4_gallery_images'); ?></p>
                         </div>
                         <div class="col-sm-4">
                             <label class="control-label"><?php echo lang('main_photo'); ?></label><br/>
@@ -82,6 +83,7 @@
 
 <script>
     $(document).ready(function(){
+        
         $("#product-description").summernote({
         placeholder: 'לכתוב תיאור מוצר',
         tabsize: 2,
@@ -96,5 +98,7 @@
           ['view', ['fullscreen', 'codeview', 'help']]
         ]
       });
+
+
     })
 </script>
