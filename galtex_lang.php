@@ -171,6 +171,7 @@ $lang['main_photo'] = 'תמונה ראשית';
 $lang['back_to_product_list'] = 'חזרה לרשימת המוצרים';
 $lang['price_range'] = 'טווח מחירים';
 
+
 /* Shop */
 $lang['set_shop']  = 'Set Shop';
 $lang['view_shop'] = 'כנס/י לחנות';
@@ -192,6 +193,7 @@ $lang['send_to_galtex'] = 'שלח/י לגלטקס';
 $lang['shop_products_selection_successfully_updated'] = 'בחירת מוצרים לחנות עודכנו בהצלחה';
 $lang['liked_by_client'] = 'Liked by Client';
 $lang['deleted_by_client'] = 'נמחק ע"י לקוח';
+$lang['description'] = 'תיאור';
 
 
 /* Front */

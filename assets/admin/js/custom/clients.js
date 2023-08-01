@@ -264,8 +264,10 @@ $('body').on('click','button.create-package',function(){
     },200);
 });
 
-$('body').on('click','button.submit-package',function(){
+$('body').on('click','button.submit-package',function(e){
+    e.preventDefault();
     let package_name = $('input[name="package_name"]').val();
+    let package_description = $("#package-description").val();
     if(!package_name){
         showToaster('error',error,set_package_name);
         return false;
@@ -283,7 +285,12 @@ $('body').on('click','button.submit-package',function(){
     $.ajax({
         url: api_url + 'clients/create_package',
         type:"POST",
-        data: {package_name:package_name,product_guids:product_guids,user_guid:$('input[name="user_guid"]').val(),quantity:$('input[name="quantity"]').val()},
+        data: {
+            package_name:package_name,
+            product_guids:product_guids,
+            package_description: package_description,
+            user_guid:$('input[name="user_guid"]').val(),
+            quantity:$('input[name="quantity"]').val()},
         success: function(resp){
             if(resp.status == 200){
                 showToaster('success',success,resp.message);  

@@ -473,15 +473,28 @@
 
 
 
-                                       <div class="pro_bottom clerfix">
+                                       <div class="pro_bottom clerfix1">
                                           <div class="product_name">
                                              <a
                                                 href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>"><?php echo $package['package_name']; ?></a>
                                           </div>
                                           <div class="product_description">
-                                             <!-- <p>
-                                                <?php #echo $package['product_descprition']; ?>
-                                             </p> -->
+                                             <p>
+                                                <?php
+                                                   $packageDescription = $package['package_description']; 
+
+                                                   if(!is_null($packageDescription))
+                                                   {
+                                                      if(strlen($packageDescription) > 100 )
+                                                      {
+                                                         echo substr($packageDescription , 0 , 100)."...";
+
+                                                      }else{
+                                                         echo $packageDescription;
+                                                      }
+                                                }
+                                                ?>
+                                             </p>
                                           </div>
                                           <!--   <div class="product_price">
                               <p>(<?php #echo addZero($package['no_of_products']); ?> <?php #echo lang('products'); ?>)</p>

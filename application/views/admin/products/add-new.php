@@ -201,18 +201,38 @@
             let canvas = currentCropper.cropper.getCroppedCanvas(); 
         
             let url = canvas.toDataURL('image/jpeg', 0.92);
-            // let galleryItem = document.getElementById("gallery-items");
+            
+            //new code starts here
+            let blob = dataURLtoBlob(url);
+
+            let timestamp = new Date().getTime();
+            let fileName = `cropped_image.jpg`;
+
+            let file = new File([blob], 'cropped_image.jpg', { type: 'image/jpeg' });
+
+            // Create a FileList object containing the File
+            let dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+
+            // Create a new input element with the FileList
+            let newInput = document.createElement('input');
+            newInput.setAttribute('type', 'file');
+            newInput.setAttribute('class', 'crop-gallery-image d-none');
+            newInput.setAttribute('name', 'product_gallery_images[]');
+            newInput.files = dataTransfer.files;
+            // <input type="file" class="crop-gallery-image d-none" value="${url}"/>
+            //new code ends here
             currentRow.innerHTML ="";
             let html = `<div>
                             <div class="col-8">
                                 <img src="${url}" class="gallery-item-image"/>
                             </div>
-                            <div class="col-4">
-                                <input type="file" class="crop-gallery-image d-none" value="${url}"/>
+                            <div class="col-4 image-holder">
                                 <button type="button" class="btn btn-danger remove-gallery-item-image" data-key="${currentCropper.key}">Remove Image</button>
                             </div>
                         </div>`;
             currentRow.innerHTML = html;
+            currentRow.querySelector(".image-holder").appendChild(newInput);
         }
       })
 
@@ -244,6 +264,19 @@
         }
 
         return result;
+        }
+
+        // Convert data URL to Blob
+        function dataURLtoBlob(dataURL) {
+            var arr = dataURL.split(',');
+            var mime = arr[0].match(/:(.*?);/)[1];
+            var bstr = atob(arr[1]);
+            var n = bstr.length;
+            var u8arr = new Uint8Array(n);
+            while (n--) {
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new Blob([u8arr], { type: mime });
         }
 
     })

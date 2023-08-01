@@ -199,6 +199,7 @@ $lang['send_to_galtex'] = 'שלח/י לגלטקס';
 $lang['shop_products_selection_successfully_updated'] = 'בחירת מוצרים לחנות עודכנו בהצלחה';
 $lang['liked_by_client'] = 'Liked by Client';
 $lang['deleted_by_client'] = 'נמחק ע"י לקוח';
+$lang['description'] = 'תיאור';
 
 
 /* Front */
