@@ -39,6 +39,7 @@ class Products extends Admin_Controller_Secure {
 
 		/* Get Products */
 		$data['products'] = $this->Products_model->get_products('product_name,category_name,min_price,max_price,product_main_photo,created_date',array(),TRUE);
+		
 		$this->template->load('default', 'products/list',$data);
 	}
 
@@ -128,7 +129,7 @@ class Products extends Admin_Controller_Secure {
 	 * Description:   To view product details
 	*/
 	public function details($product_guid) 
-	{
+	{ 
 		if($this->user_type_id != 1){
         	$this->session->set_flashdata('error',lang('access_denied'));
         	redirect('admin/dashboard');
@@ -145,6 +146,7 @@ class Products extends Admin_Controller_Secure {
 
 		/*  To check product guid */	
 		$query = $this->db->query('SELECT product_id FROM tbl_products WHERE product_guid = "'.$product_guid.'" LIMIT 1');
+		
 		if($query->num_rows() == 0){
 			redirect('/admin/products/list');
 		}
