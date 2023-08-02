@@ -59,7 +59,7 @@ class Shop_model extends CI_Model {
                 'client_status'  => 'P.client_status',
                 'package_name'   => 'P.package_name',
                 'quantity'       => 'P.quantity',
-                'package_description' => 'p.package_description',
+                'package_description' => 'P.package_description',
                 'sold_quantity'  => 'P.sold_quantity',
                 'remaining_quantity' => '(P.quantity - P.sold_quantity) remaining_quantity',
                 'package_id'     => 'P.package_id',
