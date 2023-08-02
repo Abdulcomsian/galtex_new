@@ -303,7 +303,7 @@
                               <div class="pro_img_box">
                                  <a
                                     href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>">
-                                    <div><img src="<?php echo $product['product_main_photo']; ?>" />
+                                    <img src="<?php echo $product['product_main_photo']; ?>" />
                                    <?php
                                      if (isset($product['above_budget_price']) && $product['above_budget_price'] > 0) {
                                    ?>
@@ -311,7 +311,6 @@
                                                    style="width:auto !important;height:auto !important;position:absolute;top:0px;left:0px;"
                                                    src="<?php #echo base_url(); ?>assets/images/above_budge.svg" /> -->
                                     <?php } ?> 
-                                 </div>
                                  </a>
                                  <!-- if($order_details['order_product_details']!=NULL ){ -->
                                              

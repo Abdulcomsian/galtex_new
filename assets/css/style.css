@@ -1386,6 +1386,7 @@ padding:0 35px !important;
   .oneimage {
     max-height: 130px;
     overflow: hidden;
+    border-radius:20px
   }
 
   .oneimage img {
@@ -1396,8 +1397,8 @@ padding:0 35px !important;
   }
 
   .prod_coll .proimage .pro_img_box img {
-    height: 120px;
-    border-radius: 15px;
+    height: 130px;
+    border-radius: 20px;
   }
 }
 
