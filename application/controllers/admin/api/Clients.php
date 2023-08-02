@@ -226,6 +226,7 @@ if(!empty($this->Post['deadline'])){
         $this->form_validation->set_rules('package_name', 'Package Name', 'trim|required');
         $this->form_validation->set_rules('quantity', 'Package Quantity', 'trim|required|numeric|greater_than_equal_to[1]');
         $this->form_validation->set_rules('user_guid', 'User GUID', 'trim|required|callback_validate_guid[tbl_users.user_guid.user_id]');
+        $this->form_validation->set_rules('package_description', 'Package Description', 'trim|required');
         $this->form_validation->validation($this);  /* Run validation */
         /* Validation - ends */
 

@@ -34,6 +34,8 @@
     var products_uploaded = "<?php echo lang('products_uploaded'); ?>";
     var employees_uploaded = "<?php echo lang('employees_uploaded'); ?>";
     </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
    </body>
 </html>
 

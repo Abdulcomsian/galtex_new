@@ -22,7 +22,8 @@ class Products_model extends CI_Model {
             "warranty" => @$Input['warranty'],
             "product_descprition" => $Input['product_descprition'],
             "product_main_photo" => $Input['product_main_photo'],
-            "product_gallery_images" => (!empty($Input['product_gallery_images'])) ? json_encode($Input['product_gallery_images']) : NULL,
+            // "product_gallery_images" => (!empty($Input['product_gallery_images'])) ? json_encode($Input['product_gallery_images']) : NULL,
+            "product_gallery_images" => (!empty($Input['file_location'])) ? json_encode($Input['file_location']) : NULL,
             "created_date" => date('Y-m-d H:i:s')
         ));
         $this->db->insert('tbl_products', $insert_array);

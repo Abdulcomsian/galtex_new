@@ -19,7 +19,7 @@ class Products extends API_Controller_Secure {
       URL: 			/admin/api/products/add/
     */
     public function add_post() {
-
+        
         /* Validation section */
         $this->form_validation->set_rules('product_name', 'Product Name', 'trim|required');
         $this->form_validation->set_rules('product_category_id', 'Product Category', 'trim|required|callback_validate_guid[tbl_categories.category_guid.category_id]');
@@ -29,6 +29,20 @@ class Products extends API_Controller_Secure {
         $this->form_validation->set_rules('product_gallery_images[]', 'Product Gallery Images', 'trim|required');
         $this->form_validation->validation($this);  /* Run validation */
         /* Validation - ends */
+
+        //new code starts here
+        $fileCount = count($_FILES['product_gallery_images']['name']);
+        $fileLocation = [];
+        for($i=0; $i<$fileCount; $i++)
+        {
+            $fileName = strtotime("now")."$i"."_".$_FILES['product_gallery_images']['name'][$i];
+            $location = "uploads/products/".$fileName;
+            move_uploaded_file($_FILES['product_gallery_images']['tmp_name'][$i] , $location);
+            $fileLocation[] = $fileName;
+        }
+        $this->Post = array_merge($this->Post , ['file_location' => $fileLocation]);
+
+        //new code ends here
 
         /* Upload main photo */
         if(!empty($_FILES['product_main_photo']['name'])){
@@ -44,6 +58,8 @@ class Products extends API_Controller_Secure {
             $this->Return['message'] = lang('require_product_main_photo');
             exit;
         }
+
+        
 
         if(!$this->Products_model->add_product(array_merge($this->Post,array('product_category_id' => $this->category_id)))){
             $this->Return['status'] = 500;

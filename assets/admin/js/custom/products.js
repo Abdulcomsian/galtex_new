@@ -35,6 +35,55 @@ if($('table').hasClass('my-datatable')){
 
 /**************** Add New Product Script Start *************/
 
+$(document).on("click" , "#submit-product" , function(e){
+    e.preventDefault();
+    var formData = new FormData($(".add-new-product-form")[0]);
+    let cropGalleryImage = document.querySelectorAll(".crop-gallery-image");
+    console.log(cropGalleryImage)
+    // if(cropGalleryImage.length > 0){
+    //     for (var i = 0; i < cropGalleryImage.length; i++) {
+    //         console.log(cropGalleryImage[i].files[0])
+    //       formData.append('product_gallery_images', cropGalleryImage[i].files[0]);
+    //     }
+    // }else{
+    //     showToaster('error',error,select_gallery_images); 
+    //     return false;
+    // }
+
+    if(cropGalleryImage.length > 0){
+            for (var i = 0; i < cropGalleryImage.length; i++) {
+              formData.append('product_gallery_images[]', cropGalleryImage[i]);
+            }
+        }else{
+            showToaster('error',error,select_gallery_images); 
+            return false;
+        }
+
+    $.ajax({
+        url: api_url + 'products/add',
+        type:"POST",
+        data: formData,
+        dataType : "JSON",   
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(resp){
+            if(resp.status == 200){
+                showToaster('success',success,resp.message);  
+                setTimeout(function(){
+                    // alert("successfully added product")
+                    window.location.href = base_url + 'admin/products/list';
+                },500);
+            }else{
+                showToaster('error',error,resp.message);  
+            }
+            hideProgressBar();
+        }
+    });
+
+
+})
+
 var form_object = jQuery(".add-new-product-form");
 form_object.validate({
     ignore: ":hidden:not(select.chosen-select)",
@@ -59,16 +108,27 @@ form_object.validate({
       jQuery(element).closest('.form-group').removeClass('has-error').addClass('has-success');
       jQuery(element[0]).remove();
     },
-    submitHandler: function() {
+    submitHandler: function(e) {
+        e.preventDefault();
+        
         var formData = new FormData($(".add-new-product-form")[0]);
-        if(gallery_images.length > 0){
-            for (var i = 0; i < gallery_images.length; i++) {
-              formData.append('product_gallery_images[]', gallery_images[i]);
+        let cropGalleryImage = document.querySelectorAll(".crop-gallery-image");
+        if(cropGalleryImage.length > 0){
+            for (var i = 0; i < cropGalleryImage.length; i++) {
+              formData.append('product_gallery_images[]', cropGalleryImage.files[i]);
             }
         }else{
             showToaster('error',error,select_gallery_images); 
             return false;
         }
+        // if(gallery_images.length > 0){
+        //     for (var i = 0; i < gallery_images.length; i++) {
+        //       formData.append('product_gallery_images[]', gallery_images[i]);
+        //     }
+        // }else{
+        //     showToaster('error',error,select_gallery_images); 
+        //     return false;
+        // }
         $.ajax({
             url: api_url + 'products/add',
             type:"POST",
@@ -81,7 +141,8 @@ form_object.validate({
                 if(resp.status == 200){
                     showToaster('success',success,resp.message);  
                     setTimeout(function(){
-		            	window.location.href = base_url + 'admin/products/list';
+                        alert("successfully added product")
+		            	// window.location.href = base_url + 'admin/products/list';
 		            },500);
                 }else{
                     showToaster('error',error,resp.message);  

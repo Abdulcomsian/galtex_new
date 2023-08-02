@@ -19,7 +19,7 @@
         <link href="<?php echo base_url(); ?>assets/css/toastr.min.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/css/nprogress.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/plugins/summernote/summernote.min.css" rel="stylesheet">
-        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet" />
         <!-- Other CSS -->
         <?php if(!empty($css)){foreach($css as $value){ ?>
                 <link href="<?php echo $value; ?>" rel="stylesheet">
@@ -42,10 +42,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/plugins/summernote/summernote.min.js"></script>
+        
+        
         <!-- Other JS -->
-<?php if(!empty($js)){foreach($js as $value){ ?>
-        <script src="<?php echo $value; ?>"></script>
-<?php }} ?>
+        <?php if(!empty($js)){foreach($js as $value){ ?>
+                <script src="<?php echo $value; ?>"></script>
+        <?php }} ?>
+
+      
 
         <!-- Get Base URL --> 
         <script type="text/javascript">

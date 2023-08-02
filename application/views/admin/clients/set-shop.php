@@ -168,6 +168,10 @@
                             <input type="number" min="1" class="form-control validate-no" name="quantity" placeholder="<?php echo lang('quantity'); ?>" maxlength="10" autocomplete="off">
                         </div>
                     </div>
+                    <div class="col-sm-12">
+                        <label class="control-label"><?php echo lang('description'); ?></label>
+                        <textarea class="form-control" id="package-description" rows="3"></textarea>
+                    </div>
                 </div> 
                 <hr> 
                 <div class="row package-products">

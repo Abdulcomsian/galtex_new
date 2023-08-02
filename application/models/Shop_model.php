@@ -21,7 +21,8 @@ class Shop_model extends CI_Model {
             "quantity" => @$Input['quantity'],
             "package_guid" => get_guid(),
             "no_of_products" => count($Input['product_ids']),
-            "created_date" => date('Y-m-d H:i:s')
+            "created_date" => date('Y-m-d H:i:s'),
+            "package_description" => @$Input['package_description'],
         ));
 
         $this->db->insert('tbl_client_packages', $insert_array);
@@ -58,6 +59,7 @@ class Shop_model extends CI_Model {
                 'client_status'  => 'P.client_status',
                 'package_name'   => 'P.package_name',
                 'quantity'       => 'P.quantity',
+                'package_description' => 'p.package_description',
                 'sold_quantity'  => 'P.sold_quantity',
                 'remaining_quantity' => '(P.quantity - P.sold_quantity) remaining_quantity',
                 'package_id'     => 'P.package_id',
@@ -115,7 +117,7 @@ class Shop_model extends CI_Model {
                 foreach ($Query->result_array() as $key => $Record) {
                     $Records[] = $Record;
                     if (in_array('products', $Params)) {
-                        $Records[$key]['products'] = $this->Products_model->get_products('product_name,min_price,max_price,product_main_photo',array('product_ids' => explode(",",$Record['product_ids'])),TRUE);                    
+                        $Records[$key]['products'] = $this->Products_model->get_products('product_name,min_price,max_price,product_main_photo,package_description',array('product_ids' => explode(",",$Record['product_ids'])),TRUE);                    
                         unset($Records[$key]['product_ids']);
                     }
                 }

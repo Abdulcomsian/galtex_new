@@ -197,6 +197,7 @@ $lang['send_to_galtex'] = 'Send to Galtex';
 $lang['shop_products_selection_successfully_updated'] = 'Shop product selection successfully updated.';
 $lang['liked_by_client'] = 'Liked by Client';
 $lang['deleted_by_client'] = 'Deleted by Client';
+$lang['description'] = 'תיאור';
 
 
 /* Front */
