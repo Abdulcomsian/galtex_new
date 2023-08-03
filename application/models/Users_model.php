@@ -12,7 +12,6 @@ class Users_model extends CI_Model {
       Description:  Use to add user.
      */
     function add_user($Input = array()) {
-
         $this->db->trans_start();
 
         $insert_array = array_filter(array(

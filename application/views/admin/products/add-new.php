@@ -10,6 +10,26 @@
     .crop-gallery-image{
         display: none!important;
     }
+
+    img.gallery-item-image {
+        width: 200px;
+    }
+
+    .product-main-image{
+        display: none;
+    }
+
+    button.btn.crop-main-image , button.try-another{
+        background: #00BCD4;
+        color: white;
+        margin: 20px 10px;
+        display: none;
+    }
+
+    .main-cropped-image{
+        display: none;
+        width: 450px;
+    }
 </style>
 <section id="content">
     <div class="container"> 
@@ -74,27 +94,44 @@
                             </button>
                         </div>
                         <!-- <div class="col-sm-12">
-                            <label class="control-label"><?php echo lang('gallery_images'); ?></label><br/>
+                            <label class="control-label"><?php //echo lang('gallery_images'); ?></label><br/>
                             <div id="dZUpload" class="dropzone">
-                                <div class="dz-default dz-message" data-dz-message><span><?php echo lang('drop_gallery_images'); ?></span></div>
+                                <div class="dz-default dz-message" data-dz-message><span><?php //echo lang('drop_gallery_images'); ?></span></div>
                             </div>
-                            <p><?php echo lang('image_dimension'); ?></p>
-                            <p style="color:red;"><?php echo lang('max_4_gallery_images'); ?></p>
+                            <p><?php //echo lang('image_dimension'); ?></p>
+                            <p style="color:red;"><?php //echo lang('max_4_gallery_images'); ?></p>
                         </div> -->
-                        <div class="col-sm-4">
-                            <label class="control-label"><?php echo lang('main_photo'); ?></label><br/>
+                        <!-- <div class="col-sm-4">
+                            <label class="control-label"><?php //echo lang('main_photo'); ?></label><br/>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-info btn-file">
-                                        <span class="fileinput-new"><?php echo lang('select_image'); ?></span>
-                                        <span class="fileinput-exists"><?php echo lang('change'); ?></span>
+                                        <span class="fileinput-new"><?php //echo lang('select_image'); ?></span>
+                                        <span class="fileinput-exists"><?php //echo lang('change'); ?></span>
                                         <input type="hidden" value=""><input type="file" name="product_main_photo">
                                     </span>
-                                    <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
+                                    <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php //echo lang('remove'); ?></a>
+                                </div>
+                            </div>
+                        </div> -->
+
+
+                        <div class="row main-cropper-row">
+                            <div class="col-sm-4">
+                                <label class="control-label"><?php echo lang('main_photo'); ?></label>
+                                <div>
+                                    <img class="product-main-image" src="" alt="" >
+                                    <img class="main-cropped-image" src="" alt="" >
+                                    <button type="button" class="btn crop-main-image">Crop Image</button>
+                                    <button type="button" class="btn try-another">Try Another</button>
+                                    <input type="file" name="product_main_photo" id="product_main_photo" accept="image/*"/>
                                 </div>
                             </div>
                         </div>
+
+
+
                         <div class="form-group col-sm-12 text-center m-t-20">
                             <button type="button" class="btn btn-primary" id="submit-product"><?php echo lang('submit'); ?></button>
                             <button type="button" class="btn btn-danger reset-btn"><?php echo lang('reset'); ?></button>
@@ -110,6 +147,7 @@
     $(document).ready(function(){
         
         var cropper = [];
+        var mainCropper;
 
         $("#product-description").summernote({
         placeholder: 'לכתוב תיאור מוצר',
@@ -240,15 +278,97 @@
       $(document).on("click" , ".remove-gallery-item-image" , function(e){
         let element = e.target;
         let key = e.target.classList.contains(".remove-gallery-item-image") ? e.target.dataset.key : e.target.closest(".remove-gallery-item-image").dataset.key;
-        element.closest(".row").remove();
         let currentIndex = $(".remove-gallery-item-image").index(this);
-        console.log(cropper);
+        element.closest(".gallery-image-list").remove();
+        // console.log(cropper);
         let newCropper = cropper.filter(eachCropper => {
             return key != eachCropper.key;
         })
         console.log(newCropper);
         cropper = newCropper
 
+      })
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+      $(document).on("input" , "#product_main_photo" , function(e){
+        let element = e.target;
+        let file = element.files[0];
+        let reader = new FileReader();
+        let mainImage = document.querySelector(".product-main-image");
+        let mainCropBtn = document.querySelector(".crop-main-image");
+        reader.onload = function(){
+            mainImage.setAttribute('src' , reader.result );
+            mainImage.style.display = "block";
+            mainCropper = new Cropper(mainImage , {
+                viewMode: 1,
+                aspectRatio: 1,
+            })
+        }
+
+        reader.readAsDataURL(file);
+
+        this.style.display = "none";
+
+        mainCropBtn.style.display = "block";
+      })
+
+
+      $(document).on("click" , ".crop-main-image" , function(e){
+        let element = e.target.classList.contains("crop-main-image") ? e.target : e.target.closest(".crop-main-image");
+        let mainCropData =  mainCropper.getCropBoxData();
+        let mainInputFile = document.getElementById("product_main_photo");
+        let mainCroppedImage = document.querySelector(".main-cropped-image");
+        let mainImage = document.querySelector(".product-main-image");
+        let tryAnother= document.querySelector(".try-another");
+
+        if (mainCropData.width > 0 && mainCropData.height > 0) {
+            let canvas = mainCropper.getCroppedCanvas(); 
+        
+            let url = canvas.toDataURL('image/jpeg', 0.92);
+
+            let blob = dataURLtoBlob(url);
+
+            let timestamp = new Date().getTime();
+
+            let fileName = `${timestamp}_main_cropped_image.jpg`;
+
+            let file = new File([blob], fileName , { type: 'image/jpeg' });
+
+            let dataTransfer = new DataTransfer();
+
+            dataTransfer.items.add(file);
+
+            mainInputFile.files = dataTransfer.files;
+
+            mainCroppedImage.setAttribute("src" , url);
+
+            mainCroppedImage.style.display = "block";
+
+            mainImage.setAttribute("src" , "");
+
+            mainImage.style.display ="none";
+
+            mainCropper.destroy();
+
+            tryAnother.style.display = "block";
+
+            element.style.display = "none";
+        }
+      })
+
+
+      $(document).on("click" , ".try-another" , function(e){
+        let element = e.target.classList.contains(".try-another") ? e.target : e.target.closest(".try-another");
+        let mainInputFile = document.getElementById("product_main_photo");
+        let mainCroppedImage = document.querySelector(".main-cropped-image");
+        let mainImage = document.querySelector(".product-main-image");
+
+        element.style.display = "none";
+        mainImage.setAttribute("src" ,"");
+        mainCroppedImage.setAttribute("src","");
+        mainCroppedImage.style.display ="none";
+        mainImage.style.display ="none";
+        mainInputFile.value = "";
+        mainInputFile.style.display = "block"
       })
 
 

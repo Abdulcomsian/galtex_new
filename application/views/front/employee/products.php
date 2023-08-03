@@ -58,6 +58,10 @@
    .nav_right li .badge {
       background: #963491;
    }
+   .banner-image{
+      width :1100px!important;
+      height : 516px!important;
+   }
 </style>
 
 
@@ -98,7 +102,7 @@
       </div>
    </div>
    <?php
-       $lastActivity = $this->session->userdata('webuserdata')['last_activity'];
+   $lastActivity = $this->session->userdata('webuserdata')['last_activity'];
    $basePath = base_url() . '/uploads/company/';
    $popupImage = $this->session->userdata('webuserdata')['client_configs']['popup_image'] ?? $this->session->userdata('webuserdata')['client_configs']['company_logo'] ?? 'testImage.png';
    $imageUrl = $basePath . $popupImage;
@@ -107,11 +111,7 @@
    // print_r($this->session->userdata('webuserdata'));
    // exit;..//
    ?>
-   <?php
-   //  echo "<pre>";
-//  print_r($this->session->userdata('webuserdata'));
-//  exit;
-   ?>
+   
    <?php if (!isset($lastActivity) || is_null($lastActivity)) { ?>
       <div class="overlay_popup">
       <div class="overlay_popup" style="height: 100vh;">
@@ -156,7 +156,19 @@
       <div class="container">
          <div class="cardBlur">
             <section id="card">
-               <img src="<?php echo base_url(); ?>/assets/images/testImage.png" className="card-img-top rounded" />
+               <?php 
+               $baseUrl = base_url();
+               $bannerImage = $this->session->userdata('webuserdata')['client_configs']['banner_image'];
+               $image = isset($bannerImage) && !is_null($bannerImage) ? "/uploads/company/".$bannerImage : "/assets/images/testImage.png";
+               $imageUrl = $baseUrl.$image;
+               // echo $imageUrl;
+               // exit;
+            // print_r($this->session->userdata('webuserdata')['client_configs']);
+            // exit;
+
+               
+               ?>
+               <img src="<?=$imageUrl?>" className="card-img-top rounded banner-image" style="width :1100px!important; height : 516px!important;" />
                <!-- <div class="inner_banner_sec">
             <div class="innerbanner_cap text-center productMain">
                <div class="container">
