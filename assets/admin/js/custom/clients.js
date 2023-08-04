@@ -212,6 +212,31 @@ form_object.validate({
     }
 });
 
+$(document).on("click" , "client-edit" , function(e){
+    e.preventDefault()
+    $.ajax({
+        url: api_url + 'clients/edit',
+        type:"POST",
+        data: new FormData($('.edit-client-form')[0]),
+        dataType : "JSON",   
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(resp){
+            if(resp.status == 200){
+                showToaster('success',success,resp.message);  
+                setTimeout(function(){
+                    alert("client updated successfully")
+                    // window.location.href = base_url + 'admin/clients/list';
+                },500);
+            }else{
+                showToaster('error',error,resp.message);  
+            }
+            hideProgressBar();
+        }
+    });
+})
+
 /**************** Edit Client Script End *****************/
 
 /**************** View Client Script Start *************/ 

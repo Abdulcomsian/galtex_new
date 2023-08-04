@@ -137,11 +137,12 @@ class Clients extends API_Controller_Secure {
         $this->form_validation->set_rules('pickup_addresses[]', lang('pickup_addresses'), 'trim');
         $this->form_validation->set_rules('deadline', lang('deadline'), 'trim');
         $this->form_validation->validation($this);  /* Run validation */
+        
         /* Validation - ends */
-if(!empty($this->Post['deadline'])){
-    $this->Post['deadline'] = date('Y-m-d H:i:s', strtotime($this->Post['deadline']));
+        if(!empty($this->Post['deadline'])){
+            $this->Post['deadline'] = date('Y-m-d H:i:s', strtotime($this->Post['deadline']));
 
-}
+        }
         /* Upload company logo */
         if(!empty($_FILES['company_logo']['name'])){
             $image_data = fileUploading('company_logo','company','jpg|jpeg|png|gif');
@@ -156,6 +157,18 @@ if(!empty($this->Post['deadline'])){
         /* EDIT POPUP Upload */
         if(!empty($_FILES['popup_image']['name'])){
             $image_data = fileUploading('popup_image','company','jpg|jpeg|png|gif');
+            if(!empty($image_data['error'])){
+                $this->Return['status'] = 500;
+                $this->Return['message'] = lang('popup_image').' - '.$image_data['error'];
+                exit;
+            }
+            $this->Post['popup_image'] = $image_data['upload_data']['file_name'];
+        }
+
+
+        /* EDIT POPUP Upload */
+        if(!empty($_FILES['banner_image']['name'])){
+            $image_data = fileUploading('banner_image','company','jpg|jpeg|png|gif');
             if(!empty($image_data['error'])){
                 $this->Return['status'] = 500;
                 $this->Return['message'] = lang('popup_image').' - '.$image_data['error'];
@@ -180,6 +193,7 @@ if(!empty($this->Post['deadline'])){
         $this->Post['client_configs']['theme_color'] = $this->Post['theme_color'];
         $this->Post['client_configs']['company_logo'] = (!empty($this->Post['company_logo'])) ? $this->Post['company_logo'] : $this->Post['old_company_logo'];
         $this->Post['client_configs']['popup_image'] = (!empty($this->Post['popup_image'])) ? $this->Post['popup_image'] : $this->Post['old_popup_image'];
+        $this->Post['client_configs']['banner_image'] = (!empty($this->Post['banner_image'])) ? $this->Post['banner_image'] : $this->Post['old_banner_image'];
         if(!$this->Users_model->update_user($this->user_id,$this->Post))
         {
             $this->Return['status'] = 500;
