@@ -3,7 +3,7 @@
       display: none !important
    }
    .product_thumb_item {
-      margin-top: 5px !important;
+      margin-top: 0px !important;
    }
 
    .slick-list .slick-track .slick-active {
