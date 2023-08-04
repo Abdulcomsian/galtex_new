@@ -1,3 +1,18 @@
+<style>
+    .popup-main-image , .popup-cropped-image , .crop-popup-image , .try-another-popup , 
+    .banner-main-image , .banner-cropped-image , .crop-banner-image , .try-another-banner{
+        display: none;
+    }
+
+    .crop-popup-image , .try-another-popup , .crop-banner-image , .try-another-banner {
+        background: #00BCD4;
+        color: white;
+        margin: 20px 10px;
+        display: none;
+    }
+</style>
+
+
 <section id="content">
     <div class="container"> 
         <div class="tile">
@@ -86,7 +101,7 @@
 
                             </div>
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
                             <label class="control-label"><?php echo lang('company_logo'); ?></label><br/>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px; border:1px solid #cfcfcf"></div>
@@ -102,34 +117,65 @@
                         </div>
 
                            <!-- POPUP START -->
-                        <div class="col-sm-2">
-                            <label class="control-label"><?php echo lang('popup_image'); ?></label><br/>
+                        <!-- <div class="col-sm-2">
+                            <label class="control-label"><?php //echo lang('popup_image'); ?></label><br/>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-info btn-file">
-                                        <span class="fileinput-new"><?php echo lang('select_image'); ?></span>
-                                        <span class="fileinput-exists"><?php echo lang('change'); ?></span>
+                                        <span class="fileinput-new"><?php //echo lang('select_image'); ?></span>
+                                        <span class="fileinput-exists"><?php //echo lang('change'); ?></span>
                                         <input type="hidden" value=""><input type="file" name="popup_image">
                                     </span>
-                                    <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
+                                    <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php //echo lang('remove'); ?></a>
+                                </div>
+                            </div>
+                        </div> -->
+
+
+                        <div class="row popup-cropper-row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <label class="control-label"><?php echo lang('popup_image'); ?></label>
+                                <div>
+                                    <img class="popup-main-image" src="" alt="" >
+                                    <img class="popup-cropped-image" src="" alt="" >
+                                    <button type="button" class="btn crop-popup-image">Crop Image</button>
+                                    <button type="button" class="btn try-another-popup">Try Another</button>
+                                    <input type="file" name="popup_image" id="popup_image" accept="image/*"/>
                                 </div>
                             </div>
                         </div>
+
+
+
                         <!-- POPUP END -->
 
                         <!-- banner starts here -->
-                        <div class="col-sm-2">
-                            <label class="control-label"><?php echo lang('banner_image'); ?></label><br/>
+                        <!-- <div class="col-sm-12">
+                            <label class="control-label"><?php //echo lang('banner_image'); ?></label><br/>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-info btn-file">
-                                        <span class="fileinput-new"><?php echo lang('select_image'); ?></span>
-                                        <span class="fileinput-exists"><?php echo lang('change'); ?></span>
+                                        <span class="fileinput-new"><?php //echo lang('select_image'); ?></span>
+                                        <span class="fileinput-exists"><?php //echo lang('change'); ?></span>
                                         <input type="hidden" value=""><input type="file" name="banner_image">
                                     </span>
-                                    <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
+                                    <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php //echo lang('remove'); ?></a>
+                                </div>
+                            </div>
+                        </div> -->
+
+
+                        <div class="row banner-cropper-row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <label class="control-label"><?php echo lang('banner_image'); ?></label>
+                                <div>
+                                    <img class="banner-main-image" src="" alt="" >
+                                    <img class="banner-cropped-image" src="" alt="" >
+                                    <button type="button" class="btn crop-banner-image">Crop Image</button>
+                                    <button type="button" class="btn try-another-banner">Try Another</button>
+                                    <input type="file" name="banner_image" id="banner_image" accept="image/*"/>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +200,7 @@
                             </div>
                         </div>
                         <div class="form-group col-sm-12 text-center m-t-20">
-                            <button class="btn btn-primary" ><?php echo lang('submit'); ?></button>
+                            <button type="submit" class="btn btn-primary client-add" ><?php echo lang('submit'); ?></button>
                             <button type="button" class="btn btn-danger reset-btn"><?php echo lang('reset'); ?></button>
                         </div>
                     </div>
@@ -163,3 +209,200 @@
         </div>
     </div>
 </section>
+
+<script>
+    var popupCropper;
+    var bannerCropper;
+        
+    // popup script starts here
+    $(document).on("input" , "#popup_image" , function(e){
+        let element = e.target;
+        let file = element.files[0];
+        let reader = new FileReader();
+        let mainImage = document.querySelector(".popup-main-image");
+        let mainCropBtn = document.querySelector(".crop-popup-image");
+        reader.onload = function(){
+            mainImage.setAttribute('src' , reader.result );
+            mainImage.style.display = "block";
+            popupCropper = new Cropper(mainImage , {
+                viewMode: 1,
+                aspectRatio: 1,
+            })
+        }
+
+        reader.readAsDataURL(file);
+
+        this.style.display = "none";
+
+        mainCropBtn.style.display = "block";
+      })
+
+                               
+
+
+      $(document).on("click" , ".crop-popup-image" , function(e){
+        let element = e.target.classList.contains("crop-popup-image") ? e.target : e.target.closest(".crop-popup-image");
+        let mainCropData =  popupCropper.getCropBoxData();
+        let mainInputFile = document.getElementById("popup_image");
+        let mainCroppedImage = document.querySelector(".popup-cropped-image");
+        let mainImage = document.querySelector(".popup-main-image");
+        let tryAnother= document.querySelector(".try-another-popup");
+
+        if (mainCropData.width > 0 && mainCropData.height > 0) {
+            let canvas = popupCropper.getCroppedCanvas(); 
+        
+            let url = canvas.toDataURL('image/jpeg', 0.92);
+
+            let blob = dataURLtoBlob(url);
+
+            let timestamp = new Date().getTime();
+
+            let fileName = `${timestamp}_popup_cropped_image.jpg`;
+
+            let file = new File([blob], fileName , { type: 'image/jpeg' });
+
+            let dataTransfer = new DataTransfer();
+
+            dataTransfer.items.add(file);
+
+            mainInputFile.files = dataTransfer.files;
+
+            mainCroppedImage.setAttribute("src" , url);
+
+            mainCroppedImage.style.display = "block";
+
+            mainImage.setAttribute("src" , "");
+
+            mainImage.style.display ="none";
+
+            popupCropper.destroy();
+
+            tryAnother.style.display = "block";
+
+            element.style.display = "none";
+        }
+      })
+
+
+
+      $(document).on("click" , ".try-another-popup" , function(e){
+        let element = e.target.classList.contains(".try-another-popup") ? e.target : e.target.closest(".try-another-popup");
+        let mainInputFile = document.getElementById("popup_image");
+        let mainCroppedImage = document.querySelector(".popup-cropped-image");
+        let mainImage = document.querySelector(".popup-main-image");
+
+        element.style.display = "none";
+        mainImage.setAttribute("src" ,"");
+        mainCroppedImage.setAttribute("src","");
+        mainCroppedImage.style.display ="none";
+        mainImage.style.display ="none";
+        mainInputFile.value = "";
+        mainInputFile.style.display = "block"
+      })
+
+
+
+
+      //banner script starts here
+    $(document).on("input" , "#banner_image" , function(e){
+        let element = e.target;
+        let file = element.files[0];
+        let reader = new FileReader();
+        let mainImage = document.querySelector(".banner-main-image");
+        let mainCropBtn = document.querySelector(".crop-banner-image");
+        reader.onload = function(){
+            mainImage.setAttribute('src' , reader.result );
+            mainImage.style.display = "block";
+            bannerCropper = new Cropper(mainImage , {
+                viewMode: 1,
+                aspectRatio: 1,
+            })
+        }
+
+        reader.readAsDataURL(file);
+
+        this.style.display = "none";
+
+        mainCropBtn.style.display = "block";
+      })
+
+                               
+
+
+      $(document).on("click" , ".crop-banner-image" , function(e){
+        let element = e.target.classList.contains("crop-banner-image") ? e.target : e.target.closest(".crop-banner-image");
+        let mainCropData =  bannerCropper.getCropBoxData();
+        let mainInputFile = document.getElementById("banner_image");
+        let mainCroppedImage = document.querySelector(".banner-cropped-image");
+        let mainImage = document.querySelector(".banner-main-image");
+        let tryAnother= document.querySelector(".try-another-banner");
+
+        if (mainCropData.width > 0 && mainCropData.height > 0) {
+            let canvas = bannerCropper.getCroppedCanvas(); 
+        
+            let url = canvas.toDataURL('image/jpeg', 0.92);
+
+            let blob = dataURLtoBlob(url);
+
+            let timestamp = new Date().getTime();
+
+            let fileName = `${timestamp}_banner_cropped_image.jpg`;
+
+            let file = new File([blob], fileName , { type: 'image/jpeg' });
+
+            let dataTransfer = new DataTransfer();
+
+            dataTransfer.items.add(file);
+
+            mainInputFile.files = dataTransfer.files;
+
+            mainCroppedImage.setAttribute("src" , url);
+
+            mainCroppedImage.style.display = "block";
+
+            mainImage.setAttribute("src" , "");
+
+            mainImage.style.display ="none";
+
+            bannerCropper.destroy();
+
+            tryAnother.style.display = "block";
+
+            element.style.display = "none";
+        }
+      })
+
+
+
+      $(document).on("click" , ".try-another-banner" , function(e){
+        let element = e.target.classList.contains(".try-another-banner") ? e.target : e.target.closest(".try-another-banner");
+        let mainInputFile = document.getElementById("banner_image");
+        let mainCroppedImage = document.querySelector(".banner-cropped-image");
+        let mainImage = document.querySelector(".banner-main-image");
+
+        element.style.display = "none";
+        mainImage.setAttribute("src" ,"");
+        mainCroppedImage.setAttribute("src","");
+        mainCroppedImage.style.display ="none";
+        mainImage.style.display ="none";
+        mainInputFile.value = "";
+        mainInputFile.style.display = "block"
+      })
+
+
+       // Convert data URL to Blob
+       function dataURLtoBlob(dataURL) {
+            var arr = dataURL.split(',');
+            var mime = arr[0].match(/:(.*?);/)[1];
+            var bstr = atob(arr[1]);
+            var n = bstr.length;
+            var u8arr = new Uint8Array(n);
+            while (n--) {
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new Blob([u8arr], { type: mime });
+        }
+
+
+      //popup script ends here
+</script>
