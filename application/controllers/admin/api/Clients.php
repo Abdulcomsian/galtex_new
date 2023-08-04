@@ -171,10 +171,10 @@ class Clients extends API_Controller_Secure {
             $image_data = fileUploading('banner_image','company','jpg|jpeg|png|gif');
             if(!empty($image_data['error'])){
                 $this->Return['status'] = 500;
-                $this->Return['message'] = lang('popup_image').' - '.$image_data['error'];
+                $this->Return['message'] = lang('banner_image').' - '.$image_data['error'];
                 exit;
             }
-            $this->Post['popup_image'] = $image_data['upload_data']['file_name'];
+            $this->Post['banner_image'] = $image_data['upload_data']['file_name'];
         }
 
         /* Check Pickup Addresses */
@@ -193,7 +193,12 @@ class Clients extends API_Controller_Secure {
         $this->Post['client_configs']['theme_color'] = $this->Post['theme_color'];
         $this->Post['client_configs']['company_logo'] = (!empty($this->Post['company_logo'])) ? $this->Post['company_logo'] : $this->Post['old_company_logo'];
         $this->Post['client_configs']['popup_image'] = (!empty($this->Post['popup_image'])) ? $this->Post['popup_image'] : $this->Post['old_popup_image'];
-        $this->Post['client_configs']['banner_image'] = (!empty($this->Post['banner_image'])) ? $this->Post['banner_image'] : $this->Post['old_banner_image'];
+        $this->Post['client_configs']['banner_image'] = (!empty($this->Post['banner_image'])) ? $this->Post['banner_image']: $this->Post['old_banner_image'];
+        // echo 
+        // print_r($this->Post['client_configs']['banner_image']);
+        // exit;
+
+
         if(!$this->Users_model->update_user($this->user_id,$this->Post))
         {
             $this->Return['status'] = 500;
