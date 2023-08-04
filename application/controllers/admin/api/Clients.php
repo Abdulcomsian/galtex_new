@@ -127,12 +127,12 @@ class Clients extends API_Controller_Secure {
         $this->form_validation->set_rules('company_name', 'Company Name', 'trim|required');
         $this->form_validation->set_rules('contact_name', 'Contact Name', 'trim|required');
         $this->form_validation->set_rules('contact_number', 'Contact Number', 'trim|required');
-        $this->form_validation->set_rules('first_name', 'First Name', 'trim|required');
-        $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required');
+        // $this->form_validation->set_rules('first_name', 'First Name', 'trim|required');
+        // $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required');
         $this->form_validation->set_rules('user_guid', 'User GUID', 'trim|required|callback_validate_guid[tbl_users.user_guid.user_id]');
         $this->form_validation->set_rules('user_status', 'Status', 'trim|required|in_list[Pending,Verified,Blocked]');
-        $this->form_validation->set_rules('shop_title', 'Shop Title', 'trim|required');
-        $this->form_validation->set_rules('theme_color', 'Theme Color', 'trim|required');
+        // $this->form_validation->set_rules('shop_title', 'Shop Title', 'trim|required');
+        // $this->form_validation->set_rules('theme_color', 'Theme Color', 'trim|required');
         $this->form_validation->set_rules('delivery_method', 'Delivery Method', 'trim|required');
         $this->form_validation->set_rules('pickup_addresses[]', lang('pickup_addresses'), 'trim');
         $this->form_validation->set_rules('deadline', lang('deadline'), 'trim');
@@ -189,8 +189,8 @@ class Clients extends API_Controller_Secure {
         $this->Post['client_configs']['company_name'] = $this->Post['company_name'];
         $this->Post['client_configs']['contact_name'] = $this->Post['contact_name'];
         $this->Post['client_configs']['contact_number'] = $this->Post['contact_number'];
-        $this->Post['client_configs']['shop_title'] = $this->Post['shop_title'];
-        $this->Post['client_configs']['theme_color'] = $this->Post['theme_color'];
+        // $this->Post['client_configs']['shop_title'] = $this->Post['shop_title'];
+        // $this->Post['client_configs']['theme_color'] = $this->Post['theme_color'];
         $this->Post['client_configs']['company_logo'] = (!empty($this->Post['company_logo'])) ? $this->Post['company_logo'] : $this->Post['old_company_logo'];
         $this->Post['client_configs']['popup_image'] = (!empty($this->Post['popup_image'])) ? $this->Post['popup_image'] : $this->Post['old_popup_image'];
         $this->Post['client_configs']['banner_image'] = (!empty($this->Post['banner_image'])) ? $this->Post['banner_image']: $this->Post['old_banner_image'];

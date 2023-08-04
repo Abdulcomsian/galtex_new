@@ -40,24 +40,24 @@
                                 <input type="text" class="form-control" value="<?php echo $details['client_configs']['contact_number'];?>" name="contact_number" placeholder="<?php echo lang('contact_number'); ?>" autocomplete="off">
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <!-- <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="control-label"><?php echo lang('employee_budget'); ?> (<?php echo CURRENCY_SYMBOL; ?>)</label>
-                                <input type="text" class="form-control validate-no" value="<?php echo $details['employee_budget'];?>" readonly placeholder="<?php echo lang('employee_budget'); ?>" autocomplete="off">
+                                <label class="control-label"><?php //echo lang('employee_budget'); ?> (<?php //echo CURRENCY_SYMBOL; ?>)</label>
+                                <input type="text" class="form-control validate-no" value="<?php //echo $details['employee_budget'];?>" readonly placeholder="<?php // echo lang('employee_budget'); ?>" autocomplete="off">
                             </div>
-                        </div>
-                        <div class="col-sm-3">
+                        </div> -->
+                        <!-- <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="control-label"><?php echo lang('client')." ".lang('first_name'); ?></label>
-                                <input type="text" value="<?php echo $details['first_name'];?>" class="form-control" name="first_name" placeholder="<?php echo lang('first_name'); ?>" maxlength="30" autocomplete="off">
+                                <label class="control-label"><?php //echo lang('client')." ".lang('first_name'); ?></label>
+                                <input type="text" value="<?php //echo $details['first_name'];?>" class="form-control" name="first_name" placeholder="<?php// echo lang('first_name'); ?>" maxlength="30" autocomplete="off">
                             </div>
-                        </div>
-                        <div class="col-sm-3">
+                        </div> -->
+                        <!-- <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="control-label"><?php echo lang('client')." ".lang('last_name'); ?></label>
-                                <input type="text" value="<?php echo $details['last_name'];?>" class="form-control" name="last_name" placeholder="<?php echo lang('last_name'); ?>" maxlength="30" autocomplete="off">
+                                <label class="control-label"><?php //echo lang('client')." ".lang('last_name'); ?></label>
+                                <input type="text" value="<?php //echo $details['last_name'];?>" class="form-control" name="last_name" placeholder="<?php //echo lang('last_name'); ?>" maxlength="30" autocomplete="off">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label"><?php echo lang('email_address'); ?></label>
@@ -70,18 +70,18 @@
                                 <input type="text" class="form-control" name="password" placeholder="<?php echo lang('password'); ?>" autocomplete="off">
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <!-- <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label"><?php echo lang('shop_title'); ?></label>
                                 <input type="text" class="form-control" name="shop_title" value="<?php echo $details['client_configs']['shop_title'];?>" placeholder="<?php echo lang('shop_title'); ?>" autocomplete="off">
                             </div>
-                        </div>
-                        <div class="col-sm-3">
+                        </div> -->
+                        <!-- <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="control-label"><?php echo lang('theme_color'); ?></label>
-                                <input type="color" class="form-control" name="theme_color" value="<?php echo $details['client_configs']['theme_color'];?>" placeholder="<?php echo lang('theme_color'); ?>" autocomplete="off">
+                                <label class="control-label"><?php //echo lang('theme_color'); ?></label>
+                                <input type="color" class="form-control" name="theme_color" value="<?php// echo $details['client_configs']['theme_color'];?>" placeholder="<?php //echo lang('theme_color'); ?>" autocomplete="off">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label"><?php echo lang('delivery_method'); ?></label>
@@ -110,7 +110,7 @@
                                 <input type="text" id="deadline" class="form-control" name="deadline" placeholder="<?php echo lang('deadline'); ?>" value="<?php echo $details['deadline'];?>" autocomplete="off">
                             </div>
                         </div> 
-                        
+
 
                         <input type="hidden" name="old_company_logo" value="<?php echo $details['client_configs']['company_logo']; ?>">
                         <div class="col-sm-3">
