@@ -226,8 +226,8 @@ $(document).on("click" , "client-edit" , function(e){
             if(resp.status == 200){
                 showToaster('success',success,resp.message);  
                 setTimeout(function(){
-                    alert("client updated successfully")
-                    // window.location.href = base_url + 'admin/clients/list';
+                    // alert("client updated successfully")
+                    window.location.href = base_url + 'admin/clients/list';
                 },500);
             }else{
                 showToaster('error',error,resp.message);  
