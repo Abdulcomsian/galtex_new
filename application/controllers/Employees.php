@@ -78,8 +78,11 @@ class Employees extends Web_Controller_Secure
         }
         // echo"<pre>";print_r($data);exit;
 
-        $data['client_information'] = $this->Users_model->get_users('user_id,is_admin,user_status,user_type_guid,user_type_id,user_image,first_name,last_name,client_id,client_deadline,email,deadline', array('user_id' => $this->session->userdata('webuserdata')['user_id']));
+        $data['client_information'] = $this->Users_model->get_users('user_id,is_admin,user_status,user_type_guid,user_type_id,user_image,first_name,last_name,client_id,client_deadline,email,deadline,client_configs', array('user_id' => $this->session->userdata('webuserdata')['user_id']));
 
+        // echo "<pre>";
+        // print_r($data);
+        // exit;
 
         $this->layout->load('default', 'front/employee/products', $data);
     }

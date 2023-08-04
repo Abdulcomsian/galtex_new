@@ -68,6 +68,23 @@ class Clients extends API_Controller_Secure {
              $this->Return['message'] = lang('popup_image');
              exit;
          }
+
+         //banner upload
+         if(!empty($_FILES['banner_image']['name']))
+         {
+             $image_data = fileUploading('banner_image','company','jpg|jpeg|png|gif');
+             if(!empty($image_data['error']))
+             {
+                 $this->Return['status'] = 500;
+                 $this->Return['message'] = lang('banner_image').' - '.$image_data['error'];
+                 exit;
+             }
+             $this->Post['banner_image'] = $image_data['upload_data']['file_name'];
+         }else{
+             $this->Return['status']  = 500;
+             $this->Return['message'] = lang('popup_image');
+             exit;
+         }
          
 
          
@@ -87,7 +104,7 @@ class Clients extends API_Controller_Secure {
         // $this->Post['client_configs']['theme_color'] = $this->Post['theme_color'];
         $this->Post['client_configs']['company_logo'] = $this->Post['company_logo'];
         $this->Post['client_configs']['popup_image'] = $this->Post['popup_image'];
-
+        $this->Post['client_configs']['banner_image'] = $this->Post['banner_image'];
 
 
 
