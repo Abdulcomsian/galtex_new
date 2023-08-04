@@ -322,8 +322,11 @@
 
         if (mainCropData.width > 0 && mainCropData.height > 0) {
             let canvas = mainCropper.getCroppedCanvas(); 
+
+            console.log(canvas);
         
             let url = canvas.toDataURL('image/jpeg', 0.92);
+            console.log(url);
 
             let blob = dataURLtoBlob(url);
 

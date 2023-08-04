@@ -33,77 +33,113 @@ if($('table').hasClass('my-datatable')){
 
 /**************** Add New Client Script Start *************/
 
-var form_object = jQuery(".add-new-client-form");
-form_object.validate({
-  ignore: ":hidden:not(select.chosen-select)",
-  rules:{
-        company_name:{
-            required: true
-        },
-        contact_name:{
-            required: true
-        },
-        contact_number:{
-            required: true
-        },
-        first_name:{
-            required: true
-        },
-        last_name:{
-            required: true
-        },
-        email:{
-            required: true,
-            email: true,
-        },
-        employee_budget:{
-            required: true,
-        },
-        shop_title:{
-            required: true,
-        },
-        theme_color:{
-            required: true,
-        },
-        password:{
-            required: true,
-            minlength:6
-        },
-        delivery_method:{
-            required: true,
-        }
-  },
-    highlight: function(element) {
-      jQuery(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-    },
-    success: function(element) {
-      jQuery(element).closest('.form-group').removeClass('has-error').addClass('has-success');
-      jQuery(element[0]).remove();
-    },
-    submitHandler: function() {
-        $.ajax({
-            url: api_url + 'clients/add',
-            type:"POST",
-            data: new FormData($(".add-new-client-form")[0]),
-            dataType : "JSON",   
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(resp){
-                if(resp.status == 200){
-                    showToaster('success',success,resp.message);  
-                    setTimeout(function(){
-                        // alert("client images added");
-		            	window.location.href = base_url + 'admin/clients/list';
-		            },500);
-                }else{
-                    showToaster('error',error,resp.message);  
-                }
-                hideProgressBar();
+// var form_object = jQuery(".add-new-client-form");
+// form_object.validate({
+//   ignore: ":hidden:not(select.chosen-select)",
+//   rules:{
+//         company_name:{
+//             required: true
+//         },
+//         contact_name:{
+//             required: true
+//         },
+//         contact_number:{
+//             required: true
+//         },
+//         first_name:{
+//             required: true
+//         },
+//         last_name:{
+//             required: true
+//         },
+//         email:{
+//             required: true,
+//             email: true,
+//         },
+//         employee_budget:{
+//             required: true,
+//         },
+//         shop_title:{
+//             required: true,
+//         },
+//         theme_color:{
+//             required: true,
+//         },
+//         password:{
+//             required: true,
+//             minlength:6
+//         },
+//         delivery_method:{
+//             required: true,
+//         }
+//   },
+//     highlight: function(element) {
+//       jQuery(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+//     },
+//     success: function(element) {
+//       jQuery(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+//       jQuery(element[0]).remove();
+//     },
+//     submitHandler: function(event) {
+//         event.preventDefault();
+
+//         $.ajax({
+//             url: api_url + 'clients/add',
+//             type:"POST",
+//             data: new FormData($(".add-new-client-form")[0]),
+//             dataType : "JSON",   
+//             cache: false,
+//             contentType: false,
+//             processData: false,
+//             success: function(resp){
+//                 if(resp.status == 200){
+//                     showToaster('success',success,resp.message);  
+//                     setTimeout(function(){
+//                         // alert("client images added");
+// 		            	window.location.href = base_url + 'admin/clients/list';
+// 		            },500);
+//                 }else{
+//                     showToaster('error',error,resp.message);  
+//                 }
+//                 hideProgressBar();
+//             }
+//         });
+//     }
+// });
+
+
+
+
+$(document).on("click" , ".client-add" , function(event){
+
+    event.preventDefault();
+
+    $.ajax({
+        url: api_url + 'clients/add',
+        type:"POST",
+        data: new FormData($(".add-new-client-form")[0]),
+        dataType : "JSON",   
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(resp){
+            if(resp.status == 200){
+                showToaster('success',success,resp.message);  
+                setTimeout(function(){
+                    // alert("client images added");
+                    window.location.href = base_url + 'admin/clients/list';
+                },500);
+            }else{
+                showToaster('error',error,resp.message);  
             }
-        });
-    }
-});
+            hideProgressBar();
+        }
+    });
+
+})
+
+
+
 
 /**************** Add New Client Script End ***************/
 
