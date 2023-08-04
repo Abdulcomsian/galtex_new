@@ -109,7 +109,8 @@
                                 <label class="control-label"><?php echo lang('deadline'); ?></label>
                                 <input type="text" id="deadline" class="form-control" name="deadline" placeholder="<?php echo lang('deadline'); ?>" value="<?php echo $details['deadline'];?>" autocomplete="off">
                             </div>
-                        </div>
+                        </div> 
+                        
 
                         <input type="hidden" name="old_company_logo" value="<?php echo $details['client_configs']['company_logo']; ?>">
                         <div class="col-sm-3">

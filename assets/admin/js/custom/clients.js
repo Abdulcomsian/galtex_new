@@ -237,6 +237,7 @@ $(document).on("click" , "client-edit" , function(e){
     });
 })
 
+
 /**************** Edit Client Script End *****************/
 
 /**************** View Client Script Start *************/ 
