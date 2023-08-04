@@ -1033,7 +1033,7 @@
 @media (max-width: 575px) {
   .single_slider_main .product_slider_thumb {
     width: 28% !important;
-    margin: 4px;
+    margin: 0 4px 4px; 4px;
   }
 
   /* .above_baduge {
