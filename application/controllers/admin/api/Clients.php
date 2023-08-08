@@ -82,10 +82,29 @@ class Clients extends API_Controller_Secure {
              $this->Post['banner_image'] = $image_data['upload_data']['file_name'];
          }else{
              $this->Return['status']  = 500;
-             $this->Return['message'] = lang('popup_image');
+             $this->Return['message'] = lang('banner_image');
              exit;
          }
          
+
+         //banner upload
+         if(!empty($_FILES['cover_image']['name']))
+         {
+             $image_data = fileUploading('cover_image','company','jpg|jpeg|png|gif');
+             if(!empty($image_data['error']))
+             {
+                 $this->Return['status'] = 500;
+                 $this->Return['message'] = lang('cover_image').' - '.$image_data['error'];
+                 exit;
+             }
+             $this->Post['cover_image'] = $image_data['upload_data']['file_name'];
+         }else{
+             $this->Return['status']  = 500;
+             $this->Return['message'] = lang('cover_image');
+             exit;
+         }
+
+
 
          
         /* Check Pickup Addresses */
@@ -105,7 +124,7 @@ class Clients extends API_Controller_Secure {
         $this->Post['client_configs']['company_logo'] = $this->Post['company_logo'];
         $this->Post['client_configs']['popup_image'] = $this->Post['popup_image'];
         $this->Post['client_configs']['banner_image'] = $this->Post['banner_image'];
-
+        $this->Post['client_configs']['cover_image'] = $this->Post['cover_image'];
 
 
         if(!$this->Users_model->add_user(array_merge($this->Post,array('user_type_id' => 2, 'user_status' => 'Verified', 'parent_user_id' => $this->session_user_id)))){
@@ -166,7 +185,7 @@ class Clients extends API_Controller_Secure {
         }
 
 
-        /* EDIT POPUP Upload */
+        /* EDIT BANNER Upload */
         if(!empty($_FILES['banner_image']['name'])){
             $image_data = fileUploading('banner_image','company','jpg|jpeg|png|gif');
             if(!empty($image_data['error'])){
@@ -175,6 +194,18 @@ class Clients extends API_Controller_Secure {
                 exit;
             }
             $this->Post['banner_image'] = $image_data['upload_data']['file_name'];
+        }
+
+
+        /* EDIT COVER Upload */
+        if(!empty($_FILES['cover_image']['name'])){
+            $image_data = fileUploading('cover_image','company','jpg|jpeg|png|gif');
+            if(!empty($image_data['error'])){
+                $this->Return['status'] = 500;
+                $this->Return['message'] = lang('cover_image').' - '.$image_data['error'];
+                exit;
+            }
+            $this->Post['cover_image'] = $image_data['upload_data']['file_name'];
         }
 
         /* Check Pickup Addresses */
@@ -194,6 +225,7 @@ class Clients extends API_Controller_Secure {
         $this->Post['client_configs']['company_logo'] = (!empty($this->Post['company_logo'])) ? $this->Post['company_logo'] : $this->Post['old_company_logo'];
         $this->Post['client_configs']['popup_image'] = (!empty($this->Post['popup_image'])) ? $this->Post['popup_image'] : $this->Post['old_popup_image'];
         $this->Post['client_configs']['banner_image'] = (!empty($this->Post['banner_image'])) ? $this->Post['banner_image']: $this->Post['old_banner_image'];
+        $this->Post['client_configs']['cover_image'] = (!empty($this->Post['cover_image'])) ? $this->Post['cover_image']: $this->Post['old_cover_image'];
         // echo 
         // print_r($this->Post['client_configs']['banner_image']);
         // exit;

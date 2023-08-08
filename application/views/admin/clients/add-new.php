@@ -117,25 +117,25 @@
                         </div>
 
                            <!-- POPUP START -->
-                        <!-- <div class="col-sm-2">
-                            <label class="control-label"><?php //echo lang('popup_image'); ?></label><br/>
+                        <div class="col-sm-2">
+                            <label class="control-label"><?php echo lang('popup_image'); ?></label><br/>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-info btn-file">
-                                        <span class="fileinput-new"><?php //echo lang('select_image'); ?></span>
-                                        <span class="fileinput-exists"><?php //echo lang('change'); ?></span>
+                                        <span class="fileinput-new"><?php echo lang('select_image'); ?></span>
+                                        <span class="fileinput-exists"><?php echo lang('change'); ?></span>
                                         <input type="hidden" value=""><input type="file" name="popup_image">
                                     </span>
-                                    <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php //echo lang('remove'); ?></a>
+                                    <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
 
 
-                        <div class="row popup-cropper-row">
+                        <!-- <div class="row popup-cropper-row">
                             <div class="col-sm-12 col-md-12 col-lg-12">
-                                <label class="control-label"><?php echo lang('popup_image'); ?></label>
+                                <label class="control-label"><?php //echo lang('popup_image'); ?></label>
                                 <div>
                                     <img class="popup-main-image" src="" alt="" >
                                     <img class="popup-cropped-image" src="" alt="" >
@@ -144,30 +144,50 @@
                                     <input type="file" name="popup_image" id="popup_image" accept="image/*"/>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
 
 
                         <!-- POPUP END -->
 
                         <!-- banner starts here -->
-                        <!-- <div class="col-sm-12">
-                            <label class="control-label"><?php //echo lang('banner_image'); ?></label><br/>
-                            <div class="fileinput fileinput-new" data-provides="fileinput">
-                                <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;"></div>
-                                <div>
-                                    <span class="btn btn-info btn-file">
-                                        <span class="fileinput-new"><?php //echo lang('select_image'); ?></span>
-                                        <span class="fileinput-exists"><?php //echo lang('change'); ?></span>
-                                        <input type="hidden" value=""><input type="file" name="banner_image">
-                                    </span>
-                                    <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php //echo lang('remove'); ?></a>
+                        <div class="col-sm-12">
+                            <div style="display: flex;">
+                                <div class="mx-2">
+                                    <label class="control-label"><?php echo lang('banner_image'); ?></label><br/>
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;"></div>
+                                        <div>
+                                            <span class="btn btn-info btn-file">
+                                                <span class="fileinput-new"><?php echo lang('select_image'); ?></span>
+                                                <span class="fileinput-exists"><?php echo lang('change'); ?></span>
+                                                <input type="hidden" value=""><input type="file" name="banner_image">
+                                            </span>
+                                            <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
+                                        </div>
+                                    </div>
                                 </div>
+
+                                <div class="mx-2">
+                                    <label class="control-label"><?php echo lang('mobile_cover_image'); ?></label><br/>
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;"></div>
+                                        <div>
+                                            <span class="btn btn-info btn-file">
+                                                <span class="fileinput-new"><?php echo lang('select_image'); ?></span>
+                                                <span class="fileinput-exists"><?php echo lang('change'); ?></span>
+                                                <input type="hidden" value=""><input type="file" name="cover_image">
+                                            </span>
+                                            <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-                        </div> -->
+                        </div>
 
 
-                        <div class="row banner-cropper-row">
+                        <!-- <div class="row banner-cropper-row">
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <label class="control-label"><?php echo lang('banner_image'); ?></label>
                                 <div>
@@ -178,7 +198,7 @@
                                     <input type="file" name="banner_image" id="banner_image" accept="image/*"/>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- banner ends here -->
 

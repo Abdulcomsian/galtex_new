@@ -107,6 +107,7 @@ $lang['shop_title'] = 'Shop Title';
 $lang['company_logo'] = 'Company Logo';
 $lang['popup_image'] ='תמונה קופצת';
 $lang['banner_image'] ='תמונת באנר';
+$lang['mobile_cover_image'] = 'תמונת שער לנייד';
 $lang['pickup_addresses'] = 'Pickup Addresses';
 $lang['pickup_address'] = 'Pickup Address';
 $lang['require_company_logo'] = 'Require Company Logo';
