@@ -423,7 +423,8 @@
                                                 continue;
                                              }
                                              ?>
-                                             <div class="oneimage">
+                                             <div class=""> 
+                                                <!-- class cut oneimage -->
                                                 <a
                                                    href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>">
                                                    <img src="<?php echo $package_product['product_main_photo']; ?>" /></a>
