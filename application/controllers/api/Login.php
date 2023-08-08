@@ -27,9 +27,9 @@ class Login extends API_Controller {
         /* Validation - ends */
   
         if($this->Post['login_type'] == 'OTP' || $this->Post['login_type'] == 'Phone'){
-            $user_data = $this->Users_model->get_users('user_id,is_admin,user_status,user_type_guid,user_type_id,user_image,first_name,last_name,client_id,client_deadline,email,last_activity,popup_image,banner_image', array('user_id' => $this->Post['user_id']));
+            $user_data = $this->Users_model->get_users('user_id,is_admin,user_status,user_type_guid,user_type_id,user_image,first_name,last_name,client_id,client_deadline,email,last_activity,popup_image,banner_image,cover_image', array('user_id' => $this->Post['user_id']));
         }else{
-             $user_data = $this->Users_model->get_users('user_id,is_admin,user_status,user_type_guid,user_type_id,user_image,first_name,last_name,client_id,client_deadline,email,last_activity,popup_image,banner_image', array('phone_number' => $this->Post['phone_number'], 'password' => $this->Post['password']));
+             $user_data = $this->Users_model->get_users('user_id,is_admin,user_status,user_type_guid,user_type_id,user_image,first_name,last_name,client_id,client_deadline,email,last_activity,popup_image,banner_image,cover_image', array('phone_number' => $this->Post['phone_number'], 'password' => $this->Post['password']));
         }
         if (!$user_data) {
             $this->Return['status'] = 500;

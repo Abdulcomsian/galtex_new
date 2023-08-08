@@ -131,7 +131,7 @@
 
                         <!-- upload popup image -->
 
-                        <!-- <input type="hidden" name="old_popup_image" value="<?php echo $details['client_configs']['popup_image']; ?>">
+                        <input type="hidden" name="old_popup_image" value="<?php echo $details['client_configs']['popup_image']; ?>">
                         <div class="col-sm-2">
                             <label class="control-label"><?php echo lang('popup_image'); ?></label><br/>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -146,25 +146,25 @@
                                     <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
 
-                        <div class="col-sm-3">
+                        <!-- <div class="col-sm-3">
                             <div class="row popup-cropper-row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <label class="control-label"><?php echo lang('popup_image'); ?></label>
+                                    <label class="control-label"><?php //echo lang('popup_image'); ?></label>
                                     <div>
-                                        <img class="popup-main-image" src="<?php echo base_url().'uploads/company/'.$details['client_configs']['popup_image']; ?>" alt="" >
+                                        <img class="popup-main-image" src="<?php //echo base_url().'uploads/company/'.$details['client_configs']['popup_image']; ?>" alt="" >
                                         <img class="popup-cropped-image" src="" alt="" >
                                         <div>
                                             <button type="button" class="btn crop-popup-image">Crop Image</button>
                                             <button type="button" class="btn try-another-popup">Try Another</button>
                                         </div>
                                         <input type="file" name="popup_image" id="popup_image" accept="image/*"/>
-                                        <input type="hidden" name="old_popup_image" id="old_popup_image" value="<?=$details['client_configs']['popup_image']?>"/>
+                                        <input type="hidden" name="old_popup_image" id="old_popup_image" value="<?php //$details['client_configs']['popup_image']?>"/>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
 
                         
@@ -172,26 +172,64 @@
                         <!-- end  -->
 
                         <!-- upload banner image -->
-                        <div class="col-sm-3">
+                        <input type="hidden" name="old_banner_image" value="<?php echo $details['client_configs']['banner_image']; ?>">
+                        <div class="col-sm-2">
+                            <label class="control-label"><?php echo lang('banner_image'); ?></label><br/>
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;">
+                                <img src="<?php echo base_url().'uploads/company/'.$details['client_configs']['banner_image']; ?>" class="img-responsive"></div>
+                                <div>
+                                    <span class="btn btn-info btn-file">
+                                        <span class="fileinput-new"><?php echo lang('select_image'); ?></span>
+                                        <span class="fileinput-exists"><?php echo lang('change'); ?></span>
+                                        <input type="hidden" value=""><input type="file" name="banner_image">
+                                    </span>
+                                    <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- <div class="col-sm-3">
                             <div class="row banner-cropper-row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <label class="control-label"><?php echo lang('banner_image'); ?></label>
+                                    <label class="control-label"><?php //echo lang('banner_image'); ?></label>
                                     <div>
-                                        <img class="banner-main-image" src="<?php echo base_url().'uploads/company/'.$details['client_configs']['banner_image']; ?>" alt="" >
+                                        <img class="banner-main-image" src="<?php //echo base_url().'uploads/company/'.$details['client_configs']['banner_image']; ?>" alt="" >
                                         <img class="banner-cropped-image" src="" alt="" >
                                         <div>
                                             <button type="button" class="btn crop-banner-image">Crop Image</button>
                                             <button type="button" class="btn try-another-banner">Try Another</button>
                                         </div>
                                         <input type="file" name="banner_image" id="banner_image" accept="image/*"/>
-                                        <input type="hidden" name="old_banner_image" id="old_banner_image" value="<?=$details['client_configs']['banner_image']?>"/>
+                                        <input type="hidden" name="old_banner_image" id="old_banner_image" value="<?php //$details['client_configs']['banner_image']?>"/>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
 
                         <!-- upload banner image ends here -->
+
+
+                        <!-- upload cover image  -->
+                        <input type="hidden" name="old_cover_image" value="<?php echo $details['client_configs']['cover_image']; ?>">
+                        <div class="col-sm-2">
+                            <label class="control-label"><?php echo lang('mobile_cover_image'); ?></label><br/>
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;">
+                                <img src="<?php echo base_url().'uploads/company/'.$details['client_configs']['cover_image']; ?>" class="img-responsive"></div>
+                                <div>
+                                    <span class="btn btn-info btn-file">
+                                        <span class="fileinput-new"><?php echo lang('select_image'); ?></span>
+                                        <span class="fileinput-exists"><?php echo lang('change'); ?></span>
+                                        <input type="hidden" value=""><input type="file" name="cover_image">
+                                    </span>
+                                    <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- upload cover image ends here -->
 
                         <div class="col-sm-8 pickup-address-section <?php if($details['delivery_method'] == 'Door to Door') {echo "hidden"; } ?>">
                             <label class="control-label"><?php echo lang('pickup_addresses'); ?></label><br/>
@@ -224,7 +262,7 @@
     </div>
 </section>
 
-<script>
+<!-- <script>
     var popupCropper;
     var bannerCropper;
         
@@ -419,4 +457,4 @@
 
 
       //popup script ends here
-</script>
+</script> -->

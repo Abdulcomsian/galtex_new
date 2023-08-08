@@ -62,6 +62,22 @@
       width :1100px!important;
       height : 516px!important;
    }
+
+   .cover-image{
+      display: none;
+   }
+
+   @media (max-width: 767px) {
+  
+  .banner-image {
+    display: none;
+  }
+  
+  .cover-image {
+    width: 100%;
+    display: block;
+  }
+}
 </style>
 
 
@@ -159,8 +175,11 @@
                <?php 
                $baseUrl = base_url();
                $bannerImage = $this->session->userdata('webuserdata')['client_configs']['banner_image'];
+               $coverImage = $this->session->userdata('webuserdata')['client_configs']['cover_image'];
                $image = isset($bannerImage) && !is_null($bannerImage) ? "/uploads/company/".$bannerImage : "/assets/images/testImage.png";
+               $coverImage = isset($coverImage) && !is_null($coverImage) ? "/uploads/company/".$coverImage : "/assets/images/testImage.png";
                $imageUrl = $baseUrl.$image;
+               $coverImageUrl = $baseUrl.$coverImage;
                // echo $imageUrl;
                // exit;
             // print_r($this->session->userdata('webuserdata')['client_configs']);
@@ -168,7 +187,12 @@
 
                
                ?>
-               <img src="<?=$imageUrl?>" className="card-img-top rounded banner-image" style="width :1100px!important; height : 516px!important;" />
+               <div class="banner-image">
+                  <img src="<?=$imageUrl?>" className="card-img-top rounded banner-image" style="width :1100px!important; height : 516px!important;" />
+               </div>
+               <div class="cover-image">
+                  <img src="<?=$coverImageUrl?>" className="card-img-top rounded banner-image" style="width :1100px!important; height : 516px!important;" />
+               </div>
                <!-- <div class="inner_banner_sec">
             <div class="innerbanner_cap text-center productMain">
                <div class="container">

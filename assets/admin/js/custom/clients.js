@@ -201,6 +201,7 @@ form_object.validate({
                 if(resp.status == 200){
                     showToaster('success',success,resp.message);  
                     setTimeout(function(){
+                        // alert("updated client image successfully")
                         window.location.href = base_url + 'admin/clients/list';
                     },500);
                 }else{
