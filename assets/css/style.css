@@ -273,7 +273,12 @@ input[type="radio"]:checked:before {
 }
 
 .prod_coll .proimage .pro_img_box img {
-  height: 130px;
+  height: 180px;
+  width: 180px;
+  border-radius: 20px;
+    border-top-left-radius: 30px !important;
+    border-top-right-radius: 30px !important;
+
 }
 
 .packages_por .prod_coll .proimage .pro_img_box img {
@@ -1397,7 +1402,8 @@ padding:0 35px !important;
   }
 
   .prod_coll .proimage .pro_img_box img {
-    height: 130px;
+    height: 180px;
+    width: 180px;
     border-radius: 20px;
   }
 }
