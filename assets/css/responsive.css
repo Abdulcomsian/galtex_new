@@ -1033,7 +1033,7 @@
 @media (max-width: 575px) {
   .single_slider_main .product_slider_thumb {
     width: 28% !important;
-    margin: 0 4px 4px; 4px;
+    margin: 0 4px 4px; 
   }
 
   /* .above_baduge {
@@ -1094,6 +1094,7 @@
     position: relative;
     left: 40%;
   }
+
 
   html[dir="rtl"] .logo_main {
     right: 40%;
@@ -1182,5 +1183,9 @@
   .mobileProductBtn font {
     position: relative;
     bottom: 4px;
+  }
+
+  .close-icon {
+    left:29px;
   }
 }

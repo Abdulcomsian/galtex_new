@@ -58,26 +58,27 @@
    .nav_right li .badge {
       background: #963491;
    }
-   .banner-image{
-      width :1100px!important;
-      height : 516px!important;
+
+   .banner-image {
+      width: 1100px !important;
+      height: 516px !important;
    }
 
-   .cover-image{
+   .cover-image {
       display: none;
    }
 
    @media (max-width: 767px) {
-  
-  .banner-image {
-    display: none;
-  }
-  
-  .cover-image {
-    width: 100%;
-    display: block;
-  }
-}
+
+      .banner-image {
+         display: none;
+      }
+
+      .cover-image {
+         width: 100%;
+         display: block;
+      }
+   }
 </style>
 
 
@@ -105,7 +106,7 @@
                <span>:</span>
 
                <h5 class="d-flex flex-column mx-2" style="font-family: Assistant; font-weight: normal;"><span
-                     id="minutes" class="text-center" style="font-family: AssistantBold;">00</span><span class="count" >
+                     id="minutes" class="text-center" style="font-family: AssistantBold;">00</span><span class="count">
                      <?php echo lang('minute') ?>
                   </span>
                </h5>
@@ -127,71 +128,79 @@
    // print_r($this->session->userdata('webuserdata'));
    // exit;..//
    ?>
-   
-   <?php if (!isset($lastActivity) || is_null($lastActivity)) { ?>
-      <div class="overlay_popup">
+
+   <?php ?> <!-- if (!isset($lastActivity) || is_null($lastActivity)) { -->
+   <div class="overlay_popup">
       <div class="overlay_popup" style="height: 100vh;">
-         <dialog class="dialog_box modal-dialog-centered" id="dialogue">
+         <!-- <dialog class="dialog_box modal-dialog-centered" id="dialogue">
             <div class="container">
-               <!-- echo base_url(); ?>/assets/images/testImage.png -->
-               <img src="<?php echo $imageUrl ?>" className="card-img-top rounded" /><span class="close-icon">&times;</span>
+               <img src="<?php echo $imageUrl ?>" class="card-img-top rounded" /><span class="close-icon">&times;</span>
                <a href="#">אישור</a>
             </div>
-         </dialog>
+         </dialog> -->
+
+         <div class="dialog_box modal-dialog-centered" id="dialogue">
+            <div class="container">
+               <img src="<?php echo $imageUrl ?>" class="card-img-top rounded" /><span class="close-icon">&times;</span>
+               <a href="#">אישור</a>
+            </div>
+         </div>
       </div>
    </div>
 
 
 
-      <script>
-         (function () {
+   <script>
+      (function () {
 
-            let email = '<?= $this->session->webuserdata['email'] ?>';
-            let userId = '<?= $this->session->webuserdata['user_id'] ?>';
-            let data = `email=${email}&userId=${userId}`;
-            let xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-               if (this.readyState == 4 && this.status == 200) {
-                  // Typical action to be performed when the document is ready:
-                  res = xhttp.responseText;
-                  console.log(res.data);
-               }
-            };
-            xhttp.open("POST", "<?php echo BASE_URL; ?>api/User/activity", true);
-            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhttp.send(data);
+         let email = '<?= $this->session->webuserdata['email'] ?>';
+         let userId = '<?= $this->session->webuserdata['user_id'] ?>';
+         let data = `email=${email}&userId=${userId}`;
+         let xhttp = new XMLHttpRequest();
+         xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+               // Typical action to be performed when the document is ready:
+               res = xhttp.responseText;
+               console.log(res.data);
+            }
+         };
+         xhttp.open("POST", "<?php echo BASE_URL; ?>api/User/activity", true);
+         xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+         xhttp.send(data);
 
-         })()
+      })()
 
-      </script>
+   </script>
 
 
-   <?php  } ?>
+   <?php ?>
 
    <div class="product_main">
       <div class="container">
          <div class="cardBlur">
             <section id="card">
-               <?php 
+               <?php
                $baseUrl = base_url();
                $bannerImage = $this->session->userdata('webuserdata')['client_configs']['banner_image'];
                $coverImage = $this->session->userdata('webuserdata')['client_configs']['cover_image'];
-               $image = isset($bannerImage) && !is_null($bannerImage) ? "/uploads/company/".$bannerImage : "/assets/images/testImage.png";
-               $coverImage = isset($coverImage) && !is_null($coverImage) ? "/uploads/company/".$coverImage : "/assets/images/testImage.png";
-               $imageUrl = $baseUrl.$image;
-               $coverImageUrl = $baseUrl.$coverImage;
+               $image = isset($bannerImage) && !is_null($bannerImage) ? "/uploads/company/" . $bannerImage : "/assets/images/testImage.png";
+               $coverImage = isset($coverImage) && !is_null($coverImage) ? "/uploads/company/" . $coverImage : "/assets/images/testImage.png";
+               $imageUrl = $baseUrl . $image;
+               $coverImageUrl = $baseUrl . $coverImage;
                // echo $imageUrl;
                // exit;
-            // print_r($this->session->userdata('webuserdata')['client_configs']);
-            // exit;
-
+               // print_r($this->session->userdata('webuserdata')['client_configs']);
+               // exit;
                
+
                ?>
                <div class="banner-image">
-                  <img src="<?=$imageUrl?>" className="card-img-top rounded banner-image" style="width :1100px!important; height : 516px!important;" />
+                  <img src="<?= $imageUrl ?>" className="card-img-top rounded banner-image"
+                     style="width :1100px!important; height : 516px!important;" />
                </div>
                <div class="cover-image">
-                  <img src="<?=$coverImageUrl?>" className="card-img-top rounded banner-image" style="width :1100px!important; height : 516px!important;" />
+                  <img src="<?= $coverImageUrl ?>" className="card-img-top rounded banner-image"
+                     style="width :1100px!important; height : 516px!important;" />
                </div>
                <!-- <div class="inner_banner_sec">
             <div class="innerbanner_cap text-center productMain">
@@ -340,16 +349,16 @@
                                  <a
                                     href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>">
                                     <img src="<?php echo $product['product_main_photo']; ?>" />
-                                   <?php
-                                     if (isset($product['above_budget_price']) && $product['above_budget_price'] > 0) {
-                                   ?>
-                                    <!-- <img
+                                    <?php
+                                    if (isset($product['above_budget_price']) && $product['above_budget_price'] > 0) {
+                                       ?>
+                                       <!-- <img
                                                    style="width:auto !important;height:auto !important;position:absolute;top:0px;left:0px;"
                                                    src="<?php #echo base_url(); ?>assets/images/above_budge.svg" /> -->
-                                    <?php } ?> 
+                                    <?php } ?>
                                  </a>
                                  <!-- if($order_details['order_product_details']!=NULL ){ -->
-                                             
+
                                  <!-- <a href="<?php echo base_url(); ?>product/details/<?php echo $product['product_guid']; ?>"><img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&w=1000&q=80" /></a> -->
                                  <!-- <div class="hover_box"> -->
                                  <!-- <div>
@@ -370,39 +379,40 @@
                                     <?php }
                                  } ?>
                               </div>-->
-                              <!-- if ((count($this->cart->contents()) > 0) || ($order_details['order_product_details']!=NULL || count($order_details['order_product_details']) > 0)) { 
+                                 <!-- if ((count($this->cart->contents()) > 0) || ($order_details['order_product_details']!=NULL || count($order_details['order_product_details']) > 0)) { 
                                                    echo lang('price') . ' ' . CURRENCY_SYMBOL;
                                                    echo $this->session->userdata('webuserdata')['employee_budget'];
                                                 } -->
                                  <?php
-                                 
+
                                  if (isset($product['above_budget_price']) && $product['above_budget_price'] > 0) {
                                     ?>
                                     <p class="above_baduge">
                                        <?php
                                        // if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
-
+                                 
                                        echo lang('additional') . ' ' . $product['above_budget_price'] . CURRENCY_SYMBOL;
 
                                        ?>
                                     </p>
-                                 <?php }else if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0){ ?>
-                                    <p class="above_baduge">
-                                       <?php
-                                       // if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
+                                 <?php } else if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) { ?>
+                                       <p class="above_baduge">
+                                          <?php
+                                          // if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
+                                    
+                                          echo lang('additional') . ' ' . $this->session->userdata('webuserdata')['employee_budget'] . CURRENCY_SYMBOL;
 
-                                       echo lang('additional') . ' ' . $this->session->userdata('webuserdata')['employee_budget'] . CURRENCY_SYMBOL;
-
-                                       ?>
-                                    </p><?php } #else{ ?> 
-                                       <!-- <p class="above_baduge"> -->
-                                       <?php
-                                       // if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
-
-                                       #echo lang('additional') . ' ' . 0 . CURRENCY_SYMBOL;
-
-                                       ?>
-                                    <?php #} ?>
+                                          ?>
+                                       </p>
+                                 <?php } #else{ ?>
+                                 <!-- <p class="above_baduge"> -->
+                                 <?php
+                                 // if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
+                              
+                                 #echo lang('additional') . ' ' . 0 . CURRENCY_SYMBOL;
+                              
+                                 ?>
+                                 <?php #} ?>
                               </div>
                               <div class="pro_bottom clerfix">
                                  <div class="product_name">
@@ -434,52 +444,53 @@
 
 
                      <?php foreach ($packages['data']['records'] as $package) { ?>
-                                 <div class="prod_coll col-sm-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                                    <div class="proimage  here2">
-                                       <?php
-                                       $i = 0;
-                                       ?>
-                                       <div class="pro_img_box ">
-                                          <?php $i = 0;
-                                          foreach ($package['products']['data']['records'] as $package_product) {
-                                             #echo count($package_product);exit;
-                                             if ($i == 1) {
-                                                continue;
-                                             }
-                                             ?>
-                                             <div class=""> 
-                                                <!-- class cut oneimage -->
-                                                <a
-                                                   href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>">
-                                                   <img src="<?php echo $package_product['product_main_photo']; ?>" /></a>
-                                                <img
-                                                   style="width:auto !important;height:auto !important;position:absolute;top:0px;left:0px;"
-                                                   src="<?php echo base_url(); ?>assets/images/above_budge.svg" />
+                        <div class="prod_coll col-sm-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                           <div class="proimage  here2">
+                              <?php
+                              $i = 0;
+                              ?>
+                              <div class="pro_img_box ">
+                                 <?php $i = 0;
+                                 foreach ($package['products']['data']['records'] as $package_product) {
+                                    #echo count($package_product);exit;
+                                    if ($i == 1) {
+                                       continue;
+                                    }
+                                    ?>
+                                    <div class="">
+                                       <!-- class cut oneimage -->
+                                       <a
+                                          href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>">
+                                          <img src="<?php echo $package_product['product_main_photo']; ?>" /></a>
+                                       <img
+                                          style="width:auto !important;height:auto !important;position:absolute;top:0px;left:0px;"
+                                          src="<?php echo base_url(); ?>assets/images/above_budge.svg" />
 
-                                                <?php
-                                                
-                                                #if($order_details['order_product_details']!=NULL ){
-                                                if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {  ?>
-                                                   <div class="above_baduge">
+                                       <?php
+
+                                       #if($order_details['order_product_details']!=NULL ){
+                                       if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) { ?>
+                                          <div class="above_baduge">
+                                             <?php
+                                             echo lang('additional') . ' ' . CURRENCY_SYMBOL;
+                                             echo $this->session->userdata('webuserdata')['employee_budget'] ?>
+                                          </div>
+                                          <?php
+                                       } #} 
+                                       #else if (count($this->cart->contents()) > 0 ) { ?>
+                                       <!-- <div class="above_baduge">
                                                       <?php
-                                                      echo lang('additional') . ' ' . CURRENCY_SYMBOL;
-                                                      echo $this->session->userdata('webuserdata')['employee_budget'] ?>
-                                                      </div><?php
-                                                } #} 
-                                                #else if (count($this->cart->contents()) > 0 ) { ?>
-                                                   <!-- <div class="above_baduge">
-                                                      <?php
-                                                   #   echo lang('additional') . ' ' . CURRENCY_SYMBOL;
-                                                   #   echo $this->session->userdata('webuserdata')['employee_budget'] ?>
+                                                      #   echo lang('additional') . ' ' . CURRENCY_SYMBOL;
+                                                      #   echo $this->session->userdata('webuserdata')['employee_budget'] ?>
                                                       </div><?php #} else #{?>
                                                          <div class="above_baduge">
                                                       <?php
-                                                     # echo lang('additional') . ' ' . CURRENCY_SYMBOL;
+                                                      # echo lang('additional') . ' ' . CURRENCY_SYMBOL;
                                                       #echo "0" ?>
                                                       </div> -->
-                                                      <?php #} ?>
+                                       <?php #} ?>
 
-                                                <!-- <div class="hover_box">
+                                       <!-- <div class="hover_box">
                                                    <?php $package_cart = is_product_into_cart($package['package_guid']);
                                                    if ($package_cart['is_added_into_cart'] > 0) { ?>
                                                       <a href="../employees/cart" class="add_cart">
@@ -498,47 +509,45 @@
                                                    <?php } ?>
                                                    
                                                 </div> -->
-                                             </div>
-                                             <?php $i++;
-                                          } ?>
-                                          <!-- <p class="tag">
+                                    </div>
+                                    <?php $i++;
+                                 } ?>
+                                 <!-- <p class="tag">
                                              <?php #echo lang('packages'); ?>
                                           </p> -->
-                                       </div>
-                                       <?php ?>
+                              </div>
+                              <?php ?>
 
 
 
-                                       <div class="pro_bottom clerfix1">
-                                          <div class="product_name">
-                                             <a
-                                                href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>"><?php echo $package['package_name']; ?></a>
-                                          </div>
-                                          <div class="product_description">
-                                             <p>
-                                                <?php
-                                                   $packageDescription = $package['package_description']; 
+                              <div class="pro_bottom clerfix1">
+                                 <div class="product_name">
+                                    <a
+                                       href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>"><?php echo $package['package_name']; ?></a>
+                                 </div>
+                                 <div class="product_description">
+                                    <p>
+                                       <?php
+                                       $packageDescription = $package['package_description'];
 
-                                                   if(!is_null($packageDescription))
-                                                   {
-                                                      if(strlen($packageDescription) > 100 )
-                                                      {
-                                                         echo substr($packageDescription , 0 , 100)."...";
+                                       if (!is_null($packageDescription)) {
+                                          if (strlen($packageDescription) > 100) {
+                                             echo substr($packageDescription, 0, 100) . "...";
 
-                                                      }else{
-                                                         echo $packageDescription;
-                                                      }
-                                                }
-                                                ?>
-                                             </p>
-                                          </div>
-                                          <!--   <div class="product_price">
+                                          } else {
+                                             echo $packageDescription;
+                                          }
+                                       }
+                                       ?>
+                                    </p>
+                                 </div>
+                                 <!--   <div class="product_price">
                               <p>(<?php #echo addZero($package['no_of_products']); ?> <?php #echo lang('products'); ?>)</p>
                               <?php #if ($package['remaining_quantity'] < REMAINING_PRODUCTS_QUANTITY_LIMIT) { ?>
                                   <p><?php #echo lang('remaining_quantity'); ?> <?php #echo $package['remaining_quantity']; ?> </p>
                               <?php #} ?>
                               </div> -->
-                                          <!-- <div class="product_name">
+                                 <!-- <div class="product_name">
                                              <?php
                                              // if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
                                              //    echo lang('additional') . ' ' . CURRENCY_SYMBOL;
@@ -546,23 +555,23 @@
                                              // }
                                              ?>
                                           </div> -->
-                                          <div class="readMore">
-                                             <!--  <a href="<?php #echo base_url(); ?>package/details/<?php #echo $package['package_guid']; ?>"><img src="<?php #echo base_url(); ?>assets/images/leftIcon.svg" /> <?php #echo lang('more_details'); ?>  </a> -->
-                                             <a
-                                                href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>"><img
-                                                   src="<?php echo base_url(); ?>assets/images/redLeftIcon.svg" /> <?php echo lang('more_details'); ?> </a>
+                                 <div class="readMore">
+                                    <!--  <a href="<?php #echo base_url(); ?>package/details/<?php #echo $package['package_guid']; ?>"><img src="<?php #echo base_url(); ?>assets/images/leftIcon.svg" /> <?php #echo lang('more_details'); ?>  </a> -->
+                                    <a
+                                       href="<?php echo base_url(); ?>package/details/<?php echo $package['package_guid']; ?>"><img
+                                          src="<?php echo base_url(); ?>assets/images/redLeftIcon.svg" /> <?php echo lang('more_details'); ?> </a>
 
-                                          </div>
-                                       </div>
-                                    </div>
                                  </div>
-                              <?php } ?>
+                              </div>
+                           </div>
+                        </div>
+                     <?php } ?>
 
-                     
 
 
-                           
-                     
+
+
+
 
 
 
@@ -583,7 +592,7 @@
 
                      <!-- //all products in single variable ends here -->
                      <?php
-                     if ($type === 'above') {  ?>
+                     if ($type === 'above') { ?>
 
 
                         <div class="list_row row">
