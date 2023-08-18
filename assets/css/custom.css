@@ -2152,10 +2152,19 @@ html[dir="rtl"] .get_opt {
   backdrop-filter: blur(5px);
 }
 
+/* .dialog_box .container {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+} */
+
 .dialog_box .container {
   position: relative;
   display: inline-block;
   padding: 0;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .dialog_box img {
@@ -2169,7 +2178,7 @@ html[dir="rtl"] .get_opt {
 .close-icon {
   position: absolute;
   top: 10px;
-  left: 29px;
+  left: 20%;
   font-size: 40px;
   cursor: pointer;
   color: white;
@@ -2234,7 +2243,7 @@ html[dir="rtl"] .get_opt {
 .thumb_wrapper {
   width: 80px !important;
   height: 80px !important;
-  box-shadow: 0px 0px 13px 4px #00000033 !important;
+  box-shadow: 0px 0px 5px 4px #f1f1f1 !important;
   margin: 5px;
   border-radius: 12px;
 }
