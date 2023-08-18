@@ -44,10 +44,16 @@
                         </div>
                         <input type="hidden" value="<?php echo $details['product_guid']; ?>" name="product_guid">
                         <input type="hidden" name="old_gallery_images" value='<?php echo json_encode($details['product_gallery_images'])?>'>
-                        <div class="col-sm-8">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label"><?php echo lang('product_short_description'); ?></label>
+                                <textarea id="product-short-description" name="product_short_description" class="form-control" rows="6" placeholder="<?php echo lang('product_short_description'); ?>"><?php echo $details['short_description']; ?></textarea>
+                            </div>                
+                        </div>
+                        <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="control-label"><?php echo lang('product_descprition'); ?></label>
-                                <textarea name="product_descprition" class="form-control" rows="6" placeholder="<?php echo lang('product_descprition'); ?>"><?php echo $details['product_descprition']; ?></textarea>
+                                <textarea id="product-description" name="product_descprition" class="form-control" rows="6" placeholder="<?php echo lang('product_descprition'); ?>"><?php echo $details['product_descprition']; ?></textarea>
                             </div>
                         </div>
                         <div class="col-sm-12">
@@ -82,3 +88,25 @@
         </div>
     </div>
 </section>
+
+
+<script>
+    $(document).ready(function(){
+        
+        $("#product-description").summernote({
+        placeholder: 'לכתוב תיאור מוצר',
+        tabsize: 2,
+        height: 200,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+
+    })
+</script>
