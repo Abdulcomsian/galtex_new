@@ -1,3 +1,18 @@
+<style>
+    .admin_package {
+  height: 70vh;
+  overflow: scroll;
+}
+
+.sticky-div {
+  position: sticky;
+  top: 0; /* Adjust this value to set the distance from the top */
+  background-color: #00000; /* Example background color */
+  padding: 10px; /* Example padding */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  */
+  z-index: 100; /* Optional: Adjust the z-index if necessary */
+}
+    </style>
 <section id="content">
     <div class="container"> 
         <div class="tile">
@@ -14,6 +29,7 @@
                     <input type="hidden" name="user_guid" value="<?php echo $user_guid; ?>">
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="under">
+                            <div class="admin_package">
                             <div class="row">
                                 <?php if($under_the_budget_products['data']['total_records']) { foreach($under_the_budget_products['data']['records'] as $product) { ?>
                                     <div class="col-sm-6 col-md-3" data-product="<?php echo $product['product_guid']; ?>">
@@ -36,11 +52,16 @@
                                     </div>
                                 <?php } } ?>
                             </div>
+                                </div>
                             <?php if($under_the_budget_products['data']['total_records']) { ?>
+                                <div class="sticky-div">
                                 <center><button class="btn btn-success create-package col-sm-6 col-md-3" type="button"><?php echo lang('create_package'); ?></button></center>
+</div>
+                                
                             <?php } ?>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="within">
+                            <div class="admin_package">
                             <div class="row">
                                 <?php if($within_the_budget_products['data']['total_records']) { foreach($within_the_budget_products['data']['records'] as $product) { ?>
                                     <div class="col-sm-6 col-md-3">
@@ -98,11 +119,15 @@
                                     <?php } ?>
                                 </div>
                             <?php } ?>
+                                                    </div>
                             <?php if($within_the_budget_products['data']['total_records']) { ?>
+                                <div class="sticky-div">
                                 <center><button class="btn btn-success set-shop col-sm-6 col-md-3" type="button"><?php echo lang('set_shop'); ?></button></center>
-                            <?php } ?>
+                            </div>
+                                <?php } ?>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="above">
+                             <div class="admin_package">
                             <div class="row">
                                 <?php if($above_the_budget_products['data']['total_records']) { foreach($above_the_budget_products['data']['records'] as $product) { ?>
                                     <div class="col-sm-6 col-md-3">
@@ -135,9 +160,12 @@
                                     </div>
                                 <?php } } ?>
                             </div>
+                                </div>
                             <?php if($above_the_budget_products['data']['total_records']) { ?>
+                                <div class="sticky-div">
                                 <center><button class="btn btn-success set-shop col-sm-6 col-md-3" type="button"><?php echo lang('set_shop'); ?></button></center>
-                            <?php } ?>
+                            </div>
+                                <?php } ?>
                         </div>
                     </div>
                 </div>
