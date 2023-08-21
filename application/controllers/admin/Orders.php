@@ -39,8 +39,15 @@ class Orders extends Admin_Controller_Secure {
 							'../../assets/admin/js/custom/order.js'
 						);
 
+		$this->load->database();
+		$this->db->where('user_type_id' , 2 );
+		$companiesList = $this->db->get('tbl_users');
+		$companiesList = $companiesList->result();
+		$data['companies'] = $companiesList;
 		/* Get Orders */
 		$data['orders'] = $this->Orders_model->get_orders('created_date,employee_name,amount,client_name,used_credits,credit_card_amount,address_mode,order_status,payment_status',array('payment_status' => array('Success', 'Failed')),TRUE);
+		
+		
 		$this->template->load('default', 'orders/list',$data);
 	}
 
