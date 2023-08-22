@@ -5,12 +5,12 @@
 }
 
 .sticky-div {
-  position: sticky;
-  top: 0; /* Adjust this value to set the distance from the top */
-  background-color: #00000; /* Example background color */
-  padding: 10px; /* Example padding */
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  */
-  z-index: 100; /* Optional: Adjust the z-index if necessary */
+  position: relative;
+  top: 0;
+  bottom: 30px;
+  background-color: #0000;
+  padding: 10px; 
+  z-index: 100; 
 }
     </style>
 <section id="content">
