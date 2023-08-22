@@ -1,6 +1,6 @@
 <style>
     .admin_package {
-  height: 65vh;
+  height: 60vh;
   overflow: scroll;
 }
 
