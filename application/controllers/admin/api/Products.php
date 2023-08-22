@@ -26,6 +26,8 @@ class Products extends API_Controller_Secure {
         $this->form_validation->set_rules('min_price', 'Min Price', 'trim|required|numeric|greater_than_equal_to[0]');
         $this->form_validation->set_rules('max_price', 'Max Price', 'trim|required|numeric|greater_than_equal_to['.$this->Post['min_price'].']');
         $this->form_validation->set_rules('product_main_photo', 'Product Main Photo', 'trim');
+        $this->form_validation->set_rules('product_descprition', 'Product Description', 'trim|required');
+        $this->form_validation->set_rules('product_short_description', 'Product Short Description', 'trim|required');
         $this->form_validation->set_rules('product_gallery_images[]', 'Product Gallery Images', 'trim|required');
         $this->form_validation->validation($this);  /* Run validation */
         /* Validation - ends */
@@ -76,7 +78,6 @@ class Products extends API_Controller_Secure {
       URL:          /admin/api/products/edit/
     */
     public function edit_post() {
-
         /* Validation section */
         $this->form_validation->set_rules('product_guid', 'Product GUID', 'trim|required|callback_validate_guid[tbl_products.product_guid.product_id]');
         $this->form_validation->set_rules('product_name', 'Product Name', 'trim|required');
@@ -84,6 +85,7 @@ class Products extends API_Controller_Secure {
         $this->form_validation->set_rules('min_price', 'Min Price', 'trim|required|numeric|greater_than_equal_to[0]');
         $this->form_validation->set_rules('max_price', 'Max Price', 'trim|required|numeric|greater_than_equal_to['.$this->Post['min_price'].']');
         $this->form_validation->set_rules('product_main_photo', 'Product Main Photo', 'trim');
+        $this->form_validation->set_rules('product_short_description', 'Product Short Description', 'trim|required');
         $this->form_validation->set_rules('product_gallery_images[]', 'Product Gallery Images', 'trim');
         $this->form_validation->validation($this);  /* Run validation */
         /* Validation - ends */

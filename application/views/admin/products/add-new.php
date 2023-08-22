@@ -75,7 +75,13 @@
                                 <input type="text" class="form-control" name="warranty" placeholder="<?php echo lang('warranty'); ?>" maxlength="200" autocomplete="off">
                             </div>
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label"><?php echo lang('product_short_description'); ?></label>
+                                <textarea id="product-short-description" name="product_short_description" class="form-control" rows="6" placeholder="<?php echo lang('product_short_description'); ?>"></textarea>
+                            </div>                
+                        </div>
+                        <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="control-label"><?php echo lang('product_descprition'); ?></label>
                                 <textarea id="product-description" name="product_descprition" class="form-control" rows="6" placeholder="<?php echo lang('product_descprition'); ?>"></textarea>

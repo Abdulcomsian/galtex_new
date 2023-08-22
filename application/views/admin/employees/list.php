@@ -13,7 +13,7 @@
             <div class="col-md-12">
                 <div class="tile">
                 <div class="filter-btn-section" style="width : 100%;">
-                    <div class="filter-section" style="width : 30%">        
+                        <div class="filter-section" style="width : 30%">        
                            
                             <select class="chosen-select" name="company" id="company">
                                 <option value="">All</option>

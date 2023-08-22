@@ -21,6 +21,7 @@ class Products_model extends CI_Model {
             "max_price" => $Input['max_price'],
             "warranty" => @$Input['warranty'],
             "product_descprition" => $Input['product_descprition'],
+            "short_description" => $Input['product_short_description'],
             "product_main_photo" => $Input['product_main_photo'],
             // "product_gallery_images" => (!empty($Input['product_gallery_images'])) ? json_encode($Input['product_gallery_images']) : NULL,
             "product_gallery_images" => (!empty($Input['file_location'])) ? json_encode($Input['file_location']) : NULL,
@@ -47,6 +48,7 @@ class Products_model extends CI_Model {
             "max_price" => $Input['max_price'],
             "warranty" => @$Input['warranty'],
             "product_descprition" => $Input['product_descprition'],
+            "product_short_description" => $Input['product_short_description'],
             "product_main_photo" => @$Input['product_main_photo'],
             "modified_date" => date('Y-m-d H:i:s')
         ));
@@ -98,6 +100,7 @@ class Products_model extends CI_Model {
                 'max_price'    => 'P.max_price',
                 'warranty'     => 'P.warranty',
                 'product_descprition'   => 'P.product_descprition',
+                'short_description' => 'P.short_description',
                 'product_gallery_images'   => 'P.product_gallery_images',
                 'product_main_photo_file'   => 'P.product_main_photo product_main_photo_file',
                 'product_main_photo' => 'IF(P.product_main_photo IS NULL,CONCAT("' . BASE_URL . '","uploads/products/","default-product.jpg"),CONCAT("' . BASE_URL . '","uploads/products/",P.product_main_photo)) AS product_main_photo',

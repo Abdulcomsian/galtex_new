@@ -107,7 +107,7 @@ class Products extends Admin_Controller_Secure {
 		$data['categories'] = $this->Categories_model->get_categories('category_name',array('order_by' => 'category_name', 'sequence' => 'ASC'),TRUE);
 
 		/* To Get Product Details */
-        $data['details'] = $this->Products_model->get_products('product_name,product_category_id,product_descprition,category_guid,min_price,max_price,warranty,product_main_photo,product_gallery_images',array('product_id' => $product_id));
+        $data['details'] = $this->Products_model->get_products('product_name,product_category_id,product_descprition,short_description,category_guid,min_price,max_price,warranty,product_main_photo,product_gallery_images',array('product_id' => $product_id));
 
         /* Manage Gallery Images For Dropzone */
         $product_gallery_images = array();
