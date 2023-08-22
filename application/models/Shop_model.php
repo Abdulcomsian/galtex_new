@@ -150,6 +150,7 @@ class Shop_model extends CI_Model {
                 'product_gallery_images'   => 'P.product_gallery_images',
                 'warranty'   => 'P.warranty',
                 'product_descprition'   => 'P.product_descprition',
+                'short_description'   => 'P.short_description',
                 'product_name'   => 'P.product_name',
                 'category_name'  => 'C.category_name',
                 'min_price'      => 'P.min_price',

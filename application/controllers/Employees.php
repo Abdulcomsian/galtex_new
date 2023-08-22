@@ -27,6 +27,7 @@ class Employees extends Web_Controller_Secure
      */
     public function products()
     {
+        
         $data['title'] = lang('products');
 
         /* Get Categories */
@@ -64,7 +65,7 @@ class Employees extends Web_Controller_Secure
 
         //     $data['packages'] = $this->Shop_model->get_packages('package_name,no_of_products,products,product_ids,remaining_quantity',array('client_id' => $this->client_id, 'client_status' => 'Liked'),TRUE);
         // }
-        $data['products_data'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,product_guid,product_descprition,above_budget_price, remaining_quantity', array('shop_category' => ['Within Budget', 'Above Budget'], 'client_id' => $this->client_id, 'client_status' => 'Liked', 'main_categories' => $data['main_categories']), TRUE);
+        $data['products_data'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,product_guid,short_description,product_descprition,above_budget_price, remaining_quantity', array('shop_category' => ['Within Budget', 'Above Budget'], 'client_id' => $this->client_id, 'client_status' => 'Liked', 'main_categories' => $data['main_categories']), TRUE);
         $data['packages'] = $this->Shop_model->get_packages('package_name,no_of_products,products,product_ids,remaining_quantity,package_description', array('client_id' => $this->client_id, 'client_status' => 'Liked'), TRUE);
 
         // echo "<pre>";

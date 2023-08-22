@@ -168,6 +168,7 @@ $lang['max_10_gallery_images'] = 'ניתן להעלות עד 10 תמונות ג�
 $lang['max_4_gallery_images'] = 'ניתן להעלות עד ארבע תמונות גלריה!';
 $lang['image_dimension'] = 'התמונה חייבת להיות בגודל 1080';
 $lang['product_descprition'] = 'תיאור מוצר';
+$lang['product_short_description'] = 'תיאור קצר של המוצר';
 $lang['gallery_images'] = 'תמונות גלריה';
 $lang['drop_gallery_images'] = 'גרור לפה תמונות גלריה להעלאה';
 $lang['add_more'] = 'הוסף עוד';

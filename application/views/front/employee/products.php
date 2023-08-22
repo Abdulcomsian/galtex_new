@@ -421,7 +421,7 @@
                                  </div>
                                  <div class="product_description">
                                     <p>
-                                       <?php echo str_replace("\n", "", $product['product_descprition']); ?>
+                                       <?php echo str_replace("\n", "", $product['short_description']); ?>
                                     </p>
                                  </div>
                                  <!-- <div class="product_price">
