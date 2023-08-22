@@ -243,7 +243,7 @@ $lang['contact'] = 'צור קשר';
 $lang['package'] = 'חבילה';
 $lang['go_to_cart'] = 'לעגלה';
 $lang['login_otp_is'] = 'הסיסמא לכניסת משתמש היא';
-$lang['added_into_cart'] = 'נוסף לעגלה בהצלחה';
+$lang['added_into_cart'] = 'מוצר נוסף לעגלה';
 $lang['view_profile'] = 'View Profile';
 $lang['cart_details'] = 'פרטי עגלה';
 $lang['cart'] = 'עגלה';
@@ -261,7 +261,7 @@ $lang['personal_area_details'] = '
 להלן ההזמנות שביצעת בחשבונך
 !';
 $lang['are_you_want_to_remove'] = 'להסיר את המוצר מהעגלה?';
-$lang['product_removed_from_cart'] = 'מוצר הוסר מהעגלה בהצלחה';
+$lang['product_removed_from_cart'] = 'המוצר הוסר מהסל';
 $lang['upload'] = 'העלה';
 
 
@@ -288,7 +288,7 @@ $lang['name'] = 'שם';
 $lang['amount'] = 'כמות';
 $lang['export_orders'] = 'ייצא הזמנה';
 $lang['order_placed'] = 'החשבון שלך נחסם כי כבר הזמנת את המתנה שלך';
-$lang['thank_you_order_placed'] = 'תודה ! ההזמנה בוצעה בהצלחה';
+$lang['thank_you_order_placed'] = 'ההזמנה הושלמה בהצלחה';
 $lang['view_order_details'] = 'ראה/י פרטי הזמנה';
 $lang['employee_name'] = 'שם עובד';
 $lang['client_name'] = 'שם לקוח';
@@ -335,7 +335,7 @@ $lang['total_price'] = 'סכום כולל';
 $lang['cancel_order'] = 'בטל/י הזמנה';
 $lang['cancel_order_sure'] = 'את/ה בטוח? לבטל את ההזמנה?';
 $lang['order_cancelled_at'] = 'הזמנה בוטלה';
-$lang['order_cancelled'] = 'הזמנה בוטלה בהצלחה';
+$lang['order_cancelled'] = 'ההזמנה בוטלה';
 $lang['order_already_cancelled'] = 'הזמנה כבר בוטלה';
 $lang['you_cant_cancel_order'] = 'לא תוכל/י לבטל את ההזמנה הזאת';
 $lang['credits_balance'] = 'מצב הקרדיטים';
