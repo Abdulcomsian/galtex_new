@@ -39,6 +39,7 @@ $(document).on("click" , "#submit-product" , function(e){
     e.preventDefault();
     var formData = new FormData($(".add-new-product-form")[0]);
     let cropGalleryImage = document.querySelectorAll(".crop-gallery-image");
+    // let images = document.querySelectorAll(".dz-image");
     console.log(cropGalleryImage)
     // if(cropGalleryImage.length > 0){
     //     for (var i = 0; i < cropGalleryImage.length; i++) {
@@ -50,6 +51,10 @@ $(document).on("click" , "#submit-product" , function(e){
     //     return false;
     // }
 
+
+
+
+
     if(cropGalleryImage.length > 0){
             for (var i = 0; i < cropGalleryImage.length; i++) {
               formData.append('product_gallery_images[]', cropGalleryImage[i]);
@@ -58,6 +63,15 @@ $(document).on("click" , "#submit-product" , function(e){
             showToaster('error',error,select_gallery_images); 
             return false;
         }
+
+    // if(images.length > 0){
+    //     for (var i = 0; i < images.length; i++) {
+    //                   formData.append('product_gallery_images[]', images[i]);
+    //                 }
+    // }else{
+    //     showToaster('error',error,select_gallery_images); 
+    //     return false;
+    // }
 
     $.ajax({
         url: api_url + 'products/add',
@@ -141,8 +155,7 @@ form_object.validate({
                 if(resp.status == 200){
                     showToaster('success',success,resp.message);  
                     setTimeout(function(){
-                        alert("successfully added product")
-		            	// window.location.href = base_url + 'admin/products/list';
+		            	window.location.href = base_url + 'admin/products/list';
 		            },500);
                 }else{
                     showToaster('error',error,resp.message);  
@@ -194,6 +207,7 @@ form_object.validate({
               formData.append('removed_product_gallery_images[]', removed_gallery_images[i]);
             }
         }
+
         $.ajax({
             url: api_url + 'products/edit',
             type:"POST",
@@ -216,6 +230,60 @@ form_object.validate({
         });
     }
 });
+
+
+
+$(document).on("click" , "#edit-submit-product" , function(e){
+    e.preventDefault();
+    var formData = new FormData($(".edit-product-form")[0]);
+    let images = document.querySelectorAll(".input-gallery-image");
+    let totalImage = 0;
+    let totalPreviouImages = document.querySelectorAll(".previous-gallery-images").length;
+    console.log(images.length);
+
+    if(images.length > 0){
+        for (var i = 0; i < images.length; i++) {
+                        if(images[i].files.length > 0){
+                            formData.append('product_gallery_images[]', images[i].files[0]);
+                            totalImage++
+                        }
+                        // console.log(images[i].files[0]);
+
+            }
+    }else{
+        showToaster('error',error,select_gallery_images); 
+        return false;
+    }
+
+    if(totalImage == 0 && totalPreviouImages == 0){
+        showToaster('error',error,select_gallery_images); 
+        return false;
+    }
+
+    $.ajax({
+        url: api_url + 'products/edit',
+        type:"POST",
+        data: formData,
+        dataType : "JSON",   
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(resp){
+            if(resp.status == 200){
+                showToaster('success',success,resp.message);  
+                setTimeout(function(){
+                    // alert("successfully added product")
+                    window.location.href = base_url + 'admin/products/list';
+                },500);
+            }else{
+                showToaster('error',error,resp.message);  
+            }
+            hideProgressBar();
+        }
+    });
+
+
+})
 
 /**************** Edit Product Script End *****************/
 

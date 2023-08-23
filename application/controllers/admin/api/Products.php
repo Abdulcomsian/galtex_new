@@ -90,6 +90,30 @@ class Products extends API_Controller_Secure {
         $this->form_validation->validation($this);  /* Run validation */
         /* Validation - ends */
 
+
+        $fileCount = count($_FILES['product_gallery_images']['name']);
+        $fileLocation = [];
+
+        //setting pervious files
+        $previousFiles = $this->Post['previous-file'];
+        foreach($previousFiles as $file)
+        {
+            $fileLocation[] = $file;
+        }
+        // $this->post
+
+        for($i=0; $i<$fileCount; $i++)
+        {
+            $fileName = strtotime("now")."$i"."_".$_FILES['product_gallery_images']['name'][$i];
+            $location = "uploads/products/".$fileName;
+            move_uploaded_file($_FILES['product_gallery_images']['tmp_name'][$i] , $location);
+            $fileLocation[] = $fileName;
+        }
+
+        
+        $this->Post = array_merge($this->Post , ['file_location' => $fileLocation]);
+        
+        
         /* Upload main photo */
         if(!empty($_FILES['product_main_photo']['name'])){
             $image_data = fileUploading('product_main_photo','products','jpg|jpeg|png|gif');
@@ -100,6 +124,9 @@ class Products extends API_Controller_Secure {
             }
             $this->Post['product_main_photo'] = $image_data['upload_data']['file_name'];
         }
+        // else{
+        //     $this->Post['product_main_photo'] = $this->Post['previous-thumbnail'];
+        // }
 
         if(!$this->Products_model->edit_product($this->product_id,array_merge($this->Post,array('product_category_id' => $this->category_id)))){
             $this->Return['status'] = 500;
