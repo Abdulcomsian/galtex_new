@@ -109,7 +109,9 @@ function showConfirmationBox(title,text,confirmButtonText,cancelButtonText,redir
       animation: true,
       showLoaderOnConfirm: true
   }, function(isConfirm){   
-      if (isConfirm) {     
+      if (isConfirm) {    
+        // console.log("here")
+        // console.log(redirectURL) ;
         window.location.href = redirectURL;  
       } else {     
         swal.close();
