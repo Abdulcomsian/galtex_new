@@ -48,21 +48,26 @@ class Products_model extends CI_Model {
             "max_price" => $Input['max_price'],
             "warranty" => @$Input['warranty'],
             "product_descprition" => $Input['product_descprition'],
-            "product_short_description" => $Input['product_short_description'],
+            "short_description" => $Input['product_short_description'],
             "product_main_photo" => @$Input['product_main_photo'],
-            "modified_date" => date('Y-m-d H:i:s')
+            "modified_date" => date('Y-m-d H:i:s'),
+            "product_gallery_images" => (!empty($Input['file_location'])) ? json_encode($Input['file_location']) : NULL,
         ));
 
         /* Update Gallery Images */
-        if(!empty($Input['product_gallery_images']) || !empty($Input['removed_product_gallery_images'])){
+        // if(!empty($Input['product_gallery_images']) || !empty($Input['removed_product_gallery_images'])){
+        //     print_r("changing image");
+        //     exit;
+        //     /* Fetch Old Gallery Images */
+        //     $old_gallery_images = json_decode($this->db->query('SELECT product_gallery_images FROM tbl_products WHERE product_id = '.$product_id.' LIMIT 1')->row()->product_gallery_images,TRUE);
+        //     if(!empty($Input['removed_product_gallery_images'])){
+        //         $old_gallery_images = array_values(array_diff($old_gallery_images,$Input['removed_product_gallery_images']));
+        //     }
+        //     $update_array['product_gallery_images']  = json_encode(array_merge($old_gallery_images,(!empty($Input['product_gallery_images']) ? $Input['product_gallery_images'] : array())));
+        // }
+
         
-            /* Fetch Old Gallery Images */
-            $old_gallery_images = json_decode($this->db->query('SELECT product_gallery_images FROM tbl_products WHERE product_id = '.$product_id.' LIMIT 1')->row()->product_gallery_images,TRUE);
-            if(!empty($Input['removed_product_gallery_images'])){
-                $old_gallery_images = array_values(array_diff($old_gallery_images,$Input['removed_product_gallery_images']));
-            }
-            $update_array['product_gallery_images']  = json_encode(array_merge($old_gallery_images,(!empty($Input['product_gallery_images']) ? $Input['product_gallery_images'] : array())));
-        }
+
         $this->db->where('product_id', $product_id);
         $this->db->limit(1);
         $this->db->update('tbl_products', $update_array);

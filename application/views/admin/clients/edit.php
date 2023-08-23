@@ -231,6 +231,10 @@
                         </div>
                         <!-- upload cover image ends here -->
 
+
+
+                        
+
                         <div class="col-sm-8 pickup-address-section <?php if($details['delivery_method'] == 'Door to Door') {echo "hidden"; } ?>">
                             <label class="control-label"><?php echo lang('pickup_addresses'); ?></label><br/>
                                 <div class="row">
