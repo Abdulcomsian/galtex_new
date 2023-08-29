@@ -49,9 +49,13 @@
         <script src="<?php echo base_url(); ?>assets/plugins/summernote/summernote.min.js"></script>
         
 <!-- for dataTable -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
         <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+        
+        <script src="//cdn.datatables.net/plug-ins/1.10.20/sorting/datetime-moment.js"></script>
         
         <!-- Other JS -->
         <?php if(!empty($js)){foreach($js as $value){ ?>
