@@ -41,6 +41,9 @@
                            </tr>
                             <?php $i++; } } ?>
                             </tbody>
+                            <tfoot>
+                                   
+                            </tfoot>
                         </table>
                     </div>
                 </div>
