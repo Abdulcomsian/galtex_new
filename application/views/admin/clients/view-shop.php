@@ -1,3 +1,49 @@
+
+<style>
+        .product-slides-modal img {
+            max-width: 100%;
+        }
+
+        .modal-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, .2);
+            border-radius: 0.3rem;
+            outline: 0;
+        }
+
+        .sliderForProduct img,
+        .sliderNavProduct img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .sliderNavProduct {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .sliderNavProduct .lower {
+            flex: 0 0 calc(33.33% - 10px);
+            margin: 5px;
+        }
+
+        .custom-modal-dialog {
+        max-width: 70%; 
+        width: auto;
+        margin: 1.75rem auto;
+    } [dir='rtl'] .slick-slide { float: left; }
+
+
+    </style>
+
+
 <section id="content">
     <div class="container"> 
         <div class="tile">
@@ -91,6 +137,23 @@
                                 <?php } ?>
                         </div>
                     </div>
+               
+               
+               
+               
+               
+                    <!-- new modal -->
+     <div class="container">
+        <div class="row">
+            <div class="button-quick-view">
+                <button type="button" data-toggle="modal" data-target="#aynModal-1">
+                    check
+                </button>
+            </div>
+        </div>
+    </div>
+                
+                
                 </div>
             </div>
         </div>
@@ -126,3 +189,90 @@
     </div>
 </div>
 </div>
+
+
+<div class="modal fade" id="aynModal-1">
+        <div class="modal-dialog modal-lg  custom-modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-5" dir="rtl">
+                            <div class="product-slides-modal" >
+                                <div class="sliderForProduct" id="sliderForProduct">
+                                    <div><img
+                                        src="https://images.unsplash.com/photo-1548238177-8cf7cc19a0e8?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+                                </div>
+                                <div><img
+                                        src="https://images.unsplash.com/photo-1501622549218-2c3ef86627cb?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+                                </div>
+                                <div><img
+                                        src="https://images.unsplash.com/photo-1542395403839-388ec538e0e5?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+                                </div>
+                                </div>
+                            </div>
+                            <div class="sliderNavProduct" id="sliderNavProduct">
+                                <div class="lower" ><img
+                                    src="https://images.unsplash.com/photo-1548238177-8cf7cc19a0e8?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+                            </div>
+                            <div class="lower"><img
+                                    src="https://images.unsplash.com/photo-1501622549218-2c3ef86627cb?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+                            </div>
+                            <div class="lower" ><img
+                                    src="https://images.unsplash.com/photo-1542395403839-388ec538e0e5?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h1>Product Name</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis quis, laudantium at cum culpa impedit?</p>
+                   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="<?php echo base_url(); ?>/assets/js/jquery.bootstrap-touchspin.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/slick.css">
+
+
+
+    <script>
+        $(window).on('load', function(){
+        jQuery(function ($) {
+            $('.modal').on('shown.bs.modal', function (e) {
+                $('.sliderForProduct').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: false,
+                    fade: true,
+                    asNavFor: '.sliderNavProduct',
+                    rtl: true,
+                    draggable:false,
+
+                });
+                $('.sliderNavProduct').slick({
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    asNavFor: '.sliderForProduct',
+                    dots: false,
+                    arrows: true,
+                    infinite: false,
+                    focusOnSelect: true,
+                    rtl: true,
+
+                });
+            });
+        });
+    });
+    </script>
