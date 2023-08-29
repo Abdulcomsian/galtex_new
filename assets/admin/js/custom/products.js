@@ -4,32 +4,84 @@ $(document).ready(function(){
 
 /**************** Datatable Script Start *************/
 
-if($('table').hasClass('my-datatable')){
-	jQuery('.my-datatable').dataTable({
-		dom: 'Bfrtip',
-	    buttons: [
-	        'colvis'
-	    ],
-        bStateSave : true,
-	    aoColumnDefs: [{
-	       bSortable: false,
-	       aTargets: [0,4,6]
-	    },
-	 	],
-        language : {
-            search : "חיפוש",
+if ($('table').hasClass('my-datatable')) {
+    jQuery('.my-datatable').dataTable({
+        initComplete: function() {
+            this.api().columns().every(function(index) {
+                var column = this;
+                console.log(index);
+                if (index === 2) { // Check if it's the third column (index 2)
+                    var container = $('<div class="search-container"></div>').appendTo($(column.header()).empty());
+                    
+                    // Add a label on top of the search dropdown
+                    container.append('<label for="search-dropdown">Category</label>');
+
+                    var select = $('<select class="mymsel" multiple="multiple" id="search-dropdown"><option value=""></option></select>')
+                        .appendTo(container)
+                        .on('change', function() {
+                            var vals = $('option:selected', this).map(function(index, element) {
+                                return $.fn.dataTable.util.escapeRegex($(element).val());
+                            }).toArray().join('|');
+
+                            column
+                                .search(vals.length > 0 ? '^(' + vals + ')$' : '', true, false)
+                                .draw();
+                        });
+
+                    column.data().unique().sort().each(function(d, j) {
+                        select.append('<option value="' + d + '">' + d + '</option>');
+                    });
+
+                    // Initialize Select2 for the search dropdown
+                    $(".mymsel").select2();
+                }
+            });
+        },
+
+        dom: 'Bfrtip',
+        buttons: [
+            'colvis'
+        ],
+        bStateSave: true,
+        aoColumnDefs: [{
+            bSortable: false,
+            aTargets: [0, 4, 6]
+        }],
+        language: {
+            search: "חיפוש",
             paginate: {
-                first:      "ראשון",
-                previous:   "הקודם",
-                next:       "הבא",
-                last:       "אחרון"
+                first: "ראשון",
+                previous: "הקודם",
+                next: "הבא",
+                last: "אחרון"
             },
-            info : 'מראה _PAGE_ שֶׁל _PAGES_',
-            infoFiltered:   "(מסונן מ _MAX_ סך השיאים)",
-            zeroRecords : 'אין נתונים זמינים בטבלה'
-        }
-	  });
+            info: 'מראה _PAGE_ שֶׁל _PAGES_',
+            infoFiltered: "(מסונן מ _MAX_ סך השיאים)",
+            zeroRecords: 'אין נתונים זמינים בטבלה'
+        },
+        columns: [
+            null, // Your other columns
+            null, // Another column
+            { searchable: true }, // Placeholder for the third column's header
+            null,
+            null,
+            {
+                // Define the rendering for the sixth column (index 5)
+                targets: 5,
+                data: 5,
+                render: function(data, type, full, meta) {
+                    // Assuming `data` is a date string in the format "yyyy-mm-dd"
+                    // Parse the date string and format it as "day/month/year"
+                    var parts = data.split("-");
+                    var formattedDate =  parts[0]+ "/" + parts[1] + "/" +parts[2] ;
+                    return formattedDate;
+                }
+            }
+        ]
+    });
 }
+
+
 
 /**************** Datatable Script End *************/
 
