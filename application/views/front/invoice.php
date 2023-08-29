@@ -54,7 +54,8 @@
             <tr style="background-color:<?php echo $details['theme_color']; ?>; ">
               <td style="padding-bottom: 0px; vertical-align: middle; padding: 10px 40px;">
                 <a href="javascript:void(0);" style="display: inline-block; margin: 0 auto; text-decoration: none; color: #000;">
-                  <img src="<?php echo base_url().'uploads/company/'.$details['company_logo']; ?>" width="130px">
+                <img src="<?php echo base_url().'assets/images/logo.png';?>" alt="" width="130px">
+                  <!-- <img src="<?php //echo base_url().'uploads/company/'.$details['company_logo']; ?>" width="130px"> -->
                 </a>
               </td>
              
