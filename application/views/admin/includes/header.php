@@ -28,6 +28,11 @@
         <link href="<?php echo base_url(); ?>assets/admin/css/app.min.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/admin/css/custom.css" rel="stylesheet">
 
+    
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
+        <!-- <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet"> -->
+
         <!-- Javascript Libraries -->
         <script src="<?php echo base_url(); ?>assets/admin/vendors/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/admin/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -43,6 +48,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/plugins/summernote/summernote.min.js"></script>
         
+<!-- for dataTable -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
         
         <!-- Other JS -->
         <?php if(!empty($js)){foreach($js as $value){ ?>

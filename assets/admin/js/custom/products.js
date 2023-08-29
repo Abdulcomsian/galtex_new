@@ -6,6 +6,33 @@ $(document).ready(function(){
 
 if($('table').hasClass('my-datatable')){
 	jQuery('.my-datatable').dataTable({
+        initComplete: function() {
+            this.api().columns().every(function(index) {
+              var column = this;
+              console.log(index);
+              if(index!==4 && index!==6 && index!==0){
+              //added class "mymsel"
+              var select = $('<select class="mymsel" multiple="multiple"><option value=""></option></select>')
+                .appendTo($(column.header()).empty())
+                .on('change', function() {
+                  var vals = $('option:selected', this).map(function(index, element) {
+                    return $.fn.dataTable.util.escapeRegex($(element).val());
+                  }).toArray().join('|');
+      
+                  column
+                    .search(vals.length > 0 ? '^(' + vals + ')$' : '', true, false)
+                    .draw();
+                });
+      
+              column.data().unique().sort().each(function(d, j) {
+                select.append('<option value="' + d + '">' + d + '</option>')
+              });
+            }
+            });
+            //select2 init for .mymsel class
+            $(".mymsel").select2();
+          },
+
 		dom: 'Bfrtip',
 	    buttons: [
 	        'colvis'
