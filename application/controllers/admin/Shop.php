@@ -39,8 +39,8 @@ class Shop extends Admin_Controller_Secure {
 		$data['employee_budget'] = $query->row()->employee_budget;
 
 		/* Get Shop Products */
-		$data['within_the_budget_products'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,shop_product_id,client_status,quantity,sold_quantity',array('shop_category' => 'Within Budget', 'client_id' => $this->session_user_id, 'quantity' => 'greater_than_to_zero'),TRUE);
-		$data['above_the_budget_products']  = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,shop_product_id,above_budget_price,client_status,quantity,sold_quantity',array('shop_category' => 'Above Budget', 'client_id' => $this->session_user_id, 'quantity' => 'greater_than_to_zero'),TRUE);
+		$data['within_the_budget_products'] = $this->Shop_model->get_shop_products('product_id,product_name,category_name,product_main_photo,shop_product_id,client_status,quantity,sold_quantity',array('shop_category' => 'Within Budget', 'client_id' => $this->session_user_id, 'quantity' => 'greater_than_to_zero'),TRUE);
+		$data['above_the_budget_products']  = $this->Shop_model->get_shop_products('product_id,product_name,category_name,product_main_photo,shop_product_id,above_budget_price,client_status,quantity,sold_quantity',array('shop_category' => 'Above Budget', 'client_id' => $this->session_user_id, 'quantity' => 'greater_than_to_zero'),TRUE);
 
 		/* Get Packages */
 		$data['packages'] = $this->Shop_model->get_packages('package_name,quantity,sold_quantity,no_of_products,products,product_ids,client_status',array('client_id' => $this->session_user_id),TRUE);

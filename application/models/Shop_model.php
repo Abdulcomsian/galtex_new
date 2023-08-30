@@ -117,7 +117,7 @@ class Shop_model extends CI_Model {
                 foreach ($Query->result_array() as $key => $Record) {
                     $Records[] = $Record;
                     if (in_array('products', $Params)) {
-                        $Records[$key]['products'] = $this->Products_model->get_products('product_name,min_price,max_price,product_main_photo,package_description',array('product_ids' => explode(",",$Record['product_ids'])),TRUE);                    
+                        $Records[$key]['products'] = $this->Products_model->get_products('product_id,product_name,min_price,max_price,product_main_photo,package_description',array('product_ids' => explode(",",$Record['product_ids'])),TRUE);                    
                         unset($Records[$key]['product_ids']);
                     }
                 }
@@ -126,7 +126,7 @@ class Shop_model extends CI_Model {
             } else {
                 $Record = $Query->row_array();
                 if (in_array('products', $Params)) {
-                    $Record['products'] = $this->Products_model->get_products('product_name,min_price,max_price,product_main_photo,category_name,product_descprition,product_gallery_images,warranty',array('product_ids' => explode(",",$Record['product_ids'])),TRUE);                    
+                    $Record['products'] = $this->Products_model->get_products('product_id,product_name,min_price,max_price,product_main_photo,category_name,product_descprition,product_gallery_images,warranty',array('product_ids' => explode(",",$Record['product_ids'])),TRUE);                    
                     unset($Record['product_ids']);
                 }
                 return $Record;
@@ -168,6 +168,7 @@ class Shop_model extends CI_Model {
             }
         }
         $this->db->select('SP.shop_product_id');
+        $this->db->select('SP.product_id');
         if (!empty($Field)) $this->db->select($Field, FALSE);
         $this->db->from('tbl_client_shop_products SP');
         if (array_keys_exist($Params, array('product_guid','product_descprition','product_name','min_price','max_price','product_main_photo','product_gallery_images'))) {

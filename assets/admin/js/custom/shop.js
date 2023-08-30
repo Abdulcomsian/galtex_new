@@ -3,7 +3,9 @@ $(document).ready(function(){
 $(".heart-icon").click(function() {
   let self = $(this);
   let shop_product_id = self.attr('data-shop-product-id');
+
   if(self.hasClass('fa-heart')){ // Like to Dislike
+    
     self.attr('data-shop-product-id',shop_product_id.replace("Liked","Deleted"));
   }else{ // Dislike to Like
     self.attr('data-shop-product-id',shop_product_id.replace("Deleted","Liked"));
@@ -56,5 +58,105 @@ $('body').on('click','button.send-to-galtex',function(){
         }
     });
 });
+
+function getSliderSettings(){
+  return {
+    // Slick configuration options
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+
+  }
+     
+}
+
+  $(document).on("click" , ".product-card" , function(){
+    const sliders = document.querySelectorAll('.slick-initialized');
+ 
+              sliders.forEach(item => {
+                $(item).slick('unslick');
+    })
+    let productId = $(this).attr('data-product-id');
+    $.ajax({
+      url: api_url + 'shop/product_details',
+      type:"POST",
+      data: {product_id : productId},
+      success: function(resp){
+       
+          if(resp.status == 200){
+              let product = resp.data.product; 
+              let productName = product.product_name;
+              let description = product.product_descprition;
+              let productMainPhoto = product.product_main_photo;
+              let productGalleryImages = JSON.parse(product.product_gallery_images);
+              let baseUrl = document.getElementById("baseurl").value;
+              let productMainPhotoHTML = `<div>
+                                            <img src="${baseUrl}${productMainPhoto}">
+                                        </div>`;
+
+              let galleryImagesHTML = "";
+              productGalleryImages.forEach((image , index) => {
+                  galleryImagesHTML += `<div class="lower">
+                                          <img src="${baseUrl}${image}">
+                                      </div>`;
+              })
+
+
+             
+              // product-slides-modal
+
+
+              document.getElementById("sliderForProduct").innerHTML = productMainPhotoHTML;
+
+              document.getElementById("sliderForProduct").insertAdjacentHTML("beforeend" , galleryImagesHTML);
+
+              document.getElementById("sliderNavProduct").innerHTML = productMainPhotoHTML;
+
+              document.getElementById("sliderNavProduct").insertAdjacentHTML("beforeend" , galleryImagesHTML);
+
+              document.getElementById("product_name").innerText = productName;
+
+              document.getElementById("product_description").innerText = description;
+
+
+              
+
+              // $("#sliderForProduct").slick('unslick');
+              // $("#sliderNavProduct").slick('unslick');
+
+              // $('.product-slides-modal').slick({
+              //       slidesToShow: 1,
+              //       slidesToScroll: 1,
+              //       arrows: false,
+              //       dots: false,
+              //       fade: true,
+              //       asNavFor: '.sliderNavProduct',
+              //       rtl: true,
+              //       draggable: false,
+              //   });
+
+              //   $('.sliderNavProduct').slick({
+              //       slidesToShow: 3,
+              //       slidesToScroll: 1,
+              //       asNavFor: '.product-slides-modal', // Change to '.product-slides-modal'
+              //       dots: false,
+              //       arrows: true,
+              //       infinite: false,
+              //       focusOnSelect: true,
+              //       rtl: true,
+              //   });
+              // $(slider).slick(getSliderSettings())
+
+              $("#aynModal-1").modal("show");
+            
+
+          }else{
+            toastr.error("Something Went Wrong")
+          }
+      }
+  });
+
+  })
+
 
 });
