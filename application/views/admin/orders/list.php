@@ -58,7 +58,7 @@
                                 <td><?php echo getDeliveryMethod($value['address_mode']); ?></td>
                                 <td><?php echo getOrderStatus($value['order_status']); ?></td>
                                 <td><?php echo ($value['credit_card_amount'] > 0) ? getPaymentStatus($value['payment_status']) : 'N/A'; ?></td>
-                                <td><?php echo convertDateTime($value['created_date']); ?> </td>
+                                <td data-sort='<?php echo date("Ymd" , strtotime($value['created_date'])); ?>'><?php echo convertDateTime($value['created_date']); ?> </td>
                                 <td>
                                    <button class="btn bg-cyan btn-icon" onclick="window.location.href='details/<?php echo $value['order_guid']; ?>'" title="<?php echo lang('view_order_details'); ?>"><i class="zmdi zmdi-eye"></i></button>
                                 </td>
