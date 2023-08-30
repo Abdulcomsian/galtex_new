@@ -59,7 +59,7 @@
                                 <td><?php echo $value['phone_number']; ?></td>
                                 <td><?php echo $value['client_first_name']." ".$value['client_last_name']; ?></td>
                                 <td style="color:<?php echo getUserStatusColor($value['user_status']); ?>"><strong><?php echo $value['user_status']; ?></strong> </td>
-                                <td><?php echo convertDateTime($value['created_date']); ?> </td>
+                                <td data-sort='<?php echo date("Ymd" , strtotime($value['created_date'])); ?>'><?php echo convertDateTime($value['created_date']); ?> </td>
                                 <td>
                                     <button class="btn bg-cyan btn-icon view-user-details" data-user-guid="<?php echo $value['user_guid']; ?>" title="<?php echo lang('view_employee_details'); ?>"><i class="zmdi zmdi-eye"></i></button>
                                     <?php // if($this->user_type_id == 1){ ?>

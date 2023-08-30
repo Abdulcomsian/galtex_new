@@ -11,7 +11,7 @@ if($('table').hasClass('my-datatable')){
         bStateSave : true,
 	    aoColumnDefs: [{
 	       bSortable: false,
-	       aTargets: [0,7]
+	       aTargets: [0,8]
 	    },
 	 	],
         language : {

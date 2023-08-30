@@ -22,7 +22,7 @@
                             <tr>
                                 <td><?php echo addZero($i); ?> </td>
                                 <td><?php echo $value['category_name']; ?></td>
-                                <td><?php echo convertDateTime($value['created_date']); ?> </td>
+                                <td data-sort='<?php echo date("Ymd" , strtotime($value['created_date'])); ?>'><?php echo convertDateTime($value['created_date']); ?> </td>
                                 <td>
                                     <button class="btn bg-orange btn-icon edit-category-details" data-category-guid="<?php echo $value['category_guid']; ?>" title="<?php echo lang('edit_category'); ?>"><i class="zmdi zmdi-edit"></i></button>
                                     <button class="btn btn-danger btn-icon" onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_sure_delete'); ?> <b style=   &quot;color:red; &quot;><?php echo $value['category_name']; ?></b> <?php echo lang('category'); ?>?','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','delete/<?php echo $value['category_guid']; ?>')" title="<?php echo lang('delete_category'); ?>"><i class="zmdi zmdi-delete"></i></button>

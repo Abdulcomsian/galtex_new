@@ -32,7 +32,7 @@
                                 <td><?php echo $value['category_name']; ?></td>
                                 <td><?php echo $value['min_price']."-".$value['max_price']; ?></td>
                                 <td><a href="<?php echo $value['product_main_photo']; ?>" target="_blank"><img src="<?php echo $value['product_main_photo']; ?>" class="img-responsive img-thumbnail" width="150px" height="150px"></a></td>
-                                <td><?php echo date("d-m-Y" , strtotime($value['created_date'])); ?> </td>
+                                <td data-sort='<?php echo date("Ymd" , strtotime($value['created_date'])); ?>'><?php echo date("d-m-Y" , strtotime($value['created_date'])); ?> </td>
                                 <td>
                                    <button class="btn bg-cyan btn-icon" onclick="window.location.href='details/<?php echo $value['product_guid']; ?>'" title="<?php echo lang('view_product_details'); ?>"><i class="zmdi zmdi-eye"></i></button>
                                     <button class="btn bg-orange btn-icon" onclick="window.location.href='edit/<?php echo $value['product_guid']; ?>'" title="<?php echo lang('edit_product'); ?>"><i class="zmdi zmdi-edit"></i></button>

@@ -34,7 +34,7 @@
                                 <td><?php echo CURRENCY_SYMBOL.$value['employee_budget']; ?></td>
                                 <td><?php echo getDeliveryMethod($value['delivery_method']); ?></td>
                                 <td style="color:<?php echo getUserStatusColor($value['user_status']); ?>"><strong><?php echo getUserStatusName($value['user_status']); ?></strong> </td>
-                                <td><?php echo convertDateTime($value['created_date']); ?> </td>
+                                <td data-sort='<?php echo date("Ymd" , strtotime($value['created_date'])); ?>'><?php echo convertDateTime($value['created_date']); ?> </td>
                                 <td><a href="shop/<?php echo $value['user_guid']; ?>" class="btn btn-success"><?php echo lang('set_shop'); ?></</a></td>
                                 <td>
                                     <a href="export_employees_orders?client_id=<?php echo $value['user_id']; ?>" class="btn btn-primary"><?php echo lang('export_employees_orders'); ?></</a>
