@@ -1,4 +1,3 @@
-
 <style>
         .product-slides-modal img {
             max-width: 100%;
@@ -40,10 +39,20 @@
         margin: 1.75rem auto;
     } [dir='rtl'] .slick-slide { float: left; }
 
-
+    .slick-track {
+        display: flex!important;
+    }
+    .lower{
+        width: auto important;
+        height: 150px!important;
+    }
+    .lower img{
+        width: auto important;
+        height: 150px!important;
+    }
     </style>
 
-
+<input type="hidden" name="baseurl" id="baseurl" value="<?=BASE_URL."uploads/products/";?>">
 <section id="content">
     <div class="container"> 
         <div class="tile">
@@ -56,18 +65,20 @@
                         <li role="presentation" class="active"><a href="#within" aria-controls="within" role="tab" data-toggle="tab" aria-expanded="false"><?php echo lang('within_the_budget'); ?> (<?php echo addZero($within_the_budget_products['data']['total_records']+@$packages['data']['total_records']); ?>)</a></li>
                         <li role="presentation"><a href="#above" aria-controls="above" role="tab" data-toggle="tab" aria-expanded="true"><?php echo lang('above_the_budget'); ?> (<?php echo addZero($above_the_budget_products['data']['total_records']); ?>)</a></li>
                     </ul>
+                    
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="within">
                             <div class="row">
                                 <?php if($within_the_budget_products['data']['total_records']) { foreach($within_the_budget_products['data']['records'] as $product) { ?>
-                                    <div class="col-sm-6 col-md-3">
+                                  
+                                    <div class="col-sm-6 col-md-3 product-card" data-product-id="<?=$product['product_id']?>">
                                         <div class="thumbnail">
                                             <img src="<?php echo $product['product_main_photo']; ?>" alt="product" class="img-responsive">
                                             <div class="caption">
                                                 <h4><?php echo $product['category_name']; ?> - <?php echo $product['product_name']; ?></h4>
                                                 <div class="clearfix"></div>
                                                 <div class="m-t-10">
-                                                    <div style="cursor:pointer;"><i class="heart fa <?php if($product['client_status'] == 'Liked') {echo "fa-heart";} else {echo "fa-heart-o";} ?>  heart-icon within_budget_products" data-shop-product-id="<?php echo $product['shop_product_id']; ?>-<?php echo ($product['client_status'] == 'Liked') ? 'Liked' : 'Deleted'; ?>"></i></div>
+                                                    <div style="cursor:pointer;"><i class="heart fa <?php if($product['client_status'] == 'Liked') {echo "fa-heart";} else {echo "fa-heart-o";} ?>  heart-icon within_budget_products"  data-shop-product-id="<?php echo $product['shop_product_id']; ?>-<?php echo ($product['client_status'] == 'Liked') ? 'Liked' : 'Deleted'; ?>"></i></div>
                                                 </div>
                                                 <div class="m-t-10">
                                                     <p><?php echo lang('quantities'); ?> : <?php echo $product['quantity']; ?></p> 
@@ -89,7 +100,7 @@
                                             <div class="thumbnail">
                                                 <div class="images">
                                                     <?php foreach($package['products']['data']['records'] as $product) { ?>
-                                                        <img src="<?php echo $product['product_main_photo']; ?>" alt="product" class="img-responsive">
+                                                        <img src="<?php echo $product['product_main_photo']; ?>" alt="product" data-product-id="<?=$product['product_id']?>" class="img-responsive product-card">
                                                     <?php } ?>
                                                 </div>
                                                 <div class="caption">
@@ -113,7 +124,7 @@
                         <div role="tabpanel" class="tab-pane" id="above">
                             <div class="row">
                                 <?php if($above_the_budget_products['data']['total_records']) { foreach($above_the_budget_products['data']['records'] as $product) { ?>
-                                    <div class="col-sm-6 col-md-3">
+                                    <div class="col-sm-6 col-md-3 product-card" data-product-id="<?=$product['product_id']?>">
                                         <div class="thumbnail">
                                             <img src="<?php echo $product['product_main_photo']; ?>" alt="product" class="img-responsive">
                                             <div class="caption">
@@ -202,7 +213,7 @@
                         <div class="col-md-5" dir="rtl">
                             <div class="product-slides-modal" >
                                 <div class="sliderForProduct" id="sliderForProduct">
-                                    <div><img
+                                <div><img
                                         src="https://images.unsplash.com/photo-1548238177-8cf7cc19a0e8?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
                                 </div>
                                 <div><img
@@ -214,7 +225,7 @@
                                 </div>
                             </div>
                             <div class="sliderNavProduct" id="sliderNavProduct">
-                                <div class="lower" ><img
+                            <div class="lower" ><img
                                     src="https://images.unsplash.com/photo-1548238177-8cf7cc19a0e8?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
                             </div>
                             <div class="lower"><img
@@ -226,8 +237,8 @@
                             </div>
                         </div>
                         <div class="col-md-7">
-                            <h1>Product Name</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis quis, laudantium at cum culpa impedit?</p>
+                            <h1 id="product_name"></h1>
+                            <p id="product_description"></p>
                    
                         </div>
                     </div>

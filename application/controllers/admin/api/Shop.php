@@ -64,5 +64,27 @@ class Shop extends API_Controller_Secure {
     }
 
 
+    public function product_details_post(){
+        $productId = $this->post('product_id'); // Using $this->post() to get POST data
+        $this->load->database();
+        $this->db->select("*");
+        $this->db->where('product_id', $productId);
+        $this->db->from('tbl_products');
+        $query = $this->db->get();
+        
+        if ($query->num_rows() > 0) {
+            $product = $query->row();
+            $response['status'] = 200;
+            $response['product'] = $product;
+        } else {
+            $response['status'] = 404; // Not Found
+            $response['message'] = "No product found with the given ID.";
+        }
+        
+        $this->Return['status'] = 200;
+        $this->Return['data'] = $response;
+        exit;
+    }
+
   
 }
