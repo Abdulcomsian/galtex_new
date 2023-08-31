@@ -50,6 +50,11 @@
         width: auto important;
         height: 150px!important;
     }
+
+    #sliderForProduct .slick-slide img{
+        width: 470px!important;
+        height: 520px!important;
+    }
     </style>
 
 <input type="hidden" name="baseurl" id="baseurl" value="<?=BASE_URL."uploads/products/";?>">
