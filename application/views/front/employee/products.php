@@ -59,10 +59,10 @@
       background: #963491;
    }
 
-   /* .banner-image {
+   .banner-image {
       width: 1100px !important;
       height: 516px !important;
-   } */
+   }
 
    .cover-image {
       display: none;
@@ -75,7 +75,7 @@
       }
 
       .cover-image {
-         width: 100%;
+         /* width: 100%; */
          display: block;
       }
    }
@@ -196,7 +196,7 @@
                ?>
                <div class="banner-image">
                   <img src="<?= $imageUrl ?>" className="card-img-top rounded banner-image"
-                     style="" /><!-- remove width :1100px!important; height : 516px!important; -->
+                     style="width :1100px!important; height : 516px!important;" />
                </div>
                <div class="cover-image">
                   <img src="<?= $coverImageUrl ?>" className="card-img-top rounded banner-image"
