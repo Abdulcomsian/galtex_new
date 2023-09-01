@@ -101,7 +101,7 @@
 
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="col-sm-12 col-md-3 col-lg-3">
                             <label class="control-label"><?php echo lang('company_logo'); ?></label><br/>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px; border:1px solid #cfcfcf"></div>
@@ -117,7 +117,7 @@
                         </div>
 
                            <!-- POPUP START -->
-                        <div class="col-sm-2">
+                        <div class="col-sm-12 col-md-3 col-lg-3">
                             <label class="control-label"><?php echo lang('popup_image'); ?></label><br/>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;"></div>
@@ -151,8 +151,7 @@
                         <!-- POPUP END -->
 
                         <!-- banner starts here -->
-                        <div class="col-sm-12">
-                            <div style="display: flex;">
+                        <div class="col-sm-12 col-md-3 col-lg-3">
                                 <div class="mx-2">
                                     <label class="control-label"><?php echo lang('banner_image'); ?></label><br/>
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -168,6 +167,9 @@
                                     </div>
                                 </div>
 
+                        </div>
+
+                        <div class="col-sm-12 col-md-3 col-lg-3">
                                 <div class="mx-2">
                                     <label class="control-label"><?php echo lang('mobile_cover_image'); ?></label><br/>
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -182,10 +184,7 @@
                                         </div>
                                     </div>
                                 </div>
-
-                            </div>
                         </div>
-
 
                         <!-- <div class="row banner-cropper-row">
                             <div class="col-sm-12 col-md-12 col-lg-12">

@@ -10,6 +10,8 @@
         color: white;
         margin: 20px 10px;
     }
+
+    
 </style>
 
 <section id="content">
@@ -132,7 +134,7 @@
                         <!-- upload popup image -->
 
                         <input type="hidden" name="old_popup_image" value="<?php echo $details['client_configs']['popup_image']; ?>">
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <label class="control-label"><?php echo lang('popup_image'); ?></label><br/>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;">
@@ -173,7 +175,7 @@
 
                         <!-- upload banner image -->
                         <input type="hidden" name="old_banner_image" value="<?php echo $details['client_configs']['banner_image']; ?>">
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <label class="control-label"><?php echo lang('banner_image'); ?></label><br/>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;">
@@ -214,7 +216,7 @@
 
                         <!-- upload cover image  -->
                         <input type="hidden" name="old_cover_image" value="<?php echo $details['client_configs']['cover_image']; ?>">
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <label class="control-label"><?php echo lang('mobile_cover_image'); ?></label><br/>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;">
