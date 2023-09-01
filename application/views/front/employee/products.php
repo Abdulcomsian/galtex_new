@@ -60,10 +60,17 @@
    }
 
    .banner-image {
-      width: 1100px !important;
+      /* width: 1100px !important; */
+      width: 100% !important;
       height: 516px !important;
+      text-align: center;
    }
-
+ 
+   .container-fluid .cardBlur  #card{
+      background:transparent;
+      -webkit-box-shadow:none;
+      box-shadow:none;
+   }
    .cover-image {
       display: none;
    }
@@ -176,7 +183,7 @@
    <?php ?>
 
    <div class="product_main">
-      <div class="container">
+      <div class="container-fluid">
          <div class="cardBlur">
             <section id="card">
                <?php
@@ -198,9 +205,51 @@
                   <img src="<?= $imageUrl ?>" className="card-img-top rounded banner-image"
                      style="width :1100px!important; height : 516px!important;" />
                </div>
-               <div class="cover-image">
+               <!-- <div class="cover-image">
                   <img src="<?= $coverImageUrl ?>" className="card-img-top rounded banner-image"
                      style="width :1100px!important; height : 516px!important;" />
+               </div> -->
+               <!-- <div class="inner_banner_sec">
+            <div class="innerbanner_cap text-center productMain">
+               <div class="container">
+                  <div class="watermark_text">
+                     <h1 class="head_1"><?php echo lang('products'); ?></h1> 
+                     <p class="watermark wow zoomIn" data-wow-delay="0.4s"><?php echo $this->session->userdata('webuserdata')['client_configs']['shop_title']; ?></p>
+                  </div>
+               </div>
+            </div>
+         </div> -->
+               <!-- <div class="welcomeText">
+            <p><?php echo lang('welcome_note'); ?></p>
+         </div> -->
+            </section>
+         </div>
+      </div>
+      <div class="container">
+      <div class="cardBlur">
+            <section id="card">
+               <?php
+               $baseUrl = base_url();
+               $bannerImage = $this->session->userdata('webuserdata')['client_configs']['banner_image'];
+               $coverImage = $this->session->userdata('webuserdata')['client_configs']['cover_image'];
+               $image = isset($bannerImage) && !is_null($bannerImage) ? "/uploads/company/" . $bannerImage : "/assets/images/testImage.png";
+               $coverImage = isset($coverImage) && !is_null($coverImage) ? "/uploads/company/" . $coverImage : "/assets/images/testImage.png";
+               $imageUrl = $baseUrl . $image;
+               $coverImageUrl = $baseUrl . $coverImage;
+               // echo $imageUrl;
+               // exit;
+               // print_r($this->session->userdata('webuserdata')['client_configs']);
+               // exit;
+               
+
+               ?>
+               <!-- <div class="banner-image">
+                  <img src="<?= $imageUrl ?>" className="card-img-top rounded banner-image"
+                     style="width :1100px!important; height : 516px!important;" />
+               </div> -->
+               <div class="cover-image">
+                  <img src="<?= $coverImageUrl ?>" className="card-img-top rounded banner-image"
+                     style="" />
                </div>
                <!-- <div class="inner_banner_sec">
             <div class="innerbanner_cap text-center productMain">
@@ -343,7 +392,7 @@
                      // print_r("<pr>");
                      // print_r($products_data);exit;
                      foreach ($products_data['data']['records'] as $product) { ?>
-                        <div class="prod_coll col-sm-3 col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="prod_coll col-sm-4 col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
                            <div class="proimage here1">
                               <div class="pro_img_box">
                                  <a
@@ -444,7 +493,7 @@
 
 
                      <?php foreach ($packages['data']['records'] as $package) { ?>
-                        <div class="prod_coll col-sm-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="prod_coll col-sm-4 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
                            <div class="proimage  here2">
                               <?php
                               $i = 0;
