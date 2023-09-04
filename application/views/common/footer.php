@@ -107,10 +107,10 @@
                                 <a href="javascript:void(0);" target="_blank"><i class="fab fa-twitter"></i></a>
                             </li> -->
                             <li class="list-inline-item">
-                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.linkedin.com/company/galtex/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="javascript:void(0);" target="_blank"><i class="fab fa-google"></i></a>
+                                <a href="https://business.galtex.co.il/" target="_blank"><i class="fab fa-google"></i></a>
                             </li>
                             
                             <!-- <li class="list-inline-item">
