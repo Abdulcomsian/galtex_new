@@ -159,7 +159,7 @@
                
                
                     <!-- new modal -->
-     <div class="container">
+     <!-- <div class="container">
         <div class="row">
             <div class="button-quick-view">
                 <button type="button" data-toggle="modal" data-target="#aynModal-1">
@@ -167,7 +167,7 @@
                 </button>
             </div>
         </div>
-    </div>
+    </div> -->
                 
                 
                 </div>
