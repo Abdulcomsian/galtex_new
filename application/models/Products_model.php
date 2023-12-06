@@ -12,7 +12,6 @@ class Products_model extends CI_Model {
       Description:  Use to add product.
      */
     function add_product($Input = array()) {
-
         $insert_array = array_filter(array(
             "product_guid" => get_guid(),
             "product_name" => @ucfirst(strtolower($Input['product_name'])),
@@ -20,13 +19,14 @@ class Products_model extends CI_Model {
             "min_price" => $Input['min_price'],
             "max_price" => $Input['max_price'],
             "warranty" => @$Input['warranty'],
-            "product_descprition" => $Input['product_descprition'],
-            "short_description" => $Input['product_short_description'],
+            "product_descprition" => strip_tags($Input['product_descprition']),
+            "short_description" => strip_tags($Input['product_short_description']),
             "product_main_photo" => $Input['product_main_photo'],
             // "product_gallery_images" => (!empty($Input['product_gallery_images'])) ? json_encode($Input['product_gallery_images']) : NULL,
             "product_gallery_images" => (!empty($Input['file_location'])) ? json_encode($Input['file_location']) : NULL,
             "created_date" => date('Y-m-d H:i:s')
         ));
+        // print_r($insert_array); exit;
         $this->db->insert('tbl_products', $insert_array);
         if (!$this->db->insert_id()) {
             return FALSE;
