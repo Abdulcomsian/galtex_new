@@ -42,24 +42,6 @@
                                 <input type="text" class="form-control" value="<?php echo $details['client_configs']['contact_number'];?>" name="contact_number" placeholder="<?php echo lang('contact_number'); ?>" autocomplete="off">
                             </div>
                         </div>
-                        <!-- <div class="col-sm-3">
-                            <div class="form-group">
-                                <label class="control-label"><?php //echo lang('employee_budget'); ?> (<?php //echo CURRENCY_SYMBOL; ?>)</label>
-                                <input type="text" class="form-control validate-no" value="<?php //echo $details['employee_budget'];?>" readonly placeholder="<?php // echo lang('employee_budget'); ?>" autocomplete="off">
-                            </div>
-                        </div> -->
-                        <!-- <div class="col-sm-3">
-                            <div class="form-group">
-                                <label class="control-label"><?php //echo lang('client')." ".lang('first_name'); ?></label>
-                                <input type="text" value="<?php //echo $details['first_name'];?>" class="form-control" name="first_name" placeholder="<?php// echo lang('first_name'); ?>" maxlength="30" autocomplete="off">
-                            </div>
-                        </div> -->
-                        <!-- <div class="col-sm-3">
-                            <div class="form-group">
-                                <label class="control-label"><?php //echo lang('client')." ".lang('last_name'); ?></label>
-                                <input type="text" value="<?php //echo $details['last_name'];?>" class="form-control" name="last_name" placeholder="<?php //echo lang('last_name'); ?>" maxlength="30" autocomplete="off">
-                            </div>
-                        </div> -->
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label"><?php echo lang('email_address'); ?></label>
@@ -72,18 +54,6 @@
                                 <input type="text" class="form-control" name="password" placeholder="<?php echo lang('password'); ?>" autocomplete="off">
                             </div>
                         </div>
-                        <!-- <div class="col-sm-3">
-                            <div class="form-group">
-                                <label class="control-label"><?php echo lang('shop_title'); ?></label>
-                                <input type="text" class="form-control" name="shop_title" value="<?php echo $details['client_configs']['shop_title'];?>" placeholder="<?php echo lang('shop_title'); ?>" autocomplete="off">
-                            </div>
-                        </div> -->
-                        <!-- <div class="col-sm-3">
-                            <div class="form-group">
-                                <label class="control-label"><?php //echo lang('theme_color'); ?></label>
-                                <input type="color" class="form-control" name="theme_color" value="<?php// echo $details['client_configs']['theme_color'];?>" placeholder="<?php //echo lang('theme_color'); ?>" autocomplete="off">
-                            </div>
-                        </div> -->
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label"><?php echo lang('delivery_method'); ?></label>
@@ -150,24 +120,6 @@
                             </div>
                         </div>
 
-                        <!-- <div class="col-sm-3">
-                            <div class="row popup-cropper-row">
-                                <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <label class="control-label"><?php //echo lang('popup_image'); ?></label>
-                                    <div>
-                                        <img class="popup-main-image" src="<?php //echo base_url().'uploads/company/'.$details['client_configs']['popup_image']; ?>" alt="" >
-                                        <img class="popup-cropped-image" src="" alt="" >
-                                        <div>
-                                            <button type="button" class="btn crop-popup-image">Crop Image</button>
-                                            <button type="button" class="btn try-another-popup">Try Another</button>
-                                        </div>
-                                        <input type="file" name="popup_image" id="popup_image" accept="image/*"/>
-                                        <input type="hidden" name="old_popup_image" id="old_popup_image" value="<?php //$details['client_configs']['popup_image']?>"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
 
                         
 
@@ -190,25 +142,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-                        <!-- <div class="col-sm-3">
-                            <div class="row banner-cropper-row">
-                                <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <label class="control-label"><?php //echo lang('banner_image'); ?></label>
-                                    <div>
-                                        <img class="banner-main-image" src="<?php //echo base_url().'uploads/company/'.$details['client_configs']['banner_image']; ?>" alt="" >
-                                        <img class="banner-cropped-image" src="" alt="" >
-                                        <div>
-                                            <button type="button" class="btn crop-banner-image">Crop Image</button>
-                                            <button type="button" class="btn try-another-banner">Try Another</button>
-                                        </div>
-                                        <input type="file" name="banner_image" id="banner_image" accept="image/*"/>
-                                        <input type="hidden" name="old_banner_image" id="old_banner_image" value="<?php //$details['client_configs']['banner_image']?>"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
 
 
                         <!-- upload banner image ends here -->

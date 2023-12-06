@@ -110,12 +110,23 @@ class Clients extends Admin_Controller_Secure {
 	*/
 	public function delete($user_guid)
 	{
-		if(!$this->Users_model->delete_user($user_guid)){
-			$this->session->set_flashdata('error',lang('error_occured'));
+		if(strpos($user_guid, '%')===0){
+			$user_guid = urldecode($user_guid);
+			if(!$this->Users_model->delete_user($user_guid)){
+				$this->session->set_flashdata('error',lang('error_occured'));
+			}else{
+				$this->session->set_flashdata('success',lang('client_deleted'));
+			}
+			redirect('admin/clients/list');
 		}else{
-			$this->session->set_flashdata('success',lang('client_deleted'));
+			if(!$this->Users_model->delete_user($user_guid)){
+				$this->session->set_flashdata('error',lang('error_occured'));
+			}else{
+				$this->session->set_flashdata('success',lang('client_deleted'));
+			}
+			redirect('admin/clients/list');
 		}
-		redirect('admin/clients/list');
+		
 	}
 
 	/**

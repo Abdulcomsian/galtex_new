@@ -36,7 +36,7 @@
                                 <td>
                                    <button class="btn bg-cyan btn-icon" onclick="window.location.href='details/<?php echo $value['product_guid']; ?>'" title="<?php echo lang('view_product_details'); ?>"><i class="zmdi zmdi-eye"></i></button>
                                     <button class="btn bg-orange btn-icon" onclick="window.location.href='edit/<?php echo $value['product_guid']; ?>'" title="<?php echo lang('edit_product'); ?>"><i class="zmdi zmdi-edit"></i></button>
-                                    <button class="btn btn-danger btn-icon" onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_sure_delete'); ?> <b style=   &quot;color:red; &quot;></b> <?php echo lang('product'); ?>?','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','delete/<?php echo $value['product_guid']; ?>')" title="<?php echo lang('delete_product'); ?>"><i class="zmdi zmdi-delete"></i></button>
+                                    <button class="btn btn-danger btn-icon" onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_sure_delete'); ?><?php echo lang('product'); ?>?','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','delete/<?php echo $value['product_guid']; ?>')" title="<?php echo lang('delete_product'); ?>"><i class="zmdi zmdi-delete"></i></button>
                                 </td>
                            </tr>
                             <?php $i++; } } ?>

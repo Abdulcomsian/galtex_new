@@ -47,12 +47,23 @@ class Categories extends Admin_Controller_Secure {
 	*/
 	public function delete($category_guid)
 	{
-		if(!$this->Categories_model->delete_category($category_guid)){
-			$this->session->set_flashdata('error',lang('error_occured'));
+		if(strpos($category_guid, '%') === 0){
+			$category_guid = urldecode($category_guid);
+			if(!$this->Categories_model->delete_category($category_guid)){
+				$this->session->set_flashdata('error',lang('error_occured'));
+			}else{
+				$this->session->set_flashdata('success',lang('category_deleted'));
+			}
+			redirect('admin/categories/list');
 		}else{
-			$this->session->set_flashdata('success',lang('category_deleted'));
+			if(!$this->Categories_model->delete_category($category_guid)){
+				$this->session->set_flashdata('error',lang('error_occured'));
+			}else{
+				$this->session->set_flashdata('success',lang('category_deleted'));
+			}
+			redirect('admin/categories/list');
 		}
-		redirect('admin/categories/list');
+		
 	}
 
 	

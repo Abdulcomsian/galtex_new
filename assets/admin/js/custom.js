@@ -94,29 +94,96 @@ function hideProgressBar()
 ***************************Confirmation Box start **********************************
 ************************************************************************************/
 
-function showConfirmationBox(title,text,confirmButtonText,cancelButtonText,redirectURL)
-{
-  swal({   
-      title: title,   
-      text: text,   
-      type: "warning",   
-      html: true,   
-      showCancelButton: true,   
-      confirmButtonColor: "#DD6B55",   
-      confirmButtonText: confirmButtonText,   
-      cancelButtonText: cancelButtonText,   
-      closeOnConfirm: false,   
-      closeOnCancel: false,
-      animation: true,
-      showLoaderOnConfirm: true
-  }, function(isConfirm){   
-      if (isConfirm) {     
-        window.location.href = redirectURL;  
-      } else {     
-        swal.close();
-      } 
+// function showConfirmationBox(title,text,confirmButtonText,cancelButtonText,redirectURL)
+// {
+//   alert("in function");
+//   swal({   
+//       title: title,   
+//       text: text,   
+//       type: "warning",   
+//       html: true,   
+//       showCancelButton: true,   
+//       confirmButtonColor: "#DD6B55",   
+//       confirmButtonText: confirmButtonText,   
+//       cancelButtonText: cancelButtonText,   
+//       closeOnConfirm: false,
+//       closeOnCancel: false,
+//       animation: true,
+//       showLoaderOnConfirm: true
+//   }, function(isConfirm){
+//       if (isConfirm) {
+//         alert("here");
+//         window.location.href = redirectURL;  
+//       } else {     
+//         swal.close();
+//       }
+//   });
+// }
+
+// function showConfirmationBox(title, text, confirmButtonText, cancelButtonText, redirectURL) {
+//   console.log("In function");
+
+//   Swal.fire({
+//     title: title,
+//     text: text,
+//     type: "warning",
+//     html: true,
+//     showCancelButton: true,
+//     confirmButtonColor: "#DD6B55",
+//     confirmButtonText: confirmButtonText,
+//     cancelButtonText: cancelButtonText,
+//     closeOnConfirm: false,
+//     closeOnCancel: false,
+//     animation: true,
+//     showLoaderOnConfirm: true
+//   }, function (isConfirm) {
+//     console.log("Inside swal callback");
+// console.log(isConfirm);
+//     if (isConfirm) {
+//       console.log("Confirm button clicked");
+//       alert("here");
+//       window.location.href = redirectURL;
+//     } else {
+//       console.log("Cancel button clicked");
+//       swal.close();
+//     }
+//   });
+
+//   console.log("After swal");
+// }
+
+
+// function according to the latest version sweet alert code (now working fine)
+function showConfirmationBox(title, text, confirmButtonText, cancelButtonText, redirectURL) {
+  console.log("inside function");
+  Swal.fire({
+    title: title,
+    text: text,
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#DD6B55',
+    confirmButtonText: confirmButtonText,
+    cancelButtonText: cancelButtonText,
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      return new Promise((resolve) => {
+        resolve();
+      });
+    },
+  }).then((result) => {
+    console.log("inside swal outside condition");
+    if (result.isConfirmed) {
+      console.log("inside swal at confirmation - means delete successfull")
+      window.location.href = redirectURL;
+    } else {
+      Swal.close();
+    }
+    console.log("after swal");
   });
 }
+
+
+
 
 /***********************************************************************************
 ***************************Confirmation Box end ************************************

@@ -50,7 +50,11 @@
                                 </tr>
                             </thead>
                             <tbody> 
-                            <?php if(!empty($members['data']['records'])){ $i = 1; foreach ($members['data']['records'] as $value) { ?>
+                            <?php 
+                                if(!empty($members['data']['records'])){ 
+                                    $i = 1; 
+                                    foreach ($members['data']['records'] as $value){
+                            ?>
                             <tr>
                                 <td><?php echo addZero($i); ?> </td>
                                 <td><?php echo $value['first_name']; ?></td>
@@ -64,7 +68,7 @@
                                     <button class="btn bg-cyan btn-icon view-user-details" data-user-guid="<?php echo $value['user_guid']; ?>" title="<?php echo lang('view_employee_details'); ?>"><i class="zmdi zmdi-eye"></i></button>
                                     <?php // if($this->user_type_id == 1){ ?>
                                     <button class="btn bg-orange btn-icon" onclick="window.location.href='edit/<?php echo $value['user_guid']; ?>'" title="<?php echo lang('edit_employee'); ?>"><i class="zmdi zmdi-edit"></i></button>
-                                    <button class="btn btn-danger btn-icon" onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_sure_delete'); ?> <b style=   &quot;color:red; &quot;><?php echo $value['email']; ?></b> <?php echo lang('employee'); ?>?','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','delete/<?php echo $value['user_guid']; ?>')" title="<?php echo lang('delete_employee'); ?>"><i class="zmdi zmdi-delete"></i></button>
+                                    <button class="btn btn-danger btn-icon" onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_sure_delete'); ?><?php echo $value['email']; ?> <?php echo lang('employee'); ?>?','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','delete/<?php echo $value['user_guid']; ?>')" title="<?php echo lang('delete_employee'); ?>"><i class="zmdi zmdi-delete"></i></button>
                                 <?php // } ?>
                                 </td>
                            </tr>
@@ -160,7 +164,6 @@
         },
         dataType: 'json', // Parse the response as JSON
         success: function(res) {
-
             if (res.data.success === true) {
                 $('.my-datatable').DataTable().destroy();
                 document.querySelector(".my-datatable").querySelector("tbody").innerHTML = res.data.customers;

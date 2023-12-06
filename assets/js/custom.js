@@ -96,7 +96,7 @@ function hideProgressBar()
 
 function showConfirmationBox(title,text,confirmButtonText,cancelButtonText,redirectURL)
 {
-  swal({   
+  Swal.fire({   
       title: title,   
       text: text,   
       type: "warning",   
@@ -109,9 +109,7 @@ function showConfirmationBox(title,text,confirmButtonText,cancelButtonText,redir
       animation: true,
       showLoaderOnConfirm: true
   }, function(isConfirm){   
-      if (isConfirm) {    
-        // console.log("here")
-        // console.log(redirectURL) ;
+      if (isConfirm) {
         window.location.href = redirectURL;  
       } else {     
         swal.close();

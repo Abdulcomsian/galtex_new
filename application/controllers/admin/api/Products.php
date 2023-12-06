@@ -19,7 +19,6 @@ class Products extends API_Controller_Secure {
       URL: 			/admin/api/products/add/
     */
     public function add_post() {
-        
         /* Validation section */
         $this->form_validation->set_rules('product_name', 'Product Name', 'trim|required');
         $this->form_validation->set_rules('product_category_id', 'Product Category', 'trim|required|callback_validate_guid[tbl_categories.category_guid.category_id]');
