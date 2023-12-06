@@ -114,9 +114,9 @@ function getSliderSettings(){
 
               document.getElementById("sliderNavProduct").insertAdjacentHTML("beforeend" , galleryImagesHTML);
 
-              document.getElementById("product_name").innerText = productName;
+              document.getElementById("product_name").innerHTML = productName;
 
-              document.getElementById("product_description").innerText = description;
+              document.getElementById("product_description").innerHTML = description;
 
 
               
