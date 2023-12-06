@@ -69,16 +69,14 @@
                     <ul class="tab-nav tab-nav-right" role="tablist">
                         <li role="presentation" class="active"><a href="#within" aria-controls="within" role="tab" data-toggle="tab" aria-expanded="false"><?php echo lang('within_the_budget'); ?> (<?php echo addZero($within_the_budget_products['data']['total_records']+@$packages['data']['total_records']); ?>)</a></li>
                         <li role="presentation"><a href="#above" aria-controls="above" role="tab" data-toggle="tab" aria-expanded="true"><?php echo lang('above_the_budget'); ?> (<?php echo addZero($above_the_budget_products['data']['total_records']); ?>)</a></li>
-                    </ul>
-                    
+                    </ul>                    
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="within">
                             <div class="row">
                                 <?php if($within_the_budget_products['data']['total_records']) { foreach($within_the_budget_products['data']['records'] as $product) { ?>
-                                  
-                                    <div class="col-sm-6 col-md-3 product-card" data-product-id="<?=$product['product_id']?>">
+                                    <div class="col-sm-6 col-md-3" >
                                         <div class="thumbnail">
-                                            <img src="<?php echo $product['product_main_photo']; ?>" alt="product" class="img-responsive">
+                                            <img src="<?php echo $product['product_main_photo']; ?>" alt="product here"  class="img-responsive product-card" data-product-id="<?=$product['product_id']?>">
                                             <div class="caption">
                                                 <h4><?php echo $product['category_name']; ?> - <?php echo $product['product_name']; ?></h4>
                                                 <div class="clearfix"></div>
@@ -131,7 +129,7 @@
                                 <?php if($above_the_budget_products['data']['total_records']) { foreach($above_the_budget_products['data']['records'] as $product) { ?>
                                     <div class="col-sm-6 col-md-3 product-card" data-product-id="<?=$product['product_id']?>">
                                         <div class="thumbnail">
-                                            <img src="<?php echo $product['product_main_photo']; ?>" alt="product" class="img-responsive">
+                                            <img src="<?php echo $product['product_main_photo']; ?>" alt="product hello" class="img-responsive">
                                             <div class="caption">
                                                 <h4><?php echo $product['category_name']; ?> - <?php echo $product['product_name']; ?></h4>
                                                 <p>+ <?php echo CURRENCY_SYMBOL."".$product['above_budget_price']; ?></p>
