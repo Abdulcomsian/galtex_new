@@ -65,7 +65,7 @@ class Users_model extends CI_Model {
       Note:			$Field should be comma seprated and as per selected tables alias.
      */
 
-    function get_users($Field = '', $Where = array(), $multiRecords = FALSE, $PageNo = 1, $PageSize = 150) {
+    function get_users($Field = '', $Where = array(), $multiRecords = FALSE, $PageNo = 1, $PageSize = 10000) {
         /* Additional fields to select */
         $Params = array();   
         if (!empty($Field)) {
@@ -231,7 +231,7 @@ class Users_model extends CI_Model {
       Description:  Use to update user profile info.
      */
     function update_user($user_id, $Input = array()) { 
-
+        // print_r($Input); exit;
         $this->db->trans_start();
 
         $update_array = array_filter(array(

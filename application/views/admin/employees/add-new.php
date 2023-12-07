@@ -50,7 +50,7 @@
                         </div>
                         <div class="form-group col-sm-12 text-center m-t-20">
                             <button class="btn btn-primary" ><?php echo lang('submit'); ?></button>
-                            <button type="button" class="btn btn-danger reset-btn"><?php echo lang('reset'); ?></button>
+                            <a href="list" class="btn btn-danger"><?php echo lang('reset'); ?></a>
                         </div>
                     </div>
                 </form>

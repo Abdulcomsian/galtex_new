@@ -316,7 +316,7 @@ $(document).on("click" , "#edit-submit-product" , function(e){
         url: api_url + 'products/edit',
         type:"POST",
         data: formData,
-        dataType : "JSON",   
+        dataType : "JSON",
         cache: false,
         contentType: false,
         processData: false,
@@ -324,8 +324,8 @@ $(document).on("click" , "#edit-submit-product" , function(e){
             if(resp.status == 200){
                 showToaster('success',success,resp.message);  
                 setTimeout(function(){
-                    // alert("successfully added product")
-                    window.location.href = base_url + 'admin/products/list';
+                    alert("successfully added product");
+                    // window.location.href = base_url + 'admin/products/list';
                 },500);
             }else{
                 showToaster('error',error,resp.message);  

@@ -127,9 +127,9 @@
                         <div role="tabpanel" class="tab-pane" id="above">
                             <div class="row">
                                 <?php if($above_the_budget_products['data']['total_records']) { foreach($above_the_budget_products['data']['records'] as $product) { ?>
-                                    <div class="col-sm-6 col-md-3 product-card" data-product-id="<?=$product['product_id']?>">
+                                    <div class="col-sm-6 col-md-3">
                                         <div class="thumbnail">
-                                            <img src="<?php echo $product['product_main_photo']; ?>" alt="product hello" class="img-responsive">
+                                            <img src="<?php echo $product['product_main_photo']; ?>" alt="product hello" class="img-responsive product-card" data-product-id="<?=$product['product_id']?>">
                                             <div class="caption">
                                                 <h4><?php echo $product['category_name']; ?> - <?php echo $product['product_name']; ?></h4>
                                                 <p>+ <?php echo CURRENCY_SYMBOL."".$product['above_budget_price']; ?></p>

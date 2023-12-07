@@ -40,7 +40,6 @@ class Employees extends API_Controller_Secure {
       URL:          /admin/api/employees/edit/
     */
     public function edit_post() { 
-
         /* Validation section */
         $this->form_validation->set_rules('first_name', 'First Name', 'trim|required');
         $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required');
@@ -50,6 +49,7 @@ class Employees extends API_Controller_Secure {
         $this->form_validation->set_rules('user_status', 'Status', 'trim|required|in_list[Pending,Verified,Blocked]');
         $this->form_validation->validation($this);  /* Run validation */
         /* Validation - ends */
+        
 
         /* Validate Unique Email ID */
         $query = $this->db->query('SELECT 1 FROM tbl_users WHERE email = "'.$this->Post['email'].'" AND user_id != '.$this->user_id.' LIMIT 1');

@@ -122,6 +122,7 @@ class Products extends API_Controller_Secure {
             }
             $this->Post['product_main_photo'] = $image_data['upload_data']['file_name'];
         }
+        // echo "blabla"; exit;
         if(!$this->Products_model->edit_product($this->product_id,array_merge($this->Post,array('product_category_id' => $this->category_id)))){
             $this->Return['status'] = 500;
             $this->Return['message'] = lang('error_occured');

@@ -38,7 +38,6 @@ class Products_model extends CI_Model {
       Description:  Use to edit product.
      */
     function edit_product($product_id, $Input = array()) {
-
         $this->db->trans_start();
 
         $update_array = array_filter(array(

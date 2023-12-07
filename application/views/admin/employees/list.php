@@ -12,6 +12,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tile">
+                <?php 
+                if($this->user_type_id == 1){
+                ?>
                 <div class="filter-btn-section" style="width : 100%;">
                         <div class="filter-section" style="width : 30%">        
                            
@@ -26,10 +29,11 @@
                             <button class="btn btn-primary filter-employee" style="margin: 2px 5px;">Filter</button>
                         </div>
                 </div>
+                <?php } ?>
                 <div class="t-header">
                     <div class="th-title"><span class="zmdi zmdi-account zmdi-hc-fw" aria-hidden="true"></span> <?php echo lang('employees'); ?>
                     (<div id="filter-count">
-                    <?php echo $members['data']['total_records']-1; ?>
+                    <?php echo $members['data']['total_records']; ?>
                     </div>)
                         <div class="employees-actions">
                             <a href="javascript:void(0);" class="btn btn-primary upload-employee-btn"><?php echo lang('upload_employees'); ?></a>
@@ -51,7 +55,7 @@
                                     <th><?php echo lang('action'); ?></th>
                                 </tr>
                             </thead>
-                            <tbody> 
+                            <tbody>
                             <?php 
                                 if(!empty($members['data']['records'])){ 
                                     $i = 1; 
@@ -68,13 +72,13 @@
                                 <td data-sort='<?php echo date("Ymd" , strtotime($value['created_date'])); ?>'><?php echo convertDateTime($value['created_date']); ?> </td>
                                 <td>
                                     <button class="btn bg-cyan btn-icon view-user-details" data-user-guid="<?php echo $value['user_guid']; ?>" title="<?php echo lang('view_employee_details'); ?>"><i class="zmdi zmdi-eye"></i></button>
-                                    <?php // if($this->user_type_id == 1){ ?>
+                                    <?php if($this->user_type_id == 1){ ?>
                                     <button class="btn bg-orange btn-icon" onclick="window.location.href='edit/<?php echo $value['user_guid']; ?>'" title="<?php echo lang('edit_employee'); ?>"><i class="zmdi zmdi-edit"></i></button>
                                     <button class="btn btn-danger btn-icon" onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_sure_delete'); ?><?php echo $value['email']; ?> <?php echo lang('employee'); ?>?','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','delete/<?php echo $value['user_guid']; ?>')" title="<?php echo lang('delete_employee'); ?>"><i class="zmdi zmdi-delete"></i></button>
-                                <?php // } ?>
+                                <?php  } ?>
                                 </td>
                            </tr>
-                            <?php $i++; } } ?>
+                            <?php $i++; } } ?>                       
                             </tbody>
                         </table>
                     </div>
