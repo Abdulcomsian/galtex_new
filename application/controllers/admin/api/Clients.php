@@ -35,7 +35,7 @@ class Clients extends API_Controller_Secure {
         $this->form_validation->set_message('is_unique', '{field} '.lang('field_already_exist'));
         $this->form_validation->validation($this);  /* Run validation */
         /* Validation - ends */
-
+        
         /* Upload company logo */
         if(!empty($_FILES['company_logo']['name'])){
             $image_data = fileUploading('company_logo','company','jpg|jpeg|png|gif');
@@ -52,8 +52,8 @@ class Clients extends API_Controller_Secure {
         }
 
         
-         //popup upload
-         if(!empty($_FILES['popup_image']['name']))
+        //popup upload
+        if(!empty($_FILES['popup_image']['name']))
          {
              $image_data = fileUploading('popup_image','company','jpg|jpeg|png|gif');
              if(!empty($image_data['error']))
@@ -67,10 +67,10 @@ class Clients extends API_Controller_Secure {
              $this->Return['status']  = 500;
              $this->Return['message'] = lang('popup_image');
              exit;
-         }
-
-         //banner upload
-         if(!empty($_FILES['banner_image']['name']))
+            }
+            
+            //banner upload
+            if(!empty($_FILES['banner_image']['name']))
          {
              $image_data = fileUploading('banner_image','company','jpg|jpeg|png|gif');
              if(!empty($image_data['error']))
@@ -80,16 +80,16 @@ class Clients extends API_Controller_Secure {
                  exit;
              }
              $this->Post['banner_image'] = $image_data['upload_data']['file_name'];
-         }else{
-             $this->Return['status']  = 500;
-             $this->Return['message'] = lang('banner_image');
-             exit;
-         }
+            }else{
+                $this->Return['status']  = 500;
+                $this->Return['message'] = lang('banner_image');
+                exit;
+            }
          
 
-         //banner upload
-         if(!empty($_FILES['cover_image']['name']))
-         {
+            //banner upload
+            if(!empty($_FILES['cover_image']['name']))
+            {
              $image_data = fileUploading('cover_image','company','jpg|jpeg|png|gif');
              if(!empty($image_data['error']))
              {
@@ -102,13 +102,13 @@ class Clients extends API_Controller_Secure {
              $this->Return['status']  = 500;
              $this->Return['message'] = lang('cover_image');
              exit;
-         }
-
+         }      
 
 
          
-        /* Check Pickup Addresses */
-        if(($this->Post['delivery_method'] == 'Pickup' || $this->Post['delivery_method'] == 'Both') && empty($this->Post['pickup_addresses'])){
+         /* Check Pickup Addresses */
+         $pickupAddresses = $this->input->post('pickup_addresses');
+        if(($this->Post['delivery_method'] == 'Pickup' || $this->Post['delivery_method'] == 'Both') && $pickupAddresses[0]==NULL){
             $this->Return['status']  = 500;
             $this->Return['message'] = lang('require_pickup_addresses');
             exit;
@@ -209,7 +209,8 @@ class Clients extends API_Controller_Secure {
         }
 
         /* Check Pickup Addresses */
-        if(($this->Post['delivery_method'] == 'Pickup' || $this->Post['delivery_method'] == 'Both') && empty($this->Post['pickup_addresses'])){
+        $pickupAddresses = $this->input->post('pickup_addresses');
+        if(($this->Post['delivery_method'] == 'Pickup' || $this->Post['delivery_method'] == 'Both') && $pickupAddresses[0]==NULL){
             $this->Return['status']  = 500;
             $this->Return['message'] = lang('require_pickup_addresses');
             exit;
