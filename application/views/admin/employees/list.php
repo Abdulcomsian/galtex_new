@@ -35,10 +35,14 @@
                     (<div id="filter-count">
                     <?php echo $members['data']['total_records']; ?>
                     </div>)
+                    <?php 
+                        if($this->user_type_id == 1){
+                    ?>
                         <div class="employees-actions">
                             <a href="javascript:void(0);" class="btn btn-primary upload-employee-btn"><?php echo lang('upload_employees'); ?></a>
                             <a href="<?php echo base_url(); ?>admin/employees/add-new" class="btn btn-primary"><?php echo lang('add_new_employee'); ?></a>
                         </div>
+                    <?php } ?>
                     </div><br/>
                     <div class="current_games_section">
                         <table class="table table-striped table-bordered my-datatable">
