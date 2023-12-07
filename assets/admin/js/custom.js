@@ -256,9 +256,9 @@ $('body').on('click','.view-password',function(){
 ***************************Reset Form Script start ****************************
 ******************************************************************************/
 
-$('body').on('click','.reset-btn',function(){
-    window.location.reload();
-});
+// $('body').on('click','.reset-btn',function(){
+//     window.location.reload();
+// });
 
 /*****************************************************************************
 ***************************Reset Form Script end ******************************

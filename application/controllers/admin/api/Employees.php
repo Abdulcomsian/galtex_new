@@ -148,6 +148,7 @@ class Employees extends API_Controller_Secure {
 
       $this->db->join('tbl_users c', 'c.user_id = u.client_id', 'inner');
       $customerList = $this->db->get()->result();
+      $filterCount = count($customerList);
 
 
       $customerRow = "";
@@ -186,6 +187,7 @@ class Employees extends API_Controller_Secure {
         $response = [
             'success' => true,
             'customers' => $customerRow,
+            'filterCount' => $filterCount,
             'status' => 200,
             'message' => 'success',
             'data' => []

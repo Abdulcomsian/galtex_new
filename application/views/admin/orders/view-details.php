@@ -5,7 +5,7 @@
                 <div class="tile">
                 <div class="t-header">
                         <div class="th-title"><span class="zmdi zmdi-view-web zmdi-hc-fw" aria-hidden="true"></span> <?php echo lang('view_order_details'); ?>
-                        <a href="<?php echo base_url(); ?>admin/orders/list" class="btn btn-primary pull-right admin-right-btn"><?php echo lang('back_to_order_list'); ?></a>
+                        <a href="<?php echo base_url(); ?>admin/orders/list" class="btn btn-primary pull-right admin-right-btn"><?php echo lang('back'); ?></a>
                     </div>
                     <br/>
                     <div class="current_games_section">
@@ -20,7 +20,9 @@
                             </tr>
                             <tr>
                                 <td><?php echo lang('client_name'); ?></td>
+                                <?php if(isset($details['client_name'])){ ?> 
                                 <td><?php echo $details['client_name']; ?></td>
+                                <?php }else{echo "No Customer Name in the Database";} ?>
                             </tr>
                             <tr>
                                 <td><?php echo lang('amount'); ?></td>

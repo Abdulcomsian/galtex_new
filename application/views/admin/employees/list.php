@@ -18,7 +18,7 @@
                             <select class="chosen-select" name="company" id="company">
                                 <option value="">All</option>
                                 <?php foreach($companies as $company) { ?>
-                                    <option value="<?=$company->user_id?>"><?php echo $company->first_name." ".$company->last_name."(".$company->email.")"; ?></option>
+                                    <option value="<?php echo $company->user_id; ?>"><?php echo $company->first_name." ".$company->last_name."(".$company->email.")"; ?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -27,8 +27,10 @@
                         </div>
                 </div>
                 <div class="t-header">
-                    <div class="th-title"><span class="zmdi zmdi-account zmdi-hc-fw" aria-hidden="true"></span> <?php echo lang('employees'); ?> (<?php echo addZero($members['data']['total_records']); ?>) &nbsp;&nbsp;
-                    
+                    <div class="th-title"><span class="zmdi zmdi-account zmdi-hc-fw" aria-hidden="true"></span> <?php echo lang('employees'); ?>
+                    (<div id="filter-count">
+                    <?php echo $members['data']['total_records']-1; ?>
+                    </div>)
                         <div class="employees-actions">
                             <a href="javascript:void(0);" class="btn btn-primary upload-employee-btn"><?php echo lang('upload_employees'); ?></a>
                             <a href="<?php echo base_url(); ?>admin/employees/add-new" class="btn btn-primary"><?php echo lang('add_new_employee'); ?></a>
@@ -162,11 +164,12 @@
         data: {
             company: company
         },
-        dataType: 'json', // Parse the response as JSON
+        dataType: "json", // Parse the response as JSON
         success: function(res) {
             if (res.data.success === true) {
                 $('.my-datatable').DataTable().destroy();
                 document.querySelector(".my-datatable").querySelector("tbody").innerHTML = res.data.customers;
+                document.getElementById("filter-count").innerHTML = res.data.filterCount;
                 $('.my-datatable').DataTable()
             } 
         }

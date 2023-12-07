@@ -99,7 +99,6 @@ class Products extends API_Controller_Secure {
         {
             $fileLocation[] = $file;
         }
-        // $this->post
 
         for($i=0; $i<$fileCount; $i++)
         {
@@ -123,15 +122,10 @@ class Products extends API_Controller_Secure {
             }
             $this->Post['product_main_photo'] = $image_data['upload_data']['file_name'];
         }
-        // else{
-        //     $this->Post['product_main_photo'] = $this->Post['previous-thumbnail'];
-        // }
-
         if(!$this->Products_model->edit_product($this->product_id,array_merge($this->Post,array('product_category_id' => $this->category_id)))){
             $this->Return['status'] = 500;
             $this->Return['message'] = lang('error_occured');
         }else{
-
             $this->Return['status'] = 200;
             $this->Return['message'] = lang('product_updated');   
         }
