@@ -85,29 +85,29 @@
 
 
                         <input type="hidden" name="old_company_logo" value="<?php echo $details['client_configs']['company_logo']; ?>">
-                        <!-- <div class="col-sm-3">
+                        <div class="col-sm-3">
                             <label class="control-label"><?php 
-                            // echo lang('company_logo'); 
+                            echo lang('company_logo'); 
                             ?></label><br/>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;">
                                 <img src="<?php 
-                                // echo base_url().'uploads/company/'.$details['client_configs']['company_logo'];
+                                echo base_url().'uploads/company/'.$details['client_configs']['company_logo'];
                                  ?>" class="img-responsive"></div>
                                 <div>
                                     <span class="btn btn-info btn-file">
                                         <span class="fileinput-new"><?php 
-                                        // echo lang('select_image'); 
+                                        echo lang('select_image'); 
                                         ?></span>
                                         <span class="fileinput-exists"><?php 
-                                        // echo lang('change'); 
+                                        echo lang('change'); 
                                         ?></span>
                                         <input type="hidden" value=""><input type="file" name="company_logo">
                                     </span>
                                     <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
 
                         <!-- upload popup image -->
 
