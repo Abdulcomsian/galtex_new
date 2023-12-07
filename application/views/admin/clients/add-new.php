@@ -97,8 +97,6 @@
                             <div class="form-group">
                                 <label class="control-label"><?php echo lang('deadline'); ?></label>
                                 <input type="datetime-local" id="deadline" class="form-control" name="deadline" placeholder="<?php echo lang('deadline'); ?>" min="<?= date('Y-m-d\TH:i') ?>" autocomplete="off">
-
-
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3">
@@ -166,7 +164,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                         </div>
 
                         <div class="col-sm-12 col-md-3 col-lg-3">
@@ -213,9 +210,9 @@
                                     </div>
                                 </div>
                             <div class="more-pickup-address">
+                                <!-- <div class="row m-t-10"><div class="col-sm-8"><input type="text" class="form-control" name="pickup_addresses[]" placeholder="<?php echo lang('pickup_address'); ?>" maxlength="500" autocomplete="off"></div><div class="col-sm-4"><a href="javascript:void(0);" style="width:80px;" class="btn btn-danger remove-address"><?php echo lang('remove'); ?></a></div></div>
                                 <div class="row m-t-10"><div class="col-sm-8"><input type="text" class="form-control" name="pickup_addresses[]" placeholder="<?php echo lang('pickup_address'); ?>" maxlength="500" autocomplete="off"></div><div class="col-sm-4"><a href="javascript:void(0);" style="width:80px;" class="btn btn-danger remove-address"><?php echo lang('remove'); ?></a></div></div>
-                                <div class="row m-t-10"><div class="col-sm-8"><input type="text" class="form-control" name="pickup_addresses[]" placeholder="<?php echo lang('pickup_address'); ?>" maxlength="500" autocomplete="off"></div><div class="col-sm-4"><a href="javascript:void(0);" style="width:80px;" class="btn btn-danger remove-address"><?php echo lang('remove'); ?></a></div></div>
-                                <div class="row m-t-10"><div class="col-sm-8"><input type="text" class="form-control" name="pickup_addresses[]" placeholder="<?php echo lang('pickup_address'); ?>" maxlength="500" autocomplete="off"></div><div class="col-sm-4"><a href="javascript:void(0);" style="width:80px;" class="btn btn-danger remove-address"><?php echo lang('remove'); ?></a></div></div>
+                                <div class="row m-t-10"><div class="col-sm-8"><input type="text" class="form-control" name="pickup_addresses[]" placeholder="<?php echo lang('pickup_address'); ?>" maxlength="500" autocomplete="off"></div><div class="col-sm-4"><a href="javascript:void(0);" style="width:80px;" class="btn btn-danger remove-address"><?php echo lang('remove'); ?></a></div></div> -->
                             </div>
                         </div>
                         <div class="form-group col-sm-12 text-center m-t-20">
