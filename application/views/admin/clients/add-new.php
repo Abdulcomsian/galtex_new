@@ -11,8 +11,6 @@
         display: none;
     }
 </style>
-
-
 <section id="content">
     <div class="container"> 
         <div class="tile">
@@ -96,7 +94,7 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label"><?php echo lang('deadline'); ?></label>
-                                <input type="datetime-local" id="deadline" class="form-control" name="deadline" placeholder="<?php echo lang('deadline'); ?>" min="<?= date('Y-m-d\TH:i') ?>" autocomplete="off">
+                                <input type="datetime-local" class="form-control" name="deadline" placeholder="<?php echo lang('deadline'); ?>" min="<?= date('Y-m-d\TH:i') ?>" autocomplete="off">
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3">
@@ -418,7 +416,5 @@
             }
             return new Blob([u8arr], { type: mime });
         }
-
-
       //popup script ends here
 </script>

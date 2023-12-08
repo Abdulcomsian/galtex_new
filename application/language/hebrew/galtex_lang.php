@@ -419,4 +419,5 @@ $lang['Someother_Category'] = 'קטגוריה אחרת';
 $lang['days'] = 'ימים';
 $lang['hours'] = 'שעות';
 $lang['minute'] = 'דקות';
+$lang['address_mode'] = 'שיטת אספקה';
 ?>

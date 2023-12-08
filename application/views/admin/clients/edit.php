@@ -77,9 +77,13 @@
                             </div>
                         </div>
                         <div class="col-sm-3">
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="control-label"><?php echo lang('deadline'); ?></label>
                                 <input type="text" id="deadline" class="form-control" name="deadline" placeholder="<?php echo lang('deadline'); ?>" value="<?php echo $details['deadline'];?>" autocomplete="off">
+                            </div> -->
+                            <div class="form-group">
+                                <label class="control-label"><?php echo lang('deadline'); ?></label>
+                                <input type="datetime-local"  class="form-control" name="deadline" placeholder="<?php echo lang('deadline'); ?>" value="<?php echo $details['deadline'];?>" autocomplete="off">
                             </div>
                         </div> 
 
