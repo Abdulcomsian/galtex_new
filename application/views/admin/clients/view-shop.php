@@ -47,19 +47,7 @@
         display: flex !important;
     }
 
-    .lower {
-        width: 150px !important;
-        height: 150px !important;
-        border: 1px solid lightgray;
-        border-radius: 10%;
-        overflow: hidden;
-    }
-
-    .lower img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover;
-    }
+   
 
     /* #sliderForProduct .slick-slide img{
         width: 470px!important;
