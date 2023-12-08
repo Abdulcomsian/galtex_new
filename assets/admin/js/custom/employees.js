@@ -127,7 +127,7 @@ form_object.validate({
                 if(resp.status == 200){
                     showToaster('success',success,resp.message);  
                     setTimeout(function(){
-                        // window.location.href = base_url + 'admin/employees/list';
+                        window.location.href = base_url + 'admin/employees/list';
                     },500);
                 }else{
                     showToaster('error',error,resp.message);  
