@@ -90,28 +90,25 @@ class Products extends API_Controller_Secure {
         /* Validation - ends */
 
 
-        $fileCount = count($_FILES['product_gallery_images']['name']);
-        $fileLocation = [];
+        if(is_countable($_FILES['product_gallery_images']['name']) && is_array($_FILES['product_gallery_images']['name'])){
+            $fileCount = count($_FILES['product_gallery_images']['name']);
+            $fileLocation = [];
+            //setting pervious files
+            $previousFiles = $this->Post['previous-file'];
+            foreach($previousFiles as $file)
+            {
+                $fileLocation[] = $file;
+            }
 
-        //setting pervious files
-        $previousFiles = $this->Post['previous-file'];
-        foreach($previousFiles as $file)
-        {
-            $fileLocation[] = $file;
+            for($i=0; $i<$fileCount; $i++)
+            {
+                $fileName = strtotime("now")."$i"."_".$_FILES['product_gallery_images']['name'][$i];
+                $location = "uploads/products/".$fileName;
+                move_uploaded_file($_FILES['product_gallery_images']['tmp_name'][$i] , $location);
+                $fileLocation[] = $fileName;
+            }            
+            $this->Post = array_merge($this->Post , ['file_location' => $fileLocation]);
         }
-
-        for($i=0; $i<$fileCount; $i++)
-        {
-            $fileName = strtotime("now")."$i"."_".$_FILES['product_gallery_images']['name'][$i];
-            $location = "uploads/products/".$fileName;
-            move_uploaded_file($_FILES['product_gallery_images']['tmp_name'][$i] , $location);
-            $fileLocation[] = $fileName;
-        }
-
-        
-        $this->Post = array_merge($this->Post , ['file_location' => $fileLocation]);
-        
-        
         /* Upload main photo */
         if(!empty($_FILES['product_main_photo']['name'])){
             $image_data = fileUploading('product_main_photo','products','jpg|jpeg|png|gif');

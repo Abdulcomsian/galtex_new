@@ -87,9 +87,6 @@
       }
    }
 </style>
-
-
-
 <main class="main_content">
    <div class="container clock_container mobileHide">
       <div class="card">
@@ -130,36 +127,30 @@
    $basePath = base_url() . '/uploads/company/';
    $popupImage = $this->session->userdata('webuserdata')['client_configs']['popup_image'] ?? $this->session->userdata('webuserdata')['client_configs']['company_logo'] ?? 'testImage.png';
    $imageUrl = $basePath . $popupImage;
-   // print_r($this->session->userdata('webuserdata')['client_configs']['company_logo']);
-   // echo "<pre>";
-   // print_r($this->session->userdata('webuserdata'));
-   // exit;..//
    ?>
 
-   <?php ?> <!-- if (!isset($lastActivity) || is_null($lastActivity)) { -->
-   <div class="overlay_popup">
-      <div class="overlay_popup" style="height: 100vh;">
-         <!-- <dialog class="dialog_box modal-dialog-centered" id="dialogue">
-            <div class="container">
-               <img src="<?php echo $imageUrl ?>" class="card-img-top rounded" /><span class="close-icon">&times;</span>
-               <a href="#">אישור</a>
-            </div>
-         </dialog> -->
-
-         <div class="dialog_box modal-dialog-centered" id="dialogue">
-            <div class="container">
-               <img src="<?php echo $imageUrl ?>" class="card-img-top rounded" /><span class="close-icon">&times;</span>
-               <a href="#">אישור</a>
+   <?php   if (!isset($lastActivity) || is_null($lastActivity)) { ?>
+      <div class="overlay_popup">
+         <div class="overlay_popup" style="height: 100vh;">
+            <!-- <dialog class="dialog_box modal-dialog-centered" id="dialogue">
+               <div class="container">
+                  <img src="<?php echo $imageUrl ?>" class="card-img-top rounded" /><span class="close-icon">&times;</span>
+                  <a href="#">אישור</a>
+               </div>
+            </dialog> -->
+            <div class="dialog_box modal-dialog-centered" id="dialogue">
+               <div class="container">
+                  <img src="<?php echo $imageUrl ?>" class="card-img-top rounded" /><span class="close-icon">&times;</span>
+                  <a href="#">אישור</a>
+               </div>
             </div>
          </div>
       </div>
-   </div>
-
+   <?php } ?>
 
 
    <script>
       (function () {
-
          let email = '<?= $this->session->webuserdata['email'] ?>';
          let userId = '<?= $this->session->webuserdata['user_id'] ?>';
          let data = `email=${email}&userId=${userId}`;
@@ -180,7 +171,6 @@
    </script>
 
 
-   <?php ?>
 
    <div class="product_main">
       <div class="container-fluid">

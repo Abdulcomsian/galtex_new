@@ -324,8 +324,8 @@ $(document).on("click" , "#edit-submit-product" , function(e){
             if(resp.status == 200){
                 showToaster('success',success,resp.message);  
                 setTimeout(function(){
-                    alert("successfully added product");
-                    // window.location.href = base_url + 'admin/products/list';
+                    // alert("Product Updated Successfully");
+                    window.location.href = base_url + 'admin/products/list';
                 },500);
             }else{
                 showToaster('error',error,resp.message);  
