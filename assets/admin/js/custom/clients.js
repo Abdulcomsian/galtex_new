@@ -25,8 +25,12 @@ if($('table').hasClass('my-datatable')){
             info : 'מראה _PAGE_ שֶׁל _PAGES_',
             infoFiltered:   "(מסונן מ _MAX_ סך השיאים)",
             zeroRecords : 'אין נתונים זמינים בטבלה'
-        }
+        },
+        
 	  });
+
+      // to clear the search upon reload
+      $('.my-datatable').DataTable().search('').draw();
 }
 
 /**************** Datatable Script End *************/

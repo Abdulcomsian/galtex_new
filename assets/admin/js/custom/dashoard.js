@@ -26,6 +26,7 @@ if($('table').hasClass('my-datatable')){
             zeroRecords : 'אין נתונים זמינים בטבלה'
         }
       });
+      $('.my-datatable').DataTable().search('').draw();
 }
 
 /**************** Datatable Script End *************/

@@ -36,6 +36,8 @@ if ($('table').hasClass('my-datatable')) {
                     $(".mymsel").select2();
                 }
             });
+
+            $('.my-datatable').DataTable().search('').draw();
         },
 
         dom: 'Bfrtip',
