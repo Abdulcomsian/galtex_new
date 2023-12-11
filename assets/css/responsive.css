@@ -115,7 +115,7 @@
 
   html[dir="rtl"] .mobileHeader button {
     position: absolute;
-    top: -13px;
+    top: -20px;
     right: 8px;
   }
 

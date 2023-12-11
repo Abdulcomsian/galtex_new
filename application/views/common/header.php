@@ -227,7 +227,7 @@ $language = $this->session->userdata('language');
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <div class="mobileHeader">
-                     <div class="row">
+                     <div class="row align-items-center">
                         <div class="col-6">
                            <button style="color:white">
                               <img src="<?php echo base_url(); ?>assets/images/Exit.svg" alt="">
