@@ -1294,6 +1294,18 @@ form .row>div {
   object-fit: cover;
 }
 
+@media (max-width:1800px) {
+  .main-photo {
+    width: 375px;
+    height: 375px;
+  }
+
+  .lower {
+    width: 120px !important;
+    height: 120px !important;
+  }
+}
+
 @media (max-width:1440px) {
   .main-photo {
     width: 300px;
@@ -1327,6 +1339,7 @@ form .row>div {
     margin-top: 0;
   }
 }
+
 @media (max-width:1180px) {
   .main-photo {
     width: 250px;
@@ -1360,6 +1373,7 @@ form .row>div {
     margin-top: 0;
   }
 }
+
 @media (max-width:991px) {
   .main-photo {
     width: 420px;
