@@ -232,7 +232,7 @@
                </div>
                <div class="col-md-12">
                   <div class="row" style="justify-content: center;">
-                     <div class="row product_direction">
+                     <div class="row product_direction col-12">
                         <div class="col-md-4 col-lg-6">
                            <div class="product_right">
                               <div class="row">
