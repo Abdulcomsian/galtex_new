@@ -184,13 +184,57 @@ class Categories_model extends CI_Model {
       Description:  Use to delete category.
     */
     function delete_category($category_guid) {
-        $this->db->where('category_guid',$category_guid);
-        $this->db->limit(1);
-        $this->db->delete('tbl_categories');
-        if($this->db->affected_rows() > 0){
-            return TRUE;
+        // $usersData = $this->db->select('*')
+        // ->from('tbl_products')
+        // ->join('tbl_categories', 'tbl_categories.category_id = tbl_products.product_category_id')
+        // ->where('tbl_categories.category_guid', $category_guid)
+        // ->get();
+
+        // $affectedRows = $usersData->num_rows();
+        // // print_r($affectedRows); exit;
+        // if($affectedRows >= 1){
+        //     // $this->session->set_flashdata('error',lang('Please delete the products first'));
+        //     return TRUE;
+        // }else{
+        //     $this->db->where('category_guid',$category_guid);
+        //     $this->db->limit(1);
+        //     $this->db->delete('tbl_categories');
+        // }
+
+
+        $usersData = $this->db->select('*')
+        ->from('tbl_products')
+        ->join('tbl_categories', 'tbl_categories.category_id = tbl_products.product_category_id')
+        ->where('tbl_categories.category_guid', $category_guid)
+        ->get();
+
+        $affectedRows = $this->db->affected_rows();
+        if ($affectedRows >= 1) {
+            return false;
+        } else {
+            // No products associated, proceed with category deletion
+            $this->db->where('category_guid', $category_guid);
+            $this->db->limit(1);
+            $this->db->delete('tbl_categories');
+
+            // Check if any rows were affected by the delete operation
+            if ($this->db->affected_rows() >= 1) {
+                // Category deleted successfully
+                return true;
+            } else {
+                // Category with the given guid not found
+                // Handle this case accordingly, e.g., set flashdata
+                return false;
+            }
         }
-        return FALSE;
+
+        // $this->db->where('category_guid',$category_guid);
+        // $this->db->limit(1);
+        // $this->db->delete('tbl_categories');
+        // if($this->db->affected_rows() > 0){
+        //     return TRUE;
+        // }
+        // return FALSE;
     }
 
 

@@ -129,6 +129,7 @@ $lang['edit_category'] = 'Edit Category';
 $lang['delete_category'] = 'Delete Category';
 $lang['category_updated'] = 'Category details updated successfully.';
 $lang['category_deleted'] = 'Category deleted successfully.';
+$lang['category_product'] = 'Delete Product(s) against this Category';
 
 /* Employees */
 $lang['employees'] = 'Employees';
