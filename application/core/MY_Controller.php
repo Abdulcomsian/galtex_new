@@ -107,6 +107,7 @@ class Admin_Controller_Secure extends Admin_Main_Controller {
 			}
 			
         	$this->session->unset_userdata('userdata');
+			session_destroy();
         	$this->session->set_flashdata('logout','Yes');
         	redirect(base_url().'admin/login'); exit;
         }
@@ -198,6 +199,7 @@ class Web_Controller_Secure extends Web_Main_Controller {
 			}
 			
         	$this->session->unset_userdata('webuserdata');
+			session_destroy();
         	$this->session->set_flashdata('logout','Yes');
         	redirect(base_url()); exit;
         }

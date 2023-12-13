@@ -65,8 +65,6 @@ class Categories extends Admin_Controller_Secure {
 		}
 		
 	}
-
-	
 }
 
 /* End of file Categories.php */

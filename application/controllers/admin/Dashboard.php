@@ -86,6 +86,7 @@ class Dashboard extends Admin_Controller_Secure {
 
 		/* Destroy Session */
 		$this->session->unset_userdata('userdata');
+		session_destroy();
     	$this->session->set_flashdata('logout','Yes');
     	redirect(base_url().'admin/login'); exit;
 	}

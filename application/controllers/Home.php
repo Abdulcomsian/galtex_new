@@ -41,6 +41,7 @@ class Home extends Web_Controller {
 
         /* Destroy Session */
         $this->session->unset_userdata('webuserdata');
+        session_destroy();
         $this->session->set_flashdata('logout','Yes');
         redirect(base_url()); exit;
     }

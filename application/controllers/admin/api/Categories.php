@@ -30,7 +30,6 @@ class Categories extends API_Controller_Secure {
             $this->Return['status'] = 500;
             $this->Return['message'] = lang('error_occured');
         }else{
-
             $this->Return['status'] = 200;
             $this->Return['message'] = lang('category_added');   
         }
