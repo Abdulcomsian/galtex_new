@@ -205,7 +205,7 @@
          </div> -->
          <div><!--remove class(row)-->
 
-            <div class="col-md-12"><!-- remove class(mobileHide)-->
+            <div ><!-- remove class(mobileHide col-md-12)-->
                <div class="product_right">
                   <div class="product_description_details">
                      <div class="col-md-12 text-center mt-4 product_heading">
@@ -268,7 +268,7 @@
                      </div>
                   </div>
                </div>
-               <div class="col-md-12">
+               <div > <!-- remove class(class="col-md-12")-->
                   <div class="row" style="justify-content: center;">
                      <div class="row product_direction col-12">
                         <div class="col-md-4 col-lg-6">
