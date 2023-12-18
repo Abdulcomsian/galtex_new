@@ -14,7 +14,7 @@
 }
     </style>
 <section id="content">
-    <div class="container"> 
+   <div class="container"> 
         <div class="tile">
             <div class="t-header">
                 <div class="th-title"><?php echo "(".CURRENCY_SYMBOL.$employee_budget." ".lang('budget').") ".$client_name." - ".lang('set_shop'); ?></div>
@@ -82,7 +82,7 @@
                                                 </div>
                                                 <div class="m-t-10" style="display: flex;">
                                                     <div class="form-group">
-                                                        <label><?php echo lang('quantity'); ?></label>
+                                                        <label><?php echo lang('quantity'); ?></label>                                                            
                                                         <input type="number" min="1" class="form-control validate-no within_budget_product_quantities" value="<?php echo @$product['shop_product_info']['quantity']; ?>" name="within_budget_product_quantities[]" placeholder="<?php echo lang('quantity'); ?>" autocomplete="off">
                                                     </div>
                                                 </div>
