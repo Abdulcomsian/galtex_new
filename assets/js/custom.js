@@ -928,48 +928,52 @@ $('body').on('change','select[name="address_mode"]',function(){
 $('body').on('click','button.cancel-order',function(){
   let self = $(this);
   let order_guid = self.attr('data-order-guid');
-  swal({   
-      title: cancel_order,   
-      text: cancel_order_sure,   
-      type: "warning",   
-      showCancelButton: true,   
-      confirmButtonColor: "#DD6B55",   
-      confirmButtonText: confirmButtonText,   
-      cancelButtonText: cancelButtonText,   
-      closeOnConfirm: false,   
-      closeOnCancel: false,
-      animation: true,
-      showLoaderOnConfirm: true
-  }, function(isConfirm){   
-      if (isConfirm) {     
+  Swal.fire({
+    title: cancel_order,
+    text: cancel_order_sure,
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#DD6B55',
+    confirmButtonText: confirmButtonText,
+    cancelButtonText: cancelButtonText,
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      return new Promise((resolve) => {
         $.ajax({
-          url  : api_url + "employee/cancel_order",
-          type : "POST",
-          data : {order_guid:order_guid},   
-          dataType : "JSON",   
-          beforeSend:function(xhr){
+          url: api_url + 'employee/cancel_order',
+          type: 'POST',
+          data: { order_guid: order_guid },
+          dataType: 'JSON',
+          beforeSend: function (xhr) {
             ajaxindicatorstart();
-            xhr.setRequestHeader("Accept","application/vvv.website+json;version=1");
-            xhr.setRequestHeader("Authorization",get_login_session_key()); 
-          },       
-          success: function(resp){
-           if(resp.status == 200){
-              showToaster('success',success,resp.message);
+            xhr.setRequestHeader('Accept', 'application/vvv.website+json;version=1');
+            xhr.setRequestHeader('Authorization', get_login_session_key());
+          },
+          success: function (resp) {
+            if (resp.status == 200) {
+              showToaster('success', success, resp.message);
               window.location.reload();
-            }else{
-              showToaster('error',error,resp.message);  
+            } else {
+              showToaster('error', error, resp.message);
             }
             ajaxindicatorstop();
           },
-          error:function(jqXHR, exception){
-            manageAjaxError(jqXHR,exception);
+          error: function (jqXHR, exception) {
+            manageAjaxError(jqXHR, exception);
             ajaxindicatorstop();
-          }
+          },
+        });
+        resolve();
       });
-      } else {     
-        swal.close();
-      } 
+    },
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Handle confirmation, if needed
+    } else {
+      Swal.close();
+    }
   });
+  
 
 });
 

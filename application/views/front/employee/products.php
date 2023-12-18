@@ -123,13 +123,21 @@
       </div>
    </div>
    <?php
-   $lastActivity = $this->session->userdata('webuserdata')['last_activity'];
+   // $lastActivitySession = $this->session->userdata('webuserdata')['last_activity'];
+   // var_dump($lastActivitySession); exit;
+   $userid = $this->session->webuserdata['user_id'];
+   $this->load->database();
+   $sql = "SELECT * FROM `tbl_users` WHERE `user_id` = $userid";
+   $query = $this->db->query($sql, array($userid));
+   $result = $query->row();
+   $lastActivity = $result->popup_id;
+   // var_dump($lastActivity); exit;
    $basePath = base_url() . '/uploads/company/';
    $popupImage = $this->session->userdata('webuserdata')['client_configs']['popup_image'] ?? $this->session->userdata('webuserdata')['client_configs']['company_logo'] ?? 'testImage.png';
    $imageUrl = $basePath . $popupImage;
    ?>
-
-   <?php   if (!isset($lastActivity) || is_null($lastActivity)) { ?>
+   
+   <?php   if ($lastActivity == 0 || $lastActivity == NULL) { ?>
       <div class="overlay_popup">
          <div class="overlay_popup" style="height: 100vh;">
             <!-- <dialog class="dialog_box modal-dialog-centered" id="dialogue">
@@ -146,11 +154,17 @@
             </div>
          </div>
       </div>
-   <?php } ?>
+      <?php 
+      $info = ["popup_id" => 1];
+      // When Popup showed to the user update the popup status to 1. and popup will never shown on the account where status is equal to 1 
+      $this->load->database();
+      $this->db->where('user_id' , $userid);
+      $this->db->update('tbl_users' , $info);
+      }
+      ?>
 
-
-   <script>
-      (function () {
+      <!-- <script>
+         (function () {
          let email = '<?= $this->session->webuserdata['email'] ?>';
          let userId = '<?= $this->session->webuserdata['user_id'] ?>';
          let data = `email=${email}&userId=${userId}`;
@@ -165,13 +179,9 @@
          xhttp.open("POST", "<?php echo BASE_URL; ?>api/User/activity", true);
          xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
          xhttp.send(data);
-
       })()
-
-   </script>
-
-
-
+      
+      </script> -->
    <div class="product_main">
       <div class="container-fluid">
          <div class="cardBlur">

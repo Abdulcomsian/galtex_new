@@ -50,14 +50,14 @@ class Categories extends Admin_Controller_Secure {
 		if(strpos($category_guid, '%') === 0){
 			$category_guid = urldecode($category_guid);
 			if(!$this->Categories_model->delete_category($category_guid)){
-				$this->session->set_flashdata('error',lang('error_occured'));
+				$this->session->set_flashdata('error',lang('Please Delete the product first'));
 			}else{
 				$this->session->set_flashdata('success',lang('category_deleted'));
 			}
 			redirect('admin/categories/list');
 		}else{
 			if(!$this->Categories_model->delete_category($category_guid)){
-				$this->session->set_flashdata('error',lang('error_occured'));
+				$this->session->set_flashdata('error', lang('category_product'));
 			}else{
 				$this->session->set_flashdata('success',lang('category_deleted'));
 			}
@@ -65,8 +65,6 @@ class Categories extends Admin_Controller_Secure {
 		}
 		
 	}
-
-	
 }
 
 /* End of file Categories.php */
