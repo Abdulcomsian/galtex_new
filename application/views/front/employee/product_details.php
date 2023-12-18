@@ -2,6 +2,7 @@
    .product_thumb_item.slick-slide.slick-cloned {
       display: none !important
    }
+
    .product_thumb_item {
       margin-top: 0px !important;
    }
@@ -63,13 +64,16 @@
       .product_heading {
          margin-top: 0 !important;
       }
+
       .product_right .product_name {
          padding-top: 0;
       }
+
       .productDetailDiv .product_main_item img {
-         height:320px !important;
-         width:320px !important
+         height: 320px !important;
+         width: 320px !important
       }
+
       .thumb_inner .slick-track img {
          box-shadow: 0 0 12px 3px #00000033 !important;
          height: 70px !important;
@@ -82,7 +86,36 @@
       }
 
       .product_slider_main {
-      width:100% !important
+         width: 100% !important
+      }
+   }
+
+
+   @media (max-width:425px) {
+      .single_slider_main .product_slider_thumb {
+         width: 20% !important;
+      }
+
+      .thumb_wrapper {
+         height: 60px !important;
+         width: 60px !important;
+      }
+
+      .thumb_inner .slick-track img {
+         height: 60px !important;
+         width: 60px !important;
+         object-fit: fill;
+      }
+
+      .product_slider_main {
+         width: 260px !important;
+         height: 260px !important;
+      }
+
+      .productDetailDiv .product_main_item img {
+         width: 260px !important;
+         height: 260px !important;
+         object-fit: fill;
       }
    }
 </style>
@@ -98,16 +131,21 @@
                </a></div>
          <?php } else { ?>
             <?php if ($details['remaining_quantity'] > 0) { ?>
-               <div class="wow zoomIn"><a href="javascript:void(0);" data-type="product" data-guid="<?php echo $details['product_guid']; ?>" class="btn btn_common add-to-cart"><?php echo lang('add_to_cart'); ?></a></div>
+               <div class="wow zoomIn"><a href="javascript:void(0);" data-type="product"
+                     data-guid="<?php echo $details['product_guid']; ?>" class="btn btn_common add-to-cart">
+                     <?php echo lang('add_to_cart'); ?>
+                  </a></div>
             <?php } else { ?>
                <strong><a class="btn btn_common add-to-cart" href="javascript:void(0);">
                      <?php echo lang('out_of_stock'); ?>
                   </a></strong>
-         <?php }
+            <?php }
          } ?>
       </div>
       <div class="backToStore"><!-- remove the class(desktopHide)-->
-         <div class="wow zoomIn"><a href="../../employees/products" class="btn" style="color: black;font-size: 20px !important;font-family: 'AssistantBold';"><img src="<?php echo base_url(); ?>assets/images/rightIcon.svg" /></span>
+         <div class="wow zoomIn"><a href="../../employees/products" class="btn"
+               style="color: black;font-size: 20px !important;font-family: 'AssistantBold';"><img
+                  src="<?php echo base_url(); ?>assets/images/rightIcon.svg" /></span>
                <?php echo lang('back'); ?></span> <span style="color: #000; position: relative; left: -15px;"><span>
             </a></div>
       </div>
@@ -253,15 +291,20 @@
                                  <div class="product_thumb_item">
                                     <div class="thumb_inner">
                                        <div class="thumb_wrapper">
-                                          <img class="thumb-inner--img " src="<?php echo $details['product_main_photo']; ?>" alt="main-image" style="object-fit:cover" />
+                                          <img class="thumb-inner--img "
+                                             src="<?php echo $details['product_main_photo']; ?>" alt="main-image"
+                                             style="object-fit:cover" />
                                        </div>
                                        <?php $increment = 0;
                                        foreach ($details['product_gallery_images'] as $image) { ?>
-                                          <?php if ($increment == 3) break; ?>
+                                          <?php if ($increment == 3)
+                                             break; ?>
                                           <div class="thumb_wrapper">
-                                             <img class="thumb-inner--img " src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="main-image" style="object-fit:cover" />
+                                             <img class="thumb-inner--img "
+                                                src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>"
+                                                alt="main-image" style="object-fit:cover" />
                                           </div>
-                                       <?php ++$increment;
+                                          <?php ++$increment;
                                        } ?>
                                     </div>
                                  </div>
@@ -270,11 +313,12 @@
                                  // echo $details['product_gallery_images'][1];
                                  // exit;
                                  foreach ($details['product_gallery_images'] as $image) {
-                                 ?>
+                                    ?>
 
                                     <div class="product_thumb_item">
                                        <div class="thumb_inner">
-                                          <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image" />
+                                          <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>"
+                                             alt="gallery-image" />
                                        </div>
                                     </div>
                                  <?php } ?>
@@ -283,7 +327,8 @@
                                  <div class="product_main_item ex1" style="width: 100%; height: 100%">
                                     <img src="<?php echo $details['product_main_photo']; ?>" alt="main-image" />
                                     <?php foreach ($details['product_gallery_images'] as $image) { ?>
-                                       <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>" alt="gallery-image" />
+                                       <img src="<?php echo base_url(); ?>uploads/products/<?php echo $image; ?>"
+                                          alt="gallery-image" />
                                     <?php } ?>
                                  </div>
                                  <!-- <?php foreach ($details['product_gallery_images'] as $image) { ?>
@@ -306,7 +351,7 @@
                               </div>
                               <?php
                               foreach ($details['product_gallery_images'] as $image) {
-                              ?>
+                                 ?>
                                  <div class="productImage">
                                     <div class="product_thumb_item">
                                        <div class="thumb_inner">
@@ -325,10 +370,10 @@
                            <!-- <div class="product_information wow fadeInUp">
                          <div class="quantity_box">
                             <label><?php #echo lang('quantity'); 
-                                    ?></label>
+                               ?></label>
                             <div class="quantity">
                                <input class="touch-spin-count-ver" readonly type="text" value="<?php #echo $quantity; 
-                                                                                                ?>" name="pro_quantity">
+                                  ?>" name="pro_quantity">
                             </div>
                          </div>
                       </div> -->
@@ -341,11 +386,15 @@
                            <?php if ($details['remaining_quantity'] > 0) { ?>
                               <div class="product-button wow zoomIn">
 
-                                 <a href="javascript:void(0);" data-type="product" data-guid="<?php echo $details['product_guid']; ?>" style="margin-bottom:10px;" class="btn btn_common add-to-cart"><?php echo lang('add_to_cart'); ?></a>
+                                 <a href="javascript:void(0);" data-type="product"
+                                    data-guid="<?php echo $details['product_guid']; ?>" style="margin-bottom:10px;"
+                                    class="btn btn_common add-to-cart">
+                                    <?php echo lang('add_to_cart'); ?>
+                                 </a>
 
                                  <?php
                                  if (!empty($details['above_budget_price'])) {
-                                 ?>
+                                    ?>
                                     <p style="line-height: 22px;text-align: center;">
                                        <?php echo lang('additional') . ' ' . CURRENCY_SYMBOL . $details['above_budget_price']; ?>
                                     </p>
@@ -355,7 +404,7 @@
                               <strong><a href="javascript:void(0);" style="margin-top:10px;color:red;">
                                     <?php echo lang('out_of_stock'); ?>
                                  </a></strong>
-                        <?php }
+                           <?php }
                         } ?>
                         <!-- <div class="product-button wow zoomIn"><a href="../../employees/products"
                               class="btn btn_common">
@@ -373,7 +422,7 @@
             <div class="col-md-6 cartDiv desktopHide mb-4">
                <?php #if((details['remaining_quantity'] > 0) && !empty($details['above_budget_price'])) { 
                if (!empty($details['above_budget_price'])) {
-               ?>
+                  ?>
                   <p style="line-height: 22px;text-align: center;">
                      <?php echo lang('additional') . ' ' . CURRENCY_SYMBOL . $details['above_budget_price']; ?>
                   </p>
@@ -383,17 +432,23 @@
 
                   <?php }
                   if ($is_added_into_cart) { ?>
-                     <div class="wow zoomIn mobileProductBtn"><a style="width: 100%; border: none;" href="../../employees/cart" class="btn btn_common">
+                     <div class="wow zoomIn mobileProductBtn"><a style="width: 100%; border: none;"
+                           href="../../employees/cart" class="btn btn_common">
                            <?php echo lang('go_to_cart'); ?>
                         </a></div>
                   <?php } else { ?>
                      <?php if ($details['remaining_quantity'] > 0) { ?>
-                        <div class="wow zoomIn mobileProductBtn"><a style="width: 100%; border: none;" href="javascript:void(0);" data-type="product" data-guid="<?php echo $details['product_guid']; ?>" class="btn btn_common add-to-cart"><?php echo lang('add_to_cart'); ?></a></div>
+                        <div class="wow zoomIn mobileProductBtn"><a style="width: 100%; border: none;"
+                              href="javascript:void(0);" data-type="product"
+                              data-guid="<?php echo $details['product_guid']; ?>" class="btn btn_common add-to-cart">
+                              <?php echo lang('add_to_cart'); ?>
+                           </a></div>
                      <?php } else { ?>
-                        <div class="wow zoomIn mobileProductBtn"><a style="width: 100%; border: none;" href="javascript:void(0);" style="margin-top:10px;color:red;">
+                        <div class="wow zoomIn mobileProductBtn"><a style="width: 100%; border: none;"
+                              href="javascript:void(0);" style="margin-top:10px;color:red;">
                               <?php echo lang('out_of_stock'); ?>
                            </a></div>
-                  <?php }
+                     <?php }
                   } ?>
                </div>
             </div>
@@ -404,11 +459,11 @@
 </main>
 
 <script>
-   window.addEventListener('resize', function(event) {
-            var clientWidth = window.innerWidth;
-            if (clientWidth <= 768) {
-               var card = document.getElementById("card_remove");
-               console.log(card);
-               card.classList.remove('card');
-            }
+   window.addEventListener('resize', function (event) {
+      var clientWidth = window.innerWidth;
+      if (clientWidth <= 768) {
+         var card = document.getElementById("card_remove");
+         console.log(card);
+         card.classList.remove('card');
+      }
 </script>
