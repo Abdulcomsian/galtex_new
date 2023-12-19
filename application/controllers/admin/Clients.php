@@ -130,17 +130,16 @@ class Clients extends Admin_Controller_Secure {
 		if (strpos($user_guid, '%') === 0) {
 			$user_guid = urldecode($user_guid);
 		}
-		
+
+
 		if (!$this->Users_model->delete_user($user_guid)) {
 			$this->session->set_flashdata('error', lang('error_occured'));
 		} else {
 			$this->session->set_flashdata('success', lang('client_deleted'));
 		}
-		
 		redirect('admin/clients/list');
+
 		
-		$this->session->unset_userdata('error');
-		$this->session->unset_userdata('success');
 		
 	}
 
