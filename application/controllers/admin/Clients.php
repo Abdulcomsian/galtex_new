@@ -110,22 +110,36 @@ class Clients extends Admin_Controller_Secure {
 	*/
 	public function delete($user_guid)
 	{
-		if(strpos($user_guid, '%')===0){
+		// if(strpos($user_guid, '%')===0){
+		// 	$user_guid = urldecode($user_guid);
+		// 	if(!$this->Users_model->delete_user($user_guid)){
+		// 		$this->session->set_flashdata('error',lang('error_occured'));
+		// 	}else{
+		// 		$this->session->set_flashdata('success',lang('client_deleted'));
+		// 	}
+		// 	redirect('admin/clients/list');
+		// }else{
+		// 	if(!$this->Users_model->delete_user($user_guid)){
+		// 		$this->session->set_flashdata('error',lang('error_occured'));
+		// 	}else{
+		// 		$this->session->set_flashdata('success',lang('client_deleted'));
+		// 	}
+		// 	redirect('admin/clients/list');
+		// }
+
+		if (strpos($user_guid, '%') === 0) {
 			$user_guid = urldecode($user_guid);
-			if(!$this->Users_model->delete_user($user_guid)){
-				$this->session->set_flashdata('error',lang('error_occured'));
-			}else{
-				$this->session->set_flashdata('success',lang('client_deleted'));
-			}
-			redirect('admin/clients/list');
-		}else{
-			if(!$this->Users_model->delete_user($user_guid)){
-				$this->session->set_flashdata('error',lang('error_occured'));
-			}else{
-				$this->session->set_flashdata('success',lang('client_deleted'));
-			}
-			redirect('admin/clients/list');
 		}
+		
+		if (!$this->Users_model->delete_user($user_guid)) {
+			$this->session->set_flashdata('error', lang('error_occured'));
+		} else {
+			$this->session->set_flashdata('success', lang('client_deleted'));
+		}
+		
+		redirect('admin/clients/list');
+		
+		unset($user_guid);
 		
 	}
 
