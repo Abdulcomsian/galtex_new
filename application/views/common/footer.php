@@ -391,7 +391,10 @@
     ?>
      <?php if ($this->session->flashdata('order_thankyou')) { ?>
                                   showToaster('success',"<?php echo lang('success'); ?>","<?php echo $this->session->flashdata('order_thankyou') ?>")
-     <?php } ?>
+     <?php
+   unset($_SESSION['__ci_vars']['success']);
+   } 
+   ?>
    });
 
    /* Manage JS Language Fields */
