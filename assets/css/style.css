@@ -13,7 +13,6 @@ a img {
 }
 
 
-.product-button a,
 .product-button a:visited {
   -webkit-background-clip: unset !important;
 }
@@ -1239,6 +1238,7 @@ html[dir="rtl"] .card-text input[type="checkbox"]:checked+label::after {
   font-family: "Assistantsemibold";
   border: none;
   outline: none;
+  -webkit-background-clip: unset !important;
 }
 
 html[dir="rtl"] .single_product_page .productDiv .product_slider_thumb {
