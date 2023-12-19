@@ -97,7 +97,7 @@
                                 <input type="datetime-local" class="form-control" name="deadline" placeholder="<?php echo lang('deadline'); ?>" min="<?= date('Y-m-d\TH:i') ?>" autocomplete="off">
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-3 col-lg-3">
+                        <!-- <div class="col-sm-12 col-md-3 col-lg-3">
                             <label class="control-label"><?php echo lang('company_logo'); ?></label><br/>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px; border:1px solid #cfcfcf"></div>
@@ -110,7 +110,7 @@
                                     <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                            <!-- POPUP START -->
                         <div class="col-sm-12 col-md-3 col-lg-3">
@@ -126,6 +126,7 @@
                                     <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
                                 </div>
                             </div>
+                            <p class="text-danger">750px x 460px</p>
                         </div>
 
 
@@ -162,6 +163,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            <p class="text-danger">1100px x 515px</p>
                         </div>
 
                         <div class="col-sm-12 col-md-3 col-lg-3">
@@ -179,6 +181,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            <p class="text-danger">550px x 320px</p>
                         </div>
 
                         <!-- <div class="row banner-cropper-row">
