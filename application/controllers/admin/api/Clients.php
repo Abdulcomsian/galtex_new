@@ -37,19 +37,19 @@ class Clients extends API_Controller_Secure {
         /* Validation - ends */
         
         /* Upload company logo */
-        if(!empty($_FILES['company_logo']['name'])){
-            $image_data = fileUploading('company_logo','company','jpg|jpeg|png|gif');
-            if(!empty($image_data['error'])){
-                $this->Return['status'] = 500;
-                $this->Return['message'] = lang('company_logo').' - '.$image_data['error'];
-                exit;
-            }
-            $this->Post['company_logo'] = $image_data['upload_data']['file_name'];
-        }else{
-            $this->Return['status']  = 500;
-            $this->Return['message'] = lang('require_company_logo');
-            exit;
-        }
+        // if(!empty($_FILES['company_logo']['name'])){
+        //     $image_data = fileUploading('company_logo','company','jpg|jpeg|png|gif');
+        //     if(!empty($image_data['error'])){
+        //         $this->Return['status'] = 500;
+        //         $this->Return['message'] = lang('company_logo').' - '.$image_data['error'];
+        //         exit;
+        //     }
+        //     $this->Post['company_logo'] = $image_data['upload_data']['file_name'];
+        // }else{
+        //     $this->Return['status']  = 500;
+        //     $this->Return['message'] = lang('require_company_logo');
+        //     exit;
+        // }
 
         
         //popup upload
@@ -163,15 +163,15 @@ class Clients extends API_Controller_Secure {
 
         }
         /* Upload company logo */
-        if(!empty($_FILES['company_logo']['name'])){
-            $image_data = fileUploading('company_logo','company','jpg|jpeg|png|gif');
-            if(!empty($image_data['error'])){
-                $this->Return['status'] = 500;
-                $this->Return['message'] = lang('company_logo').' - '.$image_data['error'];
-                exit;
-            }
-            $this->Post['company_logo'] = $image_data['upload_data']['file_name'];
-        }
+        // if(!empty($_FILES['company_logo']['name'])){
+        //     $image_data = fileUploading('company_logo','company','jpg|jpeg|png|gif');
+        //     if(!empty($image_data['error'])){
+        //         $this->Return['status'] = 500;
+        //         $this->Return['message'] = lang('company_logo').' - '.$image_data['error'];
+        //         exit;
+        //     }
+        //     $this->Post['company_logo'] = $image_data['upload_data']['file_name'];
+        // }
 
         /* EDIT POPUP Upload */
         if(!empty($_FILES['popup_image']['name'])){
