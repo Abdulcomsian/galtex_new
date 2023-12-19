@@ -13,7 +13,8 @@ a img {
 }
 
 
-.product-button a  {
+.product-button a,
+.product-button a:visited {
   -webkit-background-clip: unset !important;
 }
 
