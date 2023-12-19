@@ -379,9 +379,20 @@
                       </div> -->
                         <?php }
                         if ($is_added_into_cart) { ?>
-                           <div class="product-button wow zoomIn"><a href="../../employees/cart" class="btn btn_common">
+                           <div class="product-button wow zoomIn">
+                              <a href="../../employees/cart" class="btn btn_common">
                                  <?php echo lang('go_to_cart'); ?>
-                              </a></div>
+                              </a>
+                              <?php
+                                 if (!empty($details['above_budget_price'])) {
+                                    ?>
+                                    <p style="line-height: 22px;text-align: center;">
+                                       <?php echo lang('additional') . ' ' . CURRENCY_SYMBOL . $details['above_budget_price']; ?>
+                                    </p>
+                                 <?php 
+                                 }
+                               ?>
+                           </div>
                         <?php } else { ?>
                            <?php if ($details['remaining_quantity'] > 0) { ?>
                               <div class="product-button wow zoomIn">
@@ -393,12 +404,15 @@
                                  </a>
 
                                  <?php
+                                 
                                  if (!empty($details['above_budget_price'])) {
                                     ?>
                                     <p style="line-height: 22px;text-align: center;">
                                        <?php echo lang('additional') . ' ' . CURRENCY_SYMBOL . $details['above_budget_price']; ?>
                                     </p>
-                                 <?php } ?>
+                                 <?php 
+                              }
+                               ?>
                               </div>
                            <?php } else { ?>
                               <strong><a href="javascript:void(0);" style="margin-top:10px;color:red;">

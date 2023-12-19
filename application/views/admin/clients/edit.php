@@ -88,7 +88,7 @@
                         </div> 
 
 
-                        <input type="hidden" name="old_company_logo" value="<?php echo $details['client_configs']['company_logo']; ?>">
+                        <!-- <input type="hidden" name="old_company_logo" value="<?php echo $details['client_configs']['company_logo']; ?>">
                         <div class="col-sm-3">
                             <label class="control-label"><?php 
                             echo lang('company_logo'); 
@@ -111,7 +111,7 @@
                                     <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- upload popup image -->
 

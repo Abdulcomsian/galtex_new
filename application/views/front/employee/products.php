@@ -438,16 +438,19 @@
                                     ?>
                                     <p class="above_baduge">
                                        <?php
-                                       // if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
-                                 
-                                       echo lang('additional') . ' ' . $product['above_budget_price'] . CURRENCY_SYMBOL;
-
+                                       if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
+                                          $budget = $this->session->userdata('webuserdata')['employee_budget'] + $product['above_budget_price'];
+                                          echo lang('additional') . ' ' .  $budget  . CURRENCY_SYMBOL;
+                                       }else{
+                                          echo lang('additional') . ' ' . $product['above_budget_price'] . CURRENCY_SYMBOL;
+                                       }
                                        ?>
                                     </p>
                                  <?php } else if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) { ?>
                                        <p class="above_baduge">
                                           <?php
                                           // if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
+                                          
                                     
                                           echo lang('additional') . ' ' . $this->session->userdata('webuserdata')['employee_budget'] . CURRENCY_SYMBOL;
 
