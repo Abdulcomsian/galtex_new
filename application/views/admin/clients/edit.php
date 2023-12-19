@@ -130,6 +130,7 @@
                                     <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
                                 </div>
                             </div>
+                            <p class="text-danger">750px x 460px</p>
                         </div>
 
 
@@ -153,6 +154,7 @@
                                     <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
                                 </div>
                             </div>
+                            <p class="text-danger">1100px x 515px</p>
                         </div>
 
 
@@ -175,6 +177,7 @@
                                     <a href="javascript:void(0);" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><?php echo lang('remove'); ?></a>
                                 </div>
                             </div>
+                            <p class="text-danger">550px x 320px</p>
                         </div>
                         <!-- upload cover image ends here -->
 
