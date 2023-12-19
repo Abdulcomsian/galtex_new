@@ -1999,8 +1999,12 @@ html[dir="rtl"] .get_opt {
   align-items: flex-start;
   margin-top: 10px;
 } */
+.product-button a:visited {
+  -webkit-background-clip: unset !important;
+}
 
 .product-button a {
+  -webkit-background-clip: unset !important;
   height: 47px;
   width: 304px;
 }
