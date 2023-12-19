@@ -139,7 +139,8 @@ class Clients extends Admin_Controller_Secure {
 		
 		redirect('admin/clients/list');
 		
-		unset($user_guid);
+		$this->session->unset_userdata('error');
+		$this->session->unset_userdata('success');
 		
 	}
 
