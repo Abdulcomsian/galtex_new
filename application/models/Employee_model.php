@@ -247,7 +247,8 @@ class Employee_model extends CI_Model {
 
             /* Send Email To Client */
             $order_heading = lang('new_order').' ('.$pdf_details['order_id'].') '.lang('generated').' !!';
-           send_smtp_mail(
+          
+            send_smtp_mail(
                     $user_details['email'],
                     lang('congratulation_gift')." (".$pdf_details['company_name'].") ".lang('by_galtex'),
                     $this->load->view('front/invoice',array('details' => $pdf_details),true)
