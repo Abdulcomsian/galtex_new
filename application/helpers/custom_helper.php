@@ -915,6 +915,8 @@ if ( ! function_exists('send_smtp_mail')) {
     }
 
     $response = $mailjet->post(\Mailjet\Resources::$Email, ['body' => $body]);
+    // echo "<pre>";
+    // print_r($response); exit;
     if ($response->success()) {
         return TRUE;
     } else {
