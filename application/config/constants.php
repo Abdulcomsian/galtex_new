@@ -89,7 +89,7 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 /*---------Site Settings--------*/
 /*------------------------------*/  
 
-define('FROM_EMAIL', 'support@pqmsystems.biz');
+define('FROM_EMAIL', 'support@galtex.co.il');
 define('SUPPORT_EMAIL', 'support@galtex.co.il');
 define('ADMIN_EMAIL', 'arik@amitex.co.il');
 define('SITE_NAME', 'Galtex APP');
@@ -113,7 +113,7 @@ define('CREDIT2000_COMPANY_KEY', 'Fu23Mvb54k4K49Lz0H3sgF==');
 
 // Constants for mailjet 
 define('MAILJET_API_KEY', 'c7b470bfc6f03d036927ea5c6d35e042');
-define('MAILJET_API_SECRET', 'f293b60a9b872879180a54041741e5b1');
+define('MAILJET_API_SECRET', 'f9dbd2139918463a29f2d2d5017ceed6');
 
 /* Messages constants */
 define('GENERAL_ERROR', 'Some error occured, please try again.');
