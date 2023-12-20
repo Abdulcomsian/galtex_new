@@ -529,7 +529,12 @@
       <?php if ($this->session->flashdata('success')) { ?>
         let successMsg = "<?php echo $this->session->flashdata('success') ?>";
         showToaster('success', "<?php echo lang('success'); ?>", successMsg)
-      <?php } ?>
+      <?php
+     } 
+     // unsetting success and error session 
+     unset($_SESSION['__ci_vars']['success']);
+     unset($_SESSION['__ci_vars']['error']);
+     ?>
       <?php if ($this->session->flashdata('logout')) { ?>
         localStorage.removeItem('login_session_key');
         localStorage.removeItem('user_guid');

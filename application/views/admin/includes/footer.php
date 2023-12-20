@@ -9,10 +9,18 @@
     $(document).ready(function(){
       <?php if($this->session->flashdata('error')){ ?>
         showToaster('error',"<?php echo lang('error'); ?>","<?php echo $this->session->flashdata('error') ?>")
-      <?php } ?>
+        // unsetting success and error session 
+       
+      <?php 
+      unset($_SESSION['__ci_vars']['error']);
+       } 
+       ?>
       <?php if($this->session->flashdata('success')){ ?>
         showToaster('success',"<?php echo lang('success'); ?>","<?php echo $this->session->flashdata('success') ?>")
-      <?php } ?>
+      <?php 
+      unset($_SESSION['__ci_vars']['success']); 
+      }
+      ?>
     });
 
     /* Manage JS Language Fields */
