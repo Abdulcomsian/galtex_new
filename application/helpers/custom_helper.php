@@ -863,6 +863,7 @@ if ( ! function_exists('send_mail')) {
 if ( ! function_exists('send_smtp_mail')) {
   function send_smtp_mail($to_email,$subject,$message,$attachment = NULL)
   {
+    print_r($to_email);exit;
 	  //  $ci = &get_instance();
     //  $ci->Host     = 'smtp.sendgrid.net';
     //  $ci->Username = 'apikey';
