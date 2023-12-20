@@ -863,22 +863,63 @@ if ( ! function_exists('send_mail')) {
 if ( ! function_exists('send_smtp_mail')) {
   function send_smtp_mail($to_email,$subject,$message,$attachment = NULL)
   {
-	   $ci = &get_instance();
-     $ci->Host     = 'smtp.sendgrid.net';
-     $ci->Username = 'apikey';
-     $ci->Password = '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';
-     $ci->Port = 465;  
-     $ci->email->from('support@galtex.co.il', 'Galtex');
-     $ci->email->to($to_email);
-     $ci->email->subject($subject);
-     $ci->email->message($message);
-     $ci->email->attach($attachment, 'attachment', basename($attachment));
-     $ci->email->set_mailtype("html");
-	  if(!$ci->email->send()){
-		return FALSE;
-		} else {
-		return TRUE;
-     }
+	  //  $ci = &get_instance();
+    //  $ci->Host     = 'smtp.sendgrid.net';
+    //  $ci->Username = 'apikey';
+    //  $ci->Password = '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';
+    //  $ci->Port = 465;  
+    //  $ci->email->from('support@galtex.co.il', 'Galtex');
+    //  $ci->email->to($to_email);
+    //  $ci->email->subject($subject);
+    //  $ci->email->message($message);
+    //  $ci->email->attach($attachment, 'attachment', basename($attachment));
+    //  $ci->email->set_mailtype("html");
+	  // if(!$ci->email->send()){
+		// return FALSE;
+		// } else {
+		// return TRUE;
+    //  }
+
+    // require_once APPPATH . 'libraries/php-mailer/class.phpmailer.php';
+    require 'vendor/autoload.php';
+    $mailjet = new \Mailjet\Client(MAILJET_API_KEY, MAILJET_API_SECRET, true, ['version' => 'v3.1']);
+
+    $body = [
+        'Messages' => [
+            [
+                'From' => [
+                    'Email' => FROM_EMAIL,
+                    'Name' => SITE_NAME,
+                ],
+                'To' => [
+                    [
+                        'Email' => $to_email,
+                        // 'Name' => $to_name,
+                    ],
+                ],
+                'Subject' => $subject,
+                'HTMLPart' => $message,
+            ],
+        ],
+    ];
+
+    if (!empty($attachment)) {
+        $attachmentData = base64_encode(file_get_contents($attachment));
+        $body['Messages'][0]['Attachments'] = [
+            [
+                'ContentType' => mime_content_type($attachment),
+                'Filename' => basename($attachment),
+                'Base64Content' => $attachmentData,
+            ],
+        ];
+    }
+
+    $response = $mailjet->post(\Mailjet\Resources::$Email, ['body' => $body]);
+    if ($response->success()) {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
    //  require FCPATH.'vendor/autoload.php';
    //  $mail = new PHPMailer(true);
    //  $mail->isSMTP();
@@ -937,31 +978,34 @@ if ( ! function_exists('php_mailer')) {
         return FALSE;
       }
     }else{
-      require_once APPPATH . 'libraries/php-mailer/class.phpmailer.php';
-      $mail = new PHPMailer();
-      $mail->IsSMTP();                                      
-      $mail->Host = "smtp.stackmail.com"; 
-      $mail->SMTPAuth = true;     
-      $mail->Port = 587;       
-      $mail->CharSet = 'UTF-8';                          
-      $mail->Username = "work@accfm.co.uk"; 
-      $mail->Password = 'Bq69058cd'; 
-      $mail->From     = FROM_EMAIL;
-      $mail->FromName = SITE_NAME;
-      $mail->AddAddress($to_email, $to_name);
-      $mail->MsgHTML($message);
-      $mail->IsHTML(true); // send as HTML
-      $mail->Subject = $subject;
-      if(!empty($attachment)){
-        $mail->AddAttachment($attachment, basename($attachment));
-      }
-      if(!$mail->Send()){
-        return FALSE;
-      }else{
-        return TRUE;
-      }
-    }
+    //   require_once APPPATH . 'libraries/php-mailer/class.phpmailer.php';
+    //   $mail = new PHPMailer();
+    //   $mail->IsSMTP();                                      
+    //   $mail->Host = "smtp.stackmail.com"; 
+    //   $mail->SMTPAuth = true;     
+    //   $mail->Port = 587;       
+    //   $mail->CharSet = 'UTF-8';                          
+    //   $mail->Username = "work@accfm.co.uk"; 
+    //   $mail->Password = 'Bq69058cd'; 
+    //   $mail->From     = FROM_EMAIL;
+    //   $mail->FromName = SITE_NAME;
+    //   $mail->AddAddress($to_email, $to_name);
+    //   $mail->MsgHTML($message);
+    //   $mail->IsHTML(true); // send as HTML
+    //   $mail->Subject = $subject;
+    //   if(!empty($attachment)){
+    //     $mail->AddAttachment($attachment, basename($attachment));
+    //   }
+    //   if(!$mail->Send()){
+    //     return FALSE;
+    //   }else{
+    //     return TRUE;
+    //   }
+    // }
+
+    
   }
+}
 }
 
 /**
@@ -1904,4 +1948,3 @@ if (!function_exists('emailTemplate'))
 /* Location: ./system/application/helpers/custom_helper.php */
 
 ?>
-
