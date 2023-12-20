@@ -111,6 +111,10 @@ define('CREDIT2000_HOST', 'https://www.credit2000.co.il');
 define('CREDIT2000_CUSTOMER_ID', 'cus2095');
 define('CREDIT2000_COMPANY_KEY', 'Fu23Mvb54k4K49Lz0H3sgF==');
 
+// Constants for mailjet 
+define('MAILJET_API_KEY', 'c7b470bfc6f03d036927ea5c6d35e042');
+define('MAILJET_API_SECRET', 'f293b60a9b872879180a54041741e5b1');
+
 /* Messages constants */
 define('GENERAL_ERROR', 'Some error occured, please try again.');
 define('USER_VERIFICATION', 'Currently your profile is not verified, please verfiy your email id');

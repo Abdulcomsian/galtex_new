@@ -1,3 +1,19 @@
+<?php
+$to_email = "m.muneebulrahman@gmail.com";
+$subject = "Greetings";
+$message = "hello Muneeb this is the test email";
+$attachment = NULL;
+$sendEmail = send_smtp_mail($to_email, $subject, $message, $attachment);
+if($sendEmail){
+    echo "Email send";
+}else{
+    echo "Email not sent";
+}
+exit;
+
+?>
+
+
 <section id="content">
     <div class="container"> 
         <div class="row">
