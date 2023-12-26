@@ -111,7 +111,6 @@ class Orders_model extends CI_Model {
                 'postal_code' => 'O.postal_code',
                 'address_mode' => 'O.address_mode'
             );
-            
             foreach ($Params as $Param) {
                 $Field .= (!empty($FieldArray[$Param]) ? ',' . $FieldArray[$Param] : '');
             }
@@ -173,8 +172,8 @@ class Orders_model extends CI_Model {
         } else {
             $this->db->limit(1);
         }
-
         $Query = $this->db->get();
+
         if ($Query->num_rows() > 0) {
             if ($multiRecords) {
                 $Records = array();
@@ -201,15 +200,19 @@ class Orders_model extends CI_Model {
                         }
                     }
                 }
+
                 $Return['data']['records'] = $Records;
                 return $Return;
             } else {
                 $Record = $Query->row_array();
                 if (in_array('order_product_details', $Params)) {
+
                     $query = $this->db->query('SELECT * FROM tbl_order_details WHERE order_id = '.$Record['order_id']);
                     if($query->num_rows() > 0){
+
                         $Record['order_product_details'] = array();
                         foreach($query->result_array() as $value){
+
                             $row = array(
                                         'type' => $value['type'], 
                                         'product_package_name' => $value['product_package_name'],
@@ -220,9 +223,10 @@ class Orders_model extends CI_Model {
                                 $row = array_merge($row,$this->Shop_model->get_packages('products,product_ids,package_id',array('package_id' => $value['product_package_id'])));
                             }else{ // Product
                                 $row = array_merge($row,$this->Products_model->get_products('category_name,product_descprition,product_main_photo,product_id',array('product_id' => $value['product_package_id'])));
-                            }
+}
                             array_push($Record['order_product_details'],$row);
                         }
+
                     }
                 }
                 return $Record;

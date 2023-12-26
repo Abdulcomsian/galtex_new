@@ -91,10 +91,12 @@ class Products_model extends CI_Model {
 
     function get_products($Field = '', $Where = array(), $multiRecords = FALSE, $PageNo = 1, $PageSize = 150) {
         /* Additional fields to select */
+
         $Params = array();
         if (!empty($Field)) {
             $Params = array_map('trim', explode(',', $Field));
             $Field = '';
+
             $FieldArray = array(
                 'created_date'  => 'DATE_FORMAT(P.created_date, "' . DATE_FORMAT . '") created_date',
                 'product_id'   => 'P.product_id',
@@ -116,6 +118,7 @@ class Products_model extends CI_Model {
                 $Field .= (!empty($FieldArray[$Param]) ? ',' . $FieldArray[$Param] : '');
             }
         }
+
         $this->db->select('P.product_guid');
         if (!empty($Field)) $this->db->select($Field, FALSE);
         $this->db->from('tbl_products P');
@@ -169,7 +172,6 @@ class Products_model extends CI_Model {
         } else {
             $this->db->limit(1);
         }
-
         $Query = $this->db->get();
         if ($Query->num_rows() > 0) {
             if ($multiRecords) {

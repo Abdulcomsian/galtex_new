@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
   | -------------------------------------------------------------------
-  | DATABASE CONNECTIVITY SETTINGS
+  | DATABASE CONNECTIVITY SETTINGS     
   | -------------------------------------------------------------------
   | This file will contain the settings needed to access your database.
   |
@@ -12,11 +12,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   | page of the User Guide.
   |
   | -------------------------------------------------------------------
-  | EXPLANATION OF VARIABLES
+  | EXPLANATION OF VARIABLES  
   | -------------------------------------------------------------------
   |
   |	['dsn']      The full DSN string describe a connection to the database.
-  |	['hostname'] The hostname of your database server.
+  |	['hostname'] The hostname of your database server.  
   |	['username'] The username used to connect to the database
   |	['password'] The password used to connect to the database
   |	['database'] The name of the database you want to connect to
@@ -94,7 +94,7 @@ $db['default'] = array(
     'stricton' => FALSE,
     'failover' => array(),
     'save_queries' => TRUE
-);
+); 
 switch (ENVIRONMENT) {
     case 'local':
         $db['default']['username'] = 'root';
@@ -108,10 +108,10 @@ switch (ENVIRONMENT) {
         $db['default']['database'] = 'pqm_galtex';
         $db['default']['username'] = 'root';
         $db['default']['password'] = 'PQM@123#*';
-        break;
+        break; 
     case 'production':
-        $db['default']['database'] = 'galtexApp';
-        $db['default']['username'] = 'root';
-        $db['default']['password'] = '';
+        $db['default']['database'] = 'appgalte_new';
+        $db['default']['username'] = 'appgalte_new';
+        $db['default']['password'] = 'fs94Kfu8XQF@';
         break;
 }

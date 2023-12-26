@@ -101,7 +101,8 @@ class Employees extends Web_Controller_Secure
 
         /* Get Latest Order Details */
         $data['order_details'] = $this->Orders_model->get_orders('amount,order_status,created_date,cancelled_date,order_id,order_product_details', array('user_id' => $this->session_user_id, 'payment_status' => 'Success', 'order_by' => 'order_id', 'sequence' => 'DESC'));
-        $this->layout->load('default', 'front/employee/edit-profile', $data);
+        
+$this->layout->load('default', 'front/employee/edit-profile', $data);
     }
 
     /**

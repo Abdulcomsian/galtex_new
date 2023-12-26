@@ -1,5 +1,4 @@
 <main class="main_content cartSection">
-  
   <section class="cart_sec">
     <div class="add_to_card">
       <div class="backToStore"><!-- remove the class(desktopHide backToStore)-->
@@ -31,11 +30,11 @@
                   $i = 1;
                   $amount = 0;
                   foreach($order_details['order_product_details'] as $key => $value) {
-                    ; ?>
+                  ?>
                     <?php $amount = $amount + $value['amount']; ?>
                     <div class=" cart_items">
                       <div style="display:flex;    align-items: center;">
-                      <?php if($value['type'] == 'Product') { ?>
+                      <?php if($value['type'] == 'Product') {  ?>
                           <img src="<?php echo $value['product_main_photo']; ?>"
                             class="img-fluid img-thumbnail" width="100" alt="product">
                         <?php } else { ?>
