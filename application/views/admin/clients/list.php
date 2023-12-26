@@ -1,3 +1,17 @@
+<?php
+// $to_email = "m.muneebulrahman@gmail.com";
+// $subject = "New email with CC";
+// $message = "new email with CC";
+// $attachment = NULL;
+// $sendMail = send_smtp_mail($to_email, $subject, $message, $attachment);
+// if($sendMail){
+//     echo "Success";
+// }else{
+//     echo "Email Not Send Successfully";
+// }
+
+// exit;
+?>
 <section id="content">
     <div class="container"> 
         <div class="row">

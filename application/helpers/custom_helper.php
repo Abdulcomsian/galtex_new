@@ -880,7 +880,7 @@ if ( ! function_exists('send_smtp_mail')) {
 		// return TRUE;
     //  }
 
-    // require_once APPPATH . 'libraries/php-mailer/class.phpmailer.php';
+    require_once APPPATH . 'libraries/php-mailer/class.phpmailer.php';
     require 'vendor/autoload.php';
     $mailjet = new \Mailjet\Client(MAILJET_API_KEY, MAILJET_API_SECRET, true, ['version' => 'v3.1']);
 
@@ -897,6 +897,11 @@ if ( ! function_exists('send_smtp_mail')) {
                         // 'Name' => $to_name,
                     ],
                 ],
+                'Cc' => [
+                    [
+                      'Email' => CC_MAIL,
+                    ],
+                  ],
                 'Subject' => $subject,
                 'HTMLPart' => $message,
             ],
