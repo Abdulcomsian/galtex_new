@@ -126,8 +126,12 @@
 
          <?php }
          if ($is_added_into_cart) { ?>
-            <div class="wow zoomIn"><a href="../../employees/cart" class="btn btn_common">
+            <!-- <div class="wow zoomIn"><a href="../../employees/cart" class="btn btn_common">
                   <?php echo lang('go_to_cart'); ?>
+               </a></div> -->
+               <div class="wow zoomIn"><a href="javascript:void(0);" data-type="product"
+                  data-guid="<?php echo $details['product_guid']; ?>" class="btn btn_common add-to-cart">
+                  <?php echo lang('add_to_cart'); ?>
                </a></div>
          <?php } else { ?>
             <?php if ($details['remaining_quantity'] > 0) { ?>
@@ -380,8 +384,13 @@
                         <?php }
                         if ($is_added_into_cart) { ?>
                            <div class="product-button wow zoomIn">
-                              <a href="../../employees/cart" class="btn btn_common">
+                              <!-- <a href="../../employees/cart" class="btn btn_common">
                                  <?php echo lang('go_to_cart'); ?>
+                              </a> -->
+                              <a href="javascript:void(0);" data-type="product"
+                                 data-guid="<?php echo $details['product_guid']; ?>" style="margin-bottom:10px;"
+                                 class="btn btn_common add-to-cart">
+                                 <?php echo lang('add_to_cart'); ?>
                               </a>
                               <?php
                                  if (!empty($details['above_budget_price'])) {
@@ -446,9 +455,14 @@
 
                   <?php }
                   if ($is_added_into_cart) { ?>
-                     <div class="wow zoomIn mobileProductBtn"><a style="width: 100%; border: none;"
+                     <!-- <div class="wow zoomIn mobileProductBtn"><a style="width: 100%; border: none;"
                            href="../../employees/cart" class="btn btn_common">
                            <?php echo lang('go_to_cart'); ?>
+                        </a></div> -->
+                        <div class="wow zoomIn mobileProductBtn"><a style="width: 100%; border: none;"
+                           href="javascript:void(0);" data-type="product"
+                           data-guid="<?php echo $details['product_guid']; ?>" class="btn btn_common add-to-cart">
+                           <?php echo lang('add_to_cart'); ?>
                         </a></div>
                   <?php } else { ?>
                      <?php if ($details['remaining_quantity'] > 0) { ?>
