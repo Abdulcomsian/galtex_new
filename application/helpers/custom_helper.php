@@ -55,6 +55,34 @@ if ( ! function_exists('decodeSoapXml')) {
  * @param integer $number
  * @param string $rowid
 */
+if ( ! function_exists('showCartPriceNew')) {
+  function showCartPriceNew($number,$rowid, $order_count_details, $order_cancel_status)
+  {
+    $CI = & get_instance();
+    $item_details = $CI->cart->get_item($rowid);
+    if($number == 1){
+      if($item_details['options']['shop_category'] == 'Within Budget'){
+        // return $item_details['price'] * ($item_details['qty'] - 1);
+        // echo $order_cancel_status; exit;
+        if($order_count_details > 0 && $order_cancel_status == NULL){
+          return $item_details['price'] * $item_details['qty'];
+        }else{
+          return $item_details['price'] * ($item_details['qty'] - 1);
+        }        
+      }else{
+        if($item_details['qty'] == 1){
+          return $item_details['options']['above_budget_price'];
+        }else{
+          return ($item_details['price'] * $item_details['qty']) - $CI->session->userdata('webuserdata')['employee_budget'];
+        }
+      }
+    }else{
+      return $item_details['price'] * $item_details['qty'];
+    }
+    return $price;
+  }
+}
+
 if ( ! function_exists('showCartPrice')) {
   function showCartPrice($number,$rowid)
   {

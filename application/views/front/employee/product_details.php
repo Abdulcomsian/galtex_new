@@ -392,15 +392,19 @@
                                  class="btn btn_common add-to-cart">
                                  <?php echo lang('add_to_cart'); ?>
                               </a>
-                              <?php
-                                 if (!empty($details['above_budget_price'])) {
-                                    ?>
-                                    <p style="line-height: 22px;text-align: center;">
-                                       <?php echo lang('additional') . ' ' . CURRENCY_SYMBOL . $details['above_budget_price']; ?>
-                                    </p>
-                                 <?php 
-                                 }
-                               ?>
+                              <p style="line-height: 22px;text-align: center;">                                    
+                                 <?php
+                                    if (!empty($details['above_budget_price'])) {
+                                       echo lang('additional') . ' ' . $details['above_budget_price'] . CURRENCY_SYMBOL;
+                                    }else{
+                                       // print_r($order_details['order_product_details']); exit;
+                                       if (count($this->cart->contents()) > 0 || (count($order_details['order_product_details']) > 0 && $order_details['cancelled_date'] == NULL)) {
+                                          $budget = $this->session->userdata('webuserdata')['employee_budget'] + $details['above_budget_price'];
+                                          echo lang('additional') . ' ' .  $budget  . CURRENCY_SYMBOL;
+                                       }
+                                    }
+                                 ?>
+                              </p>
                            </div>
                         <?php } else { ?>
                            <?php if ($details['remaining_quantity'] > 0) { ?>
@@ -411,17 +415,19 @@
                                     class="btn btn_common add-to-cart">
                                     <?php echo lang('add_to_cart'); ?>
                                  </a>
-
-                                 <?php
-                                 
-                                 if (!empty($details['above_budget_price'])) {
-                                    ?>
-                                    <p style="line-height: 22px;text-align: center;">
-                                       <?php echo lang('additional') . ' ' . CURRENCY_SYMBOL . $details['above_budget_price']; ?>
+                                    <p style="line-height: 22px;text-align: center;">                                    
+                                       <?php
+                                          if (!empty($details['above_budget_price'])) {
+                                             echo lang('additional') . ' ' . $details['above_budget_price'] . CURRENCY_SYMBOL;
+                                          }else{
+                                             // print_r($order_details['order_product_details']); exit;
+                                             if (count($this->cart->contents()) > 0 || (count($order_details['order_product_details']) > 0 && $order_details['cancelled_date'] == NULL)) {
+                                                $budget = $this->session->userdata('webuserdata')['employee_budget'] + $details['above_budget_price'];
+                                                echo lang('additional') . ' ' .  $budget  . CURRENCY_SYMBOL;
+                                             }
+                                          }
+                                       ?>
                                     </p>
-                                 <?php 
-                              }
-                               ?>
                               </div>
                            <?php } else { ?>
                               <strong><a href="javascript:void(0);" style="margin-top:10px;color:red;">
@@ -494,4 +500,5 @@
          console.log(card);
          card.classList.remove('card');
       }
+   });
 </script>

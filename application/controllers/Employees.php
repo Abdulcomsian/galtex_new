@@ -118,6 +118,8 @@ $this->layout->load('default', 'front/employee/edit-profile', $data);
 
         $data['title'] = lang('product') . ' :: ' . $data['details']['product_name'];
         // echo"<pre>";print_r($data);exit;
+
+        $data['order_details'] = $this->Orders_model->get_orders('amount,order_status,created_date,cancelled_date,order_id,order_product_details', array('user_id' => $this->session_user_id, 'payment_status' => 'Success', 'order_by' => 'order_id', 'sequence' => 'DESC'));
         $this->layout->load('default', 'front/employee/product_details', array_merge($data, is_product_into_cart($product_guid)));
     }
 
@@ -154,7 +156,10 @@ $this->layout->load('default', 'front/employee/edit-profile', $data);
             /* To Get User Credits */
             $data['user_details'] = $this->Users_model->get_users('total_credits', array('user_id' => $this->session_user_id));
 
-            #echo "<pre>";print_r($data);exit;
+            /* To get the order details - To check if order already exist or not */ 
+            $data['order_details'] = $this->Orders_model->get_orders('amount,order_status,created_date,cancelled_date,order_id,order_product_details', array('user_id' => $this->session_user_id, 'payment_status' => 'Success', 'order_by' => 'order_id', 'sequence' => 'DESC'));
+
+            // echo "<pre>";print_r($data);exit;
             $this->layout->load('default', 'front/employee/cart', $data);
         }
     }
@@ -187,6 +192,9 @@ $this->layout->load('default', 'front/employee/edit-profile', $data);
 
         /* To Get User Credits */
         $data['user_details'] = $this->Users_model->get_users('total_credits', array('user_id' => $this->session_user_id));
+
+        /* To get the order details - To check if order already exist or not */ 
+        $data['order_details'] = $this->Orders_model->get_orders('amount,order_status,created_date,cancelled_date,order_id,order_product_details', array('user_id' => $this->session_user_id, 'payment_status' => 'Success', 'order_by' => 'order_id', 'sequence' => 'DESC'));
 
         /* Get Client Details */
         $data['client_details'] = $this->Users_model->get_users('delivery_method,client_addresses', array('user_id' => $this->session->userdata('webuserdata')['client_id']));

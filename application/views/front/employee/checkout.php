@@ -16,7 +16,13 @@
                   <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida</p> -->
                 </div>
                 <?php 
-                  $total_amount = (array_sum(array_column($cart,'subtotal')) - $this->session->userdata('webuserdata')['employee_budget']);
+                  // $total_amount = (array_sum(array_column($cart,'subtotal')) - $this->session->userdata('webuserdata')['employee_budget']);
+
+                  if(count($order_details['order_product_details']) > 0 && $order_details['cancelled_date'] == NULL){
+                    $total_amount = (array_sum(array_column($cart, 'subtotal')));
+                  }else{
+                    $total_amount = (array_sum(array_column($cart, 'subtotal')) - $this->session->userdata('webuserdata')['employee_budget']);
+                  }
                   $credits_minus = 0;
                 ?>
                 <div class="row">
@@ -33,7 +39,11 @@
                               <h6 class="my-0"><?php echo $value['name']; ?></h6>
                               <small class="text-muted"><?php echo $value['qty']; ?> <?php echo lang('quantity'); ?></small>
                             </div>
-                            <span class="text-muted"><?php echo CURRENCY_SYMBOL.showCartPrice($i++,$rowid); ?></span>
+                            <span class="text-muted"><?php 
+                              $order_count_details = count($order_details['order_product_details']);
+                              $order_cancel_status = $order_details['cancelled_date'];
+                              echo CURRENCY_SYMBOL.showCartPriceNew($i++, $rowid, $order_count_details, $order_cancel_status); 
+                            ?></span>
                           </li>
                         <?php } ?>
                         <li class="list-group-item d-flex justify-content-between">
