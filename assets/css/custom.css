@@ -1207,7 +1207,8 @@ h2.head_common2:after {
   line-height: 1.1;
   font-size: 28px;
   /* changed 72px to 50px */
-  font-size: 50px;
+  font-size: 35px;
+  text-align: right;
 }
 
 .product_price .pro_availablity {
