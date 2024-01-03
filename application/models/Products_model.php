@@ -38,6 +38,8 @@ class Products_model extends CI_Model {
       Description:  Use to edit product.
      */
     function edit_product($product_id, $Input = array()) {
+
+        // print_r($Input['file_location']); exit;
         $this->db->trans_start();
 
         $update_array = array_filter(array(
@@ -55,16 +57,18 @@ class Products_model extends CI_Model {
 
         /* Update Gallery Images */
         // if(!empty($Input['product_gallery_images']) || !empty($Input['removed_product_gallery_images'])){
-        //     print_r("changing image");
-        //     exit;
-        //     /* Fetch Old Gallery Images */
         //     $old_gallery_images = json_decode($this->db->query('SELECT product_gallery_images FROM tbl_products WHERE product_id = '.$product_id.' LIMIT 1')->row()->product_gallery_images,TRUE);
         //     if(!empty($Input['removed_product_gallery_images'])){
         //         $old_gallery_images = array_values(array_diff($old_gallery_images,$Input['removed_product_gallery_images']));
         //     }
-        //     $update_array['product_gallery_images']  = json_encode(array_merge($old_gallery_images,(!empty($Input['product_gallery_images']) ? $Input['product_gallery_images'] : array())));
+        // $update_array['product_gallery_images']  = json_encode(array_merge($old_gallery_images,(!empty($Input['product_gallery_images']) ? $Input['product_gallery_images'] : array())));
         // }
-
+        
+        if(!empty($Input['file_location'])){
+            $update_array['product_gallery_images']  = json_encode($Input['file_location']);
+        }else{
+            $update_array['product_gallery_images']  = json_encode($Input['previous-file']);
+        }
         
 
         $this->db->where('product_id', $product_id);

@@ -88,8 +88,6 @@ class Products extends API_Controller_Secure {
         $this->form_validation->set_rules('product_gallery_images[]', 'Product Gallery Images', 'trim');
         $this->form_validation->validation($this);  /* Run validation */
         /* Validation - ends */
-
-
         if(is_countable($_FILES['product_gallery_images']['name']) && is_array($_FILES['product_gallery_images']['name'])){
             $fileCount = count($_FILES['product_gallery_images']['name']);
             $fileLocation = [];
