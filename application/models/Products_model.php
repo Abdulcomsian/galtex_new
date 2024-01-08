@@ -221,7 +221,7 @@ class Products_model extends CI_Model {
     }
 
     /*
-      Description:  Use to upload products.
+      Description:  Use to upload products. Used for Product Upload
      */
     function upload_products($Input = array()) {
        /* Set max exceution time */
