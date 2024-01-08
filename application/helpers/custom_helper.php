@@ -64,7 +64,7 @@ if ( ! function_exists('showCartPriceNew')) {
       if($item_details['options']['shop_category'] == 'Within Budget'){
         // return $item_details['price'] * ($item_details['qty'] - 1);
         // echo $order_cancel_status; exit;
-        if($order_count_details > 0 && $order_cancel_status == NULL){
+        if($order_count_details > 0 && $order_cancel_status != 'Cancelled'){
           return $item_details['price'] * $item_details['qty'];
         }else{
           return $item_details['price'] * ($item_details['qty'] - 1);

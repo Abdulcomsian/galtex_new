@@ -119,7 +119,19 @@ $this->layout->load('default', 'front/employee/edit-profile', $data);
         $data['title'] = lang('product') . ' :: ' . $data['details']['product_name'];
         // echo"<pre>";print_r($data);exit;
 
-        $data['order_details'] = $this->Orders_model->get_orders('amount,order_status,created_date,cancelled_date,order_id,order_product_details', array('user_id' => $this->session_user_id, 'payment_status' => 'Success', 'order_by' => 'order_id', 'sequence' => 'DESC'));
+        $userid = $this->session_user_id;
+        $query = $this->db->query('
+            SELECT * 
+            FROM tbl_products 
+            INNER JOIN tbl_order_details ON tbl_products.product_id = tbl_order_details.product_package_id 
+            INNER JOIN tbl_orders ON tbl_order_details.order_id = tbl_orders.order_id 
+            WHERE tbl_products.product_guid = ? AND tbl_orders.user_id = ? 
+            ORDER BY tbl_orders.created_date DESC LIMIT 1', array($product_guid, $userid));
+
+        $data['order_details'] = $query->result();
+
+        // echo "<pre>";
+        // print_r($data['order_details']); exit;
         $this->layout->load('default', 'front/employee/product_details', array_merge($data, is_product_into_cart($product_guid)));
     }
 
@@ -152,12 +164,22 @@ $this->layout->load('default', 'front/employee/edit-profile', $data);
         } else {
             $data['title'] = lang('cart_details');
             $data['cart'] = $this->cart->contents();
-
             /* To Get User Credits */
             $data['user_details'] = $this->Users_model->get_users('total_credits', array('user_id' => $this->session_user_id));
+            foreach($data['cart'] as $cart){
+                $product_guid = $cart['id'];
+            }
 
-            /* To get the order details - To check if order already exist or not */ 
-            $data['order_details'] = $this->Orders_model->get_orders('amount,order_status,created_date,cancelled_date,order_id,order_product_details', array('user_id' => $this->session_user_id, 'payment_status' => 'Success', 'order_by' => 'order_id', 'sequence' => 'DESC'));
+            $userid = $this->session_user_id;
+            $query = $this->db->query('
+                SELECT * 
+                FROM tbl_products 
+                INNER JOIN tbl_order_details ON tbl_products.product_id = tbl_order_details.product_package_id 
+                INNER JOIN tbl_orders ON tbl_order_details.order_id = tbl_orders.order_id 
+                WHERE tbl_products.product_guid = ? AND tbl_orders.user_id = ? 
+                ORDER BY tbl_orders.created_date DESC LIMIT 1', array($product_guid, $userid));
+    
+            $data['order_details'] = $query->result();
 
             // echo "<pre>";print_r($data);exit;
             $this->layout->load('default', 'front/employee/cart', $data);
@@ -193,8 +215,23 @@ $this->layout->load('default', 'front/employee/edit-profile', $data);
         /* To Get User Credits */
         $data['user_details'] = $this->Users_model->get_users('total_credits', array('user_id' => $this->session_user_id));
 
+        foreach($data['cart'] as $cart){
+            $product_guid = $cart['id'];
+        }
+
+        $userid = $this->session_user_id;
+        $query = $this->db->query('
+            SELECT * 
+            FROM tbl_products 
+            INNER JOIN tbl_order_details ON tbl_products.product_id = tbl_order_details.product_package_id 
+            INNER JOIN tbl_orders ON tbl_order_details.order_id = tbl_orders.order_id 
+            WHERE tbl_products.product_guid = ? AND tbl_orders.user_id = ? 
+            ORDER BY tbl_orders.created_date DESC LIMIT 1', array($product_guid, $userid));
+
+        $data['order_details'] = $query->result();
+
         /* To get the order details - To check if order already exist or not */ 
-        $data['order_details'] = $this->Orders_model->get_orders('amount,order_status,created_date,cancelled_date,order_id,order_product_details', array('user_id' => $this->session_user_id, 'payment_status' => 'Success', 'order_by' => 'order_id', 'sequence' => 'DESC'));
+        // $data['order_details'] = $this->Orders_model->get_orders('amount,order_status,created_date,cancelled_date,order_id,order_product_details', array('user_id' => $this->session_user_id, 'payment_status' => 'Success', 'order_by' => 'order_id', 'sequence' => 'DESC'));
 
         /* Get Client Details */
         $data['client_details'] = $this->Users_model->get_users('delivery_method,client_addresses', array('user_id' => $this->session->userdata('webuserdata')['client_id']));
