@@ -93,24 +93,24 @@ $(document).on("click" , "#submit-product" , function(e){
     e.preventDefault();
     var formData = new FormData($(".add-new-product-form")[0]);
     let cropGalleryImage = document.querySelectorAll(".crop-gallery-image");
-    let images = document.querySelectorAll(".dz-image");
-    console.log(cropGalleryImage)
+    // let images = document.querySelectorAll(".dz-image");
+    // console.log(images)
+    // if(cropGalleryImage.length > 0){
+    //     for (var i = 0; i < cropGalleryImage.length; i++) {
+    //         console.log(cropGalleryImage[i].files[0])
+    //       formData.append('product_gallery_images', cropGalleryImage[i].files[0]);
+    //     }
+    // }else{
+    //     showToaster('error',error,select_gallery_images); 
+    //     return false;
+    // }
+
+
+
+
+
     if(cropGalleryImage.length > 0){
         for (var i = 0; i < cropGalleryImage.length; i++) {
-            console.log(cropGalleryImage[i].files[0])
-          formData.append('product_gallery_images', cropGalleryImage[i].files[0]);
-        }
-    }else{
-        showToaster('error',error,select_gallery_images); 
-        return false;
-    }
-
-
-
-
-
-    if(cropGalleryImage.length > 0){
-            for (var i = 0; i < cropGalleryImage.length; i++) {
               formData.append('product_gallery_images[]', cropGalleryImage[i]);
             }
         }else{
@@ -118,14 +118,14 @@ $(document).on("click" , "#submit-product" , function(e){
             return false;
         }
 
-    if(images.length > 0){
-        for (var i = 0; i < images.length; i++) {
-                      formData.append('product_gallery_images[]', images[i]);
-                    }
-    }else{
-        showToaster('error',error,select_gallery_images); 
-        return false;
-    }
+    // if(images.length > 0){
+    //     for (var i = 0; i < images.length; i++) {
+    //                   formData.append('product_gallery_images[]', images[i]);
+    //                 }
+    // }else{
+    //     showToaster('error',error,select_gallery_images); 
+    //     return false;
+    // }
 
     $.ajax({
         url: api_url + 'products/add',
