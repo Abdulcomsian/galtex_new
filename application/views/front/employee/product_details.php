@@ -7,6 +7,27 @@
       margin-top: 0px !important;
    }
 
+   .notification {
+      position: fixed;
+      top: 76px;
+      right: 57px;
+      transition: right 0.5s ease-in-out;
+      z-index: 9999;
+      height: 52px;
+      display: none;
+    }
+    .notification-close {
+      position: absolute;
+      top: 10px;
+      right: 10px; /* Adjust this value to your preferred position */
+   }
+
+   .notification-content{
+      font-weight: 600;
+      margin-top: 5px;
+      margin-right: 10px;
+      margin-bottom: 0px;
+   }
    .slick-list .slick-track .slick-active {
       right: 0 !important;
    }
@@ -51,6 +72,17 @@
          max-height: 73px;
          min-width: 47px !important;
          object-fit: cover
+      }
+
+      .notification {
+         position: fixed;
+         top: 76px;
+         right: 57px;
+         transition: right 0.5s ease-in-out;
+         z-index: 9999;
+         height: 65px;
+         width: 350px;
+         display: none;
       }
    }
 
@@ -120,7 +152,14 @@
    }
 </style>
 <main class="main_content">
+<div id="customNotification" class="notification alert alert-success" role="alert">
+   <button type="button" class="close notification-close" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <p class="notification-content"><?php echo lang('product_notification_message') ?></p>
+</div>
    <div class="add_to_card">
+     
       <div class="addToCartDiv"><!-- remove the class(desktopHide)-->
          <?php if ($details['remaining_quantity'] > 0) { ?>
 
@@ -501,4 +540,67 @@
          card.classList.remove('card');
       }
    });
+
+
+   document.addEventListener("DOMContentLoaded", function () {
+  let visitedStatus = sessionStorage.getItem('visited');
+//   console.log(localStorage)
+  if (visitedStatus) {
+   var notification = document.getElementById('customNotification');
+    notification.style.right = '57px';
+    fadeIn(notification).then(function () {
+      setTimeout(function () {
+        fadeOutAndHide(notification);
+      }, 5000);
+    });
+
+    sessionStorage.setItem('visited', 'true');
+  }
+
+
+  document.querySelector('#customNotification .close').addEventListener('click', function () {
+    fadeOutAndHide(document.getElementById('customNotification'));
+  });
+});
+
+
+function fadeIn(element) {
+  return new Promise(function (resolve) {
+    var opacity = 0;
+    element.style.display = 'block';
+    (function fadeIn() {
+      opacity += 0.02;
+      element.style.opacity = opacity;
+      if (opacity < 1) {
+        requestAnimationFrame(fadeIn);
+      } else {
+        resolve();
+      }
+    })();
+  });
+}
+
+function fadeOutAndHide(element) {
+  fadeOut(element).then(function () {
+    element.style.display = 'none';
+  });
+}
+
+function fadeOut(element) {
+  return new Promise(function (resolve) {
+    var opacity = 1;
+    (function fadeOut() {
+      opacity -= 0.02;
+      element.style.opacity = opacity;
+      if (opacity > 0) {
+        requestAnimationFrame(fadeOut);
+      } else {
+        resolve();
+      }
+    })();
+  });
+}
+
+
+
 </script>

@@ -421,4 +421,5 @@ $lang['hours'] = 'שעות';
 $lang['minute'] = 'דקות';
 $lang['address_mode'] = 'שיטת אספקה';
 $lang['category_product'] = 'מחק/י מוצר/ים כנגד קטגוריה זו';
+$lang['product_notification_message'] = 'שימו לב - כל מתנה אחרת שתוסיף תכלול תשלום נוסף';
 ?>
