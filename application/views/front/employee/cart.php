@@ -35,7 +35,7 @@
                   // $total_amount = (array_sum(array_column($cart, 'subtotal')) - $this->session->userdata('webuserdata')['employee_budget']);
                   // echo "<pre>";
                   // print_r($order_details[0]->order_status); exit;
-                  if($order_details[0]->order_status != 'Cancelled'){
+                  if(count($order_details) > 0){
                     $total_amount = (array_sum(array_column($cart, 'subtotal')));
                   }else{
                     $total_amount = (array_sum(array_column($cart, 'subtotal')) - $this->session->userdata('webuserdata')['employee_budget']);
@@ -75,8 +75,8 @@
                       <p>
                         <?php
                           $order_count_details = count($order_details);                          
-                          $order_cancel_status = $order_details[0]->order_status;
-                          echo showCartPriceNew($i++, $rowid, $order_count_details, $order_cancel_status) . CURRENCY_SYMBOL; 
+                          // $order_cancel_status = $order_details[0]->order_status;
+                          echo showCartPriceNew($i++, $rowid, $order_count_details) . CURRENCY_SYMBOL; 
                         ?>
                       </p>
                     </div>

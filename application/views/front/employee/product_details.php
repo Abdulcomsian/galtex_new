@@ -416,13 +416,12 @@
                                     <?php echo lang('add_to_cart'); ?>
                                  </a>
                                     <p style="line-height: 22px;text-align: center;">                                    
-                                       <?php
-                                       echo "<pre>";                     
+                                       <?php                 
                                           if (!empty($details['above_budget_price'])) {
                                              echo lang('additional') . ' ' . $details['above_budget_price'] . CURRENCY_SYMBOL;
                                           }else{
-                                             // print_r($order_details['order_product_details']); exit;
-                                             if (count($this->cart->contents()) > 0 || $order_details[0]->order_status != 'Cancelled') {
+                                             // print_r(count($order_details)); exit;
+                                             if (count($this->cart->contents()) > 0 || count($order_details) > 0) {
                                                 $budget = $this->session->userdata('webuserdata')['employee_budget'] + $details['above_budget_price'];
                                                 echo lang('additional') . ' ' .  $budget  . CURRENCY_SYMBOL;
                                              }

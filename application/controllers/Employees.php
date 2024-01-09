@@ -120,15 +120,19 @@ $this->layout->load('default', 'front/employee/edit-profile', $data);
         // echo"<pre>";print_r($data);exit;
 
         $userid = $this->session_user_id;
-        $query = $this->db->query('
-            SELECT * 
-            FROM tbl_products 
-            INNER JOIN tbl_order_details ON tbl_products.product_id = tbl_order_details.product_package_id 
-            INNER JOIN tbl_orders ON tbl_order_details.order_id = tbl_orders.order_id 
-            WHERE tbl_products.product_guid = ? AND tbl_orders.user_id = ? 
-            ORDER BY tbl_orders.created_date DESC LIMIT 1', array($product_guid, $userid));
+        // $query = $this->db->query('
+        //     SELECT * 
+        //     FROM tbl_products 
+        //     INNER JOIN tbl_order_details ON tbl_products.product_id = tbl_order_details.product_package_id 
+        //     INNER JOIN tbl_orders ON tbl_order_details.order_id = tbl_orders.order_id 
+        //     WHERE tbl_products.product_guid = ? AND tbl_orders.user_id = ? 
+        //     ORDER BY tbl_orders.created_date DESC LIMIT 1', array($product_guid, $userid));
 
-        $data['order_details'] = $query->result();
+        $query = $this->db->query('
+        SELECT * 
+        FROM tbl_orders where user_id = ? and order_status=? and payment_status = ? ', array($userid, 'created', 'success'));
+        $result = $query->result();
+        $data['order_details'] =$result;
 
         // echo "<pre>";
         // print_r($data['order_details']); exit;
@@ -166,20 +170,24 @@ $this->layout->load('default', 'front/employee/edit-profile', $data);
             $data['cart'] = $this->cart->contents();
             /* To Get User Credits */
             $data['user_details'] = $this->Users_model->get_users('total_credits', array('user_id' => $this->session_user_id));
-            foreach($data['cart'] as $cart){
-                $product_guid = $cart['id'];
-            }
+            // foreach($data['cart'] as $cart){
+            //     $product_guid = $cart['id'];
+            // }
 
             $userid = $this->session_user_id;
+            // $query = $this->db->query('
+            //     SELECT * 
+            //     FROM tbl_products 
+            //     INNER JOIN tbl_order_details ON tbl_products.product_id = tbl_order_details.product_package_id 
+            //     INNER JOIN tbl_orders ON tbl_order_details.order_id = tbl_orders.order_id 
+            //     WHERE tbl_products.product_guid = ? AND tbl_orders.user_id = ? 
+            //     ORDER BY tbl_orders.created_date DESC LIMIT 1', array($product_guid, $userid));
+
             $query = $this->db->query('
-                SELECT * 
-                FROM tbl_products 
-                INNER JOIN tbl_order_details ON tbl_products.product_id = tbl_order_details.product_package_id 
-                INNER JOIN tbl_orders ON tbl_order_details.order_id = tbl_orders.order_id 
-                WHERE tbl_products.product_guid = ? AND tbl_orders.user_id = ? 
-                ORDER BY tbl_orders.created_date DESC LIMIT 1', array($product_guid, $userid));
-    
-            $data['order_details'] = $query->result();
+            SELECT * 
+            FROM tbl_orders where user_id = ? and order_status=? and payment_status = ? ', array($userid, 'created', 'success'));
+            $result = $query->result();
+            $data['order_details'] =$result;
 
             // echo "<pre>";print_r($data);exit;
             $this->layout->load('default', 'front/employee/cart', $data);
@@ -215,20 +223,16 @@ $this->layout->load('default', 'front/employee/edit-profile', $data);
         /* To Get User Credits */
         $data['user_details'] = $this->Users_model->get_users('total_credits', array('user_id' => $this->session_user_id));
 
-        foreach($data['cart'] as $cart){
-            $product_guid = $cart['id'];
-        }
+        // foreach($data['cart'] as $cart){
+        //     $product_guid = $cart['id'];
+        // }
 
         $userid = $this->session_user_id;
         $query = $this->db->query('
             SELECT * 
-            FROM tbl_products 
-            INNER JOIN tbl_order_details ON tbl_products.product_id = tbl_order_details.product_package_id 
-            INNER JOIN tbl_orders ON tbl_order_details.order_id = tbl_orders.order_id 
-            WHERE tbl_products.product_guid = ? AND tbl_orders.user_id = ? 
-            ORDER BY tbl_orders.created_date DESC LIMIT 1', array($product_guid, $userid));
-
-        $data['order_details'] = $query->result();
+            FROM tbl_orders where user_id = ? and order_status=? and payment_status = ? ', array($userid, 'created', 'success'));
+            $result = $query->result();
+        $data['order_details'] =$result;
 
         /* To get the order details - To check if order already exist or not */ 
         // $data['order_details'] = $this->Orders_model->get_orders('amount,order_status,created_date,cancelled_date,order_id,order_product_details', array('user_id' => $this->session_user_id, 'payment_status' => 'Success', 'order_by' => 'order_id', 'sequence' => 'DESC'));

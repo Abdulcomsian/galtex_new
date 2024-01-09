@@ -56,7 +56,7 @@ if ( ! function_exists('decodeSoapXml')) {
  * @param string $rowid
 */
 if ( ! function_exists('showCartPriceNew')) {
-  function showCartPriceNew($number,$rowid, $order_count_details, $order_cancel_status)
+  function showCartPriceNew($number,$rowid, $order_count_details)
   {
     $CI = & get_instance();
     $item_details = $CI->cart->get_item($rowid);
@@ -64,7 +64,7 @@ if ( ! function_exists('showCartPriceNew')) {
       if($item_details['options']['shop_category'] == 'Within Budget'){
         // return $item_details['price'] * ($item_details['qty'] - 1);
         // echo $order_cancel_status; exit;
-        if($order_count_details > 0 && $order_cancel_status != 'Cancelled'){
+        if($order_count_details > 0){
           return $item_details['price'] * $item_details['qty'];
         }else{
           return $item_details['price'] * ($item_details['qty'] - 1);
