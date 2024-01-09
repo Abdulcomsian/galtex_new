@@ -479,7 +479,7 @@
                               <?php echo lang('back_to_store'); ?>
                            </a></div> -->
 
-                     </div>
+                     </div>    
                   </div>
                </div>
             </div>
