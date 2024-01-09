@@ -543,9 +543,6 @@
 
 
    document.addEventListener("DOMContentLoaded", function () {
-  let visitedStatus = sessionStorage.getItem('visited');
-//   console.log(localStorage)
-  if (visitedStatus) {
    var notification = document.getElementById('customNotification');
     notification.style.right = '57px';
     fadeIn(notification).then(function () {
@@ -553,9 +550,6 @@
         fadeOutAndHide(notification);
       }, 5000);
     });
-
-    sessionStorage.setItem('visited', 'true');
-  }
 
 
   document.querySelector('#customNotification .close').addEventListener('click', function () {
