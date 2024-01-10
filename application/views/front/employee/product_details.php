@@ -152,12 +152,14 @@
    }
 </style>
 <main class="main_content">
-<div id="customNotification" class="notification alert alert-success" role="alert">
-   <button type="button" class="close notification-close" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  <p class="notification-content"><?php echo lang('product_notification_message') ?></p>
-</div>
+<?php if(count($this->cart->contents()) > 0 || count($order_details) > 0) { ?>
+   <div id="customNotification" class="notification alert alert-success" role="alert">
+      <button type="button" class="close notification-close" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+      </button>
+      <p class="notification-content"><?php echo lang('product_notification_message') ?></p>
+   </div>
+<?php } ?>
    <div class="add_to_card">
      
       <div class="addToCartDiv"><!-- remove the class(desktopHide)-->
