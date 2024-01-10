@@ -88,6 +88,17 @@ class Employees extends Web_Controller_Secure
         $this->layout->load('default', 'front/employee/products', $data);
     }
 
+    public function change_message_id($product_guid){
+        $userId = $this->session_user_id;
+        $query = $this->db->query('
+        UPDATE tbl_users SET product_message_id = ? WHERE user_id = ?', array(1, $userId));
+        if (!$query) {
+            die($this->db->error());
+        }else{
+            redirect('product/details/' . $product_guid);
+        }
+    }
+
     /**
      * Function Name: profile
      * Description:   To edit employees profile
@@ -112,21 +123,21 @@ $this->layout->load('default', 'front/employee/edit-profile', $data);
     public function product_details($product_guid)
     {
         //echo $product_guid;exit;
+        $userid = $this->session_user_id;
         /* Get Products Details */
         $data['details'] = $this->Shop_model->get_shop_products('product_name,category_name,product_main_photo,product_guid,product_gallery_images,warranty,product_descprition,above_budget_price,remaining_quantity', array('product_guid' => $product_guid, 'client_id' => $this->client_id));
+        $userQuery = $this->db->query('
+        SELECT * FROM tbl_users where user_id = ?', $userid
+        );
+        $userData = $userQuery->result();
+        foreach($userData as $user){
+            $user_messsage_id = $user->product_message_id;
+        }
+
+        $data['user_details'] = $user_messsage_id;
         //obaid work assign client id
 
         $data['title'] = lang('product') . ' :: ' . $data['details']['product_name'];
-        // echo"<pre>";print_r($data);exit;
-
-        $userid = $this->session_user_id;
-        // $query = $this->db->query('
-        //     SELECT * 
-        //     FROM tbl_products 
-        //     INNER JOIN tbl_order_details ON tbl_products.product_id = tbl_order_details.product_package_id 
-        //     INNER JOIN tbl_orders ON tbl_order_details.order_id = tbl_orders.order_id 
-        //     WHERE tbl_products.product_guid = ? AND tbl_orders.user_id = ? 
-        //     ORDER BY tbl_orders.created_date DESC LIMIT 1', array($product_guid, $userid));
 
         $query = $this->db->query('
         SELECT * 
@@ -262,7 +273,11 @@ $this->layout->load('default', 'front/employee/edit-profile', $data);
             redirect('employees/cart');
         }
     }
+
+    
 }
+
+
 
 /* End of file Employees.php */
 /* Location: ./application/controllers/Employees.php */

@@ -152,14 +152,7 @@
    }
 </style>
 <main class="main_content">
-<?php if(count($this->cart->contents()) > 0 || count($order_details) > 0) { ?>
-   <div id="customNotification" class="notification alert alert-success" role="alert">
-      <button type="button" class="close notification-close" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-      </button>
-      <p class="notification-content"><?php echo lang('product_notification_message') ?></p>
-   </div>
-<?php } ?>
+
    <div class="add_to_card">
      
       <div class="addToCartDiv"><!-- remove the class(desktopHide)-->
@@ -532,7 +525,9 @@
       </div>
    </div>
 </main>
-
+<?php
+$product_guid = $details['product_guid'];
+?>
 <script>
    window.addEventListener('resize', function (event) {
       var clientWidth = window.innerWidth;
@@ -543,60 +538,39 @@
       }
    });
 
-
    document.addEventListener("DOMContentLoaded", function () {
-   var notification = document.getElementById('customNotification');
-    notification.style.right = '57px';
-    fadeIn(notification).then(function () {
-      setTimeout(function () {
-        fadeOutAndHide(notification);
-      }, 5000);
-    });
+      let cartContent = "<?php echo count($this->cart->contents()); ?>";
+      let orderCount = "<?php echo count($order_details); ?>";
+      let title = "<?php echo lang('product_notification_title'); ?>";
+      let text = "<?php echo lang('product_notification_message'); ?>";
+      let redirectURL = "<?= base_url('Employees/change_message_id') . '/' . $product_guid; ?>";
+      let userMessageId = "<?php echo $user_details; ?>";
+      let conditionAboveBudget = "<?php echo $details['above_budget_price']; ?>"
 
-
-  document.querySelector('#customNotification .close').addEventListener('click', function () {
-    fadeOutAndHide(document.getElementById('customNotification'));
-  });
+      if(userMessageId == 0){
+         if(conditionAboveBudget.length > 0 || cartContent > 0 || orderCount > 0){
+         Swal.fire({
+            title: title,
+            text: text,
+            icon: 'warning',
+            preConfirm: () => {
+               return new Promise((resolve) => {
+               resolve();
+               });
+            },
+            }).then((result) => {
+               // console.log("inside swal outside condition");
+               if (result.isConfirmed) {
+                  // console.log("inside swal at confirmation - means delete successfull")
+                  window.location.href = redirectURL;
+                  // console.log('done')
+               } else {
+                  Swal.close();
+               }
+            });
+      }     
+      }
+      
 });
-
-
-function fadeIn(element) {
-  return new Promise(function (resolve) {
-    var opacity = 0;
-    element.style.display = 'block';
-    (function fadeIn() {
-      opacity += 0.02;
-      element.style.opacity = opacity;
-      if (opacity < 1) {
-        requestAnimationFrame(fadeIn);
-      } else {
-        resolve();
-      }
-    })();
-  });
-}
-
-function fadeOutAndHide(element) {
-  fadeOut(element).then(function () {
-    element.style.display = 'none';
-  });
-}
-
-function fadeOut(element) {
-  return new Promise(function (resolve) {
-    var opacity = 1;
-    (function fadeOut() {
-      opacity -= 0.02;
-      element.style.opacity = opacity;
-      if (opacity > 0) {
-        requestAnimationFrame(fadeOut);
-      } else {
-        resolve();
-      }
-    })();
-  });
-}
-
-
 
 </script>
