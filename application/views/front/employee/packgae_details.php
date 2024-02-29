@@ -202,12 +202,19 @@
                         </button>
                      </h5>
 
-                     <button class="btn btn-link sign-toggler " data-toggle="collapse"
+                     <button class="btn btn-link sign-toggler downArrow" data-toggle="collapse"
                         data-target="#collapse<?php echo $i; ?>" aria-expanded="true"
                         aria-controls="collapse<?php echo $i; ?>">
-                        <img class="icon-image" src="<?php echo base_url(); ?>assets/images/plus-icon.svg"
+                        <img class="icon-image" src="<?php echo base_url(); ?>assets/images/arrowdown-icon.svg"
                            style="height:11px;width:11px" />
                      </button>
+
+                     <!-- <button class="btn btn-link sign-toggler upArrow" data-toggle="collapse"
+                        data-target="#collapse<?php echo $i; ?>" aria-expanded="true"
+                        aria-controls="collapse<?php echo $i; ?>" style="display: none;">
+                        <img class="icon-image" src="<?php echo base_url(); ?>assets/images/up-arrow-5.svg"
+                           style="height:11px;width:11px" />
+                     </button> -->
                   </div>
                </div>
 
@@ -506,4 +513,15 @@
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+</script>
+<script>
+   // $(document).on("click", ".downArrow", function(){
+   //    $(".downArrow").hide();
+   //    $(".upArrow").show();
+   // });
+
+   // $(document).on("click", ".upArrow", function(){
+   //    $(".downArrow").show();
+   //    $(".upArrow").hide();
+   // });
 </script>
