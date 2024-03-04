@@ -196,7 +196,6 @@ class Clients extends Admin_Controller_Secure {
 			redirect('admin/clients/list');
 		}
 			
-
 		$order_arr = array();
 		foreach($data['orders']['data']['records'] as $value){
 			$picked_products = array_column($value['order_product_details'],'product_package_name');
@@ -211,7 +210,7 @@ class Clients extends Admin_Controller_Secure {
 					'created_date' => convertDateTime($value['created_date'])
 				);
 		}
-		//echo"<pre>";print_r($order_arr);exit;
+		// echo"<pre>";print_r($order_arr);exit;
 		$filename = "employees-orders--".date('d-F-Y-h-i-A').".csv";
         $fp = fopen('php://output', 'w');
        

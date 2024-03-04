@@ -134,7 +134,97 @@ class Shop_model extends CI_Model {
         }
         return FALSE;
     }
-
+ 
+    // Muneeb code here started 
+    // function get_packages($Field = '', $Where = array(), $multiRecords = FALSE, $PageNo = 1, $PageSize = 150) {
+    //     /* Additional fields to select */
+    //     $Params = array();
+    //     if (!empty($Field)) {
+    //         $Params = array_map('trim', explode(',', $Field));
+    //         $Field = '';
+    //         $FieldArray = array(
+    //             'created_date'   => 'DATE_FORMAT(P.created_date, "' . DATE_FORMAT . '") created_date',
+    //             'no_of_products' => 'P.no_of_products',
+    //             'client_status'  => 'P.client_status',
+    //             'package_name'   => 'P.package_name',
+    //             'quantity'       => 'P.quantity',
+    //             'package_description' => 'P.package_description',
+    //             'sold_quantity'  => 'P.sold_quantity',
+    //             'remaining_quantity' => '(P.quantity - P.sold_quantity) remaining_quantity',
+    //             'package_id'     => 'P.package_id',
+    //             'product_ids'    => '(SELECT GROUP_CONCAT(product_id) FROM tbl_client_package_products WHERE package_id = P.package_id) AS product_ids',
+    //             'featured_image' => 'P.featured_image'
+    //         );
+            
+    //         foreach ($Params as $Param) {
+    //             $Field .= (!empty($FieldArray[$Param]) ? ',' . $FieldArray[$Param] : '');
+    //         }
+    //     }
+    //     $this->db->select('P.package_guid, P.featured_image');
+    //     if (!empty($Field)) $this->db->select($Field, FALSE);
+    //     $this->db->from('tbl_client_packages P');
+    //     if (!empty($Where['keyword'])) {
+    //         $Where['keyword'] = trim($Where['keyword']);
+    //         $this->db->group_start();
+    //         $this->db->like("P.package_name", $Where['keyword']);
+    //         $this->db->group_end();
+    //     }
+    //     if (!empty($Where['package_id'])) {
+    //         $this->db->where("P.package_id", $Where['package_id']);
+    //     }
+    //     if (!empty($Where['package_guid'])) {
+    //         $this->db->where("P.package_guid", $Where['package_guid']);
+    //     }
+    //     if (!empty($Where['client_id'])) {
+    //         $this->db->where("P.client_id", $Where['client_id']);
+    //     }
+    //     if (!empty($Where['client_status'])) {
+    //         $this->db->where("P.client_status", $Where['client_status']);
+    //     }
+    //     if (!empty($Where['remaining_quantity']) && $Where['remaining_quantity'] == 'greater_than_to_zero') {
+    //         $this->db->having("remaining_quantity > ", 0);
+    //     }
+    //     if (!empty($Where['order_by']) && !empty($Where['sequence']) && in_array($Where['sequence'], array('ASC', 'DESC'))) {
+    //         $this->db->order_by($Where['order_by'], $Where['sequence']);
+    //     } else {
+    //         $this->db->order_by('P.package_id', 'DESC');
+    //     }
+    
+    //     if ($multiRecords) {
+    //         $TempOBJ = clone $this->db;
+    //         $TempQ = $TempOBJ->get();
+    //         $Return['data']['total_records'] = $TempQ->num_rows();
+    //         $this->db->limit($PageSize, paginationOffset($PageNo, $PageSize)); 
+    //     } else {
+    //         $this->db->limit(1);
+    //     }
+    
+    //     $Query = $this->db->get();
+    //     if ($Query->num_rows() > 0) {
+    //         if ($multiRecords) {
+    //             $Records = array();
+    //             foreach ($Query->result_array() as $key => $Record) {
+    //                 $Records[] = $Record;
+    //                 if (in_array('products', $Params)) {
+    //                     $Records[$key]['products'] = $this->Products_model->get_products('product_id,product_name,min_price,max_price,product_main_photo,package_description',array('product_ids' => explode(",",$Record['product_ids'])),TRUE);                    
+    //                     unset($Records[$key]['product_ids']);
+    //                 }
+    //             }
+    //             $Return['data']['records'] = $Records;
+    //             return $Return;
+    //         } else {
+    //             $Record = $Query->row_array();
+    //             if (in_array('products', $Params)) {
+    //                 $Record['products'] = $this->Products_model->get_products('product_id,product_name,min_price,max_price,product_main_photo,category_name,product_descprition,product_gallery_images,warranty',array('product_ids' => explode(",",$Record['product_ids'])),TRUE);                    
+    //                 unset($Record['product_ids']);
+    //             }
+    //             return $Record;
+    //         }
+    //     }
+    //     return FALSE;
+    // }
+    
+    // Muneeb Code ended here 
     /*
       Description:  Use to get shop products
     */

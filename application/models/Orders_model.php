@@ -166,6 +166,7 @@ class Orders_model extends CI_Model {
         /* Total records count only if want to get multiple records */
         if ($multiRecords) {
             $TempOBJ = clone $this->db;
+
             $TempQ = $TempOBJ->get();
             $Return['data']['total_records'] = $TempQ->num_rows();
             $this->db->limit($PageSize, paginationOffset($PageNo, $PageSize)); /* for pagination */
@@ -175,6 +176,7 @@ class Orders_model extends CI_Model {
         $Query = $this->db->get();
 
         if ($Query->num_rows() > 0) {
+
             if ($multiRecords) {
                 $Records = array();
                 foreach ($Query->result_array() as $key => $Record) {
@@ -223,7 +225,7 @@ class Orders_model extends CI_Model {
                                 $row = array_merge($row,$this->Shop_model->get_packages('products,product_ids,package_id',array('package_id' => $value['product_package_id'])));
                             }else{ // Product
                                 $row = array_merge($row,$this->Products_model->get_products('category_name,product_descprition,product_main_photo,product_id',array('product_id' => $value['product_package_id'])));
-}
+                            }
                             array_push($Record['order_product_details'],$row);
                         }
 

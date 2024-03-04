@@ -219,7 +219,7 @@
                   </div>
                </div>
 
-               <div id="collapse<?php echo $i; ?>" class="collapse <?php if ($i == 0) {
+               <div id="collapse<?php echo $i; ?>" class="collapse <?php if ($i == 0 || $i == 1) {
                      echo "show";
                   } ?>" aria-labelledby="heading<?php echo $i; ?>"
                   data-parent="#accordion">
