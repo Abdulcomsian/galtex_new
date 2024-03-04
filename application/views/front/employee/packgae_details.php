@@ -131,12 +131,13 @@
                   <?php echo lang('go_to_cart'); ?>
                </a></div> -->
          <?php } else { ?>
-            <?php if ($details['remaining_quantity'] > 0) { ?>
+            <?php if ($details['remaining_quantity'] > 0) {
+               if(count($this->cart->contents()) == 0){ ?>
                <div class="wow zoomIn"><a href="javascript:void(0);" data-type="package"
                      data-guid="<?php echo $details['package_guid']; ?>" class="btn btn_common add-to-cart">
                      <?php echo lang('add_to_cart'); ?>
                   </a></div>
-            <?php } else { ?>
+            <?php } } else { ?>
                <strong><a class="btn btn_common" href="javascript:void(0);">
                      <?php echo lang('out_of_stock'); ?>
                   </a></strong>
@@ -339,13 +340,14 @@
                      <?php echo lang('go_to_cart'); ?>
                   </a></div> -->
             <?php } else { ?>
-               <?php if ($details['remaining_quantity'] > 0) { ?>
+               <?php if ($details['remaining_quantity'] > 0) {
+                  if(count($this->cart->contents()) == 0){ ?>
                   <div class="product-button "><a href="javascript:void(0);" data-type="package"
                         data-guid="<?php echo $details['package_guid']; ?>" style="margin-bottom:10px;"
                         class="btn btn_common add-to-cart">
                         <?php echo lang('add_to_cart'); ?>
                      </a></div>
-               <?php } else { ?>
+               <?php } } else { ?>
                   <strong><a href="javascript:void(0);" style="margin-top:10px;color:red;">
                         <?php echo lang('out_of_stock'); ?>
                      </a></strong>

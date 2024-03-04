@@ -168,12 +168,14 @@
                   <?php echo lang('add_to_cart'); ?>
                </a></div> -->
          <?php } else { ?>
-            <?php if ($details['remaining_quantity'] > 0) { ?>
+            <?php if ($details['remaining_quantity'] > 0) { 
+               if(count($this->cart->contents()) == 0 || count($order_details) > 0){
+               ?>
                <div class="wow zoomIn"><a href="javascript:void(0);" data-type="product"
                      data-guid="<?php echo $details['product_guid']; ?>" class="btn btn_common add-to-cart">
                      <?php echo lang('add_to_cart'); ?>
                   </a></div>
-            <?php } else { ?>
+            <?php } } else { ?>
                <strong><a class="btn btn_common add-to-cart" href="javascript:void(0);">
                      <?php echo lang('out_of_stock'); ?>
                   </a></strong>
@@ -441,29 +443,31 @@
                               <!-- </p> -->
                            </div>
                         <?php } else { ?>
-                           <?php if ($details['remaining_quantity'] > 0) { ?>
+                           <?php if ($details['remaining_quantity'] > 0) {
+                              if(count($this->cart->contents()) == 0 || count($order_details) > 0){ // remove this condition after its sets dynamically 
+                              ?>
                               <div class="product-button wow zoomIn">
-
                                  <a href="javascript:void(0);" data-type="product"
                                     data-guid="<?php echo $details['product_guid']; ?>" style="margin-bottom:10px;"
                                     class="btn btn_common add-to-cart">
                                     <?php echo lang('add_to_cart'); ?>
                                  </a>
-                                    <p style="line-height: 22px;text-align: center;">                                    
+                                    <!-- <p style="line-height: 22px;text-align: center;">                                     -->
                                        <?php                 
-                                          if (!empty($details['above_budget_price'])) {
-                                             echo lang('additional') . ' ' . $details['above_budget_price'] . CURRENCY_SYMBOL;
-                                          }else{
-                                             // print_r(count($order_details)); exit;
-                                             if (count($this->cart->contents()) > 0 || count($order_details) > 0) {
-                                                $budget = $this->session->userdata('webuserdata')['employee_budget'] + $details['above_budget_price'];
-                                                echo lang('additional') . ' ' .  $budget  . CURRENCY_SYMBOL;
-                                             }
-                                          }
+                                          // if (!empty($details['above_budget_price'])) {
+                                          //    echo lang('additional') . ' ' . $details['above_budget_price'] . CURRENCY_SYMBOL;
+                                          // }else{
+                                          //    // print_r(count($order_details)); exit;
+                                          //    if (count($this->cart->contents()) > 0 || count($order_details) > 0) {
+                                          //       $budget = $this->session->userdata('webuserdata')['employee_budget'] + $details['above_budget_price'];
+                                          //       echo lang('additional') . ' ' .  $budget  . CURRENCY_SYMBOL;
+                                          //    }
+                                          // }
                                        ?>
-                                    </p>
+                                    <!-- </p> -->
                               </div>
-                           <?php } else { ?>
+                           <?php } 
+                        } else { ?>
                               <strong><a href="javascript:void(0);" style="margin-top:10px;color:red;">
                                     <?php echo lang('out_of_stock'); ?>
                                  </a></strong>
