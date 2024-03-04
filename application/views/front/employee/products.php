@@ -413,13 +413,16 @@
 
                                        #if($order_details['order_product_details']!=NULL ){
                                        if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) { ?>
-                                          <div class="above_baduge">
+                                          <!-- <div class="above_baduge"> -->
                                              <?php
-                                             echo lang('additional') . ' ' . CURRENCY_SYMBOL;
-                                             echo $this->session->userdata('webuserdata')['employee_budget'] ?>
-                                          </div>
+                                             // echo lang('additional') . ' ' . CURRENCY_SYMBOL;
+                                             // echo $this->session->userdata('webuserdata')['employee_budget'] 
+                                             ?>
+                                          <!-- </div> -->
                                           <?php
-                                       } #} 
+                                       } 
+                                       
+                                       #} 
                                        #else if (count($this->cart->contents()) > 0 ) { ?>
                                        <!-- <div class="above_baduge">
                                                       <?php
@@ -571,15 +574,15 @@
                                        ?>
                                     </p>
                                  <?php } else if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) { ?>
-                                       <p class="above_baduge">
+                                       <!-- <p class="above_baduge"> -->
                                           <?php
                                           // if (count($this->cart->contents()) > 0 || count($order_details['order_product_details']) > 0) {
                                           
                                     
-                                          echo lang('additional') . ' ' . $this->session->userdata('webuserdata')['employee_budget'] . CURRENCY_SYMBOL;
+                                          // echo lang('additional') . ' ' . $this->session->userdata('webuserdata')['employee_budget'] . CURRENCY_SYMBOL;
 
                                           ?>
-                                       </p>
+                                       <!-- </p> -->
                                  <?php } #else{ ?>
                                  <!-- <p class="above_baduge"> -->
                                  <?php

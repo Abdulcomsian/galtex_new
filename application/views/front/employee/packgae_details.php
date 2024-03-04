@@ -127,9 +127,9 @@
             </div>
          <?php }
          if ($is_added_into_cart) { ?>
-            <div class="wow zoomIn"><a href="../../employees/cart" class="btn btn_common">
+            <!-- <div class="wow zoomIn"><a href="../../employees/cart" class="btn btn_common">
                   <?php echo lang('go_to_cart'); ?>
-               </a></div>
+               </a></div> -->
          <?php } else { ?>
             <?php if ($details['remaining_quantity'] > 0) { ?>
                <div class="wow zoomIn"><a href="javascript:void(0);" data-type="package"
@@ -334,10 +334,10 @@
     </div> -->
             <?php }
             if ($is_added_into_cart) { ?>
-               <div class="product-button "><a href="../../employees/cart" style="margin-bottom:10px;"
+               <!-- <div class="product-button "><a href="../../employees/cart" style="margin-bottom:10px;"
                      class="btn btn_common">
                      <?php echo lang('go_to_cart'); ?>
-                  </a></div>
+                  </a></div> -->
             <?php } else { ?>
                <?php if ($details['remaining_quantity'] > 0) { ?>
                   <div class="product-button "><a href="javascript:void(0);" data-type="package"
@@ -484,10 +484,10 @@
           </div> -->
          <?php }
          if ($is_added_into_cart) { ?>
-            <div class="product-button wow zoomIn mobileProductBtn"><a href="../../employees/cart"
+            <!-- <div class="product-button wow zoomIn mobileProductBtn"><a href="../../employees/cart"
                   style="margin-bottom:10px;" class="btn btn_common">
                   <?php echo lang('go_to_cart'); ?>
-               </a></div>
+               </a></div> -->
          <?php } else { ?>
             <?php if ($details['remaining_quantity'] > 0) { ?>
                <div class="product-button wow zoomIn mobileProductBtn"><a href="javascript:void(0);" data-type="package"
