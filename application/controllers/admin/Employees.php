@@ -171,20 +171,55 @@ class Employees extends Admin_Controller_Secure {
 	}
 	public function export_client_employees(){
 
-		/* Get Products Orders */
-		$client_id = $_REQUEST['client_id'];
-
+		// /* Get Client Employees */
+		// $client_id = $_REQUEST['client_id'];
+		// $query = $this->db->query('SELECT * FROM tbl_users WHERE client_id = "'.$client_id.'" AND user_id != "'.$client_id.'"');
+		// $employees = $query->result();
+		// echo "<pre>"; print_r($employees); exit;
 		
-		$filename = "client-employees--".date('d-F-Y-h-i-A').".csv";
-        $fp = fopen('php://output', 'w');
-        // header('Content-type: application/csv');
-        header('Content-Encoding: UTF-8');
-		header('Content-type: text/csv; charset=UTF-8');
-        header('Content-Disposition: attachment; filename=' . $filename);
-        fputcsv($fp, array(lang('product_package_name'),lang('type'),lang('sold_quantity')));
-        foreach ($order_arr as $row) {
-            fputcsv($fp, $row);
-        }
+		// // I wanna export all the employees in Excel CSV in codeigniter here
+		// $filename = "client-employees--".date('d-F-Y-h-i-A').".csv";
+        // $fp = fopen('php://output', 'w');
+        // // header('Content-type: application/csv');
+        // header('Content-Encoding: UTF-8');
+		// header('Content-type: text/csv; charset=UTF-8');
+        // header('Content-Disposition: attachment; filename=' . $filename);
+        // fputcsv($fp, array(lang('product_package_name'),lang('type'),lang('sold_quantity')));
+        // foreach ($order_arr as $row) {
+        //     fputcsv($fp, $row);
+        // }
+
+		/* Get Client Employees */
+		$client_id = $_REQUEST['client_id'];
+		$query = $this->db->query('SELECT * FROM tbl_users WHERE client_id = "'.$client_id.'" AND user_id != "'.$client_id.'"');
+		$employees = $query->result();
+
+		$filename = "client_employees_" . date('d-F-Y-h-i-A') . ".csv";
+		$fp = fopen('php://output', 'w');
+
+
+		$header = array('User ID', 'First Name', 'Last Name', 'Phone Number', 'Email');
+		fputcsv($fp, $header);
+
+		foreach ($employees as $employee) {
+			$row = array(
+				$employee->user_id,
+				$employee->first_name,
+				$employee->last_name,
+				$employee->phone_number,
+				$employee->email
+				
+			);
+			fputcsv($fp, $row);
+		}
+
+		fclose($fp);
+
+
+		header('Content-Type: text/csv');
+		header('Content-Disposition: attachment; filename="' . $filename . '"');
+		exit;
+
 	}
 	public function export_client_orders(){
 		$data['orders'] = $this->Orders_model->get_orders('created_date,order_id,amount,employee_name,employee_email,employee_phone_number,address_mode,order_product_details,pickup_address,city,apartment,street_house,postal_code',array('payment_status' => array('Success'), 'order_status' => 'Created', 'client_id' => $_REQUEST['client_id']),TRUE);
