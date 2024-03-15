@@ -415,4 +415,6 @@ $lang['Someother_Category'] = 'Someother Category';
 $lang['days'] = 'Days';
 $lang['hours'] = 'Hours';
 $lang['minute'] = 'Minute';
+
+$lang['export_employees'] = 'Export Employees';
 ?>

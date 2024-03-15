@@ -12,8 +12,10 @@ class Employees extends Admin_Controller_Secure {
 
 	function __construct() {
         parent::__construct(); 
+		$this->load->model('Orders_model');
+		$this->load->model('Products_model');
 	}
-
+	
 	/**
 	 * Function Name: list
 	 * Description:   To view employees list
@@ -52,6 +54,7 @@ class Employees extends Admin_Controller_Secure {
 		$data['companies'] = $companiesList;
 		//new code ends here 
 		$data['clients'] = $this->Users_model->get_users('first_name,last_name,email',array('order_by' => 'first_name', 'sequence' => 'ASC', 'user_type_id' => 2),TRUE);
+		$data['client_id']= $this->session_user_id;
 		$this->template->load('default', 'employees/list',$data);
 	}
 
@@ -166,6 +169,55 @@ class Employees extends Admin_Controller_Secure {
 		}
 		redirect('admin/employees/list');
 	}
+	public function export_client_employees(){
+
+		/* Get Products Orders */
+		$client_id = $_REQUEST['client_id'];
+
+		
+		$filename = "client-employees--".date('d-F-Y-h-i-A').".csv";
+        $fp = fopen('php://output', 'w');
+        // header('Content-type: application/csv');
+        header('Content-Encoding: UTF-8');
+		header('Content-type: text/csv; charset=UTF-8');
+        header('Content-Disposition: attachment; filename=' . $filename);
+        fputcsv($fp, array(lang('product_package_name'),lang('type'),lang('sold_quantity')));
+        foreach ($order_arr as $row) {
+            fputcsv($fp, $row);
+        }
+	}
+	public function export_client_orders(){
+		$data['orders'] = $this->Orders_model->get_orders('created_date,order_id,amount,employee_name,employee_email,employee_phone_number,address_mode,order_product_details,pickup_address,city,apartment,street_house,postal_code',array('payment_status' => array('Success'), 'order_status' => 'Created', 'client_id' => $_REQUEST['client_id']),TRUE);
+
+		$order_arr = array();
+		foreach($data['products']['data']['records'] as $value){
+			$order_arr[] = array(
+					'product_package_name' => $value['product_name'],
+					'type' => lang('product'),
+					'sold_quantity' => $value['sold_quantity']
+				);
+		}
+		foreach($data['packages']['data']['records'] as $value){
+			$order_arr[] = array(
+					'product_package_name' => $value['package_name'],
+					'type' => lang('package'),
+					'sold_quantity' => $value['sold_quantity']
+				);
+		}
+
+		// echo"<pre>";print_r($order_arr);exit;
+		$filename = "products-orders--".date('d-F-Y-h-i-A').".csv";
+        $fp = fopen('php://output', 'w');
+        // header('Content-type: application/csv');
+        header('Content-Encoding: UTF-8');
+		header('Content-type: text/csv; charset=UTF-8');
+        header('Content-Disposition: attachment; filename=' . $filename);
+        fputcsv($fp, array(lang('product_package_name'),lang('type'),lang('sold_quantity')));
+        foreach ($order_arr as $row) {
+            fputcsv($fp, $row);
+        }
+	}
+	
 }
 
 /* End of file Employees.php */
