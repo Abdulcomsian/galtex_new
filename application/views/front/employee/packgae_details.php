@@ -219,9 +219,11 @@
                   </div>
                </div>
 
-               <div id="collapse<?php echo $i; ?>" class="collapse <?php if ($i == 0 || $i == 1) {
+               <div id="collapse<?php echo $i; ?>" class="collapse <?php 
+               #if ($i == 0 || $i == 1) {
                      echo "show";
-                  } ?>" aria-labelledby="heading<?php echo $i; ?>"
+                 # } 
+                  ?>" aria-labelledby="heading<?php echo $i; ?>"
                   data-parent="#accordion">
                   <div class="card-body">
                      <div class="row package-detail_view">
