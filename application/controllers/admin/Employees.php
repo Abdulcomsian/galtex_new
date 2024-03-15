@@ -202,21 +202,20 @@ class Employees extends Admin_Controller_Secure {
 		fputcsv($fp, $header);
 
 		foreach ($employees as $employee) {
-			$row = array(
+			$row = array_map('utf8_encode', array(
 				$employee->user_id,
 				$employee->first_name,
 				$employee->last_name,
 				$employee->phone_number,
 				$employee->email
-				
-			);
+			));
 			fputcsv($fp, $row);
 		}
 
 		fclose($fp);
 
 
-		header('Content-Type: text/csv');
+		header('Content-Type: text/csv; charset=utf-8');
 		header('Content-Disposition: attachment; filename="' . $filename . '"');
 		exit;
 
