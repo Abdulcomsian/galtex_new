@@ -195,30 +195,26 @@ class Employees extends Admin_Controller_Secure {
 		$employees = $query->result();
 
 		$filename = "client_employees_" . date('d-F-Y-h-i-A') . ".csv";
-		// Open file pointer for writing CSV data
 		$fp = fopen('php://output', 'w');
-
-		// Add CSV headers
 		$header = array('User ID', 'First Name', 'Last Name', 'Phone Number', 'Email');
 		fputcsv($fp, $header);
-
-		// Iterate through employees and write data to CSV
 		foreach ($employees as $employee) {
-			// Decode each field from ISO-8859-1 to UTF-8 before writing to CSV
-			$row = array_map('utf8_decode', array(
+			$row = array(
 				$employee->user_id,
 				$employee->first_name,
 				$employee->last_name,
 				$employee->phone_number,
-				$employee->email
-			));
+				$employee->email,
+			);
 			fputcsv($fp, $row);
 		}
 
-		// Close file pointer
 		fclose($fp);
 
-		header('Content-Type: text/csv; charset=utf-8');
+		header('Content-Encoding: UTF-8');
+		header('Content-type: text/csv; charset=UTF-8');
+		header("Content-Type: application/csv");
+		header('Pragma: no-cache');
 		header('Content-Disposition: attachment; filename="' . $filename . '"');
 		exit;
 
