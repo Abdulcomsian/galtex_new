@@ -170,25 +170,6 @@ class Employees extends Admin_Controller_Secure {
 		redirect('admin/employees/list');
 	}
 	public function export_client_employees(){
-
-		// /* Get Client Employees */
-		// $client_id = $_REQUEST['client_id'];
-		// $query = $this->db->query('SELECT * FROM tbl_users WHERE client_id = "'.$client_id.'" AND user_id != "'.$client_id.'"');
-		// $employees = $query->result();
-		// echo "<pre>"; print_r($employees); exit;
-		
-		// // I wanna export all the employees in Excel CSV in codeigniter here
-		// $filename = "client-employees--".date('d-F-Y-h-i-A').".csv";
-        // $fp = fopen('php://output', 'w');
-        // // header('Content-type: application/csv');
-        // header('Content-Encoding: UTF-8');
-		// header('Content-type: text/csv; charset=UTF-8');
-        // header('Content-Disposition: attachment; filename=' . $filename);
-        // fputcsv($fp, array(lang('product_package_name'),lang('type'),lang('sold_quantity')));
-        // foreach ($order_arr as $row) {
-        //     fputcsv($fp, $row);
-        // }
-
 		/* Get Client Employees */
 		$client_id = $_REQUEST['client_id'];
 		$query = $this->db->query('SELECT * FROM tbl_users WHERE client_id = "'.$client_id.'" AND user_id != "'.$client_id.'"');
@@ -196,7 +177,8 @@ class Employees extends Admin_Controller_Secure {
 
 		$filename = "client_employees_" . date('d-F-Y-h-i-A') . ".csv";
 		$fp = fopen('php://output', 'w');
-		$header = array('User ID', 'First Name', 'Last Name', 'Phone Number', 'Email');
+		fwrite($fp, "\xEF\xBB\xBF");
+		$header = array('מספר משתמש', 'שם פרטי', 'שם משפחה', 'מספר טלפון', 'דוא"ל');
 		fputcsv($fp, $header);
 		foreach ($employees as $employee) {
 			$row = array(
@@ -213,39 +195,72 @@ class Employees extends Admin_Controller_Secure {
 
 		header('Content-Encoding: UTF-8');
 		header('Content-type: text/csv; charset=UTF-8');
-		header("Content-Type: application/csv");
-		header('Pragma: no-cache');
 		header('Content-Disposition: attachment; filename="' . $filename . '"');
 		exit;
 
 	}
 	public function export_client_orders(){
 		$data['orders'] = $this->Orders_model->get_orders('created_date,order_id,amount,employee_name,employee_email,employee_phone_number,address_mode,order_product_details,pickup_address,city,apartment,street_house,postal_code',array('payment_status' => array('Success'), 'order_status' => 'Created', 'client_id' => $_REQUEST['client_id']),TRUE);
+		// $order_arr = array();
+		// foreach($data['products']['data']['records'] as $value){
+		// 	$order_arr[] = array(
+		// 			'product_package_name' => $value['product_name'],
+		// 			'type' => lang('product'),
+		// 			'sold_quantity' => $value['sold_quantity']
+		// 		);
+		// }
+		// foreach($data['packages']['data']['records'] as $value){
+		// 	$order_arr[] = array(
+		// 			'product_package_name' => $value['package_name'],
+		// 			'type' => lang('package'),
+		// 			'sold_quantity' => $value['sold_quantity']
+		// 		);
+		// }
 
 		$order_arr = array();
-		foreach($data['products']['data']['records'] as $value){
+		foreach($data['orders']['data']['records'] as $value){
 			$order_arr[] = array(
-					'product_package_name' => $value['product_name'],
-					'type' => lang('product'),
-					'sold_quantity' => $value['sold_quantity']
-				);
-		}
-		foreach($data['packages']['data']['records'] as $value){
-			$order_arr[] = array(
-					'product_package_name' => $value['package_name'],
-					'type' => lang('package'),
-					'sold_quantity' => $value['sold_quantity']
+					'product_package_name' => $value['order_product_details']['0']['product_package_name'],
+					'type' => $value['order_product_details']['0']['type'],
+					'order_amount' => $value['order_amount'],
+					'product_category' => $value['order_product_details']['0']['category_name'],
+					'product_quantity' => $value['order_product_details']['0']['quantity'],
+					'employee_name' => $value['employee_name'],
+					'employee_email' => $value['employee_email'],
+					'employee_phone_number' => $value['employee_phone_number'],
+					'address_mode' => $value['address_mode'],
+					'pickup_address' => $value['pickup_address'],
+					'city' => $value['city'],
+					'apartment' => $value['apartment'],
+					'street_house' => $value['street_house'],
+					'postal_code' => $value['postal_code'],
 				);
 		}
 
 		// echo"<pre>";print_r($order_arr);exit;
 		$filename = "products-orders--".date('d-F-Y-h-i-A').".csv";
         $fp = fopen('php://output', 'w');
+		fwrite($fp, "\xEF\xBB\xBF");
         // header('Content-type: application/csv');
         header('Content-Encoding: UTF-8');
 		header('Content-type: text/csv; charset=UTF-8');
         header('Content-Disposition: attachment; filename=' . $filename);
-        fputcsv($fp, array(lang('product_package_name'),lang('type'),lang('sold_quantity')));
+        fputcsv($fp, array(
+			lang('product_package_name'),
+			lang('type'),
+			lang('order_amount'),
+			lang('product_category'),
+			lang('product_quantity'),
+			lang('employee_name'),
+			lang('employee_email'),
+			lang('employee_phone_number'),
+			lang('address_mode'),
+			lang('pickup_address'),
+			lang('city'),
+			lang('apartment'),
+			lang('street_house'),
+			lang('postal_code'),
+		));
         foreach ($order_arr as $row) {
             fputcsv($fp, $row);
         }

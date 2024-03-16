@@ -425,4 +425,16 @@ $lang['product_notification_title'] = 'שימו לב';
 $lang['product_notification_message'] = 'כל מתנה אחרת שתוסיף תכלול תשלום נוסף';
 
 $lang['export_employees'] = 'ייצוא עובדים';
+$lang['order_amount'] = 'כמות הזמנה';
+$lang['product_category'] = 'קטגוריית מוצר';
+$lang['product_quantity'] = 'כמות מוצר';
+$lang['employee_name'] = 'שם עובד';
+$lang['employee_email'] = 'דוא"ל עובד';
+$lang['employee_phone_number'] = 'מספר טלפון של עובד';
+$lang['address_mode'] = 'מצב כתובת';
+$lang['pickup_address'] = 'כתובת לאיסוף';
+$lang['city'] = 'עיר';
+$lang['apartment'] = 'דירה';
+$lang['street_house'] = 'רחוב / בית';
+$lang['postal_code'] = 'מיקוד';
 ?>
