@@ -265,10 +265,15 @@ class Clients extends Admin_Controller_Secure {
 		// }
 
 		$query = $this->db->query("
-		SELECT * FROM tbl_client_shop_products AS a
-		JOIN tbl_order_details AS b ON a.product_id = b.product_package_id
-		WHERE a.client_status = 'LIKED' AND a.client_id = '".$client_id."' GROUP BY b.product_package_name
+			SELECT * FROM tbl_client_shop_products AS a
+			JOIN tbl_products AS b ON a.product_id = b.product_id
+			WHERE a.client_status = 'LIKED' AND a.client_id = '".$client_id."' GROUP BY b.product_name
 		");
+
+		if($query->num_rows() == 0){
+			$this->session->set_flashdata('error',lang('order_details_not_found'));
+			redirect('admin/clients/list');
+		}
 
 		// echo "<pre>"; print_r($query->result()); exit;
 
