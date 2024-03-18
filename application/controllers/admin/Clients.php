@@ -281,7 +281,7 @@ class Clients extends Admin_Controller_Secure {
 		$order_arr = array();
 		foreach($data as $value){
 			$order_arr[] = array(
-					'product_package_name' => $value->product_package_name,
+					'product_package_name' => $value->product_name,
 					'type' => lang('product'),
 					'sold_quantity' => $value->sold_quantity
 				);
