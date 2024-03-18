@@ -195,7 +195,7 @@ class Clients extends Admin_Controller_Secure {
 			$this->session->set_flashdata('error',lang('order_details_not_found'));
 			redirect('admin/clients/list');
 		}
-			
+
 		$order_arr = array();
 		foreach($data['orders']['data']['records'] as $value){
 			$picked_products = array_column($value['order_product_details'],'product_package_name');
@@ -207,18 +207,19 @@ class Clients extends Admin_Controller_Secure {
 					'picked_products' => implode("\n", $picked_products), 
 					'address' => ($value['address_mode'] == 'Pickup') ? $value['pickup_address'] : ($value['apartment'].$value['street_house'].",".$value['city']." ".$value['postal_code']), 
 					'order_amount' => $value['order_amount'], 
-					'created_date' => convertDateTime($value['created_date'])
+					'created_date' => convertDateTime($value['created_date']),
+					'quantity' => $value['order_product_details']['0']['quantity']
 				);
 		}
 		// echo"<pre>";print_r($order_arr);exit;
 		$filename = "employees-orders--".date('d-F-Y-h-i-A').".csv";
         $fp = fopen('php://output', 'w');
-       
+		fwrite($fp, "\xEF\xBB\xBF");       
         header('Content-Encoding: UTF-8');
 		header('Content-type: text/csv; charset=UTF-8');
 		 header('Content-type: application/csv');
         header('Content-Disposition: attachment; filename=' . $filename);
-        fputcsv($fp, array(lang('employee_name'),lang('employee_email'),lang('employee_phone_number'),lang('picked_products'),lang('order_address'),lang('amount'),lang('created_date')));
+        fputcsv($fp, array(lang('employee_name'),lang('employee_email'),lang('employee_phone_number'),lang('picked_products'),lang('order_address'),lang('amount'),lang('created_date'), lang('quantity')));
         foreach ($order_arr as $row) {
             fputcsv($fp, $row);
         }
@@ -266,6 +267,7 @@ class Clients extends Admin_Controller_Secure {
 		//echo"<pre>";print_r($order_arr);exit;
 		$filename = "products-orders--".date('d-F-Y-h-i-A').".csv";
         $fp = fopen('php://output', 'w');
+		fwrite($fp, "\xEF\xBB\xBF");
         // header('Content-type: application/csv');
         header('Content-Encoding: UTF-8');
 		header('Content-type: text/csv; charset=UTF-8');
