@@ -205,20 +205,6 @@ class Clients extends Admin_Controller_Secure {
 			JOIN tbl_users AS c ON a.user_id = c.user_id
 			WHERE a.payment_status='Success' AND a.order_status='Created' AND c.client_id = '".$this->input->get('client_id')."' AND c.user_id != '".$this->input->get('client_id')."'
 		");
-		// SELECT user_id FROM tbl_users where client_id = '".$this->input->get('client_id')."' AND user_id != '".$this->input->get('client_id')."'
-		
-		// $user_id = $this->db->query("
-		// 	SELECT * FROM tbl_users	AS a
-		// 	INNER JOIN tbl_orders AS b ON a.user_id = b.user_id
-		// 	WHERE a.client_id = '".$this->input->get('client_id')."' AND a.user_id != '".$this->input->get('client_id')."' GROUP BY b.user_id
-		// ");
-
-		// $userIdData = $user_id->result();
-		// foreach($userIdData as $userid){
-		// 	$employeeNotOrdered = $this->db->query("
-		// 	SELECT * FROM tbl_users WHERE user_id != '".$userid->user_id."' AND client_id = '".$this->input->get('client_id')."' AND user_id != '".$this->input->get('client_id')."'
-		// 	");
-		// }
 
 		$employeeNotOrdered = $this->db->query("
 			SELECT * FROM `tbl_users` left join tbl_orders on tbl_users.user_id = tbl_orders.user_id WHERE tbl_users.client_id='".$this->input->get('client_id')."' AND tbl_orders.order_id IS NULL GROUP BY tbl_users.user_id
@@ -231,14 +217,15 @@ class Clients extends Admin_Controller_Secure {
 		
 		$data = $query->result();
 		$employeeNotOrderedArray = $employeeNotOrdered->result();
-
+// echo "<pre>"; print_r($data); exit;
 		$order_arr = array();
 		foreach($data as $value){
+			// $picked_products = array_column($value['order_product_details'],'product_package_name');
 			$order_arr[] = array(
 					'employee_name' => $value->first_name,
 					'employee_email' => $value->email,
 					'employee_phone_number' => $value->phone_number,
-					// 'picked_products' => implode("\n", $picked_products), 
+					'picked_products' => $value->product_package_name, 
 					'address' => ($value->address_mode == 'Pickup') ? $value->pickup_address : ($value->apartment.$value->street_house.",".$value->city." ".$value->postal_code), 
 					'order_amount' => $value->order_amount, 
 					'created_date' => convertDateTime($value->created_date),
@@ -252,7 +239,7 @@ class Clients extends Admin_Controller_Secure {
 				'employee_name' => $value->first_name,
 				'employee_email' => $value->email,
 				'employee_phone_number' => $value->phone_number,
-				// 'picked_products' => implode("\n", $picked_products), 
+				'picked_products' => $value->product_package_name, 
 				'address' => ($value->address_mode == 'Pickup') ? $value->pickup_address : ($value->apartment.$value->street_house.",".$value->city." ".$value->postal_code), 
 				'order_amount' => $value->order_amount, 
 				'created_date' => convertDateTime($value->created_date),
@@ -269,7 +256,7 @@ class Clients extends Admin_Controller_Secure {
 		header('Content-type: text/csv; charset=UTF-8');
 		header('Content-type: application/csv');
         header('Content-Disposition: attachment; filename=' . $filename);
-        fputcsv($fp, array(lang('employee_name'),lang('employee_email'),lang('employee_phone_number'),lang('order_address'),lang('amount'),lang('created_date'), lang('quantity'), lang('order/didn`t order')));
+        fputcsv($fp, array(lang('employee_name'),lang('employee_email'),lang('employee_phone_number'),lang('picked_products'), lang('order_address'),lang('amount'),lang('created_date'), lang('quantity'), lang('order/didn`t order')));
         foreach ($order_arr as $row) {
             fputcsv($fp, $row);
         }
