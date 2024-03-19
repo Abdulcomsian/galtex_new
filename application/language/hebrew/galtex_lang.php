@@ -437,4 +437,5 @@ $lang['city'] = 'עיר';
 $lang['apartment'] = 'דירה';
 $lang['street_house'] = 'רחוב / בית';
 $lang['postal_code'] = 'מיקוד';
+$lang['order/didn`t order'] = 'הזמין/לא הזמין';
 ?>
