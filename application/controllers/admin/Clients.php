@@ -222,7 +222,8 @@ class Clients extends Admin_Controller_Secure {
 		foreach($data as $value){
 			// $picked_products = array_column($value['order_product_details'],'product_package_name');
 			$order_arr[] = array(
-					'employee_name' => $value->first_name,
+					'first_name' => $value->first_name,
+					'last_name' => $value->last_name,
 					'employee_email' => $value->email,
 					'employee_phone_number' => $value->phone_number,
 					'picked_products' => $value->product_package_name, 
@@ -236,7 +237,8 @@ class Clients extends Admin_Controller_Secure {
 
 		foreach($employeeNotOrderedArray as $value){
 			$order_arr[] = array(
-				'employee_name' => $value->first_name,
+				'first_name' => $value->first_name,
+				'last_name' => $value->last_name,
 				'employee_email' => $value->email,
 				'employee_phone_number' => $value->phone_number,
 				'picked_products' => $value->product_package_name, 
@@ -256,7 +258,7 @@ class Clients extends Admin_Controller_Secure {
 		header('Content-type: text/csv; charset=UTF-8');
 		header('Content-type: application/csv');
         header('Content-Disposition: attachment; filename=' . $filename);
-        fputcsv($fp, array(lang('employee_name'),lang('employee_email'),lang('employee_phone_number'),lang('picked_products'), lang('order_address'),lang('amount'),lang('created_date'), lang('quantity'), lang('order/didn`t order')));
+        fputcsv($fp, array(lang('first_name'),lang('last_name'),lang('employee_email'),lang('employee_phone_number'),lang('picked_products'), lang('order_address'),lang('amount'),lang('created_date'), lang('quantity'), lang('order/didn`t order')));
         foreach ($order_arr as $row) {
             fputcsv($fp, $row);
         }
