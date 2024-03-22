@@ -676,6 +676,7 @@ html[dir="rtl"] .readMore a img {
   justify-content: center;
   font-size: 18px;
   font-family: "Assistantsemibold";
+  margin-top: -107px;
 }
 
 .blurMe {

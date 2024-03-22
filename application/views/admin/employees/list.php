@@ -5,6 +5,17 @@
     padding-top: 26px;
     padding-left: 20px;
 }
+.t-header:not(.th-alt){
+    position: relative;
+}
+.th-title{
+    margin-bottom: 15px;
+}
+.employees-actions{
+    position: absolute;
+    left: 24px;
+    top: 51px;
+}
 </style>
 <section id="content">
 
@@ -39,6 +50,7 @@
                         <?php  if($this->user_type_id == 1){  ?>
                             <a href="javascript:void(0);" class="btn btn-primary upload-employee-btn"><?php echo lang('upload_employees'); ?></a>
                             <a href="<?php echo base_url(); ?>admin/employees/add-new" class="btn btn-primary"><?php echo lang('add_new_employee'); ?></a>
+                            <!-- <a href="<?php echo base_url(); ?>admin/employees/delete-multiple" class="btn btn-primary"><?php echo lang('delete_multiple'); ?></a> -->
                             <?php } else { ?>
                                 <a href="export_client_employees?client_id=<?php echo $client_id; ?>" class="btn btn-primary"><?php echo lang('export_employees'); ?></a>
                                 <a href="export_client_orders?client_id=<?php echo $client_id; ?>" class="btn btn-primary"><?php echo lang('export_orders'); ?></a>
@@ -52,6 +64,7 @@
                             <thead>
                                 <tr>
                                     <th><?php echo lang('s_no'); ?></th>
+                                    <!-- <th><?php echo lang('delete_multiple'); ?></th> -->
                                     <th><?php echo lang('first_name'); ?></th>
                                     <th><?php echo lang('last_name'); ?></th>
                                     <th><?php echo lang('email'); ?></th>
@@ -68,8 +81,12 @@
                                     $i = 1; 
                                     foreach ($members['data']['records'] as $value){
                             ?>
+
                             <tr>
                                 <td><?php echo addZero($i); ?> </td>
+                                <!-- <td>
+                                    <input type="checkbox" id="employeesData" data-id="<?php echo $value['user_guid']; ?>">
+                                </td> -->
                                 <td><?php echo $value['first_name']; ?></td>
                                 <td><?php echo $value['last_name']; ?></td>
                                 <td><?php echo $value['email']; ?></td>

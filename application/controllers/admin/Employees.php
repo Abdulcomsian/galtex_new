@@ -169,36 +169,105 @@ class Employees extends Admin_Controller_Secure {
 		}
 		redirect('admin/employees/list');
 	}
-	public function export_client_employees(){
-		/* Get Client Employees */
-		$client_id = $_REQUEST['client_id'];
-		$query = $this->db->query('SELECT * FROM tbl_users WHERE client_id = "'.$client_id.'" AND user_id != "'.$client_id.'"');
-		$employees = $query->result();
+	// public function export_client_employees(){
+	// 	/* Get Client Employees */
+	// 	$client_id = $_REQUEST['client_id'];
+	// 	$query = $this->db->query('SELECT * FROM tbl_users WHERE client_id = "'.$client_id.'" AND user_id != "'.$client_id.'"');
+	// 	$employees = $query->result();
 
-		$filename = "client_employees_" . date('d-F-Y-h-i-A') . ".csv";
-		$fp = fopen('php://output', 'w');
-		fwrite($fp, "\xEF\xBB\xBF");
-		$header = array('מספר משתמש', 'שם פרטי', 'שם משפחה', 'מספר טלפון', 'דוא"ל');
-		fputcsv($fp, $header);
-		foreach ($employees as $employee) {
-			$row = array(
-				$employee->user_id,
-				$employee->first_name,
-				$employee->last_name,
-				$employee->phone_number,
-				$employee->email,
-			);
-			fputcsv($fp, $row);
+	// 	$filename = "client_employees_" . date('d-F-Y-h-i-A') . ".csv";
+	// 	$fp = fopen('php://output', 'w');
+	// 	fwrite($fp, "\xEF\xBB\xBF");
+	// 	$header = array('מספר משתמש', 'שם פרטי', 'שם משפחה', 'מספר טלפון', 'דוא"ל');
+	// 	fputcsv($fp, $header);
+	// 	foreach ($employees as $employee) {
+	// 		$row = array(
+	// 			$employee->user_id,
+	// 			$employee->first_name,
+	// 			$employee->last_name,
+	// 			$employee->phone_number,
+	// 			$employee->email,
+	// 		);
+	// 		fputcsv($fp, $row);
+	// 	}
+
+	// 	fclose($fp);
+
+	// 	header('Content-Encoding: UTF-8');
+	// 	header('Content-type: text/csv; charset=UTF-8');
+	// 	header('Content-Disposition: attachment; filename="' . $filename . '"');
+	// 	exit;
+
+	// }
+
+	public function export_client_employees()
+	{		
+		$query = $this->db->query("
+			SELECT *
+			FROM tbl_orders AS a
+			JOIN tbl_order_details AS b ON a.order_id = b.order_id
+			JOIN tbl_users AS c ON a.user_id = c.user_id
+			WHERE a.payment_status='Success' AND a.order_status='Created' AND c.client_id = '".$this->input->get('client_id')."' AND c.user_id != '".$this->input->get('client_id')."'
+		");
+
+		$employeeNotOrdered = $this->db->query("
+			SELECT * FROM `tbl_users` left join tbl_orders on tbl_users.user_id = tbl_orders.user_id WHERE tbl_users.client_id='".$this->input->get('client_id')."' AND tbl_orders.order_id IS NULL GROUP BY tbl_users.user_id
+		");
+
+		if($query->num_rows() == 0){
+			$this->session->set_flashdata('error',lang('order_details_not_found'));
+			redirect('admin/clients/list');
+		}
+		
+		$data = $query->result();
+		$employeeNotOrderedArray = $employeeNotOrdered->result();
+// echo "<pre>"; print_r($data); exit;
+		$order_arr = array();
+		foreach($data as $value){
+			// $picked_products = array_column($value['order_product_details'],'product_package_name');
+			$order_arr[] = array(
+					'first_name' => $value->first_name,
+					'last_name' => $value->last_name,
+					'employee_email' => $value->email,
+					'employee_phone_number' => $value->phone_number,
+					'picked_products' => $value->product_package_name, 
+					'address' => ($value->address_mode == 'Pickup') ? $value->pickup_address : ($value->apartment.$value->street_house.",".$value->city." ".$value->postal_code), 
+					'order_amount' => $value->order_amount, 
+					'created_date' => convertDateTime($value->created_date),
+					'quantity' => $value->quantity,
+					'order/didn`t order' => "1",
+				);
 		}
 
-		fclose($fp);
-
-		header('Content-Encoding: UTF-8');
+		foreach($employeeNotOrderedArray as $value){
+			$order_arr[] = array(
+				'first_name' => $value->first_name,
+				'last_name' => $value->last_name,
+				'employee_email' => $value->email,
+				'employee_phone_number' => $value->phone_number,
+				'picked_products' => $value->product_package_name, 
+				'address' => ($value->address_mode == 'Pickup') ? $value->pickup_address : ($value->apartment.$value->street_house.",".$value->city." ".$value->postal_code), 
+				'order_amount' => $value->order_amount, 
+				'created_date' => convertDateTime($value->created_date),
+				'quantity' => $value->quantity,
+				'order/didn`t order' => "0",
+			);
+		}
+		
+		// echo"<pre>";print_r($order_arr);exit;
+		$filename = "employees-orders--".date('d-F-Y-h-i-A').".csv";
+        $fp = fopen('php://output', 'w');
+		fwrite($fp, "\xEF\xBB\xBF");       
+        header('Content-Encoding: UTF-8');
 		header('Content-type: text/csv; charset=UTF-8');
-		header('Content-Disposition: attachment; filename="' . $filename . '"');
-		exit;
-
+		header('Content-type: application/csv');
+        header('Content-Disposition: attachment; filename=' . $filename);
+        fputcsv($fp, array(lang('first_name'),lang('last_name'),lang('employee_email'),lang('employee_phone_number'),lang('picked_products'), lang('order_address'),lang('amount'),lang('created_date'), lang('quantity'), lang('order/didn`t order')));
+        foreach ($order_arr as $row) {
+            fputcsv($fp, $row);
+        }
 	}
+
 	public function export_client_orders(){
 		$data['orders'] = $this->Orders_model->get_orders('created_date,order_id,amount,employee_name,employee_email,employee_phone_number,address_mode,order_product_details,pickup_address,city,apartment,street_house,postal_code',array('payment_status' => array('Success'), 'order_status' => 'Created', 'client_id' => $_REQUEST['client_id']),TRUE);
 		// $order_arr = array();

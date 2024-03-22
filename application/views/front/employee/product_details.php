@@ -169,7 +169,7 @@
                </a></div> -->
          <?php } else { ?>
             <?php if ($details['remaining_quantity'] > 0) { 
-               if(count($this->cart->contents()) == 0 || count($order_details) > 0){
+                if(count($this->cart->contents()) == 0 && count($order_details) == 0){
                ?>
                <div class="wow zoomIn"><a href="javascript:void(0);" data-type="product"
                      data-guid="<?php echo $details['product_guid']; ?>" class="btn btn_common add-to-cart">
@@ -444,7 +444,7 @@
                            </div>
                         <?php } else { ?>
                            <?php if ($details['remaining_quantity'] > 0) {
-                              if(count($this->cart->contents()) == 0 || count($order_details) > 0){ // remove this condition after its sets dynamically 
+                              if(count($this->cart->contents()) == 0 && count($order_details) == 0){ // remove this condition after its sets dynamically 
                               ?>
                               <div class="product-button wow zoomIn">
                                  <a href="javascript:void(0);" data-type="product"
@@ -508,6 +508,7 @@
                            data-guid="<?php echo $details['product_guid']; ?>" class="btn btn_common add-to-cart">
                            <?php echo lang('add_to_cart'); ?>
                         </a></div>
+                        
                   <?php } else { ?>
                      <?php if ($details['remaining_quantity'] > 0) { ?>
                         <div class="wow zoomIn mobileProductBtn"><a style="width: 100%; border: none;"
