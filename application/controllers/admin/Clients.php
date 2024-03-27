@@ -197,7 +197,6 @@ class Clients extends Admin_Controller_Secure {
 		// 	$this->session->set_flashdata('error',lang('order_details_not_found'));
 		// 	redirect('admin/clients/list');
 		// }
-
 		$query = $this->db->query("
 			SELECT *
 			FROM tbl_orders AS a
@@ -279,43 +278,54 @@ class Clients extends Admin_Controller_Secure {
 		$client_id = $this->input->get('client_id');
 
 		// /* Get Shop Products */
-		// $data['products'] = $this->Shop_model->get_shop_products('product_name,sold_quantity',array('client_id' => $client_id, 'client_status' => 'Liked'),TRUE);
-		// /* Get Packages */
-		// $data['packages'] = $this->Shop_model->get_packages('package_name,sold_quantity',array('client_id' => $client_id, 'client_status' => 'Liked'),TRUE);
-		// if(empty($data['products']['data']['records']) && empty($data['packages']['data']['records'])){
-		// 	$this->session->set_flashdata('error',lang('order_details_not_found'));
-		// 	redirect('admin/clients/list');
-		// }
-
-		$query = $this->db->query("
-			SELECT * FROM tbl_client_shop_products AS a
-			JOIN tbl_products AS b ON a.product_id = b.product_id
-			WHERE a.client_status = 'LIKED' AND a.client_id = '".$client_id."' GROUP BY b.product_name
-		");
-
-		if($query->num_rows() == 0){
+		$data['products'] = $this->Shop_model->get_shop_products('product_name,sold_quantity',array('client_id' => $client_id, 'client_status' => 'Liked'),TRUE);
+		/* Get Packages */
+		$data['packages'] = $this->Shop_model->get_packages('package_name,sold_quantity',array('client_id' => $client_id, 'client_status' => 'Liked'),TRUE);
+		if(empty($data['products']['data']['records']) && empty($data['packages']['data']['records'])){
 			$this->session->set_flashdata('error',lang('order_details_not_found'));
 			redirect('admin/clients/list');
 		}
 
+		
+// print_r("123");exit;
+
+		// $query = $this->db->query("
+		// 	SELECT * FROM tbl_client_shop_products AS a
+		// 	JOIN tbl_products AS b ON a.product_id = b.product_id
+		// 	WHERE a.client_status = 'LIKED' AND a.client_id = '".$client_id."' GROUP BY b.product_name
+		// ");
+
+		// if($query->num_rows() == 0){
+		// 	$this->session->set_flashdata('error',lang('order_details_not_found'));
+		// 	redirect('admin/clients/list');
+		// }
+
 		// echo "<pre>"; print_r($query->result()); exit;
 
-		$data = $query->result();
-		$order_arr = array();
-		foreach($data as $value){
-			$order_arr[] = array(
-					'product_package_name' => $value->product_name,
-					'type' => lang('product'),
-					'sold_quantity' => $value->sold_quantity
-				);
-		}
-		// foreach($data['packages']['data']['records'] as $value){
+		// $data = $query->result();
+		// $order_arr = array();
+		// foreach($data as $value){
 		// 	$order_arr[] = array(
-		// 			'product_package_name' => $value['package_name'],
-		// 			'type' => lang('package'),
-		// 			'sold_quantity' => $value['sold_quantity']
+		// 			'product_package_name' => $value->product_name,
+		// 			'type' => lang('product'),
+		// 			'sold_quantity' => $value->sold_quantity
 		// 		);
 		// }
+		foreach($data['packages']['data']['records'] as $value){
+			$order_arr[] = array(
+					'product_package_name' => $value['package_name'],
+					'type' => lang('package'),
+					'sold_quantity' => $value['sold_quantity']
+				);
+		}
+
+		foreach($data['products']['data']['records'] as $value){
+			$order_arr[] = array(
+					'product_package_name' => $value['product_name'],
+					'type' => lang('package'),
+					'sold_quantity' => $value['sold_quantity']
+				);
+		}
 		//echo"<pre>";print_r($order_arr);exit;
 		$filename = "products-orders--".date('d-F-Y-h-i-A').".csv";
         $fp = fopen('php://output', 'w');
