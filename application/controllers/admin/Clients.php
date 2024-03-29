@@ -302,12 +302,8 @@ class Clients extends Admin_Controller_Secure {
 		if($query->num_rows() == 0){
 			$this->session->set_flashdata('error',lang('order_details_not_found'));
 			redirect('admin/clients/list');
-		}
-
-		// echo "<pre>"; print_r($query->result()); exit;
-		
+		}		
 		$products = $query->result();
-		// echo "<pre>"; print_r($products); exit;
 		$totals = array();
 
 		foreach ($products as $pro) {
