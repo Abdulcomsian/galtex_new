@@ -202,5 +202,50 @@ class Employees extends API_Controller_Secure {
         
     }
 
+    public function delete_post()
+    {
+        try{
+        $userlist = $this->input->post('userlist');
+        $this->db->select('user_id');
+        $this->db->from('tbl_users');
+        $this->db->where_in('user_guid' , $userlist);
+        $userIds = $this->db->get()->result();
+        $userList = [];
+        foreach($userIds as $user)
+        {
+            $userList[] = $user->user_id;
+        }
+        
+        $this->db->where_in('user_id' , $userList);
+        $this->db->from('tbl_orders');
+        $this->db->delete();
+
+        $this->db->where_in('user_id' , $userList);
+        $this->db->from('tbl_users');
+        $this->db->delete();
+
+        $response = [
+            'success' => true,
+            'status' => 200,
+            'message' => 'success',
+            'data' => []
+        ];
+        
+        $this->Return['data'] = $response;
+        
+        }catch(\Exception $e){
+            $response = [
+                'success' => false,
+                'status' => 200,
+                'message' => $e->getMessage(),
+                'data' => []
+            ];
+            
+            $this->Return['data'] = $response;
+        }
+
+
+    }
+
   
 }
