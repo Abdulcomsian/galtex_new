@@ -50,6 +50,7 @@
                         <?php  if($this->user_type_id == 1){  ?>
                             <a href="javascript:void(0);" class="btn btn-primary upload-employee-btn"><?php echo lang('upload_employees'); ?></a>
                             <a href="<?php echo base_url(); ?>admin/employees/add-new" class="btn btn-primary"><?php echo lang('add_new_employee'); ?></a>
+                            <a href="javascript:void(0)" class="btn btn-danger delete-employee">Delete Employee</a>
                             <!-- <a href="<?php echo base_url(); ?>admin/employees/delete-multiple" class="btn btn-primary"><?php echo lang('delete_multiple'); ?></a> -->
                             <?php } else { ?>
                                 <a href="export_client_employees?client_id=<?php echo $client_id; ?>" class="btn btn-primary"><?php echo lang('export_employees'); ?></a>
@@ -63,6 +64,7 @@
                         <table class="table table-striped table-bordered my-datatable">
                             <thead>
                                 <tr>
+                                    <th> All <input type="checkbox" class="all-user-id"  ></th>
                                     <th><?php echo lang('s_no'); ?></th>
                                     <!-- <th><?php echo lang('delete_multiple'); ?></th> -->
                                     <th><?php echo lang('first_name'); ?></th>
@@ -76,6 +78,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                             <?php 
                                 if(!empty($members['data']['records'])){ 
                                     $i = 1; 
@@ -83,6 +86,7 @@
                             ?>
 
                             <tr>
+                                <td><input type="checkbox" class="userguid" value="<?php echo $value['user_guid']; ?>" ></td>
                                 <td><?php echo addZero($i); ?> </td>
                                 <!-- <td>
                                     <input type="checkbox" id="employeesData" data-id="<?php echo $value['user_guid']; ?>">
@@ -183,6 +187,7 @@
     </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.querySelector(".filter-employee").addEventListener("click", function(e) {
     let company = document.getElementById("company").value;
@@ -203,5 +208,70 @@
         }
     });
 });
+
+document.querySelector(".delete-employee").addEventListener("click" , function(e){
+    let usercheckboxes = document.querySelectorAll("input[type='checkbox']:checked")
+    if(usercheckboxes.length == 0){
+        return;
+    }else{
+        let userlist = [];
+        usercheckboxes.forEach(checkbox => {
+            userlist.push(checkbox.value);
+        })
+
+
+        Swal.fire({
+        title: "Are you sure you want to delete these user?",
+        text: "By deleting this user, all the orders related to these users will be deleted",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+        if (result.isConfirmed) {
+
+            $.ajax({
+            url: api_url + "employees/delete",
+            type: "POST",
+            data: {
+                userlist: userlist
+            },
+            dataType: "json", // Parse the response as JSON
+            success: function(res) {
+                if (res.data.success === true) {
+                    Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                    });
+                } 
+
+                location.reload();
+            }
+        });
+
+            
+        }
+        });
+        
+       
+
+    }
+});
+
+document.querySelector(".all-user-id").addEventListener("click" , function(e){
+    let usercheckboxes = document.querySelectorAll(".userguid");
+    if(this.checked == true){
+        usercheckboxes.forEach(checkbox => {
+            checkbox.checked = true;
+        })
+    }else{
+        usercheckboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        })
+    }
+})
+
 </script>
 
