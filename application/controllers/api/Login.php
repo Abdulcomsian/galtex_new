@@ -12,11 +12,93 @@ class Login extends API_Controller {
       Description: 	Verify login and activate session
       URL: 			/api/login/
      */
+public function index_get(){
 
-    public function index_post() { 
+    
+    //print_r($this->Get['id']) ;
+   
+   //echo $_REQUEST['id']; exit;
+
+   $user_data = $this->Users_model->get_users('user_id,is_admin,user_status,user_type_guid,user_type_id,user_image,first_name,last_name,client_id,client_deadline,email,last_activity,popup_image,banner_image,cover_image', array('user_guid' => $_REQUEST['guid']));
+   //print_r($user_data);
+    if (!$user_data) {
+    $this->Return['status'] = 500;
+    $this->Return['message'] = lang('invalid_credentials');
+    } elseif ($user_data && $user_data['user_status'] == 'Pending') {
+        $this->Return['status'] = 501;
+        $this->Return['message'] = lang('account_pending');
+    }elseif ($user_data && $user_data['user_status'] == 'Blocked') {
+        $this->Return['status'] = 500;
+        $this->Return['message'] = lang('account_blocked');
+    }elseif ($user_data && $user_data['user_status'] == 'Order Placed') {
+        $this->Return['status'] = 500;
+        $this->Return['message'] = lang('order_placed');
+    }elseif ($user_data && !empty($user_data['client_deadline']) && (strtotime(datetime('Y-m-d')) > strtotime($user_data['client_deadline']))) {
+        $this->Return['status'] = 500;
+        $this->Return['message'] = lang('client_deadline_passed');
+    }
+    // elseif ($user_data && $user_data['is_admin'] == 'Yes') {
+    //     $this->Return['status'] = 500;
+    //     $this->Return['message'] = lang('access_denied');
+    // }
+     else {
+
+    /* Update Data */
+   
+     $login_session_key = get_guid();
+//echo $user_data['user_id'];
+//echo $user_data['client_id'];
+//exit;
+    $update_arr = array();
+    $update_arr['login_session_key'] = $login_session_key;
+    $update_arr['last_login']    = date('Y-m-d H:i:s');
+    $update_arr['last_activity'] = date('Y-m-d H:i:s');
+    $this->Users_model->update_user($user_data['user_id'],$update_arr);
+
+  
+    $response_data['login_session_key'] = $login_session_key;
+    $response_data['user_id']           = $user_data['user_id'];
+    $response_data['user_guid']         = $user_data['user_guid'];
+    $response_data['email']             = $user_data['email'];
+    $response_data['user_type_guid']    = $user_data['user_type_guid'];
+    $response_data['user_type_id']      = $user_data['user_type_id'];
+    $response_data['last_login']        = $update_arr['last_login'];
+    $response_data['first_name']        = $user_data['first_name'];
+    $response_data['last_name']         = $user_data['last_name'];
+    $response_data['user_image']        = $user_data['user_image'];
+    $response_data['last_activity']     = $user_data['last_activity'];
+    
+    /* Get Client Configs */
+     $query = $this->db->query('SELECT client_configs,employee_budget FROM tbl_users WHERE user_id = '.$user_data['client_id'].' LIMIT 1');
+   
+  
+    /* Set PHP Session */
+    $this->session->set_userdata('webuserdata',array_merge($response_data,array('client_id' => $user_data['client_id'], 'client_configs' => json_decode($query->row()->client_configs, TRUE), 'employee_budget' => $query->row()->employee_budget)));
+
+    /* Set Cookies */
+    if(@$this->Post['is_remember'] == 'yes'){
+        set_cookie("phone_number", $this->Post['phone_number'], time()+ (365 * 24 * 60 * 60));  
+    }else{
+        set_cookie("phone_number",""); 
+    }
+    
+    $response_data['redirect_uri'] = BASE_URL.'employees/products';
+    redirect($response_data['redirect_uri']);
+    //$this->load->view('redirect-employee',  $response_data);
+    unset($response_data['user_id']);
+    $this->Return['data'] = $response_data;
+    $this->Return['message'] = lang('logged_in');
+   
+    }
+   
+}
+    public function index_post() {
+       
+        // print_r("test");exit;
         /* Validation section */
         $this->form_validation->set_rules('login_type', 'Login Type', 'trim|required|in_list[OTP,Phone,Password]');
         $this->form_validation->set_rules('phone_number', lang('mobile_number'), 'trim|required|callback_validate_user_phone');
+
         if($this->Post['login_type'] == 'OTP' || $this->Post['login_type'] == 'Phone'){
             $this->form_validation->set_rules('otp', 'OTP', 'trim|required|numeric|callback_verify_otp');
         }else{

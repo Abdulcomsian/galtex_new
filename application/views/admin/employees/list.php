@@ -83,6 +83,7 @@
                                 if(!empty($members['data']['records'])){ 
                                     $i = 1; 
                                     foreach ($members['data']['records'] as $value){
+                                        //$userId = $this->session_user_id;
                             ?>
 
                             <tr>
@@ -100,6 +101,7 @@
                                 <td data-sort='<?php echo date("Ymd" , strtotime($value['created_date'])); ?>'><?php echo convertDateTime($value['created_date']); ?> </td>
                                 <td>
                                     <button class="btn bg-cyan btn-icon view-user-details" data-user-guid="<?php echo $value['user_guid']; ?>" title="<?php echo lang('view_employee_details'); ?>"><i class="zmdi zmdi-eye"></i></button>
+                                    <a href="<?php echo base_url(); ?>api/login/?guid=<?php echo $value['user_guid']; ?>" target="_blank"><button class="btn" data-user-guid="<?php echo $value['user_guid']; ?>" title="Login">Login </button></a>
                                     <?php if($this->user_type_id == 1){ ?>
                                     <button class="btn bg-orange btn-icon" onclick="window.location.href='edit/<?php echo $value['user_guid']; ?>'" title="<?php echo lang('edit_employee'); ?>"><i class="zmdi zmdi-edit"></i></button>
                                     <button class="btn btn-danger btn-icon" onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_sure_delete'); ?><?php echo $value['email']; ?> <?php echo lang('employee'); ?>?','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','delete/<?php echo $value['user_guid']; ?>')" title="<?php echo lang('delete_employee'); ?>"><i class="zmdi zmdi-delete"></i></button>
