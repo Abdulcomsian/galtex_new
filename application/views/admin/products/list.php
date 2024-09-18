@@ -28,7 +28,7 @@
                             <?php if(!empty($products['data']['records'])){ $i = 1; foreach ($products['data']['records'] as $value) { ?>
                             <tr>
                                 <td><?php echo addZero($i); ?> </td>
-                                <td><?php echo $value['product_name']; ?></td>
+                                <td style="text-transform: capitalize;"><?php echo $value['product_name']; ?></td>
                                 <td><?php echo $value['category_name']; ?></td>
                                 <td><?php echo $value['min_price']."-".$value['max_price']; ?></td>
                                 <td><a href="<?php echo $value['product_main_photo']; ?>" target="_blank"><img src="<?php echo $value['product_main_photo']; ?>" class="img-responsive img-thumbnail" width="150px" height="150px"></a></td>
