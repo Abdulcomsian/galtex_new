@@ -42,6 +42,37 @@ class Shop_model extends CI_Model {
         }
         return TRUE;
     }
+    function edit_package($client_id, $Input = array()) {
+
+        $this->db->trans_start();
+
+        $insert_array = array_filter(array(
+            "client_id" => $client_id,
+            "package_name" => @$Input['package_name'],
+            "quantity" => @$Input['quantity'],
+            "package_guid" => get_guid(),
+            "no_of_products" => count($Input['product_ids']),
+            "created_date" => date('Y-m-d H:i:s'),
+            "package_description" => @$Input['package_description'],
+        ));
+
+        $this->db->insert('tbl_client_packages', $insert_array);
+        $package_id = $this->db->insert_id();
+
+        /* Insert Package Products */
+        if(!empty($this->Post['product_ids'])){
+            for ($i=0; $i < count($this->Post['product_ids']); $i++) { 
+                $client_package_products_array[] = array('package_id' => $package_id, 'product_id' => $this->Post['product_ids'][$i]);
+            }
+            $this->db->insert_batch('tbl_client_package_products', $client_package_products_array);
+        }
+
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE) {
+            return FALSE;
+        }
+        return TRUE;
+    }
 
     /*
       Description:  Use to get packages

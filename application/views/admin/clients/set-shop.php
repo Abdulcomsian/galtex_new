@@ -110,9 +110,15 @@
                                                     <p><?php echo lang('quantity').": ".$package['quantity']; ?></p>
                                                     <div class="clearfix"></div>
                                                     <div class="m-t-10" style="display: flex;">
+                                                       
                                                         <div style="cursor:pointer;" class="m-r-5"><i class="heart fa <?php if($package['client_status'] == 'Liked') {echo "fa-heart";} else {echo "fa-heart-o";} ?>" ></i></div>
                                                          <div style="cursor:pointer;font-size:25px;" onclick="showConfirmationBox('<?php echo lang('are_you_sure'); ?>','<?php echo lang('are_you_sure_delete'); ?>  <?php echo lang('package'); ?>?','<?php echo lang('yes'); ?>','<?php echo lang('no'); ?>','../delete_package/<?php echo $package['package_guid']; ?>')" title="<?php echo lang('delete'); ?>" class="m-r-10"><i class="fa fa-trash" ></i></div>
-                                                    </div>
+                                                         <?php if($product['shop_product_info']['client_status'] != 'Liked'){ ?>
+                                                         <div style="cursor:pointer;" class="m-r-5">
+                                                            <i class="heart fa fa-edit editpackage" data-id="<?php echo $package['package_guid']; ?>"></i>
+                                                            </div>
+                                                            <?php } ?>
+                                                        </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -209,7 +215,175 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-sm btn-primary submit-package"><?php echo lang('submit'); ?></button>
             <button type="button" class="btn btn-sm btn-default" data-dismiss="modal"><?php echo lang('close'); ?></button>
+            
         </div>
     </div>
+
 </div>
 </div>
+
+<div class="modal" id="edit_package1" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <form id="update-packakge"  method="post"  action="<?php echo base_url() ?>admin/clients/update-package" >
+    <input type="hidden" id="user_token" value="<?php echo $this->input->get('token'); ?>" name="user_token">
+    <input type="hidden" id="guid" value="" name="guid">
+    <input type="hidden" id="type" value="update" name="type">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-cyan m-b-20"> 
+                <button type="button" class="close white-clr" data-dismiss="modal">X</button>
+                <h4 class="modal-title white-clr"><?php echo lang('create_package'); ?></h4>
+            </div>
+            <div class="modal-body">               
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label"><?php echo lang('package_name'); ?></label>
+                            <input type="text" class="form-control" id="package_name" name="package_name" placeholder="<?php echo lang('package_name'); ?>" maxlength="150" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label"><?php echo lang('quantity'); ?></label>
+                            <input type="number" min="1" class="form-control validate-no" id="package_amount" name="quantity" placeholder="<?php echo lang('quantity'); ?>" maxlength="10" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="control-label"><?php echo lang('description'); ?></label>
+                        <textarea class="form-control" id="package_description" name="package_description"  rows="3"></textarea>
+                    </div>
+                </div> 
+                <hr> 
+                <div class="row package-products">
+
+                </div>
+            </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-sm btn-primary submit-package1"><?php echo lang('submit'); ?></button>
+            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal"><?php echo lang('close'); ?></button>
+            
+        </div>
+    </div>
+    </form>
+</div>
+</div>
+
+<!-- <div class="modal" id="edit_package1" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-cyan m-b-20">
+                <button type="button" class="close white-clr" data-dismiss="modal">X</button>
+                <h4 class="modal-title white-clr">
+                    <?php echo lang('create_package'); ?>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">
+                                <?php echo lang('package_name'); ?>
+                            </label>
+                            <input type="text" class="form-control" name="package_name"
+                                placeholder="<?php echo lang('package_name'); ?>" maxlength="150" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row package-products">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary submit-package">
+                    <?php echo lang('submit'); ?>
+                </button>
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">
+                    <?php echo lang('close'); ?>
+                </button>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- Include jQuery -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- Include Bootstrap JS (Bootstrap 4/5) -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
+
+<script>
+$(document).ready(function() {
+    // Event listener for click
+    let api_url = "<?php echo ADMIN_API_URL; ?>";
+    $('.editpackage').on('click', function() {
+        console.log(api_url);
+        var dataId = $(this).data('id');
+        console.log(dataId);
+        // AJAX request
+        $.ajax({
+            url: api_url + 'clients/create_package',
+            type: 'POST',
+            data: { package_id: dataId, type: "edit" },
+            beforeSend: function (xhr) {
+                ajaxindicatorstart();
+                xhr.setRequestHeader('Accept', 'application/vvv.website+json;version=1');
+                xhr.setRequestHeader('Authorization', get_login_session_key());
+            },
+            success: function(response) {
+                console.log('Success:', response); 
+                ajaxindicatorstop();
+                $("#package_name").val(response.data[0].package_name);
+                $("#package_amount").val(response.data[0].quantity);
+                $("#package_description").val(response.data[0].package_description);
+                $("#guid").val(response.data[0].package_guid);
+                $("#type").val('update');
+                $("#edit_package1").modal("show");
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', xhr.responseText);  // Log the error response
+                console.error('Status:', status);  // Log the error status
+                console.error('Error:', error);    // Log the error object
+                alert('An error occurred. Please check the console for details.');
+            }
+        });
+    });
+});
+</script>
+
+<!-- <script>
+   $(document).ready(function() {
+
+    $(document).on('click', '.editpackage', function(e) {
+        e.preventDefault();
+      alert("Test");
+        //let id = $(this).data('id');
+       // alert(id);
+        // Get the data-id from the clicked button
+        var dataId = $(this).data('id');
+        
+        $.ajax({
+            url: ADMIN_API_URL + "clients/getdata",
+            // url: 'get-data',  // For CodeIgniter 3
+            type: 'POST',
+            data: {
+                id: dataId,
+                <?php //csrf_token(); ?>: '<?php //csrf_hash(); ?>'  // CSRF protection in CodeIgniter 4
+            },
+            success: function(response) {
+                console.log(response);
+                if (response.status === 'success') {
+                    console.log(response.data);
+                    alert("Data fetched successfully!");
+                } else {
+                    console.log(response.message);
+                    alert("Error: " + response.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.log(xhr.responseText);
+                alert("An error occurred!");
+            }
+        });
+    });
+});
+</script> -->

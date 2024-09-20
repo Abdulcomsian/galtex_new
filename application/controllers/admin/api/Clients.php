@@ -290,41 +290,49 @@ class Clients extends API_Controller_Secure {
       URL:          /admin/api/clients/create_package/
     */
     public function create_package_post() { 
-
-        /* Validation section */
-        $this->form_validation->set_rules('package_name', 'Package Name', 'trim|required');
-        $this->form_validation->set_rules('quantity', 'Package Quantity', 'trim|required|numeric|greater_than_equal_to[1]');
-        $this->form_validation->set_rules('user_guid', 'User GUID', 'trim|required|callback_validate_guid[tbl_users.user_guid.user_id]');
-        $this->form_validation->set_rules('package_description', 'Package Description', 'trim|required');
-        $this->form_validation->validation($this);  /* Run validation */
-        /* Validation - ends */
-
-        /* Check Product GUIDS */
-        if(!empty($this->Post['product_guids'])){
-            foreach($this->Post['product_guids'] as $key => $product_guid){
-                $query = $this->db->query('SELECT product_id FROM tbl_products WHERE product_guid = "'.$product_guid.'" LIMIT 1');
-                if($query->num_rows() == 0){
-                    $this->Return['status']  = 500;
-                    $this->Return['message'] = 'Invalid product.';
-                    exit;
-                }
-                $this->Post['product_ids'][] = $query->row()->product_id;
+        if(isset($this->Post['type']) && $this->Post['type'] == "edit"){
+            $packageId = $this->Post['package_id'];
+            $query = $this->db->query('SELECT * FROM tbl_client_packages WHERE package_guid = "'.$packageId.'" LIMIT 1');
+            if($query->num_rows() >= 0){
+                $this->Return['status']  = 200;
+                $this->Return['data'] = $query->result();
             }
         }else{
-            $this->Return['status'] = 500;
-            $this->Return['message'] = lang('select_products');
-            exit;
-        }
-        
-        /* Create Package */
-        if(!$this->Shop_model->create_package($this->user_id, $this->Post)){
-            $this->Return['status'] = 500;
-            $this->Return['message'] = lang('error_occured');
-        }else{
+             /* Validation section */
+            $this->form_validation->set_rules('package_name', 'Package Name', 'trim|required');
+            $this->form_validation->set_rules('quantity', 'Package Quantity', 'trim|required|numeric|greater_than_equal_to[1]');
+            $this->form_validation->set_rules('user_guid', 'User GUID', 'trim|required|callback_validate_guid[tbl_users.user_guid.user_id]');
+            $this->form_validation->set_rules('package_description', 'Package Description', 'trim|required');
+            $this->form_validation->validation($this);  /* Run validation */
+            /* Validation - ends */
+            /* Check Product GUIDS */
+            if(!empty($this->Post['product_guids'])){
+                foreach($this->Post['product_guids'] as $key => $product_guid){
+                    $query = $this->db->query('SELECT product_id FROM tbl_products WHERE product_guid = "'.$product_guid.'" LIMIT 1');
+                    if($query->num_rows() == 0){
+                        $this->Return['status']  = 500;
+                        $this->Return['message'] = 'Invalid product.';
+                        exit;
+                    }
+                    $this->Post['product_ids'][] = $query->row()->product_id;
+                }
+            }else{
+                $this->Return['status'] = 500;
+                $this->Return['message'] = lang('select_products');
+                exit;
+            }
 
-            $this->Return['status'] = 200;
-            $this->Return['message'] = lang('package_created');   
+            /* Create Package */
+            if(!$this->Shop_model->create_package($this->user_id, $this->Post)){
+                $this->Return['status'] = 500;
+                $this->Return['message'] = lang('error_occured');
+            }else{
+
+                $this->Return['status'] = 200;
+                $this->Return['message'] = lang('package_created');   
+            }
         }
+       
     }
 
     /*
@@ -396,6 +404,29 @@ class Clients extends API_Controller_Secure {
         }
     }
 
+    public function editPackage()
+    {
+		// print_r($this->Post); exit;
+        // Ensure it's an AJAX request
+        // if ($this->request->isAJAX()) {
+            // Retrieve POST data
+            // $packageId = $this->request->getPost('package_id');
+            
+            // Logic to edit the package with the given ID
+            // (Example: fetching package, updating its details, etc.)
+            // For demonstration, let's assume a successful operation.
 
+            $response = [
+                'status' => 'success',
+                'message' => 'Package updated successfully!',
+                'package_id' => "test",
+            ];
+            
+            return $this->response->setJSON($response);
+        // }
+
+        // If it's not an AJAX request, return a 404 error
+      //  return redirect()->to(base_url());
+    }
   
 }

@@ -248,8 +248,48 @@
     </div>
 </section>
 
-<!-- Package View -->
+<!-- Add Package View -->
 <div class="modal" id="view_package" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-cyan m-b-20">
+                <button type="button" class="close white-clr" data-dismiss="modal">X</button>
+                <h4 class="modal-title white-clr">
+                    <?php echo lang('create_package'); ?>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">
+                                <?php echo lang('package_name'); ?>
+                            </label>
+                            <input type="text" class="form-control" name="package_name"
+                                placeholder="<?php echo lang('package_name'); ?>" maxlength="150" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row package-products">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary submit-package">
+                    <?php echo lang('submit'); ?>
+                </button>
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">
+                    <?php echo lang('close'); ?>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Package View -->
+<div class="modal" id="edit_package" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -373,4 +413,6 @@
             });
         });
     });
+
+
 </script>

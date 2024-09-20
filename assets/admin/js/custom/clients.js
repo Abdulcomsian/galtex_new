@@ -111,9 +111,6 @@ if($('table').hasClass('my-datatable')){
 //     }
 // });
 
-
-
-
 $(document).on("click" , ".client-add" , function(event){
 
     event.preventDefault();
@@ -308,6 +305,7 @@ $('body').on('click','button.view-pickup-address',function(){
 /**************** View Pick Up Address Script End ***************/
 
 $('body').on('click','button.create-package',function(){
+  
     if($('input[name="under_budget_products[]"]:checked').length === 0){
         showToaster('error',error,select_products);
         return false;

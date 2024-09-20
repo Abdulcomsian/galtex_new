@@ -46,6 +46,8 @@ class Shop extends Admin_Controller_Secure {
 		$data['packages'] = $this->Shop_model->get_packages('package_name,quantity,sold_quantity,no_of_products,products,product_ids,client_status',array('client_id' => $this->session_user_id),TRUE);
 		$this->template->load('default', 'clients/view-shop',$data);
 	}
+
+
 }
 
 /* End of file Shop.php */

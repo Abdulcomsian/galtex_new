@@ -143,6 +143,8 @@ class Clients extends Admin_Controller_Secure {
 		
 	}
 
+	
+
 	/**
 	 * Function Name: shop
 	 * Description:   To set client shop
@@ -371,6 +373,22 @@ class Clients extends Admin_Controller_Secure {
 		}
 		redirect($_SERVER['HTTP_REFERER'].'#within');
 	}
+
+public function update_package(){
+
+	$query = $this->db->query('
+	UPDATE tbl_client_packages SET package_name = "'.$this->Post['package_name'].'",quantity="'.$this->Post['quantity'].'", package_description="'.$this->Post['package_description'].'" WHERE package_guid = "'.$this->Post['guid'].'"');
+
+	if (!$query) {
+		die($this->db->error());
+	}else{
+		redirect($_SERVER['HTTP_REFERER']);
+
+	}
+
+}
+
+
 }
 
 /* End of file Clients.php */

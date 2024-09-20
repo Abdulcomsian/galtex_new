@@ -86,5 +86,8 @@ class Shop extends API_Controller_Secure {
         exit;
     }
 
+    // public function test(){
+    //     print_r("hello"); exit;
+    // }
   
 }

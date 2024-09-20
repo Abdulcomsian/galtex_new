@@ -60,6 +60,8 @@ $route['admin/languages']       = 'admin/dashboard/languages';
 $route['admin/clients/add-new'] = 'admin/clients/add_new';
 $route['admin/employees/add-new']  = 'admin/employees/add_new';
 $route['admin/products/add-new']   = 'admin/products/add_new';
+$route['admin/api/clients/editPackage']   = 'admin/api/clients/editPackage'; //check if it is used
+$route['admin/clients/update-package']   = 'admin/clients/update_package';
 
 /* Web Routing */
 $route['product/details/(:any)']  = 'employees/product_details/$1';
