@@ -181,6 +181,7 @@ $lang['select_image'] = 'בחר/י תמונה';
 $lang['main_photo'] = 'תמונה ראשית';
 $lang['back_to_product_list'] = 'חזרה לרשימת המוצרים';
 $lang['price_range'] = 'טווח מחירים';
+$lang['product_one_image'] ='אנא בחר תמונת גלריה או תמונה ראשית של המוצר';
 
 /* Shop */
 $lang['set_shop']  = 'Set Shop';

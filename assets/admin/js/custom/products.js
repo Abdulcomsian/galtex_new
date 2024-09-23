@@ -113,9 +113,10 @@ $(document).on("click" , "#submit-product" , function(e){
         for (var i = 0; i < cropGalleryImage.length; i++) {
               formData.append('product_gallery_images[]', cropGalleryImage[i]);
             }
-        }else{
-            showToaster('error',error,select_gallery_images); 
-            return false;
+        }
+        else{
+            // showToaster('error',error,select_gallery_images); 
+            // return false;
         }
 
     // if(images.length > 0){

@@ -13,7 +13,7 @@ class Clients extends Admin_Controller_Secure {
 	function __construct() {
         parent::__construct();    
         if($this->user_type_id != 1){
-        	$this->session->set_flashdata('error',lang('access_denied'));
+        	//$this->session->set_flashdata('error',lang('access_denied'));
         	redirect('admin/dashboard');
         }
         $this->load->model('Orders_model');

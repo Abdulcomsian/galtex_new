@@ -222,7 +222,7 @@
 </div>
 </div>
 
-<div class="modal" id="edit_package1" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal" id="edit_package1" data-backdrop="static" data-keyboard="false"  role="dialog" aria-hidden="true">
     <form id="update-packakge"  method="post"  action="<?php echo base_url() ?>admin/clients/update-package" >
     <input type="hidden" id="user_token" value="<?php echo $this->input->get('token'); ?>" name="user_token">
     <input type="hidden" id="guid" value="" name="guid">
@@ -253,7 +253,7 @@
                     </div>
                 </div> 
                 <hr> 
-                <div class="row package-products">
+                <div class="row package-productss">
 
                 </div>
             </div>
@@ -314,9 +314,17 @@
 <script>
 $(document).ready(function() {
     // Event listener for click
+  
+    
     let api_url = "<?php echo ADMIN_API_URL; ?>";
     $('.editpackage').on('click', function() {
-        console.log(api_url);
+        $('#view_package').html('');
+        $('#view_package').hide();
+        $('#view_package').val('');
+        //$('#view_packageForm')[0].reset(); // Resets the entire form
+
+
+        //console.log(api_url);
         var dataId = $(this).data('id');
         console.log(dataId);
         // AJAX request

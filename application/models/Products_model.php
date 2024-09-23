@@ -12,6 +12,8 @@ class Products_model extends CI_Model {
       Description:  Use to add product.
      */
     function add_product($Input = array()) {
+        // echo $Input['product_main_photo'];
+        // exit;
         $insert_array = array_filter(array(
             "product_guid" => get_guid(),
             "product_name" => @ucfirst(strtolower($Input['product_name'])),

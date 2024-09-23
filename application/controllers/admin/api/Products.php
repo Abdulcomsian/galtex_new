@@ -27,7 +27,8 @@ class Products extends API_Controller_Secure {
         $this->form_validation->set_rules('product_main_photo', 'Product Main Photo', 'trim');
         $this->form_validation->set_rules('product_descprition', 'Product Description', 'trim|required');
         $this->form_validation->set_rules('product_short_description', 'Product Short Description', 'trim|required');
-        $this->form_validation->set_rules('product_gallery_images[]', 'Product Gallery Images', 'trim|required');
+        $this->form_validation->set_rules('product_one_image', 'trim|required');
+        //$this->form_validation->set_rules('product_gallery_images[]', 'Product Gallery Images', 'trim|required');
         $this->form_validation->validation($this);  /* Run validation */
         /* Validation - ends */
 
@@ -40,11 +41,15 @@ class Products extends API_Controller_Secure {
             $location = "uploads/products/".$fileName;
             move_uploaded_file($_FILES['product_gallery_images']['tmp_name'][$i] , $location);
             $fileLocation[] = $fileName;
+            if(empty($_FILES['product_main_photo']['name']) && $i==0){
+                $this->Post['product_main_photo'] = $fileName;
+            }
         }
+        
         $this->Post = array_merge($this->Post , ['file_location' => $fileLocation]);
 
         //new code ends here
-
+        
         /* Upload main photo */
         if(!empty($_FILES['product_main_photo']['name'])){
             $image_data = fileUploading('product_main_photo','products','jpg|jpeg|png|gif');
@@ -55,18 +60,30 @@ class Products extends API_Controller_Secure {
             }
             $this->Post['product_main_photo'] = $image_data['upload_data']['file_name'];
         }else{
-            $this->Return['status']  = 500;
-            $this->Return['message'] = lang('require_product_main_photo');
-            exit;
-        }
+            // if(empty($_FILES['product_gallery_images']['name'])){
+            // $this->Return['status']  = 500;
+            // $this->Return['message'] = lang('require_product_main_photo');
+            // exit;
+            // }else{
+            //     return true;
+            // }
 
+            if(empty($_FILES['product_main_photo']['name']) && empty($_FILES['product_gallery_images']['name'])){
+                $this->Return['status']  = 500;
+                $this->Return['message'] = lang('product_one_image');
+                exit;
+            }
+        }
         
 
+        
+        
+        
         if(!$this->Products_model->add_product(array_merge($this->Post,array('product_category_id' => $this->category_id)))){
+            // echo $this->Post['product_main_photo']; exit;
             $this->Return['status'] = 500;
             $this->Return['message'] = lang('error_occured');
         }else{
-
             $this->Return['status'] = 200;
             $this->Return['message'] = lang('product_added');   
         }

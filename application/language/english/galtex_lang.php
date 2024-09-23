@@ -180,6 +180,7 @@ $lang['select_image'] = 'Select image';
 $lang['main_photo'] = 'Main Photo';
 $lang['back_to_product_list'] = 'Back To Products List';
 $lang['price_range'] = 'Price Range';
+$lang['product_one_image'] = 'Please select gallery image or product main image';
 
 /* Shop */
 $lang['set_shop']  = 'Set Shop';
